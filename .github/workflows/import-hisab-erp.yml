@@ -1,0 +1,50 @@
+name: Import Hisab ERP archive
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-hisab-erp.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download and verify archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --quiet gdown
+          gdown --fuzzy "https://drive.google.com/file/d/1j3VHcq-j-Kg9bOWfsqxoZys62gbtA6wo/view?usp=drivesdk" -O /tmp/erp_hisabtech-complete.zip
+          echo "cc0108484cfb5343693885d0a704ec345551d40745743575b35cf1738eaef5dc  /tmp/erp_hisabtech-complete.zip" | sha256sum --check --strict
+
+      - name: Extract project into repository root
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/hisab-import
+          mkdir -p /tmp/hisab-import
+          unzip -q /tmp/erp_hisabtech-complete.zip -d /tmp/hisab-import
+          SOURCE=/tmp/hisab-import/erp_hisabtech
+          test -f "$SOURCE/package.json"
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -a "$SOURCE"/. .
+
+      - name: Commit extracted project
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Import complete Hisab ERP project"
+          git push origin HEAD:main
