@@ -1,0 +1,2260 @@
+/*
+ * Hisab ERP — public route presentation layer
+ * ------------------------------------------------------------------
+ * Covers every marketing route that still uses the legacy semantic
+ * class names. It intentionally loads after hisab-marketing.css and
+ * turns those route structures into one coherent responsive system.
+ */
+
+.hisab {
+  --signal-700: #1745b8;
+  --signal-600: #245be7;
+  --signal-500: #4a78f2;
+  --signal-100: #eaf0ff;
+  --marketing-blue-soft: #f3f6ff;
+  --marketing-blue-line: #d9e3ff;
+  --marketing-navy: #0b1220;
+  --marketing-navy-2: #111c31;
+  --marketing-card: #ffffff;
+  --marketing-radius: 18px;
+  --marketing-radius-lg: 26px;
+  --marketing-shadow: 0 18px 55px rgba(11, 18, 32, 0.08);
+  --marketing-shadow-hover: 0 22px 65px rgba(11, 18, 32, 0.13);
+}
+
+/* ==================================================================
+   Shared legacy primitives
+   ================================================================== */
+
+.hisab :is(
+  .about-hero,
+  .comparison-hub-hero,
+  .comparison-detail-hero,
+  .proof-page-hero,
+  .local-hero,
+  .help-public-hero,
+  .help-article-hero,
+  .industry-index-hero,
+  .industry-detail-hero,
+  .integration-page-hero,
+  .migration-hero,
+  .pricing-hero,
+  .product-tour-hero,
+  .module-page-hero,
+  .resources-hero,
+  .resource-article-hero,
+  .trust-page-hero,
+  .legal-hero
+) {
+  width: 100%;
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding: clamp(4rem, 2rem + 6vw, 8rem) var(--gutter);
+}
+
+.hisab :is(
+  .about-hero,
+  .comparison-hub-hero,
+  .comparison-detail-hero,
+  .proof-page-hero,
+  .local-hero,
+  .help-public-hero,
+  .industry-index-hero,
+  .industry-detail-hero,
+  .integration-page-hero,
+  .migration-hero,
+  .product-tour-hero,
+  .module-page-hero,
+  .resources-hero,
+  .trust-page-hero,
+  .legal-hero
+) {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(20rem, 0.95fr);
+  align-items: center;
+  gap: clamp(2.5rem, 3vw, 5.5rem);
+}
+
+.hisab :is(
+  .about-hero,
+  .comparison-hub-hero,
+  .comparison-detail-hero,
+  .proof-page-hero,
+  .local-hero,
+  .help-public-hero,
+  .industry-index-hero,
+  .industry-detail-hero,
+  .integration-page-hero,
+  .migration-hero,
+  .product-tour-hero,
+  .module-page-hero,
+  .resources-hero,
+  .trust-page-hero,
+  .legal-hero
+) > :first-child {
+  display: grid;
+  align-content: start;
+  gap: 1.25rem;
+}
+
+.hisab :is(
+  .about-hero,
+  .comparison-hub-hero,
+  .comparison-detail-hero,
+  .proof-page-hero,
+  .local-hero,
+  .help-public-hero,
+  .help-article-hero,
+  .industry-index-hero,
+  .industry-detail-hero,
+  .integration-page-hero,
+  .migration-hero,
+  .pricing-hero,
+  .product-tour-hero,
+  .module-page-hero,
+  .resources-hero,
+  .resource-article-hero,
+  .trust-page-hero,
+  .legal-hero
+) h1 {
+  max-width: 18ch;
+  font-size: clamp(2.65rem, 1.6rem + 4vw, 5.35rem);
+  line-height: 0.99;
+  letter-spacing: -0.055em;
+}
+
+.hisab :is(
+  .about-hero,
+  .comparison-hub-hero,
+  .comparison-detail-hero,
+  .proof-page-hero,
+  .local-hero,
+  .help-public-hero,
+  .help-article-hero,
+  .industry-index-hero,
+  .industry-detail-hero,
+  .integration-page-hero,
+  .migration-hero,
+  .pricing-hero,
+  .product-tour-hero,
+  .module-page-hero,
+  .resources-hero,
+  .resource-article-hero,
+  .trust-page-hero,
+  .legal-hero
+) p {
+  max-width: 66ch;
+  color: var(--slate-600);
+  font-size: clamp(1.02rem, 0.97rem + 0.28vw, 1.2rem);
+}
+
+.hisab .marketing-eyebrow,
+.hisab :is(
+  .marketing-section-heading,
+  .about-mission-section,
+  .resources-framework-section,
+  .comparison-disclaimer,
+  .help-support-boundary,
+  .integration-request-section,
+  .migration-warning-section,
+  .resource-apply-section,
+  .legal-contact-panel,
+  .marketing-cta
+) > div:first-child > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: fit-content;
+  color: var(--signal-700);
+  font-family: var(--font-data);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hisab .marketing-eyebrow::before,
+.hisab .marketing-section-heading > span::before {
+  content: "";
+  width: 1.6rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.65;
+}
+
+.hisab .marketing-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.hisab :is(.marketing-start, .marketing-demo) {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.78rem 1.15rem;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font-weight: 700;
+  line-height: 1.2;
+  transition: transform 180ms var(--ease), box-shadow 180ms var(--ease), background 180ms var(--ease), border-color 180ms var(--ease);
+}
+
+.hisab .marketing-start {
+  background: var(--signal-600);
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(36, 91, 231, 0.24);
+}
+
+.hisab .marketing-start:hover {
+  background: var(--signal-700);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(36, 91, 231, 0.3);
+}
+
+.hisab .marketing-demo {
+  background: #fff;
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+.hisab .marketing-demo:hover {
+  border-color: var(--signal-500);
+  background: var(--marketing-blue-soft);
+  transform: translateY(-2px);
+}
+
+.hisab .marketing-large {
+  min-height: 52px;
+  padding-inline: 1.4rem;
+  font-size: 0.98rem;
+}
+
+.hisab :is(.marketing-text-action, .marketing-dark-link) {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: fit-content;
+  color: var(--signal-700);
+  font-weight: 750;
+  text-decoration: underline;
+  text-decoration-color: rgba(36, 91, 231, 0.3);
+  text-underline-offset: 0.28em;
+}
+
+.hisab .marketing-dark-link {
+  color: #dce7ff;
+  text-decoration-color: rgba(255, 255, 255, 0.3);
+}
+
+.hisab .marketing-section,
+.hisab :is(
+  .comparison-table-section,
+  .comparison-questions-section,
+  .comparison-next-step-section,
+  .proof-section,
+  .help-category-section,
+  .help-featured-section,
+  .help-search-section,
+  .industry-capability-section,
+  .industry-workflow-section,
+  .industry-module-section,
+  .industry-connected-section,
+  .integration-directory-section,
+  .integration-method-section,
+  .migration-source-section,
+  .migration-timeline-section,
+  .migration-package-section,
+  .migration-responsibility-section,
+  .migration-template-section,
+  .pricing-section,
+  .pricing-included-section,
+  .pricing-faq-section,
+  .module-capabilities-section,
+  .module-workflow-section,
+  .related-modules-section,
+  .resources-index-section,
+  .resources-framework-section,
+  .resource-related-section,
+  .trust-section,
+  .trust-responsibility-section,
+  .trust-process-section
+) {
+  width: 100%;
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding: var(--section-y) var(--gutter);
+}
+
+.hisab .marketing-section-heading {
+  display: grid;
+  gap: 0.9rem;
+  max-width: 48rem;
+  margin-bottom: clamp(2rem, 1rem + 3vw, 3.5rem);
+}
+
+.hisab .marketing-section-heading-wide {
+  max-width: 64rem;
+}
+
+.hisab .marketing-section-heading-centered {
+  max-width: 52rem;
+  margin-inline: auto;
+  text-align: center;
+  justify-items: center;
+}
+
+.hisab .marketing-section-heading h2,
+.hisab :is(
+  .about-mission-section,
+  .about-leadership-section,
+  .comparison-method-section,
+  .comparison-disclaimer,
+  .comparison-questions-section,
+  .comparison-next-step-section,
+  .local-reality-section,
+  .resources-framework-section,
+  .help-support-boundary,
+  .integration-request-section,
+  .migration-warning-section,
+  .module-problem-outcome,
+  .module-audience-section,
+  .resource-apply-section,
+  .trust-process-section,
+  .legal-contact-panel,
+  .marketing-cta
+) h2 {
+  font-size: clamp(1.9rem, 1.15rem + 2.3vw, 3.25rem);
+  line-height: 1.08;
+}
+
+.hisab .marketing-section-heading p,
+.hisab :is(
+  .about-mission-section,
+  .about-leadership-section,
+  .comparison-method-section,
+  .comparison-disclaimer,
+  .comparison-questions-section,
+  .comparison-next-step-section,
+  .local-reality-section,
+  .resources-framework-section,
+  .help-support-boundary,
+  .integration-request-section,
+  .migration-warning-section,
+  .module-problem-outcome,
+  .module-audience-section,
+  .resource-apply-section,
+  .trust-process-section,
+  .legal-contact-panel,
+  .marketing-cta
+) p {
+  color: var(--slate-600);
+  font-size: 1.02rem;
+}
+
+.hisab :is(
+  .about-fact-grid,
+  .about-principles-grid,
+  .about-standards-grid,
+  .comparison-principles,
+  .comparison-index-grid,
+  .inspectable-proof-grid,
+  .reference-program-grid,
+  .proof-standard-grid,
+  .help-public-stats,
+  .help-category-grid,
+  .industry-card-grid,
+  .industry-capability-grid,
+  .industry-workflow-grid,
+  .industry-module-grid,
+  .integration-directory-grid,
+  .integration-method-grid,
+  .local-advantage-grid,
+  .local-context-grid,
+  .local-readiness-grid,
+  .migration-source-grid,
+  .migration-package-grid,
+  .migration-responsibility-grid,
+  .migration-template-grid,
+  .module-capability-grid,
+  .module-preview-metrics,
+  .module-workflow-grid,
+  .related-module-grid,
+  .pricing-faq-grid,
+  .pricing-principles,
+  .resources-grid,
+  .resources-framework-grid,
+  .trust-control-grid,
+  .trust-responsibility-grid,
+  .trust-process-grid,
+  .legal-highlights
+) {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.hisab :is(
+  .about-fact-grid,
+  .comparison-principles,
+  .help-public-stats,
+  .local-context-grid,
+  .local-readiness-grid,
+  .trust-process-grid
+) {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.hisab :is(
+  .about-fact-grid,
+  .about-principles-grid,
+  .about-standards-grid,
+  .comparison-principles,
+  .comparison-index-grid,
+  .inspectable-proof-grid,
+  .reference-program-grid,
+  .proof-standard-grid,
+  .help-public-stats,
+  .help-category-grid,
+  .industry-card-grid,
+  .industry-capability-grid,
+  .industry-workflow-grid,
+  .industry-module-grid,
+  .integration-directory-grid,
+  .integration-method-grid,
+  .local-advantage-grid,
+  .local-context-grid,
+  .local-readiness-grid,
+  .migration-source-grid,
+  .migration-package-grid,
+  .migration-responsibility-grid,
+  .migration-template-grid,
+  .module-capability-grid,
+  .module-preview-metrics,
+  .module-workflow-grid,
+  .pricing-faq-grid,
+  .pricing-principles,
+  .resources-framework-grid,
+  .trust-control-grid,
+  .trust-responsibility-grid,
+  .trust-process-grid,
+  .legal-highlights
+) > :is(article, a, div) {
+  min-width: 0;
+  padding: 1.35rem;
+  border: 1px solid var(--line);
+  border-radius: var(--marketing-radius);
+  background: var(--marketing-card);
+  box-shadow: 0 8px 28px rgba(11, 18, 32, 0.04);
+}
+
+.hisab :is(
+  .comparison-index-grid,
+  .help-category-grid,
+  .industry-card-grid,
+  .integration-directory-grid,
+  .resources-grid,
+  .related-module-grid
+) > a {
+  display: grid;
+  align-content: start;
+  gap: 0.7rem;
+  color: inherit;
+  transition: transform 180ms var(--ease), border-color 180ms var(--ease), box-shadow 180ms var(--ease);
+}
+
+.hisab :is(
+  .comparison-index-grid,
+  .help-category-grid,
+  .industry-card-grid,
+  .integration-directory-grid,
+  .resources-grid,
+  .related-module-grid
+) > a:hover {
+  transform: translateY(-4px);
+  border-color: var(--marketing-blue-line);
+  box-shadow: var(--marketing-shadow-hover);
+}
+
+.hisab :is(
+  .about-principles-grid,
+  .about-standards-grid,
+  .comparison-principles,
+  .comparison-index-grid,
+  .inspectable-proof-grid,
+  .proof-standard-grid,
+  .help-category-grid,
+  .industry-capability-grid,
+  .industry-workflow-grid,
+  .local-advantage-grid,
+  .local-readiness-grid,
+  .migration-source-grid,
+  .migration-package-grid,
+  .migration-responsibility-grid,
+  .migration-template-grid,
+  .module-capability-grid,
+  .module-workflow-grid,
+  .resources-framework-grid,
+  .trust-process-grid
+) :is(article, a) > span:first-child,
+.hisab .module-capability-grid article > b:first-child {
+  color: var(--signal-600);
+  font-family: var(--font-data);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.hisab :is(
+  .about-principles-grid,
+  .comparison-principles,
+  .comparison-index-grid,
+  .inspectable-proof-grid,
+  .reference-program-grid,
+  .proof-standard-grid,
+  .industry-card-grid,
+  .industry-capability-grid,
+  .industry-workflow-grid,
+  .industry-module-grid,
+  .integration-directory-grid,
+  .integration-method-grid,
+  .local-advantage-grid,
+  .local-readiness-grid,
+  .migration-source-grid,
+  .migration-package-grid,
+  .migration-responsibility-grid,
+  .migration-template-grid,
+  .module-workflow-grid,
+  .related-module-grid,
+  .pricing-faq-grid,
+  .resources-grid,
+  .resources-framework-grid,
+  .trust-control-grid,
+  .trust-responsibility-grid,
+  .trust-process-grid,
+  .legal-highlights
+) h3 {
+  font-size: 1.15rem;
+}
+
+.hisab :is(
+  .about-principles-grid,
+  .comparison-principles,
+  .comparison-index-grid,
+  .inspectable-proof-grid,
+  .reference-program-grid,
+  .proof-standard-grid,
+  .industry-card-grid,
+  .industry-capability-grid,
+  .industry-workflow-grid,
+  .industry-module-grid,
+  .integration-directory-grid,
+  .integration-method-grid,
+  .local-advantage-grid,
+  .local-readiness-grid,
+  .migration-source-grid,
+  .migration-package-grid,
+  .migration-responsibility-grid,
+  .migration-template-grid,
+  .module-workflow-grid,
+  .related-module-grid,
+  .pricing-faq-grid,
+  .resources-grid,
+  .resources-framework-grid,
+  .trust-control-grid,
+  .trust-responsibility-grid,
+  .trust-process-grid,
+  .legal-highlights
+) p,
+.hisab :is(.help-category-grid, .resources-grid, .resource-related-section) small {
+  color: var(--slate-600);
+}
+
+.hisab .marketing-cta {
+  width: calc(100% - (2 * var(--gutter)));
+  max-width: var(--measure);
+  margin: clamp(2rem, 4vw, 4rem) auto;
+  padding: clamp(2rem, 1.4rem + 3vw, 4rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  border-radius: var(--marketing-radius-lg);
+  background:
+    radial-gradient(circle at 92% 10%, rgba(74, 120, 242, 0.32), transparent 22rem),
+    linear-gradient(135deg, var(--marketing-navy), #142548);
+  color: #fff;
+  box-shadow: 0 24px 70px rgba(11, 18, 32, 0.22);
+}
+
+.hisab .marketing-cta > div:first-child {
+  display: grid;
+  gap: 0.8rem;
+  max-width: 46rem;
+}
+
+.hisab .marketing-cta > div:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  flex: 0 0 auto;
+}
+
+.hisab .marketing-cta h2,
+.hisab .marketing-cta p {
+  color: #fff;
+}
+
+.hisab .marketing-cta p {
+  opacity: 0.76;
+}
+
+.hisab .marketing-cta .marketing-demo {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.hisab :is(.proof-dark-section, .local-reality-section, .trust-process-section) {
+  width: 100%;
+  padding: var(--section-y) max(var(--gutter), calc((100vw - var(--measure)) / 2 + var(--gutter)));
+  background:
+    radial-gradient(circle at 80% 0%, rgba(74, 120, 242, 0.2), transparent 28rem),
+    var(--marketing-navy);
+  color: #fff;
+}
+
+.hisab :is(.proof-dark-section, .local-reality-section, .trust-process-section) :is(h2, h3, strong) {
+  color: #fff;
+}
+
+.hisab :is(.proof-dark-section, .local-reality-section, .trust-process-section) p,
+.hisab :is(.proof-dark-section, .local-reality-section, .trust-process-section) small {
+  color: #aab7cb;
+}
+
+.hisab :is(.proof-dark-section, .trust-process-section) .marketing-section-heading > span {
+  color: #9db9ff;
+}
+
+.hisab :is(.proof-dark-section, .trust-process-section) :is(.proof-standard-grid, .trust-process-grid) > article {
+  background: rgba(255, 255, 255, 0.055);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: none;
+}
+
+.hisab .about-hero {
+  background: linear-gradient(180deg, var(--marketing-blue-soft), #fff 75%);
+}
+
+.hisab .about-fact-grid article {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.hisab .about-fact-grid article span {
+  color: var(--slate-500);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hisab .about-fact-grid article strong {
+  font-size: 1.02rem;
+}
+
+.hisab .about-mission-section,
+.hisab .about-leadership-section {
+  width: 100%;
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding: var(--section-y) var(--gutter);
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
+  gap: clamp(2rem, 4vw, 5rem);
+  align-items: center;
+}
+
+.hisab .about-mission-section > div:first-child,
+.hisab .about-leadership-section > div:first-child {
+  display: grid;
+  gap: 1rem;
+}
+
+.hisab .about-mission-mark {
+  min-height: 18rem;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 0.65rem;
+  border-radius: var(--marketing-radius-lg);
+  background: var(--marketing-navy);
+  color: #fff;
+  box-shadow: var(--marketing-shadow);
+}
+
+.hisab .about-mission-mark .hisab-logo {
+  width: 6.5rem;
+  height: 6.5rem;
+}
+
+.hisab .about-mission-mark strong {
+  font-size: 1.35rem;
+}
+
+.hisab .about-mission-mark span {
+  color: #aab7cb;
+}
+
+.hisab .about-leadership-section > article {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: var(--marketing-radius);
+  background: #fff;
+  box-shadow: var(--marketing-shadow);
+}
+
+.hisab .about-founder-avatar {
+  display: grid;
+  place-items: center;
+  flex: 0 0 4rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: var(--signal-100);
+  color: var(--signal-700);
+  font-weight: 800;
+}
+
+.hisab .about-leadership-section article div {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.hisab .about-leadership-section article small {
+  color: var(--slate-500);
+}
+
+.hisab .about-leadership-section article a {
+  color: var(--signal-700);
+  font-size: 0.9rem;
+}
+
+.hisab .about-standards-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.hisab .about-standards-grid article {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.hisab :is(.comparison-hub-hero, .comparison-detail-hero) {
+  background: linear-gradient(180deg, #fff, var(--marketing-blue-soft));
+}
+
+.hisab .comparison-principles {
+  align-self: stretch;
+}
+
+.hisab .comparison-principles article {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.hisab .comparison-index-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.hisab .comparison-method-section,
+.hisab .comparison-disclaimer,
+.hisab .comparison-next-step-section,
+.hisab .help-support-boundary,
+.hisab .integration-request-section,
+.hisab .migration-warning-section,
+.hisab .resource-apply-section {
+  width: calc(100% - (2 * var(--gutter)));
+  max-width: var(--measure);
+  margin: clamp(1rem, 3vw, 3rem) auto;
+  padding: clamp(1.6rem, 1rem + 2.5vw, 3rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  border: 1px solid var(--marketing-blue-line);
+  border-radius: var(--marketing-radius-lg);
+  background: var(--marketing-blue-soft);
+}
+
+.hisab :is(.comparison-method-section, .comparison-questions-section) > div:first-child,
+.hisab :is(.comparison-disclaimer, .comparison-next-step-section, .help-support-boundary, .integration-request-section, .migration-warning-section, .resource-apply-section) > div:first-child {
+  display: grid;
+  gap: 0.8rem;
+  max-width: 48rem;
+}
+
+.hisab .comparison-method-section > :last-child,
+.hisab .comparison-questions-section > :last-child {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.hisab .comparison-method-section > :last-child > *,
+.hisab .comparison-questions-section > :last-child > * {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.hisab .comparison-fit-note {
+  display: grid;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
+  padding: 1rem 1.15rem;
+  border-left: 3px solid var(--signal-500);
+  background: var(--signal-100);
+  border-radius: 0 10px 10px 0;
+}
+
+.hisab .comparison-fit-note span {
+  color: var(--slate-600);
+}
+
+.hisab .comparison-versus-card,
+.hisab .proof-standard-card,
+.hisab .trust-summary-card,
+.hisab .integration-status-panel,
+.hisab .industry-index-summary,
+.hisab .industry-metric-board,
+.hisab .migration-control-board,
+.hisab .product-tour-hero-summary,
+.hisab .module-preview-card,
+.hisab .local-context-card,
+.hisab .legal-hero-card {
+  padding: clamp(1.4rem, 2vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: var(--marketing-radius-lg);
+  background: #fff;
+  box-shadow: var(--marketing-shadow);
+}
+
+.hisab .comparison-versus-card {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.hisab .comparison-versus-card > div {
+  padding: 1rem;
+  border-radius: 12px;
+  background: var(--mist);
+}
+
+.hisab .comparison-versus-card > div:last-child {
+  background: var(--signal-100);
+}
+
+.hisab .comparison-table {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--marketing-radius);
+  background: #fff;
+  box-shadow: 0 12px 32px rgba(11, 18, 32, 0.05);
+}
+
+.hisab :is(.comparison-table-head, .comparison-table-row) {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr 1.05fr 1.25fr;
+  gap: 0;
+}
+
+.hisab .comparison-table-head {
+  background: var(--marketing-navy);
+  color: #fff;
+}
+
+.hisab :is(.comparison-table-head, .comparison-table-row) > * {
+  min-width: 0;
+  padding: 1rem;
+  border-right: 1px solid var(--line);
+}
+
+.hisab .comparison-table-head > * {
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.hisab :is(.comparison-table-head, .comparison-table-row) > *:last-child {
+  border-right: 0;
+}
+
+.hisab .comparison-table-row + .comparison-table-row {
+  border-top: 1px solid var(--line);
+}
+
+.hisab .comparison-table-row p,
+.hisab .comparison-table-row span {
+  color: var(--slate-600);
+}
+
+.hisab .comparison-related-section > :last-child,
+.hisab .resource-related-section > :last-child {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.hisab .comparison-related-section > :last-child > *,
+.hisab .resource-related-section > :last-child > * {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: var(--marketing-radius);
+  background: #fff;
+}
+
+.hisab .comparison-disclaimer {
+  border-color: #f0d7a7;
+  background: #fff8eb;
+}
+
+.hisab :is(.proof-page-hero, .trust-page-hero) {
+  background: linear-gradient(180deg, var(--marketing-blue-soft), #fff);
+}
+
+.hisab :is(.proof-standard-card, .trust-summary-card) {
+  display: grid;
+  gap: 1rem;
+}
+
+.hisab :is(.proof-standard-card, .trust-summary-card) ul,
+.hisab .reference-program-grid ul,
+.hisab .industry-connected-list,
+.hisab .migration-control-list {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.hisab :is(.proof-standard-card, .trust-summary-card) li,
+.hisab .reference-program-grid li,
+.hisab .industry-connected-list li,
+.hisab .migration-control-list li {
+  position: relative;
+  padding-left: 1.35rem;
+  color: var(--slate-600);
+}
+
+.hisab :is(.proof-standard-card, .trust-summary-card) li::before,
+.hisab .reference-program-grid li::before,
+.hisab .industry-connected-list li::before,
+.hisab .migration-control-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.68em;
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: var(--signal-500);
+}
+
+.hisab .proof-section-light,
+.hisab .trust-section-light {
+  max-width: none;
+  padding-inline: max(var(--gutter), calc((100vw - var(--measure)) / 2 + var(--gutter)));
+  background: var(--mist);
+  border-block: 1px solid var(--line-soft);
+}
+
+.hisab .reference-program-grid article {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.hisab .reference-program-grid header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hisab .reference-program-grid header b {
+  padding: 0.3rem 0.55rem;
+  border-radius: 999px;
+  background: var(--signal-100);
+  color: var(--signal-700);
+  font-size: 0.72rem;
+}
+
+.hisab .trust-control-grid article,
+.hisab .trust-responsibility-grid article {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.hisab .local-hero {
+  background: linear-gradient(180deg, #fff, var(--marketing-blue-soft));
+}
+
+.hisab .local-context-card {
+  display: grid;
+  gap: 1rem;
+}
+
+.hisab .local-context-card header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.hisab .local-context-card header div {
+  display: grid;
+}
+
+.hisab .local-context-card header small,
+.hisab .local-context-grid small,
+.hisab .local-context-grid span {
+  color: var(--slate-500);
+}
+
+.hisab .local-context-grid article {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.9rem;
+  border-radius: 12px;
+  background: var(--mist);
+}
+
+.hisab .local-reality-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(28rem, 1.2fr);
+  gap: clamp(2rem, 4vw, 5rem);
+  align-items: center;
+}
+
+.hisab .local-reality-section > div:first-child {
+  display: grid;
+  gap: 1rem;
+}
+
+.hisab .local-reality-table {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: var(--marketing-radius);
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.hisab .local-reality-table :is(header, p) {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.hisab .local-reality-table :is(header, p) > * {
+  padding: 1rem;
+}
+
+.hisab .local-reality-table header {
+  background: rgba(255, 255, 255, 0.08);
+  font-weight: 750;
+}
+
+.hisab .local-reality-table p + p {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hisab .local-reality-table p span {
+  color: #9daabc;
+}
+
+.hisab .help-public-hero {
+  background: linear-gradient(180deg, var(--marketing-blue-soft), #fff);
+}
+
+.hisab .help-public-stats article {
+  display: grid;
+  gap: 0.25rem;
+  text-align: center;
+}
+
+.hisab .help-public-stats strong {
+  color: var(--signal-700);
+  font-family: var(--font-data);
+  font-size: 1.55rem;
+}
+
+.hisab .help-category-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.hisab .help-category-grid a {
+  grid-template-columns: auto 1fr;
+}
+
+.hisab .help-category-grid a small {
+  grid-column: 2;
+}
+
+.hisab .help-featured-section > :last-child,
+.hisab .help-search-section > :last-child {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.hisab .help-featured-section > :last-child > *,
+.hisab .help-search-section > :last-child > * {
+  padding: 1.1rem 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.hisab .help-search-section {
+  max-width: none;
+  padding-inline: max(var(--gutter), calc((100vw - var(--measure)) / 2 + var(--gutter)));
+  background: var(--mist);
+  border-block: 1px solid var(--line-soft);
+}
+
+.hisab .help-article-hero {
+  display: grid;
+  gap: 1rem;
+  max-width: 58rem;
+  text-align: left;
+}
+
+.hisab .help-article-meta,
+.hisab .resource-article-meta,
+.hisab .legal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.hisab :is(.help-article-meta, .resource-article-meta, .legal-meta) span {
+  padding: 0.35rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--mist);
+  color: var(--slate-600);
+  font-size: 0.78rem;
+}
+
+.hisab .help-article-layout {
+  width: 100%;
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding: 0 var(--gutter) var(--section-y);
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.3fr) minmax(0, 0.7fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+}
+
+.hisab .help-article-toc,
+.hisab .legal-toc {
+  position: sticky;
+  top: 6rem;
+  display: grid;
+  gap: 0.45rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.hisab .help-article-content,
+.hisab .resource-article-body,
+.hisab .legal-document {
+  min-width: 0;
+  color: var(--ink-700);
+}
+
+.hisab :is(.help-article-content, .resource-article-body, .legal-document) > * + * {
+  margin-top: 1.15rem;
+}
+
+.hisab :is(.help-article-content, .resource-article-body, .legal-document) h2 {
+  margin-top: 2.4rem;
+  font-size: 1.8rem;
+}
+
+.hisab :is(.help-article-content, .resource-article-body, .legal-document) h3 {
+  margin-top: 1.8rem;
+  font-size: 1.25rem;
+}
+
+.hisab :is(.help-article-content, .resource-article-body, .legal-document) ul,
+.hisab :is(.help-article-content, .resource-article-body, .legal-document) ol {
+  display: grid;
+  gap: 0.55rem;
+  padding-left: 1.3rem;
+  list-style: initial;
+}
+
+.hisab .help-article-notes,
+.hisab .help-article-support {
+  margin-top: 1.5rem;
+  padding: 1.1rem;
+  border-left: 3px solid var(--signal-500);
+  border-radius: 0 12px 12px 0;
+  background: var(--signal-100);
+}
+
+.hisab .help-related-section {
+  width: 100%;
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding: 0 var(--gutter) var(--section-y);
+}
+
+.hisab :is(.industry-index-hero, .industry-detail-hero) {
+  background: linear-gradient(180deg, #fff, var(--marketing-blue-soft));
+}
+
+.hisab .industry-index-summary,
+.hisab .industry-metric-board {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.hisab .industry-card-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.hisab .industry-problem-outcome,
+.hisab .module-problem-outcome {
+  width: 100%;
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding: var(--section-y) var(--gutter);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.hisab :is(.industry-problem-outcome, .module-problem-outcome) > div {
+  padding: clamp(1.5rem, 2.5vw, 2.5rem);
+  border-radius: var(--marketing-radius-lg);
+  background: #fff5f5;
+  border: 1px solid #f4d7d7;
+}
+
+.hisab :is(.industry-problem-outcome, .module-problem-outcome) > div:last-child {
+  background: var(--signal-100);
+  border-color: var(--marketing-blue-line);
+}
+
+.hisab .industry-team-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.hisab .industry-team-pills > * {
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--marketing-blue-line);
+  border-radius: 999px;
+  background: var(--marketing-blue-soft);
+  color: var(--signal-700);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.hisab .industry-connected-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(20rem, 1.2fr);
+  gap: 3rem;
+  align-items: start;
+}
+
+.hisab .industry-connected-list {
+  padding: 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: var(--marketing-radius);
+  background: #fff;
+}
+
+.hisab .integration-page-hero {
+  background: linear-gradient(180deg, var(--marketing-blue-soft), #fff);
+}
+
+.hisab .integration-status-panel {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.hisab .integration-status-panel > * {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem;
+  border-radius: 10px;
+  background: var(--mist);
+}
+
+.hisab .integration-directory-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.hisab .integration-method-grid article {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.hisab .migration-hero {
+  background: linear-gradient(180deg, #fff, var(--marketing-blue-soft));
+}
+
+.hisab .migration-hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.hisab .migration-hero-pills > * {
+  padding: 0.42rem 0.68rem;
+  border-radius: 999px;
+  background: var(--signal-100);
+  color: var(--signal-700);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.hisab .migration-control-board {
+  display: grid;
+  gap: 1rem;
+}
+
+.hisab .migration-control-score {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  color: var(--signal-700);
+}
+
+.hisab .migration-control-score strong {
+  font-family: var(--font-data);
+  font-size: 2.4rem;
+}
+
+.hisab .migration-timeline {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+}
+
+.hisab .migration-timeline::before {
+  content: "";
+  position: absolute;
+  left: 1.05rem;
+  top: 1rem;
+  bottom: 1rem;
+  width: 1px;
+  background: var(--marketing-blue-line);
+}
+
+.hisab .migration-timeline > * {
+  position: relative;
+  padding: 1.15rem 1.15rem 1.15rem 3rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.hisab .migration-timeline > *::before {
+  content: "";
+  position: absolute;
+  left: 0.72rem;
+  top: 1.35rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: var(--signal-500);
+  box-shadow: 0 0 0 1px var(--signal-500);
+}
+
+.hisab .pricing-hero {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  background: linear-gradient(180deg, var(--marketing-blue-soft), #fff);
+}
+
+.hisab .pricing-hero h1 {
+  max-width: 20ch;
+}
+
+.hisab .pricing-hero-notes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
+.hisab .pricing-hero-notes > * {
+  padding: 0.38rem 0.65rem;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--line);
+  color: var(--slate-600);
+  font-size: 0.8rem;
+}
+
+.hisab .pricing-section > :last-child {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.hisab .pricing-section > :last-child > * {
+  display: grid;
+  align-content: start;
+  gap: 0.9rem;
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--marketing-radius);
+  background: #fff;
+  box-shadow: 0 10px 34px rgba(11, 18, 32, 0.05);
+}
+
+.hisab .pricing-section > :last-child > *:nth-child(2) {
+  border-color: var(--signal-500);
+  box-shadow: 0 18px 48px rgba(36, 91, 231, 0.14);
+}
+
+.hisab .pricing-included-section {
+  max-width: none;
+  padding-inline: max(var(--gutter), calc((100vw - var(--measure)) / 2 + var(--gutter)));
+  background: var(--mist);
+  border-block: 1px solid var(--line-soft);
+}
+
+.hisab .pricing-included-section > :last-child {
+  columns: 2;
+  column-gap: 2rem;
+}
+
+.hisab .pricing-included-section > :last-child > * {
+  break-inside: avoid;
+  margin-bottom: 0.75rem;
+}
+
+.hisab .pricing-faq-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.hisab .product-tour-page-stage,
+.hisab .product-tour-phase-2-4 {
+  background: #fff;
+}
+
+.hisab :is(.product-tour-hero, .module-page-hero) {
+  background: linear-gradient(180deg, #fff, var(--marketing-blue-soft));
+}
+
+.hisab .product-tour-hero-copy,
+.hisab .module-page-hero-copy {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.hisab .product-tour-hero-summary,
+.hisab .module-preview-card {
+  display: grid;
+  gap: 1rem;
+}
+
+.hisab .marketing-page-hero,
+.hisab .marketing-tour-principles {
+  width: 100%;
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding: var(--section-y) var(--gutter);
+}
+
+.hisab .marketing-tour-principles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.hisab .marketing-tour-principles > * {
+  padding: 1.3rem;
+  border: 1px solid var(--line);
+  border-radius: var(--marketing-radius);
+  background: #fff;
+}
+
+.hisab .module-page-hero .module-page-index {
+  width: fit-content;
+  padding: 0.38rem 0.65rem;
+  border-radius: 999px;
+  background: var(--signal-100);
+  color: var(--signal-700);
+  font-family: var(--font-data);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.hisab .module-preview-metrics {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.hisab .module-preview-metrics article {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.8rem;
+  border-radius: 12px;
+  background: var(--mist);
+}
+
+.hisab .module-preview-metrics small,
+.hisab .module-preview-metrics span {
+  color: var(--slate-500);
+}
+
+.hisab .module-preview-table {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.hisab .module-preview-table :is(header, p) {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+}
+
+.hisab .module-preview-table header {
+  background: var(--marketing-navy);
+  color: #fff;
+}
+
+.hisab .module-preview-table p + p {
+  border-top: 1px solid var(--line);
+}
+
+.hisab .module-preview-table p span {
+  display: grid;
+}
+
+.hisab .module-preview-table p small {
+  color: var(--slate-500);
+}
+
+.hisab .module-audience-section {
+  width: 100%;
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding: var(--section-y) var(--gutter);
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(20rem, 1.15fr);
+  gap: 3rem;
+  align-items: start;
+}
+
+.hisab .module-audience-section > div:first-child {
+  display: grid;
+  gap: 1rem;
+}
+
+.hisab .module-audience-section > :last-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.hisab .module-audience-section > :last-child > * {
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--marketing-blue-line);
+  border-radius: 999px;
+  background: var(--marketing-blue-soft);
+  color: var(--signal-700);
+  font-weight: 700;
+}
+
+.hisab .related-module-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.hisab .resources-hero {
+  background: linear-gradient(180deg, var(--marketing-blue-soft), #fff);
+}
+
+.hisab .resources-hero-index {
+  display: grid;
+  gap: 0.65rem;
+  padding: 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: var(--marketing-radius);
+  background: #fff;
+  box-shadow: var(--marketing-shadow);
+}
+
+.hisab .resources-hero-index > * {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.hisab .resources-hero-index > *:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.hisab .resources-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.hisab .resources-grid a {
+  min-height: 14rem;
+}
+
+.hisab .resources-framework-section {
+  max-width: none;
+  padding-inline: max(var(--gutter), calc((100vw - var(--measure)) / 2 + var(--gutter)));
+  display: grid;
+  grid-template-columns: minmax(0, 0.6fr) minmax(0, 1.4fr);
+  gap: 3rem;
+  background: var(--mist);
+  border-block: 1px solid var(--line-soft);
+}
+
+.hisab .resources-framework-section > div:first-child {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+}
+
+.hisab .resource-article {
+  width: 100%;
+}
+
+.hisab .resource-article-hero {
+  display: grid;
+  gap: 1rem;
+  max-width: 62rem;
+}
+
+.hisab .resource-back-link {
+  color: var(--signal-700);
+  font-weight: 700;
+}
+
+.hisab .resource-article-body {
+  width: min(calc(100% - (2 * var(--gutter))), 52rem);
+  margin-inline: auto;
+  padding-bottom: var(--section-y);
+}
+
+.hisab .resource-article-body p,
+.hisab .resource-article-body li {
+  font-size: 1.04rem;
+  line-height: 1.78;
+}
+
+.hisab .resource-related-section > :last-child > a {
+  transition: transform 180ms var(--ease), box-shadow 180ms var(--ease);
+}
+
+.hisab .resource-related-section > :last-child > a:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--marketing-shadow);
+}
+
+.hisab .legal-hero {
+  background: linear-gradient(180deg, var(--marketing-blue-soft), #fff);
+}
+
+.hisab .legal-hero-copy {
+  display: grid;
+  gap: 1rem;
+}
+
+.hisab .legal-hero-card {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.hisab .legal-hero-icon,
+.hisab .legal-highlight-icon {
+  display: grid;
+  place-items: center;
+  width: 2.7rem;
+  height: 2.7rem;
+  border-radius: 10px;
+  background: var(--signal-100);
+  color: var(--signal-700);
+}
+
+.hisab .legal-highlights {
+  width: 100%;
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding: 0 var(--gutter) var(--section-y);
+}
+
+.hisab .legal-highlights article {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.hisab .legal-document-shell {
+  width: 100%;
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding: 0 var(--gutter) var(--section-y);
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.3fr) minmax(0, 0.7fr);
+  gap: 3rem;
+  align-items: start;
+}
+
+.hisab .legal-toc a {
+  padding: 0.45rem 0.55rem;
+  border-radius: 7px;
+  color: var(--slate-600);
+  font-size: 0.88rem;
+}
+
+.hisab .legal-toc a:hover {
+  background: var(--mist);
+  color: var(--ink);
+}
+
+.hisab .legal-section-content {
+  display: grid;
+  gap: 1rem;
+}
+
+.hisab .legal-contact-panel {
+  width: calc(100% - (2 * var(--gutter)));
+  max-width: var(--measure);
+  margin: 0 auto var(--section-y);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  border: 1px solid var(--marketing-blue-line);
+  border-radius: var(--marketing-radius-lg);
+  background: var(--marketing-blue-soft);
+}
+
+.hisab .legal-contact-panel > div:first-child {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.hisab .legal-contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.hisab .demo-request-page {
+  position: relative;
+  isolation: isolate;
+  min-height: calc(100vh - 4.5rem);
+  padding-block: clamp(3.5rem, 2rem + 5vw, 7rem);
+  background:
+    radial-gradient(circle at 10% 4%, rgba(74, 120, 242, 0.13), transparent 28rem),
+    linear-gradient(180deg, #f8faff 0%, #fff 48%, var(--mist) 100%);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.hisab .demo-request-shell {
+  width: min(calc(100% - (2 * var(--gutter))), var(--measure));
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(31rem, 1.12fr);
+  align-items: start;
+  gap: clamp(2.25rem, 1.2rem + 4vw, 5.75rem);
+}
+
+.hisab .demo-request-copy {
+  position: sticky;
+  top: 6.5rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.hisab .demo-request-copy > span,
+.hisab .demo-request-form > div:first-child > span,
+.hisab .demo-request-success > div > span {
+  color: var(--signal-700);
+  font-family: var(--font-data);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hisab .demo-request-copy h1 {
+  font-size: clamp(2.5rem, 1.5rem + 3.3vw, 4.65rem);
+  line-height: 1;
+}
+
+.hisab .demo-request-copy > p {
+  color: var(--slate-600);
+  font-size: 1.06rem;
+}
+
+.hisab .demo-request-copy > ul {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.hisab .demo-request-copy > ul li {
+  position: relative;
+  padding-left: 1.45rem;
+  color: var(--ink-700);
+}
+
+.hisab .demo-request-copy > ul li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--signal-600);
+  font-weight: 800;
+}
+
+.hisab .demo-request-copy > div:last-child {
+  display: grid;
+  gap: 0.45rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.76);
+}
+
+.hisab .demo-request-copy > div:last-child a {
+  color: var(--signal-700);
+  font-weight: 700;
+}
+
+.hisab .demo-request-form {
+  display: grid;
+  gap: 1.15rem;
+  padding: clamp(1.35rem, 2.6vw, 2.25rem);
+  border: 1px solid var(--line);
+  border-radius: var(--marketing-radius-lg);
+  background: #fff;
+  box-shadow: var(--marketing-shadow);
+}
+
+.hisab .demo-request-form > div:first-child {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.hisab .demo-request-form h2 {
+  font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.35rem);
+}
+
+.hisab .demo-request-form > label,
+.hisab .demo-form-row label {
+  display: grid;
+  gap: 0.45rem;
+  color: var(--ink-700);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.hisab .demo-form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.hisab .demo-request-form :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea) {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.78rem 0.9rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 9px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 500;
+  transition: border-color 160ms var(--ease), box-shadow 160ms var(--ease), background 160ms var(--ease);
+}
+
+.hisab .demo-request-form textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.hisab .demo-request-form :is(input, select, textarea):focus {
+  outline: none;
+  border-color: var(--signal-500);
+  box-shadow: 0 0 0 4px rgba(36, 91, 231, 0.12);
+}
+
+.hisab .demo-contact-method {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.hisab .demo-contact-method legend {
+  padding-inline: 0.3rem;
+  font-size: 0.88rem;
+  font-weight: 750;
+}
+
+.hisab .demo-contact-method label,
+.hisab .demo-request-consent {
+  display: flex !important;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-weight: 600 !important;
+}
+
+.hisab .demo-request-form input[type="checkbox"],
+.hisab .demo-request-form input[type="radio"] {
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.18rem;
+  accent-color: var(--signal-600);
+}
+
+.hisab .demo-request-form > button,
+.hisab .demo-request-primary-link {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 9px;
+  background: var(--signal-600);
+  color: #fff;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(36, 91, 231, 0.24);
+}
+
+.hisab .demo-request-form > button:hover,
+.hisab .demo-request-primary-link:hover {
+  background: var(--signal-700);
+}
+
+.hisab .demo-request-form > small,
+.hisab .demo-request-context {
+  color: var(--slate-500);
+  font-size: 0.78rem;
+}
+
+.hisab .demo-request-context {
+  width: fit-content;
+  padding: 0.35rem 0.55rem;
+  border-radius: 999px;
+  background: var(--signal-100);
+  color: var(--signal-700);
+}
+
+.hisab .demo-request-alert {
+  padding: 0.9rem 1rem;
+  border: 1px solid #f2b9b9;
+  border-radius: 10px;
+  background: #fff1f1;
+  color: #9f1f1f;
+  font-weight: 700;
+}
+
+.hisab .demo-request-honeypot {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.hisab .demo-request-success {
+  align-content: center;
+  min-height: 28rem;
+  text-align: center;
+  justify-items: center;
+}
+
+.hisab .demo-success-mark {
+  display: grid;
+  place-items: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  background: var(--signal-100);
+  color: var(--signal-700);
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.hisab .demo-success-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.hisab .demo-success-actions > a:not(.demo-request-primary-link) {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 9px;
+  font-weight: 700;
+}
+
+@media (max-width: 980px) {
+  .hisab :is(
+    .about-hero,
+    .comparison-hub-hero,
+    .comparison-detail-hero,
+    .proof-page-hero,
+    .local-hero,
+    .help-public-hero,
+    .industry-index-hero,
+    .industry-detail-hero,
+    .integration-page-hero,
+    .migration-hero,
+    .product-tour-hero,
+    .module-page-hero,
+    .resources-hero,
+    .trust-page-hero,
+    .legal-hero,
+    .about-mission-section,
+    .about-leadership-section,
+    .local-reality-section,
+    .industry-connected-section,
+    .module-audience-section,
+    .resources-framework-section
+  ) {
+    grid-template-columns: 1fr;
+  }
+
+  .hisab .demo-request-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .hisab .demo-request-copy {
+    position: static;
+  }
+
+  .hisab :is(
+    .about-principles-grid,
+    .comparison-index-grid,
+    .inspectable-proof-grid,
+    .reference-program-grid,
+    .proof-standard-grid,
+    .industry-card-grid,
+    .industry-capability-grid,
+    .industry-workflow-grid,
+    .industry-module-grid,
+    .integration-directory-grid,
+    .integration-method-grid,
+    .local-advantage-grid,
+    .migration-source-grid,
+    .migration-package-grid,
+    .migration-responsibility-grid,
+    .migration-template-grid,
+    .module-capability-grid,
+    .module-workflow-grid,
+    .related-module-grid,
+    .pricing-section > :last-child,
+    .resources-grid,
+    .resources-framework-grid,
+    .trust-control-grid,
+    .trust-responsibility-grid,
+    .legal-highlights
+  ) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hisab :is(.comparison-table-head, .comparison-table-row) {
+    grid-template-columns: 0.85fr 1fr 1fr;
+  }
+
+  .hisab :is(.comparison-table-head, .comparison-table-row) > *:last-child {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--line);
+  }
+
+  .hisab .comparison-table-head > *:last-child {
+    border-color: rgba(255, 255, 255, 0.14);
+  }
+
+  .hisab .help-article-layout,
+  .hisab .legal-document-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .hisab .help-article-toc,
+  .hisab .legal-toc {
+    position: static;
+  }
+
+  .hisab .marketing-cta,
+  .hisab :is(.comparison-method-section, .comparison-disclaimer, .comparison-next-step-section, .help-support-boundary, .integration-request-section, .migration-warning-section, .resource-apply-section, .legal-contact-panel) {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 680px) {
+  .hisab :is(
+    .about-hero,
+    .comparison-hub-hero,
+    .comparison-detail-hero,
+    .proof-page-hero,
+    .local-hero,
+    .help-public-hero,
+    .help-article-hero,
+    .industry-index-hero,
+    .industry-detail-hero,
+    .integration-page-hero,
+    .migration-hero,
+    .pricing-hero,
+    .product-tour-hero,
+    .module-page-hero,
+    .resources-hero,
+    .resource-article-hero,
+    .trust-page-hero,
+    .legal-hero
+  ) {
+    padding-top: 3.25rem;
+    padding-bottom: 3.25rem;
+  }
+
+  .hisab :is(
+    .about-fact-grid,
+    .about-principles-grid,
+    .about-standards-grid,
+    .comparison-principles,
+    .comparison-index-grid,
+    .inspectable-proof-grid,
+    .reference-program-grid,
+    .proof-standard-grid,
+    .help-public-stats,
+    .help-category-grid,
+    .industry-card-grid,
+    .industry-capability-grid,
+    .industry-workflow-grid,
+    .industry-module-grid,
+    .integration-directory-grid,
+    .integration-method-grid,
+    .local-advantage-grid,
+    .local-context-grid,
+    .local-readiness-grid,
+    .migration-source-grid,
+    .migration-package-grid,
+    .migration-responsibility-grid,
+    .migration-template-grid,
+    .module-capability-grid,
+    .module-preview-metrics,
+    .module-workflow-grid,
+    .related-module-grid,
+    .pricing-faq-grid,
+    .pricing-principles,
+    .pricing-section > :last-child,
+    .resources-grid,
+    .resources-framework-grid,
+    .trust-control-grid,
+    .trust-responsibility-grid,
+    .trust-process-grid,
+    .legal-highlights,
+    .comparison-related-section > :last-child,
+    .resource-related-section > :last-child,
+    .industry-problem-outcome,
+    .module-problem-outcome,
+    .marketing-tour-principles
+  ) {
+    grid-template-columns: 1fr;
+  }
+
+  .hisab .marketing-hero-actions,
+  .hisab .marketing-cta > div:last-child,
+  .hisab .legal-contact-actions,
+  .hisab .demo-success-actions {
+    width: 100%;
+  }
+
+  .hisab :is(.marketing-start, .marketing-demo),
+  .hisab .marketing-cta > div:last-child > *,
+  .hisab .legal-contact-actions > *,
+  .hisab .demo-success-actions > * {
+    width: 100%;
+  }
+
+  .hisab .comparison-table {
+    overflow-x: auto;
+  }
+
+  .hisab :is(.comparison-table-head, .comparison-table-row) {
+    min-width: 42rem;
+    grid-template-columns: 0.85fr 1fr 1fr 1.2fr;
+  }
+
+  .hisab :is(.comparison-table-head, .comparison-table-row) > *:last-child {
+    grid-column: auto;
+    border-top: 0;
+  }
+
+  .hisab .local-reality-table,
+  .hisab .module-preview-table {
+    overflow-x: auto;
+  }
+
+  .hisab .local-reality-table :is(header, p) {
+    min-width: 34rem;
+  }
+
+  .hisab .demo-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .hisab .pricing-included-section > :last-child {
+    columns: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hisab :is(.marketing-start, .marketing-demo),
+  .hisab :is(.comparison-index-grid, .help-category-grid, .industry-card-grid, .integration-directory-grid, .resources-grid, .related-module-grid) > a {
+    transition: none !important;
+  }
+}
+
+.hisab :is(
+  .about-principles-section,
+  .about-standards-section,
+  .comparison-index-section,
+  .industry-index-section,
+  .industry-related-section,
+  .local-advantages-section,
+  .local-readiness-section
+) {
+  position: relative;
+}
+
+.hisab .marketing-cta-v2 {
+  isolation: isolate;
+}
