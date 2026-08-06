@@ -1,0 +1,651 @@
+/* Biloo account center — restrained enterprise UI */
+
+.biloo-account-center,
+.biloo-mfa-manager,
+.mfa-required-page {
+  --acc-ink: #172033;
+  --acc-navy: #14213d;
+  --acc-gold: #fca311;
+  --acc-muted: #667085;
+  --acc-subtle: #98a2b3;
+  --acc-line: #e4e7ec;
+  --acc-soft: #f7f8fa;
+  --acc-success: #067647;
+  --acc-success-bg: #ecfdf3;
+  --acc-warning: #9a6700;
+  --acc-warning-bg: #fff8e8;
+  --acc-danger: #b42318;
+  font-family: var(--font-biloo-manrope), Manrope, Inter, "Segoe UI", sans-serif !important;
+  color: var(--acc-ink) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .workspace:has(.biloo-account-center) {
+  padding: 0 !important;
+  background: var(--acc-soft) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .biloo-account-center {
+  width: min(100%, 1240px) !important;
+  min-height: 100% !important;
+  margin: 0 auto !important;
+  padding: 32px 32px 72px !important;
+  background: var(--acc-soft) !important;
+}
+
+.biloo-account-center *,
+.biloo-mfa-manager * { box-sizing: border-box; }
+.biloo-account-center :is(h1,h2,h3,p),
+.biloo-mfa-manager :is(h1,h2,h3,p) { margin-top: 0; }
+.biloo-account-center a,
+.biloo-account-center button,
+.biloo-account-center input,
+.biloo-mfa-manager a,
+.biloo-mfa-manager button,
+.biloo-mfa-manager input { font: inherit !important; }
+
+.biloo-account-breadcrumb {
+  display: flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  margin-bottom: 18px !important;
+  color: var(--acc-subtle) !important;
+  font-size: 12px !important;
+  font-weight: 650 !important;
+}
+.biloo-account-breadcrumb a {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  color: var(--acc-muted) !important;
+  text-decoration: none !important;
+}
+.biloo-account-breadcrumb a:hover { color: var(--acc-navy) !important; }
+
+.biloo-account-setup-banner {
+  display: grid !important;
+  grid-template-columns: 42px minmax(0,1fr) auto !important;
+  align-items: center !important;
+  gap: 14px !important;
+  margin-bottom: 16px !important;
+  padding: 14px 16px !important;
+  border: 1px solid #f5d08b !important;
+  border-radius: 14px !important;
+  background: #fffbf3 !important;
+  box-shadow: 0 5px 16px rgba(20,33,61,.04) !important;
+}
+.biloo-account-setup-icon {
+  display: grid !important;
+  width: 42px !important;
+  height: 42px !important;
+  place-items: center !important;
+  border-radius: 11px !important;
+  color: #7a4d00 !important;
+  background: #fff0ce !important;
+}
+.biloo-account-setup-banner p {
+  margin: 0 0 3px !important;
+  color: var(--acc-warning) !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  letter-spacing: .08em !important;
+}
+.biloo-account-setup-banner h2 {
+  margin: 0 !important;
+  color: var(--acc-ink) !important;
+  font-size: 15px !important;
+  font-weight: 750 !important;
+}
+.biloo-account-setup-banner div > span {
+  display: block !important;
+  margin-top: 3px !important;
+  color: var(--acc-muted) !important;
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+}
+.biloo-account-setup-banner > a {
+  display: inline-flex !important;
+  min-height: 36px !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 0 12px !important;
+  border: 1px solid #e6b85f !important;
+  border-radius: 9px !important;
+  color: #634000 !important;
+  background: #fff !important;
+  font-size: 12px !important;
+  font-weight: 750 !important;
+  text-decoration: none !important;
+}
+
+.biloo-account-hero {
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) 270px !important;
+  gap: 32px !important;
+  align-items: center !important;
+  padding: 30px !important;
+  border: 1px solid var(--acc-line) !important;
+  border-radius: 18px !important;
+  color: var(--acc-ink) !important;
+  background: #fff !important;
+  box-shadow: 0 8px 28px rgba(20,33,61,.06) !important;
+}
+.biloo-account-kicker {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 9px !important;
+  margin: 0 0 12px !important;
+  color: var(--acc-muted) !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: .09em !important;
+  text-transform: uppercase !important;
+}
+.biloo-account-kicker > span {
+  display: grid !important;
+  width: 32px !important;
+  height: 32px !important;
+  place-items: center !important;
+  border-radius: 9px !important;
+  color: #7a4d00 !important;
+  background: #fff2d8 !important;
+}
+.biloo-account-hero h1 {
+  max-width: 680px !important;
+  margin: 0 !important;
+  color: var(--acc-ink) !important;
+  -webkit-text-fill-color: var(--acc-ink) !important;
+  font-size: clamp(30px,4vw,44px) !important;
+  font-weight: 780 !important;
+  letter-spacing: -.045em !important;
+  line-height: 1.08 !important;
+}
+.biloo-account-hero-copy > p:not(.biloo-account-kicker) {
+  max-width: 680px !important;
+  margin: 14px 0 0 !important;
+  color: var(--acc-muted) !important;
+  -webkit-text-fill-color: var(--acc-muted) !important;
+  font-size: 14px !important;
+  line-height: 1.65 !important;
+}
+.biloo-account-hero-actions {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 9px !important;
+  margin-top: 20px !important;
+}
+.biloo-account-primary-action,
+.biloo-account-secondary-action {
+  display: inline-flex !important;
+  min-height: 40px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  padding: 0 14px !important;
+  border-radius: 10px !important;
+  font-size: 13px !important;
+  font-weight: 720 !important;
+  text-decoration: none !important;
+}
+.biloo-account-primary-action {
+  border: 1px solid var(--acc-navy) !important;
+  color: #fff !important;
+  background: var(--acc-navy) !important;
+}
+.biloo-account-secondary-action {
+  border: 1px solid var(--acc-line) !important;
+  color: var(--acc-navy) !important;
+  background: #fff !important;
+}
+.biloo-account-trust-row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px 18px !important;
+  margin-top: 18px !important;
+}
+.biloo-account-trust-row > span {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  color: var(--acc-muted) !important;
+  font-size: 12px !important;
+  font-weight: 620 !important;
+}
+.biloo-account-trust-row i {
+  width: 7px !important;
+  height: 7px !important;
+  border-radius: 50% !important;
+  background: var(--acc-subtle) !important;
+}
+.biloo-account-trust-row i.is-positive { background: #12b76a !important; }
+.biloo-account-trust-row i.is-warning { background: var(--acc-gold) !important; }
+
+.biloo-account-score-card {
+  display: grid !important;
+  grid-template-columns: 82px minmax(0,1fr) !important;
+  gap: 16px !important;
+  align-items: center !important;
+  padding: 18px !important;
+  border: 1px solid var(--acc-line) !important;
+  border-radius: 14px !important;
+  background: #fafbfc !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+.biloo-account-score-ring {
+  position: relative !important;
+  display: grid !important;
+  width: 82px !important;
+  height: 82px !important;
+  place-items: center !important;
+  border-radius: 50% !important;
+  background: conic-gradient(var(--acc-gold) 0 var(--account-score), #e9edf2 var(--account-score) 360deg) !important;
+}
+.biloo-account-score-ring::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  background: #fff;
+}
+.biloo-account-score-ring > span {
+  position: relative !important;
+  z-index: 1 !important;
+  display: flex !important;
+  align-items: baseline !important;
+}
+.biloo-account-score-ring strong { color: var(--acc-ink) !important; font-size: 24px !important; font-weight: 800 !important; }
+.biloo-account-score-ring small { color: var(--acc-subtle) !important; font-size: 10px !important; }
+.biloo-account-score-copy > p { margin: 0 !important; color: var(--acc-subtle) !important; font-size: 10px !important; font-weight: 800 !important; letter-spacing: .08em !important; }
+.biloo-account-score-copy h2 { margin: 5px 0 9px !important; color: var(--acc-ink) !important; font-size: 15px !important; font-weight: 760 !important; }
+.biloo-account-score-copy ul { display: grid !important; gap: 5px !important; margin: 0 !important; padding: 0 !important; list-style: none !important; }
+.biloo-account-score-copy li { display: flex !important; align-items: center !important; gap: 6px !important; color: var(--acc-muted) !important; font-size: 11px !important; }
+.biloo-account-score-copy li.complete svg { color: var(--acc-success) !important; }
+.biloo-account-score-copy li.pending svg { color: var(--acc-warning) !important; }
+
+.biloo-account-section-nav {
+  position: sticky !important;
+  z-index: 8 !important;
+  top: 68px !important;
+  display: flex !important;
+  width: fit-content !important;
+  max-width: 100% !important;
+  gap: 3px !important;
+  margin: 16px 0 !important;
+  padding: 4px !important;
+  overflow-x: auto !important;
+  border: 1px solid var(--acc-line) !important;
+  border-radius: 11px !important;
+  background: rgba(255,255,255,.94) !important;
+  box-shadow: 0 5px 18px rgba(20,33,61,.05) !important;
+  backdrop-filter: blur(12px) !important;
+}
+.biloo-account-section-nav a {
+  display: inline-flex !important;
+  min-height: 34px !important;
+  flex: 0 0 auto !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 0 10px !important;
+  border-radius: 8px !important;
+  color: var(--acc-muted) !important;
+  font-size: 12px !important;
+  font-weight: 650 !important;
+  text-decoration: none !important;
+}
+.biloo-account-section-nav a:hover { color: var(--acc-navy) !important; background: var(--acc-soft) !important; }
+
+.biloo-account-content-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) 320px !important;
+  gap: 16px !important;
+  align-items: start !important;
+}
+.biloo-account-main-column,
+.biloo-account-rail { display: grid !important; min-width: 0 !important; gap: 14px !important; }
+.biloo-account-profile-card,
+.biloo-account-identity-card,
+.biloo-account-rail-card,
+.biloo-account-signout-card,
+.biloo-mfa-manager {
+  border: 1px solid var(--acc-line) !important;
+  border-radius: 14px !important;
+  background: #fff !important;
+  box-shadow: 0 5px 18px rgba(20,33,61,.045) !important;
+}
+
+.biloo-account-profile-card { overflow: hidden !important; }
+.biloo-account-profile-card > header {
+  display: grid !important;
+  grid-template-columns: 58px minmax(0,1fr) auto !important;
+  gap: 14px !important;
+  align-items: center !important;
+  padding: 20px !important;
+  border-bottom: 1px solid var(--acc-line) !important;
+  background: #fff !important;
+}
+.biloo-account-avatar {
+  display: grid !important;
+  width: 58px !important;
+  height: 58px !important;
+  place-items: center !important;
+  overflow: hidden !important;
+  border-radius: 15px !important;
+  color: #fff !important;
+  background: var(--acc-navy) !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+}
+.biloo-account-avatar img { width: 100% !important; height: 100% !important; object-fit: cover !important; }
+.biloo-account-profile-card > header p,
+.biloo-account-card-copy p,
+.biloo-account-section-heading p,
+.biloo-account-rail-heading p,
+.biloo-account-signout-card p,
+.biloo-mfa-title-row p,
+.biloo-mfa-enrollment-head p,
+.biloo-mfa-empty-copy p,
+.biloo-mfa-challenge-copy p,
+.biloo-mfa-ready-state p,
+.biloo-mfa-factor-section header p {
+  margin: 0 0 4px !important;
+  color: var(--acc-subtle) !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  letter-spacing: .08em !important;
+}
+.biloo-account-profile-card > header h2 { margin: 0 !important; color: var(--acc-ink) !important; font-size: 19px !important; font-weight: 760 !important; }
+.biloo-account-profile-card > header div > span { display: block !important; margin-top: 3px !important; color: var(--acc-muted) !important; font-size: 13px !important; }
+.biloo-account-live-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  padding: 7px 9px !important;
+  border-radius: 999px !important;
+  color: var(--acc-success) !important;
+  background: var(--acc-success-bg) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+}
+.biloo-account-live-badge i { width: 6px !important; height: 6px !important; border-radius: 50% !important; background: #12b76a !important; }
+.biloo-account-profile-body { padding: 20px !important; }
+.biloo-account-section-heading,
+.biloo-account-rail-heading { display: flex !important; justify-content: space-between !important; gap: 12px !important; align-items: flex-start !important; }
+.biloo-account-section-heading h3,
+.biloo-account-rail-heading h2,
+.biloo-account-card-copy h2,
+.biloo-account-signout-card h2 { margin: 0 !important; color: var(--acc-ink) !important; font-size: 15px !important; font-weight: 750 !important; }
+.biloo-account-section-heading > span,
+.biloo-account-rail-heading > span {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  padding: 6px 8px !important;
+  border-radius: 8px !important;
+  color: var(--acc-muted) !important;
+  background: var(--acc-soft) !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+}
+.biloo-account-rail-heading > span.is-ready { color: var(--acc-success) !important; background: var(--acc-success-bg) !important; }
+.biloo-account-rail-heading > span.needs-action { color: var(--acc-warning) !important; background: var(--acc-warning-bg) !important; }
+
+.biloo-account-details-list {
+  display: grid !important;
+  grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  margin: 16px 0 0 !important;
+  border: 1px solid var(--acc-line) !important;
+  border-radius: 11px !important;
+  overflow: hidden !important;
+}
+.biloo-account-details-list > div { min-width: 0 !important; padding: 13px 14px !important; border-bottom: 1px solid var(--acc-line) !important; }
+.biloo-account-details-list > div:nth-child(odd) { border-right: 1px solid var(--acc-line) !important; }
+.biloo-account-details-list > div.is-wide { grid-column: 1/-1 !important; border-right: 0 !important; border-bottom: 0 !important; }
+.biloo-account-details-list dt { color: var(--acc-subtle) !important; font-size: 10px !important; font-weight: 750 !important; text-transform: uppercase !important; letter-spacing: .05em !important; }
+.biloo-account-details-list dd { overflow: hidden !important; margin: 5px 0 0 !important; color: var(--acc-ink) !important; font-size: 13px !important; font-weight: 650 !important; text-overflow: ellipsis !important; white-space: nowrap !important; }
+.biloo-account-details-list code { color: #475467 !important; font-size: 11px !important; }
+.biloo-account-role-chip,
+.biloo-account-aal { display: inline-flex !important; padding: 4px 7px !important; border-radius: 6px !important; color: var(--acc-navy) !important; background: var(--acc-soft) !important; font-size: 11px !important; font-weight: 750 !important; }
+.biloo-account-aal.is-strong { color: var(--acc-success) !important; background: var(--acc-success-bg) !important; }
+
+.biloo-account-identity-card {
+  display: grid !important;
+  grid-template-columns: 42px minmax(0,1fr) auto !important;
+  gap: 13px !important;
+  align-items: center !important;
+  padding: 17px !important;
+}
+.biloo-account-card-icon {
+  display: grid !important;
+  width: 42px !important;
+  height: 42px !important;
+  place-items: center !important;
+  border-radius: 11px !important;
+  color: var(--acc-navy) !important;
+  background: var(--acc-soft) !important;
+}
+.biloo-account-card-copy > span { display: block !important; margin-top: 4px !important; color: var(--acc-muted) !important; font-size: 12px !important; line-height: 1.5 !important; }
+.biloo-account-identity-actions { display: flex !important; flex-direction: column !important; align-items: flex-end !important; gap: 6px !important; }
+.biloo-account-identity-actions a { color: var(--acc-navy) !important; font-size: 12px !important; font-weight: 700 !important; text-decoration: none !important; }
+
+.biloo-account-rail-card,
+.biloo-account-signout-card { padding: 17px !important; }
+.biloo-account-status-list { display: grid !important; gap: 7px !important; margin-top: 13px !important; }
+.biloo-account-status-list article { display: grid !important; grid-template-columns: 34px minmax(0,1fr) !important; gap: 9px !important; align-items: center !important; padding: 10px !important; border: 1px solid var(--acc-line) !important; border-radius: 9px !important; }
+.biloo-account-status-list article > span { display: grid !important; width: 34px !important; height: 34px !important; place-items: center !important; border-radius: 9px !important; color: var(--acc-muted) !important; background: var(--acc-soft) !important; }
+.biloo-account-status-list article.is-complete > span { color: var(--acc-success) !important; background: var(--acc-success-bg) !important; }
+.biloo-account-status-list article.is-pending > span { color: var(--acc-warning) !important; background: var(--acc-warning-bg) !important; }
+.biloo-account-status-list strong { display: block !important; color: var(--acc-ink) !important; font-size: 12px !important; font-weight: 700 !important; }
+.biloo-account-status-list small { display: block !important; margin-top: 2px !important; color: var(--acc-muted) !important; font-size: 10px !important; line-height: 1.4 !important; }
+.biloo-account-session-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 7px !important; margin-top: 13px !important; }
+.biloo-account-session-grid > div { padding: 10px !important; border-radius: 9px !important; background: var(--acc-soft) !important; }
+.biloo-account-session-grid small { display:block !important; color: var(--acc-subtle) !important; font-size: 9px !important; font-weight: 750 !important; text-transform: uppercase !important; }
+.biloo-account-session-grid strong { display:block !important; margin-top: 3px !important; color: var(--acc-ink) !important; font-size: 12px !important; }
+.biloo-account-session-note { display:flex !important; gap:7px !important; margin:10px 0 0 !important; color:var(--acc-muted) !important; font-size:11px !important; line-height:1.5 !important; }
+.biloo-account-recovery-card ul { display:grid !important; gap:10px !important; margin:13px 0 0 !important; padding:0 !important; list-style:none !important; }
+.biloo-account-recovery-card li { display:grid !important; grid-template-columns:24px minmax(0,1fr) !important; gap:8px !important; }
+.biloo-account-recovery-card li > span { display:grid !important; width:24px !important; height:24px !important; place-items:center !important; border-radius:7px !important; color:#7a4d00 !important; background:#fff2d8 !important; font-size:9px !important; font-weight:800 !important; }
+.biloo-account-recovery-card li p { margin:2px 0 0 !important; color:var(--acc-muted) !important; font-size:11px !important; line-height:1.45 !important; }
+.biloo-account-signout-card { border-color:#f3d3d0 !important; background:#fff !important; }
+.biloo-account-signout-card div > span { display:block !important; margin-top:4px !important; color:var(--acc-muted) !important; font-size:11px !important; }
+.biloo-account-signout-card form,
+.biloo-account-signout-card button { width:100% !important; }
+.biloo-account-signout-card button { display:inline-flex !important; min-height:38px !important; margin-top:12px !important; align-items:center !important; justify-content:center !important; gap:7px !important; border:1px solid #f1c3be !important; border-radius:9px !important; color:var(--acc-danger) !important; background:#fff !important; font-size:12px !important; font-weight:720 !important; cursor:pointer !important; }
+
+/* Authenticator */
+body[data-workspace-system="financial-os-v1"] .biloo-mfa-manager { overflow:hidden !important; padding:0 !important; }
+.biloo-mfa-header { display:flex !important; align-items:center !important; justify-content:space-between !important; gap:12px !important; padding:17px 18px 14px !important; border-bottom:1px solid var(--acc-line) !important; }
+.biloo-mfa-title-row { display:flex !important; align-items:center !important; gap:11px !important; }
+.biloo-mfa-title-icon { display:grid !important; width:42px !important; height:42px !important; place-items:center !important; border-radius:11px !important; color:#7a4d00 !important; background:#fff2d8 !important; }
+.biloo-mfa-title-row h2 { margin:0 !important; color:var(--acc-ink) !important; font-size:17px !important; font-weight:760 !important; }
+.biloo-mfa-state { display:inline-flex !important; align-items:center !important; gap:6px !important; padding:7px 9px !important; border-radius:999px !important; font-size:11px !important; font-weight:700 !important; }
+.biloo-mfa-state i { width:6px !important; height:6px !important; border-radius:50% !important; }
+.biloo-mfa-state.is-ready { color:var(--acc-success) !important; background:var(--acc-success-bg) !important; }
+.biloo-mfa-state.is-ready i { background:#12b76a !important; }
+.biloo-mfa-state.needs-verification,
+.biloo-mfa-state.is-required { color:var(--acc-warning) !important; background:var(--acc-warning-bg) !important; }
+.biloo-mfa-state.needs-verification i,
+.biloo-mfa-state.is-required i { background:var(--acc-gold) !important; }
+.biloo-mfa-state.is-optional { color:var(--acc-muted) !important; background:var(--acc-soft) !important; }
+.biloo-mfa-description { margin:0 !important; padding:13px 18px 0 !important; color:var(--acc-muted) !important; font-size:13px !important; line-height:1.55 !important; }
+.biloo-mfa-metrics { display:grid !important; grid-template-columns:repeat(3,minmax(0,1fr)) !important; gap:7px !important; margin:13px 18px 0 !important; }
+.biloo-mfa-metrics > div { padding:10px 11px !important; border-radius:9px !important; background:var(--acc-soft) !important; }
+.biloo-mfa-metrics small { display:block !important; color:var(--acc-subtle) !important; font-size:9px !important; font-weight:750 !important; text-transform:uppercase !important; }
+.biloo-mfa-metrics strong { display:block !important; margin-top:3px !important; color:var(--acc-ink) !important; font-size:13px !important; }
+.biloo-mfa-notice { display:flex !important; gap:7px !important; margin:12px 18px 0 !important; padding:10px 11px !important; border-radius:9px !important; font-size:12px !important; line-height:1.45 !important; }
+.biloo-mfa-notice.is-error { color:var(--acc-danger) !important; background:#fff1f0 !important; }
+.biloo-mfa-notice.is-success { color:var(--acc-success) !important; background:var(--acc-success-bg) !important; }
+.biloo-mfa-loading,
+.biloo-mfa-enrollment,
+.biloo-mfa-empty-state,
+.biloo-mfa-challenge,
+.biloo-mfa-ready-state,
+.biloo-mfa-factor-section { margin:14px 18px 0 !important; border:1px solid var(--acc-line) !important; border-radius:12px !important; background:#fff !important; }
+.biloo-mfa-loading { display:flex !important; align-items:center !important; gap:10px !important; padding:15px !important; background:var(--acc-soft) !important; }
+.biloo-mfa-loading > span { width:24px !important; height:24px !important; border:2px solid #d8dee7 !important; border-top-color:var(--acc-gold) !important; border-radius:50% !important; animation:biloo-account-spin .8s linear infinite !important; }
+.biloo-mfa-loading strong { display:block !important; font-size:12px !important; }
+.biloo-mfa-loading small { display:block !important; margin-top:2px !important; color:var(--acc-muted) !important; font-size:10px !important; }
+.biloo-mfa-enrollment { overflow:hidden !important; }
+.biloo-mfa-enrollment-head { display:flex !important; align-items:center !important; justify-content:space-between !important; gap:10px !important; padding:13px 14px !important; border-bottom:1px solid var(--acc-line) !important; background:var(--acc-soft) !important; }
+.biloo-mfa-enrollment-head h3,
+.biloo-mfa-empty-copy h3,
+.biloo-mfa-challenge-copy h3,
+.biloo-mfa-ready-state h3,
+.biloo-mfa-factor-section header h3 { margin:0 !important; color:var(--acc-ink) !important; font-size:14px !important; font-weight:740 !important; }
+.biloo-mfa-enrollment-head > span { color:var(--acc-muted) !important; font-size:10px !important; }
+.biloo-mfa-enrollment-grid { display:grid !important; grid-template-columns:210px minmax(0,1fr) !important; }
+.biloo-mfa-qr-column { display:flex !important; flex-direction:column !important; align-items:center !important; justify-content:center !important; gap:9px !important; padding:18px !important; border-right:1px solid var(--acc-line) !important; background:var(--acc-soft) !important; }
+.biloo-mfa-qr-frame { display:grid !important; width:170px !important; aspect-ratio:1 !important; place-items:center !important; padding:9px !important; border:1px solid var(--acc-line) !important; border-radius:12px !important; background:#fff !important; }
+.biloo-mfa-qr-frame img { width:100% !important; height:100% !important; object-fit:contain !important; }
+.biloo-mfa-qr-column > span { display:flex !important; align-items:center !important; gap:5px !important; color:var(--acc-muted) !important; font-size:10px !important; }
+.biloo-mfa-setup-column { display:grid !important; gap:12px !important; padding:16px !important; }
+.biloo-mfa-steps { display:grid !important; gap:8px !important; margin:0 !important; padding:0 !important; list-style:none !important; }
+.biloo-mfa-steps li { display:grid !important; grid-template-columns:26px minmax(0,1fr) !important; gap:8px !important; }
+.biloo-mfa-steps li > span { display:grid !important; width:26px !important; height:26px !important; place-items:center !important; border-radius:7px !important; color:#7a4d00 !important; background:#fff2d8 !important; font-size:10px !important; font-weight:800 !important; }
+.biloo-mfa-steps strong { display:block !important; color:var(--acc-ink) !important; font-size:12px !important; }
+.biloo-mfa-steps small { display:block !important; margin-top:2px !important; color:var(--acc-muted) !important; font-size:10px !important; }
+.biloo-mfa-manual-key { display:grid !important; grid-template-columns:minmax(0,1fr) auto !important; gap:7px 10px !important; align-items:center !important; padding:10px !important; border:1px dashed #cfd5de !important; border-radius:9px !important; background:var(--acc-soft) !important; }
+.biloo-mfa-manual-key div small { display:block !important; color:var(--acc-subtle) !important; font-size:9px !important; font-weight:750 !important; }
+.biloo-mfa-manual-key div strong { display:block !important; margin-top:2px !important; font-size:11px !important; }
+.biloo-mfa-manual-key code { grid-column:1/-1 !important; overflow-wrap:anywhere !important; color:#344054 !important; font-size:11px !important; letter-spacing:.05em !important; }
+.biloo-mfa-manual-key button { grid-column:2 !important; grid-row:1 !important; min-height:28px !important; padding:0 8px !important; border:1px solid var(--acc-line) !important; border-radius:7px !important; background:#fff !important; color:var(--acc-navy) !important; font-size:10px !important; font-weight:700 !important; }
+.biloo-mfa-code-field { display:grid !important; gap:6px !important; }
+.biloo-mfa-code-field > span { color:#344054 !important; font-size:11px !important; font-weight:700 !important; }
+.biloo-mfa-code-field > div { display:grid !important; grid-template-columns:38px minmax(0,1fr) !important; align-items:center !important; border:1px solid #cfd5de !important; border-radius:9px !important; background:#fff !important; }
+.biloo-mfa-code-field > div:focus-within { border-color:#d79212 !important; box-shadow:0 0 0 3px #fff2d8 !important; }
+.biloo-mfa-code-field > div > svg { margin-inline:auto !important; color:var(--acc-subtle) !important; }
+.biloo-mfa-code-field input { width:100% !important; height:42px !important; padding:0 10px 0 0 !important; border:0 !important; outline:0 !important; color:var(--acc-ink) !important; background:transparent !important; box-shadow:none !important; font-family:ui-monospace,SFMono-Regular,Menlo,monospace !important; font-size:16px !important; font-weight:750 !important; letter-spacing:.2em !important; }
+.biloo-mfa-code-field > small { color:var(--acc-muted) !important; font-size:10px !important; line-height:1.4 !important; }
+.biloo-mfa-actions { display:flex !important; flex-wrap:wrap !important; gap:7px !important; }
+.biloo-mfa-manager button.is-primary,
+.biloo-mfa-manager button.is-secondary,
+.biloo-mfa-empty-copy > button,
+.biloo-mfa-verify-button { display:inline-flex !important; min-height:38px !important; align-items:center !important; justify-content:center !important; gap:7px !important; padding:0 12px !important; border-radius:9px !important; font-size:12px !important; font-weight:720 !important; cursor:pointer !important; }
+.biloo-mfa-manager button.is-primary,
+.biloo-mfa-empty-copy > button,
+.biloo-mfa-verify-button { border:1px solid var(--acc-navy) !important; color:#fff !important; background:var(--acc-navy) !important; }
+.biloo-mfa-manager button.is-secondary { border:1px solid var(--acc-line) !important; color:var(--acc-navy) !important; background:#fff !important; }
+.biloo-mfa-manager button:disabled { opacity:.55 !important; cursor:not-allowed !important; }
+.biloo-mfa-empty-state { display:grid !important; grid-template-columns:120px minmax(0,1fr) !important; gap:16px !important; align-items:center !important; padding:17px !important; background:#fafbfc !important; }
+.biloo-mfa-empty-visual { display:grid !important; width:100px !important; height:100px !important; place-items:center !important; margin:auto !important; border-radius:50% !important; background:#fff !important; border:1px solid var(--acc-line) !important; }
+.biloo-mfa-empty-visual > span { display:grid !important; width:50px !important; height:50px !important; place-items:center !important; border-radius:14px !important; color:#7a4d00 !important; background:#fff2d8 !important; }
+.biloo-mfa-empty-visual > i { display:none !important; }
+.biloo-mfa-empty-copy > span { display:block !important; margin-top:5px !important; color:var(--acc-muted) !important; font-size:12px !important; line-height:1.5 !important; }
+.biloo-mfa-app-list { display:flex !important; flex-wrap:wrap !important; gap:5px !important; margin:10px 0 12px !important; }
+.biloo-mfa-app-list small { padding:5px 7px !important; border:1px solid var(--acc-line) !important; border-radius:999px !important; color:var(--acc-muted) !important; background:#fff !important; font-size:10px !important; }
+.biloo-mfa-challenge { display:grid !important; grid-template-columns:minmax(0,1fr) 190px auto !important; gap:12px !important; align-items:end !important; padding:15px !important; background:#fffbf3 !important; border-color:#f5d08b !important; }
+.biloo-mfa-challenge-copy { display:grid !important; grid-template-columns:40px minmax(0,1fr) !important; gap:10px !important; align-items:center !important; }
+.biloo-mfa-challenge-copy > span { display:grid !important; width:40px !important; height:40px !important; place-items:center !important; border-radius:10px !important; color:#7a4d00 !important; background:#fff0ce !important; }
+.biloo-mfa-challenge-copy small,
+.biloo-mfa-ready-state small { display:block !important; margin-top:3px !important; color:var(--acc-muted) !important; font-size:10px !important; line-height:1.4 !important; }
+.biloo-mfa-code-field.is-inline > small { display:none !important; }
+.biloo-mfa-ready-state { display:grid !important; grid-template-columns:44px minmax(0,1fr) auto !important; gap:11px !important; align-items:center !important; padding:14px !important; background:#f7fdf9 !important; border-color:#b7e4cc !important; }
+.biloo-mfa-ready-icon { display:grid !important; width:44px !important; height:44px !important; place-items:center !important; border-radius:11px !important; color:var(--acc-success) !important; background:var(--acc-success-bg) !important; }
+.biloo-mfa-ready-state > a { display:inline-flex !important; min-height:34px !important; align-items:center !important; gap:6px !important; padding:0 10px !important; border:1px solid #b7e4cc !important; border-radius:8px !important; color:var(--acc-success) !important; background:#fff !important; font-size:11px !important; font-weight:700 !important; text-decoration:none !important; }
+.biloo-mfa-factor-section { overflow:hidden !important; }
+.biloo-mfa-factor-section > header { display:flex !important; align-items:center !important; justify-content:space-between !important; gap:10px !important; padding:12px 13px !important; border-bottom:1px solid var(--acc-line) !important; background:var(--acc-soft) !important; }
+.biloo-mfa-factor-section > header > button { display:inline-flex !important; min-height:30px !important; align-items:center !important; gap:5px !important; padding:0 8px !important; border:1px solid var(--acc-line) !important; border-radius:7px !important; color:var(--acc-navy) !important; background:#fff !important; font-size:10px !important; font-weight:700 !important; }
+.biloo-mfa-factor-list article { position:relative !important; display:grid !important; grid-template-columns:38px minmax(0,1fr) auto auto !important; gap:9px !important; align-items:center !important; padding:11px 13px !important; border-bottom:1px solid var(--acc-line) !important; }
+.biloo-mfa-factor-list article:last-child { border-bottom:0 !important; }
+.biloo-mfa-factor-icon { display:grid !important; width:38px !important; height:38px !important; place-items:center !important; border-radius:10px !important; color:var(--acc-navy) !important; background:var(--acc-soft) !important; }
+.biloo-mfa-factor-list strong { display:block !important; color:var(--acc-ink) !important; font-size:12px !important; }
+.biloo-mfa-factor-list small { display:block !important; margin-top:2px !important; color:var(--acc-muted) !important; font-size:10px !important; }
+.biloo-mfa-factor-status { display:inline-flex !important; align-items:center !important; gap:5px !important; color:var(--acc-success) !important; font-size:10px !important; font-weight:700 !important; }
+.biloo-mfa-factor-status i { width:5px !important; height:5px !important; border-radius:50% !important; background:#12b76a !important; }
+.biloo-mfa-remove-button,
+.biloo-mfa-remove-confirm button { min-height:29px !important; padding:0 8px !important; border:1px solid var(--acc-line) !important; border-radius:7px !important; color:var(--acc-muted) !important; background:#fff !important; font-size:10px !important; font-weight:700 !important; }
+.biloo-mfa-remove-confirm { position:absolute !important; z-index:2 !important; inset:5px 7px 5px auto !important; display:flex !important; align-items:center !important; gap:5px !important; padding:5px 6px 5px 9px !important; border:1px solid #f1c3be !important; border-radius:9px !important; background:#fff !important; box-shadow:0 6px 18px rgba(20,33,61,.08) !important; }
+.biloo-mfa-remove-confirm > span { color:var(--acc-muted) !important; font-size:10px !important; }
+.biloo-mfa-factor-tip,
+.biloo-mfa-footer-note { display:flex !important; gap:7px !important; color:var(--acc-muted) !important; font-size:10px !important; line-height:1.45 !important; }
+.biloo-mfa-factor-tip { margin:0 !important; padding:9px 12px !important; border-top:1px solid var(--acc-line) !important; background:#fffbf3 !important; }
+.biloo-mfa-footer-note { margin-top:14px !important; padding:11px 18px 14px !important; border-top:1px solid var(--acc-line) !important; background:#fafbfc !important; }
+
+.biloo-account-access-flow { display:none !important; }
+
+/* MFA gate */
+body[data-workspace-system="financial-os-v1"] .mfa-required-page { display:grid !important; min-height:calc(100dvh - 40px) !important; place-items:center !important; padding:24px !important; background:var(--acc-soft) !important; }
+body[data-workspace-system="financial-os-v1"] .mfa-required-card { width:min(100%,620px) !important; padding:34px !important; border:1px solid var(--acc-line) !important; border-radius:18px !important; background:#fff !important; box-shadow:0 18px 50px rgba(20,33,61,.1) !important; text-align:left !important; }
+body[data-workspace-system="financial-os-v1"] .mfa-required-icon { display:grid !important; width:52px !important; height:52px !important; place-items:center !important; margin-bottom:18px !important; border-radius:14px !important; color:#7a4d00 !important; background:#fff2d8 !important; }
+body[data-workspace-system="financial-os-v1"] .mfa-required-card .eyebrow { margin:0 0 7px !important; color:var(--acc-subtle) !important; font-size:10px !important; font-weight:800 !important; letter-spacing:.09em !important; }
+body[data-workspace-system="financial-os-v1"] .mfa-required-card h1 { max-width:none !important; margin:0 !important; color:var(--acc-ink) !important; font-size:34px !important; font-weight:780 !important; letter-spacing:-.04em !important; line-height:1.08 !important; }
+body[data-workspace-system="financial-os-v1"] .mfa-required-card > p:not(.eyebrow) { margin:14px 0 0 !important; color:var(--acc-muted) !important; font-size:14px !important; line-height:1.6 !important; }
+body[data-workspace-system="financial-os-v1"] .mfa-required-actions { display:flex !important; flex-wrap:wrap !important; gap:8px !important; margin-top:20px !important; }
+body[data-workspace-system="financial-os-v1"] .mfa-required-actions a { display:inline-flex !important; min-height:40px !important; align-items:center !important; gap:7px !important; padding:0 13px !important; border-radius:9px !important; font-size:12px !important; font-weight:720 !important; text-decoration:none !important; }
+body[data-workspace-system="financial-os-v1"] .mfa-required-actions a.primary { border:1px solid var(--acc-navy) !important; color:#fff !important; background:var(--acc-navy) !important; }
+body[data-workspace-system="financial-os-v1"] .mfa-required-actions a.secondary { border:1px solid var(--acc-line) !important; color:var(--acc-navy) !important; background:#fff !important; }
+body[data-workspace-system="financial-os-v1"] .mfa-required-card > small { display:block !important; margin-top:16px !important; padding-top:13px !important; border-top:1px solid var(--acc-line) !important; color:var(--acc-muted) !important; font-size:11px !important; line-height:1.5 !important; }
+
+@media (max-width: 980px) {
+  body[data-workspace-system="financial-os-v1"] .workspace:has(.biloo-account-center) { padding-top:64px !important; }
+  body[data-workspace-system="financial-os-v1"] .biloo-account-center { padding:20px 18px 56px !important; }
+  .biloo-account-hero { grid-template-columns:1fr !important; }
+  .biloo-account-score-card { max-width:420px !important; }
+  .biloo-account-content-grid { grid-template-columns:1fr !important; }
+  .biloo-account-rail { grid-template-columns:repeat(2,minmax(0,1fr)) !important; }
+  .biloo-account-signout-card { grid-column:1/-1 !important; }
+  .biloo-mfa-challenge { grid-template-columns:1fr 190px !important; }
+  .biloo-mfa-verify-button { grid-column:2 !important; }
+}
+
+@media (max-width: 700px) {
+  .biloo-account-setup-banner { grid-template-columns:40px minmax(0,1fr) !important; }
+  .biloo-account-setup-banner > a { grid-column:2 !important; width:fit-content !important; }
+  .biloo-account-hero { padding:22px !important; border-radius:15px !important; }
+  .biloo-account-hero h1 { font-size:32px !important; }
+  .biloo-account-score-card { grid-template-columns:72px minmax(0,1fr) !important; }
+  .biloo-account-score-ring { width:72px !important; height:72px !important; }
+  .biloo-account-section-nav { width:100% !important; top:64px !important; }
+  .biloo-account-profile-card > header { grid-template-columns:52px minmax(0,1fr) !important; padding:16px !important; }
+  .biloo-account-avatar { width:52px !important; height:52px !important; }
+  .biloo-account-live-badge { grid-column:2 !important; width:fit-content !important; }
+  .biloo-account-details-list { grid-template-columns:1fr !important; }
+  .biloo-account-details-list > div,
+  .biloo-account-details-list > div:nth-child(odd) { border-right:0 !important; border-bottom:1px solid var(--acc-line) !important; }
+  .biloo-account-details-list > div:last-child { border-bottom:0 !important; }
+  .biloo-account-identity-card { grid-template-columns:42px minmax(0,1fr) !important; }
+  .biloo-account-identity-actions { grid-column:2 !important; align-items:flex-start !important; }
+  .biloo-account-rail { grid-template-columns:1fr !important; }
+  .biloo-account-signout-card { grid-column:auto !important; }
+  .biloo-mfa-header { align-items:flex-start !important; flex-direction:column !important; }
+  .biloo-mfa-enrollment-grid { grid-template-columns:1fr !important; }
+  .biloo-mfa-qr-column { border-right:0 !important; border-bottom:1px solid var(--acc-line) !important; }
+  .biloo-mfa-empty-state { grid-template-columns:1fr !important; }
+  .biloo-mfa-challenge { grid-template-columns:1fr !important; }
+  .biloo-mfa-verify-button { grid-column:auto !important; }
+  .biloo-mfa-ready-state { grid-template-columns:44px minmax(0,1fr) !important; }
+  .biloo-mfa-ready-state > a { grid-column:2 !important; width:fit-content !important; }
+}
+
+@media (max-width: 480px) {
+  body[data-workspace-system="financial-os-v1"] .biloo-account-center { padding-inline:12px !important; }
+  .biloo-account-hero { padding:20px 16px !important; }
+  .biloo-account-score-card { grid-template-columns:1fr !important; }
+  .biloo-account-score-ring { margin-inline:auto !important; }
+  .biloo-account-profile-body,
+  .biloo-account-rail-card,
+  .biloo-account-signout-card { padding:15px !important; }
+  .biloo-account-session-grid,
+  .biloo-mfa-metrics { grid-template-columns:1fr !important; }
+  .biloo-mfa-description { padding-inline:14px !important; }
+  .biloo-mfa-metrics,
+  .biloo-mfa-notice,
+  .biloo-mfa-loading,
+  .biloo-mfa-enrollment,
+  .biloo-mfa-empty-state,
+  .biloo-mfa-challenge,
+  .biloo-mfa-ready-state,
+  .biloo-mfa-factor-section { margin-inline:11px !important; }
+  .biloo-mfa-footer-note { padding-inline:13px !important; }
+  .biloo-mfa-factor-list article { grid-template-columns:36px minmax(0,1fr) auto !important; }
+  .biloo-mfa-factor-status { display:none !important; }
+  body[data-workspace-system="financial-os-v1"] .mfa-required-page { padding:12px !important; }
+  body[data-workspace-system="financial-os-v1"] .mfa-required-card { padding:24px 18px !important; }
+  body[data-workspace-system="financial-os-v1"] .mfa-required-card h1 { font-size:30px !important; }
+}
+
+@keyframes biloo-account-spin { to { transform:rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .biloo-account-center *,
+  .biloo-mfa-manager *,
+  .mfa-required-page * { animation-duration:.01ms !important; transition:none !important; }
+}

@@ -1,0 +1,8 @@
+{
+  "application": "Biloo ERP",
+  "brand": "Biloo",
+  "environment": "production",
+  "deployedAt": "2026-07-30T16:36:11+03:00",
+  "sourceCommit": "aa458aafa538867127b41935d0829bb2531c7cbd",
+  "release": "zylo-style-dashboard-monitor-v1"
+}

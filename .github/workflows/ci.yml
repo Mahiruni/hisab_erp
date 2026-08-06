@@ -1,0 +1,82 @@
+name: Hisab ERP CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Localization coverage
+        id: localization
+        run: npm run i18n:check 2>&1 | tee localization.log
+      - name: Upload localization diagnostics
+        if: failure() && steps.localization.outcome == 'failure'
+        uses: actions/upload-artifact@v4
+        with:
+          name: localization-diagnostics
+          path: |
+            localization.log
+            i18n-audit-report.json
+            translation-overrides-report.json
+          retention-days: 3
+      - name: Translation quality
+        id: translation_quality
+        run: npm run i18n:quality 2>&1 | tee translation-quality.log
+      - name: Upload translation quality diagnostics
+        if: failure() && steps.translation_quality.outcome == 'failure'
+        uses: actions/upload-artifact@v4
+        with:
+          name: translation-quality-diagnostics
+          path: |
+            translation-quality.log
+            translation-quality-report.json
+            translation-overrides-report.json
+          retention-days: 7
+      - name: TypeScript
+        id: typecheck
+        run: npm run typecheck 2>&1 | tee typecheck.log
+      - name: Upload TypeScript diagnostics
+        if: failure() && steps.typecheck.outcome == 'failure'
+        uses: actions/upload-artifact@v4
+        with:
+          name: typecheck-diagnostics
+          path: typecheck.log
+          retention-days: 3
+      - name: Tests
+        id: tests
+        run: npm test 2>&1 | tee test.log
+      - name: Upload test diagnostics
+        if: failure() && steps.tests.outcome == 'failure'
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-diagnostics
+          path: test.log
+          retention-days: 3
+      - name: Production build
+        id: production_build
+        run: npm run build 2>&1 | tee production-build.log
+      - name: Upload production build diagnostics
+        if: failure() && steps.production_build.outcome == 'failure'
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-build-diagnostics
+          path: production-build.log
+          retention-days: 3
+      - name: Production dependency audit
+        run: npm run audit:production

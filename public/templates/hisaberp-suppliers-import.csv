@@ -1,0 +1,2 @@
+supplier_code,supplier_name,email,phone,tin,opening_payable_etb,notes
+SUP-001,Example Supplier,supplier@example.com,+251900000000,,0,Replace this example before import

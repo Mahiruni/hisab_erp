@@ -1,0 +1,5 @@
+{
+  "sourceRelease": "d1f035986c968d26afd5826fd051bb103f7dcc59",
+  "requestedAt": "2026-07-22T13:03:03Z",
+  "purpose": "Trigger the final HisabTech static ISR production deployment after the Vercel rolling build-rate window."
+}

@@ -1,0 +1,2 @@
+sku,product_name,description,unit,selling_price_etb,cost_price_etb,reorder_level,opening_quantity,branch_or_warehouse,notes
+SKU-001,Example Product,Replace this example,unit,0,0,0,0,Main,Replace this example before import

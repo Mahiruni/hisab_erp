@@ -1,0 +1,44 @@
+name: Production release gate
+
+on:
+  workflow_dispatch:
+    inputs:
+      production_url:
+        description: Production URL to verify
+        required: false
+        default: https://www.hisabtech.com
+  schedule:
+    - cron: "15 3 * * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production-release-gate
+  cancel-in-progress: false
+
+jobs:
+  verify-production:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      HISAB_PRODUCTION_URL: ${{ inputs.production_url || 'https://www.hisabtech.com' }}
+      HISAB_RELEASE_REPORT: production-release-gate-report.json
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Verify public health, authentication and access boundaries
+        run: node scripts/production-release-gate.mjs
+
+      - name: Upload production release evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-release-gate-${{ github.run_id }}
+          path: production-release-gate-report.json
+          if-no-files-found: error
+          retention-days: 30

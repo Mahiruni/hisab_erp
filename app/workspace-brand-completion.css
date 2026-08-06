@@ -1,0 +1,339 @@
+/* Final workspace brand completion. Loaded after legacy module styles. */
+body[data-workspace-system="financial-os-v1"] {
+  --workspace-page-bg: #fffaf7;
+  --workspace-panel: #ffffff;
+  --workspace-panel-muted: #fff5f0;
+  --workspace-border: #eadbd5;
+  --workspace-text: #1a1a1a;
+  --workspace-muted: #76655f;
+  --workspace-brand: #e17a5b;
+  --workspace-brand-strong: #b55a3f;
+  --workspace-brand-soft: rgba(225, 122, 91, .12);
+  --workspace-hero: #1a1a1a;
+  --workspace-hero-text: #ededed;
+}
+
+html[data-theme="dark"] body[data-workspace-system="financial-os-v1"] {
+  --workspace-page-bg: #000000;
+  --workspace-panel: #0d0d0d;
+  --workspace-panel-muted: #15100e;
+  --workspace-border: #3b2c27;
+  --workspace-text: #ededed;
+  --workspace-muted: #bda9a1;
+  --workspace-brand-soft: rgba(225, 122, 91, .16);
+  --workspace-hero: #0d0d0d;
+}
+
+body[data-workspace-system="financial-os-v1"] .workspace :is(
+  .finance-page,
+  .sales-page,
+  .core-page,
+  .ops-page,
+  .controls-page,
+  .einvoice-page,
+  .recon-page,
+  .account-page,
+  .guided-setup-page,
+  .section-page-modern
+) {
+  background:
+    radial-gradient(circle at 92% 0, rgba(225, 122, 91, .12), transparent 28%),
+    var(--workspace-page-bg) !important;
+  color: var(--workspace-text) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .workspace :is([class$="-hero"], [class*="-hero "]) {
+  border: 1px solid rgba(225, 122, 91, .28) !important;
+  background:
+    radial-gradient(circle at 92% 4%, rgba(225, 122, 91, .25), transparent 32%),
+    linear-gradient(135deg, var(--workspace-hero), #241b18) !important;
+  color: var(--workspace-hero-text) !important;
+  box-shadow: 0 22px 58px rgba(26, 26, 26, .18) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .workspace :is([class$="-hero"], [class*="-hero "]) :is(.eyebrow, small) {
+  color: #f0b29c !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .workspace :is([class$="-hero"], [class*="-hero "]) p {
+  color: #d8c9c3 !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .workspace :is(
+  [class$="-hero-state"],
+  [class*="-hero-state "],
+  .finance-hero-state,
+  .einvoice-hero-state,
+  .recon-hero-state
+) {
+  border-color: rgba(225, 122, 91, .34) !important;
+  background: rgba(225, 122, 91, .11) !important;
+  color: #ededed !important;
+  box-shadow: none !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .workspace :is(
+  .finance-panel,
+  .sales-panel,
+  .core-panel,
+  .ops-panel,
+  .controls-panel,
+  .einvoice-panel,
+  .recon-panel,
+  .account-card,
+  .module-card,
+  .data-panel
+) {
+  border-color: var(--workspace-border) !important;
+  background: var(--workspace-panel) !important;
+  color: var(--workspace-text) !important;
+  box-shadow: 0 14px 38px rgba(26, 26, 26, .06) !important;
+}
+
+html[data-theme="dark"] body[data-workspace-system="financial-os-v1"] .workspace :is(
+  .finance-panel,
+  .sales-panel,
+  .core-panel,
+  .ops-panel,
+  .controls-panel,
+  .einvoice-panel,
+  .recon-panel,
+  .account-card,
+  .module-card,
+  .data-panel
+) {
+  box-shadow: 0 14px 40px rgba(0, 0, 0, .34) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .workspace :is(input, select, textarea):focus {
+  border-color: var(--workspace-brand) !important;
+  box-shadow: 0 0 0 3px rgba(225, 122, 91, .16) !important;
+  outline: none !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .workspace :is(
+  .finance-tabs,
+  .sales-tabs,
+  .core-tabs,
+  .ops-tabs,
+  .module-tabs,
+  .recon-tabs
+) button.active {
+  border-color: var(--workspace-brand) !important;
+  background: var(--workspace-brand) !important;
+  color: #1a1a1a !important;
+  box-shadow: none !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .workspace :is(
+  .finance-form button,
+  .sales-form button,
+  .core-form button,
+  .ops-form button,
+  .controls-form button,
+  .einvoice-form button.primary,
+  .einvoice-response-form button.primary,
+  .einvoice-action-row button:not(.secondary),
+  .recon-page button.primary,
+  .period-action button,
+  .asset-card footer button
+) {
+  border-color: var(--workspace-brand) !important;
+  background: var(--workspace-brand) !important;
+  color: #1a1a1a !important;
+  box-shadow: none !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .workspace :is(
+  .einvoice-action-row button.secondary,
+  .recon-page button.secondary
+) {
+  border: 1px solid var(--workspace-border) !important;
+  background: var(--workspace-panel-muted) !important;
+  color: var(--workspace-brand-strong) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .workspace :is(a, summary)[class*="verify"],
+body[data-workspace-system="financial-os-v1"] .workspace :is(.einvoice-action-details summary, .recon-match-details summary, .recon-match-record summary) {
+  color: var(--workspace-brand-strong) !important;
+}
+
+/* Electronic invoicing: remove the remaining legacy navy/blue identity. */
+body[data-workspace-system="financial-os-v1"] .einvoice-page {
+  max-width: 1700px;
+  margin: 0 auto;
+}
+
+body[data-workspace-system="financial-os-v1"] .einvoice-hero-state > span.ready,
+body[data-workspace-system="financial-os-v1"] .finance-live-dot,
+body[data-workspace-system="financial-os-v1"] .recon-hero-state > span {
+  background: var(--workspace-brand) !important;
+  box-shadow: 0 0 0 6px rgba(225, 122, 91, .15) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .einvoice-hero-state > span.pending {
+  background: #b55a3f !important;
+  box-shadow: 0 0 0 6px rgba(181, 90, 63, .17) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .einvoice-notice,
+body[data-workspace-system="financial-os-v1"] .recon-notice,
+body[data-workspace-system="financial-os-v1"] .recon-suggestion {
+  border-color: rgba(225, 122, 91, .30) !important;
+  background: var(--workspace-brand-soft) !important;
+  color: var(--workspace-text) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] :is(.einvoice-notice, .recon-notice, .recon-suggestion) strong {
+  color: var(--workspace-brand-strong) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] :is(.einvoice-notice, .recon-notice, .recon-suggestion) p,
+body[data-workspace-system="financial-os-v1"] .einvoice-panel-intro,
+body[data-workspace-system="financial-os-v1"] .recon-panel-intro {
+  color: var(--workspace-muted) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .einvoice-kpis article,
+body[data-workspace-system="financial-os-v1"] .recon-kpis article,
+body[data-workspace-system="financial-os-v1"] .einvoice-document-card,
+body[data-workspace-system="financial-os-v1"] .recon-provider-grid article {
+  border-color: var(--workspace-border) !important;
+  background: var(--workspace-panel) !important;
+  color: var(--workspace-text) !important;
+  box-shadow: 0 10px 28px rgba(26, 26, 26, .05) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .einvoice-kpis article {
+  border-top: 3px solid var(--workspace-brand) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .einvoice-filters button {
+  border-color: var(--workspace-border) !important;
+  background: var(--workspace-panel-muted) !important;
+  color: var(--workspace-muted) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .einvoice-filters button.active {
+  border-color: var(--workspace-brand) !important;
+  background: var(--workspace-brand-soft) !important;
+  color: var(--workspace-brand-strong) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] :is(
+  .einvoice-form input,
+  .einvoice-form select,
+  .einvoice-form textarea,
+  .einvoice-response-form input,
+  .einvoice-response-form textarea,
+  .einvoice-compact-form input,
+  .einvoice-compact-form textarea
+) {
+  border-color: var(--workspace-border) !important;
+  background: var(--workspace-panel-muted) !important;
+  color: var(--workspace-text) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .einvoice-document-summary span,
+body[data-workspace-system="financial-os-v1"] .einvoice-evidence span,
+body[data-workspace-system="financial-os-v1"] .einvoice-response-form,
+body[data-workspace-system="financial-os-v1"] .einvoice-compact-form {
+  border-color: var(--workspace-border) !important;
+  background: var(--workspace-panel-muted) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .einvoice-status {
+  border: 1px solid var(--workspace-border) !important;
+  background: var(--workspace-panel-muted) !important;
+  color: var(--workspace-brand-strong) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .einvoice-status:is(.ready, .accepted, .queued, .submitting, .review, .cancel_pending) {
+  border-color: rgba(225, 122, 91, .34) !important;
+  background: var(--workspace-brand-soft) !important;
+  color: var(--workspace-brand-strong) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .einvoice-status:is(.rejected, .failed, .suspended, .cancelled) {
+  border-color: rgba(143, 65, 44, .32) !important;
+  background: rgba(143, 65, 44, .12) !important;
+  color: #8f412c !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .einvoice-error {
+  border-color: rgba(143, 65, 44, .30) !important;
+  background: rgba(143, 65, 44, .10) !important;
+  color: #8f412c !important;
+}
+
+/* Reconciliation and other unfinished operational modules. */
+body[data-workspace-system="financial-os-v1"] .recon-provider-mark {
+  background: var(--workspace-brand) !important;
+  color: #1a1a1a !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .recon-provider-grid code,
+body[data-workspace-system="financial-os-v1"] :is(.recon-check, .recon-import-help, .recon-transaction-grid span, .recon-narrative, .recon-formula, .recon-match-record, .recon-compact-list article) {
+  border-color: var(--workspace-border) !important;
+  background: var(--workspace-panel-muted) !important;
+  color: var(--workspace-muted) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .recon-transaction {
+  border-color: var(--workspace-border) !important;
+  border-left-color: var(--workspace-brand) !important;
+  background: var(--workspace-panel) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .recon-status {
+  background: var(--workspace-brand-soft) !important;
+  color: var(--workspace-brand-strong) !important;
+}
+
+/* Account and floating user controls use the same brand family. */
+body[data-workspace-system="financial-os-v1"] .sticky-user-trigger {
+  border-color: var(--workspace-border) !important;
+  background: var(--workspace-panel) !important;
+  box-shadow: none !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .sticky-user-trigger:hover,
+body[data-workspace-system="financial-os-v1"] .sticky-user-trigger[aria-expanded="true"] {
+  border-color: var(--workspace-brand) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] :is(.sticky-user-avatar, .sticky-user-profile-avatar) {
+  background: var(--workspace-brand-soft) !important;
+  color: var(--workspace-brand-strong) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .sticky-user-popover {
+  border-color: var(--workspace-border) !important;
+  background: var(--workspace-panel) !important;
+  color: var(--workspace-text) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .sticky-user-context,
+body[data-workspace-system="financial-os-v1"] .sticky-user-popover nav a:hover {
+  border-color: var(--workspace-border) !important;
+  background: var(--workspace-panel-muted) !important;
+}
+
+@media (max-width: 760px) {
+  body[data-workspace-system="financial-os-v1"] .workspace :is([class$="-hero"], [class*="-hero "]) {
+    border-radius: 20px !important;
+    padding: 22px 18px !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .einvoice-page,
+  body[data-workspace-system="financial-os-v1"] .recon-page {
+    padding: 14px 12px 28px !important;
+    gap: 14px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-workspace-system="financial-os-v1"] .workspace * {
+    scroll-behavior: auto !important;
+  }
+}

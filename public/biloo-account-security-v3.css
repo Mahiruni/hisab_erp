@@ -1,0 +1,115 @@
+/* Biloo global MFA access gate. The account route owns its UI in app/account/account.css. */
+
+.mfa-required-page {
+  --acc-ink: #172033;
+  --acc-navy: #14213d;
+  --acc-gold: #fca311;
+  --acc-muted: #667085;
+  --acc-subtle: #98a2b3;
+  --acc-line: #e4e7ec;
+  --acc-soft: #f7f8fa;
+  font-family: var(--font-biloo-manrope), Manrope, Inter, "Segoe UI", sans-serif !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .mfa-required-page {
+  display: grid !important;
+  min-height: calc(100dvh - 40px) !important;
+  place-items: center !important;
+  padding: 24px !important;
+  background: var(--acc-soft) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .mfa-required-card {
+  width: min(100%, 620px) !important;
+  padding: 34px !important;
+  border: 1px solid var(--acc-line) !important;
+  border-radius: 18px !important;
+  color: var(--acc-ink) !important;
+  background: #fff !important;
+  box-shadow: 0 18px 50px rgba(20, 33, 61, .10) !important;
+  text-align: left !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .mfa-required-icon {
+  display: grid !important;
+  width: 52px !important;
+  height: 52px !important;
+  place-items: center !important;
+  margin-bottom: 18px !important;
+  border-radius: 14px !important;
+  color: #7a4d00 !important;
+  background: #fff2d8 !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .mfa-required-card .eyebrow {
+  margin: 0 0 7px !important;
+  color: var(--acc-subtle) !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  letter-spacing: .09em !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .mfa-required-card h1 {
+  max-width: none !important;
+  margin: 0 !important;
+  color: var(--acc-ink) !important;
+  font-size: 34px !important;
+  font-weight: 780 !important;
+  letter-spacing: -.04em !important;
+  line-height: 1.08 !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .mfa-required-card > p:not(.eyebrow) {
+  margin: 14px 0 0 !important;
+  color: var(--acc-muted) !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .mfa-required-actions {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  margin-top: 20px !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .mfa-required-actions a {
+  display: inline-flex !important;
+  min-height: 40px !important;
+  align-items: center !important;
+  gap: 7px !important;
+  padding: 0 13px !important;
+  border-radius: 9px !important;
+  font-size: 12px !important;
+  font-weight: 720 !important;
+  text-decoration: none !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .mfa-required-actions a.primary {
+  border: 1px solid var(--acc-navy) !important;
+  color: #fff !important;
+  background: var(--acc-navy) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .mfa-required-actions a.secondary {
+  border: 1px solid var(--acc-line) !important;
+  color: var(--acc-navy) !important;
+  background: #fff !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .mfa-required-card > small {
+  display: block !important;
+  margin-top: 16px !important;
+  padding-top: 13px !important;
+  border-top: 1px solid var(--acc-line) !important;
+  color: var(--acc-muted) !important;
+  font-size: 11px !important;
+  line-height: 1.5 !important;
+}
+
+@media (max-width: 480px) {
+  body[data-workspace-system="financial-os-v1"] .mfa-required-page { padding: 12px !important; }
+  body[data-workspace-system="financial-os-v1"] .mfa-required-card { padding: 24px 18px !important; }
+  body[data-workspace-system="financial-os-v1"] .mfa-required-card h1 { font-size: 30px !important; }
+  body[data-workspace-system="financial-os-v1"] .mfa-required-actions { display: grid !important; }
+}

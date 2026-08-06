@@ -1,0 +1,162 @@
+[
+  {
+    "source": "HisabTech support",
+    "am": "የHisabTech ድጋፍ"
+  },
+  {
+    "source": "Complete product guidance for setup, daily operations, finance, security, and troubleshooting.",
+    "am": "ለማዋቀር፣ ለዕለታዊ ስራዎች፣ ለፋይናንስ፣ ለደህንነት እና ለችግኝ መፍትሄ የተሟላ የምርት መመሪያ።"
+  },
+  {
+    "source": "Complete HisabTech guidance for setup, operations, finance, security, and troubleshooting.",
+    "am": "ለማዋቀር፣ ለስራዎች፣ ለፋይናንስ፣ ለደህንነት እና ለችግኝ መፍትሄ የተሟላ የHisabTech መመሪያ።"
+  },
+  {
+    "source": "How can we help?",
+    "am": "እንዴት ልንረዳዎት እንችላለን?"
+  },
+  {
+    "source": "Learn HisabTech workflows, controls, and safe operating practices for {0}.",
+    "am": "ለ{0} የHisabTech የስራ ሂደቶችን፣ ቁጥጥሮችን እና ደህንነታቸው የተጠበቀ የአሠራር ልምዶችን ይማሩ።"
+  },
+  {
+    "source": "Search help articles",
+    "am": "የእገዛ ጽሑፎችን ፈልግ"
+  },
+  {
+    "source": "Search setup, invoices, stock, reports, security…",
+    "am": "ማዋቀር፣ ደረሰኞች፣ ክምችት፣ ሪፖርቶች፣ ደህንነት… ፈልግ"
+  },
+  {
+    "source": "Clear help search",
+    "am": "የእገዛ ፍለጋን አጽዳ"
+  },
+  {
+    "source": "Start here",
+    "am": "ከዚህ ይጀምሩ"
+  },
+  {
+    "source": "Popular guides",
+    "am": "ታዋቂ መመሪያዎች"
+  },
+  {
+    "source": "Recommended for most users",
+    "am": "ለአብዛኛዎቹ ተጠቃሚዎች የሚመከር"
+  },
+  {
+    "source": "Set up your company",
+    "am": "ኩባንያዎን ያዋቅሩ"
+  },
+  {
+    "source": "Complete organization details, security controls, and the guided launch checklist.",
+    "am": "የድርጅት መረጃን፣ የደህንነት ቁጥጥሮችን እና የተመራ የማስጀመሪያ ዝርዝርን ያጠናቅቁ።"
+  },
+  {
+    "source": "Create your first invoice",
+    "am": "የመጀመሪያዎን ደረሰኝ ይፍጠሩ"
+  },
+  {
+    "source": "Add a customer, confirm stock, calculate VAT, and post a protected sales invoice.",
+    "am": "ደንበኛ ያክሉ፣ ክምችትን ያረጋግጡ፣ ቫትን ያስሉ እና የተጠበቀ የሽያጭ ደረሰኝ ይመዝግቡ።"
+  },
+  {
+    "source": "Review business performance",
+    "am": "የንግድ አፈጻጸምን ይገምግሙ"
+  },
+  {
+    "source": "Understand sales, expenses, cash, operating result, and exportable reports.",
+    "am": "ሽያጭ፣ ወጪ፣ ጥሬ ገንዘብ፣ የስራ ውጤት እና ሊወጡ የሚችሉ ሪፖርቶችን ይረዱ።"
+  },
+  {
+    "source": "Configure authenticator MFA and review session assurance before sensitive work.",
+    "am": "ስሱ ስራ ከመጀመር በፊት የማረጋገጫ MFAን ያዋቅሩ እና የክፍለ ጊዜ ማረጋገጫን ይገምግሙ።"
+  },
+  {
+    "source": "Recommended order",
+    "am": "የሚመከር ቅደም ተከተል"
+  },
+  {
+    "source": "Your first operating workflow",
+    "am": "የመጀመሪያዎ የስራ ሂደት"
+  },
+  {
+    "source": "Secure the account",
+    "am": "መለያውን ያስጠብቁ"
+  },
+  {
+    "source": "Enroll MFA and confirm the correct organization and role.",
+    "am": "MFAን ያስመዝግቡ እና ትክክለኛውን ድርጅትና ሚና ያረጋግጡ።"
+  },
+  {
+    "source": "Configure the company",
+    "am": "ኩባንያውን ያዋቅሩ"
+  },
+  {
+    "source": "Complete setup, tax, accounting, stock, and invoice defaults.",
+    "am": "የማዋቀር፣ የግብር፣ የሂሳብ፣ የክምችት እና የደረሰኝ ነባሪ ቅንብሮችን ያጠናቅቁ።"
+  },
+  {
+    "source": "Create master records",
+    "am": "ዋና መዝገቦችን ይፍጠሩ"
+  },
+  {
+    "source": "Add customers and products before transactional work.",
+    "am": "ግብይት ከመጀመር በፊት ደንበኞችን እና ምርቶችን ያክሉ።"
+  },
+  {
+    "source": "Test, post, and review",
+    "am": "ይፈትሹ፣ ይመዝግቡ እና ይገምግሙ"
+  },
+  {
+    "source": "Use test records, review accounting impact, then confirm reports.",
+    "am": "የሙከራ መዝገቦችን ይጠቀሙ፣ የሂሳብ ተጽእኖን ይገምግሙ እና ከዚያ ሪፖርቶችን ያረጋግጡ።"
+  },
+  {
+    "source": "Search results",
+    "am": "የፍለጋ ውጤቶች"
+  },
+  {
+    "source": "Knowledge base",
+    "am": "የእውቀት ማዕከል"
+  },
+  {
+    "source": "{0} matching articles",
+    "am": "{0} የሚዛመዱ ጽሑፎች"
+  },
+  {
+    "source": "HisabTech user guide",
+    "am": "የHisabTech ተጠቃሚ መመሪያ"
+  },
+  {
+    "source": "Select an article to expand it",
+    "am": "ጽሑፉን ለማስፋት ይምረጡ"
+  },
+  {
+    "source": "{0} articles",
+    "am": "{0} ጽሑፎች"
+  },
+  {
+    "source": "No help articles match your search.",
+    "am": "ከፍለጋዎ ጋር የሚዛመዱ የእገዛ ጽሑፎች የሉም።"
+  },
+  {
+    "source": "Try a module name such as sales, inventory, finance, reports, security, or setup.",
+    "am": "እንደ ሽያጭ፣ ክምችት፣ ፋይናንስ፣ ሪፖርቶች፣ ደህንነት ወይም ማዋቀር ያለ የሞጁል ስም ይሞክሩ።"
+  },
+  {
+    "source": "Clear search",
+    "am": "ፍለጋን አጽዳ"
+  },
+  {
+    "source": "Expand sidebar",
+    "am": "የጎን ምናሌውን አስፋ"
+  },
+  {
+    "source": "Hover or focus",
+    "am": "ያንዣብቡ ወይም ትኩረት ያድርጉ"
+  },
+  {
+    "source": "Help content is read-only. Opening or searching this panel never changes business records.",
+    "am": "የእገዛ ይዘቱ ለንባብ ብቻ ነው። ይህን ፓነል መክፈት ወይም መፈለግ የንግድ መዝገቦችን ፈጽሞ አይቀይርም።"
+  }
+]

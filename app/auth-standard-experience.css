@@ -1,0 +1,256 @@
+/* Final HisabTech sign-in and sign-up experience. */
+.auth-standard-page {
+  min-height: 100dvh;
+  padding: 0 !important;
+  background: var(--ui-canvas) !important;
+}
+
+.auth-standard-shell {
+  display: grid;
+  grid-template-columns: minmax(360px, .92fr) minmax(520px, 1.08fr);
+  min-height: 100dvh;
+}
+
+.auth-standard-showcase {
+  position: relative;
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: clamp(28px, 4vw, 58px);
+  background:
+    radial-gradient(circle at 82% 15%, rgba(218, 119, 87, .28), transparent 30%),
+    radial-gradient(circle at 10% 90%, rgba(218, 119, 87, .16), transparent 32%),
+    var(--hisab-logo-charcoal);
+  color: #fff8f4;
+}
+
+.auth-standard-showcase::after {
+  position: absolute;
+  right: -120px;
+  bottom: -120px;
+  width: 360px;
+  height: 360px;
+  border: 1px solid rgba(218, 119, 87, .22);
+  border-radius: 50%;
+  box-shadow: 0 0 0 54px rgba(218, 119, 87, .04), 0 0 0 108px rgba(218, 119, 87, .025);
+  content: "";
+  pointer-events: none;
+}
+
+.auth-standard-brand {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 11px;
+  color: inherit !important;
+  text-decoration: none;
+}
+
+.auth-standard-brand img { width: 44px; height: 44px; }
+.auth-standard-brand > span { display: grid; gap: 1px; }
+.auth-standard-brand strong { color: inherit !important; font-size: 1.05rem; letter-spacing: -.02em; }
+.auth-standard-brand small { color: #cdbbb4 !important; font-size: .72rem; }
+
+.auth-standard-showcase-copy {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 590px);
+  margin-block: 72px;
+}
+
+.auth-standard-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  color: #f0b29c !important;
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.auth-standard-badge i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--hisab-logo-terracotta);
+  box-shadow: 0 0 0 5px rgba(218, 119, 87, .15);
+}
+
+.auth-standard-showcase h2 {
+  max-width: 600px;
+  margin: 0 0 18px;
+  color: #fff8f4 !important;
+  font-size: clamp(2rem, 3.4vw, 3.5rem);
+  line-height: 1.05 !important;
+  letter-spacing: -.05em;
+}
+
+.auth-standard-showcase-copy > p {
+  max-width: 540px;
+  margin: 0;
+  color: #dec9c0 !important;
+  font-size: clamp(.98rem, 1.25vw, 1.12rem);
+  line-height: 1.7;
+}
+
+.auth-standard-benefits {
+  display: grid;
+  gap: 17px;
+  margin: 34px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.auth-standard-benefits li { display: grid; grid-template-columns: 30px 1fr; gap: 12px; align-items: start; }
+.auth-standard-benefits li > span {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border: 1px solid rgba(218, 119, 87, .34);
+  border-radius: 9px;
+  background: rgba(218, 119, 87, .12);
+  color: #f0b29c !important;
+  font-size: .8rem;
+  font-weight: 700;
+}
+.auth-standard-benefits div { display: grid; gap: 3px; }
+.auth-standard-benefits strong { color: #fff8f4 !important; font-size: .92rem; }
+.auth-standard-benefits small { color: #bea9a0 !important; font-size: .8rem; line-height: 1.5; }
+.auth-standard-trust { position: relative; z-index: 1; margin: 0; color: #bea9a0 !important; font-size: .76rem; }
+.auth-standard-trust span { color: var(--hisab-logo-terracotta) !important; }
+
+.auth-standard-form-side {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(30px, 5vw, 72px) clamp(20px, 6vw, 96px);
+  background: var(--ui-canvas);
+}
+
+.auth-standard-mobile-topbar { display: none; }
+.auth-standard-card { width: min(100%, 520px); }
+.auth-standard-heading { margin-bottom: 30px; }
+.auth-standard-eyebrow {
+  margin: 0 0 10px;
+  color: var(--ui-brand-strong) !important;
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.auth-standard-heading h1 { margin: 0 0 12px; font-size: clamp(2rem, 3vw, 2.75rem) !important; line-height: 1.08 !important; letter-spacing: -.045em !important; }
+.auth-standard-heading > p:last-child { max-width: 490px; margin: 0; color: var(--ui-text-secondary) !important; font-size: .96rem; line-height: 1.65; }
+
+.auth-standard-form { display: grid; gap: 18px; }
+.auth-standard-field { display: grid; gap: 8px; margin: 0; }
+.auth-standard-field > span:not(.auth-standard-label-row),
+.auth-standard-label-row b { color: var(--ui-text) !important; font-size: .84rem; font-weight: 650; }
+.auth-standard-label-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.auth-standard-label-row a { color: var(--ui-brand-strong) !important; font-size: .8rem; font-weight: 650; text-decoration: none; }
+.auth-standard-field input:not([type="checkbox"]) {
+  width: 100%;
+  min-height: 50px;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid var(--ui-border) !important;
+  border-radius: 11px !important;
+  background: var(--ui-surface) !important;
+  color: var(--ui-text) !important;
+  box-shadow: none !important;
+}
+.auth-standard-field input:hover { border-color: var(--ui-border-strong) !important; }
+.auth-standard-field input:focus { border-color: var(--ui-brand) !important; box-shadow: 0 0 0 4px var(--ui-brand-ring) !important; outline: 0; }
+.auth-standard-field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.auth-standard-password-help { margin: -8px 0 0; color: var(--ui-text-muted) !important; font-size: .77rem; }
+
+.auth-standard-consent { display: grid; grid-template-columns: 18px 1fr; gap: 10px; align-items: start; color: var(--ui-text-secondary); font-size: .8rem; line-height: 1.55; }
+.auth-standard-consent input { width: 17px; height: 17px; margin: 2px 0 0; accent-color: var(--ui-brand); }
+.auth-standard-consent a { color: var(--ui-brand-strong) !important; font-weight: 650; }
+
+.auth-standard-primary {
+  display: flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 18px;
+  border: 1px solid var(--ui-brand) !important;
+  border-radius: 11px !important;
+  background: var(--ui-brand) !important;
+  color: var(--hisab-logo-charcoal) !important;
+  font-weight: 700;
+  cursor: pointer;
+}
+.auth-standard-primary b { font-size: 1.08rem; transition: transform 160ms ease; }
+.auth-standard-primary:hover:not(:disabled) { border-color: var(--ui-brand-hover) !important; background: var(--ui-brand-hover) !important; color: #fff !important; }
+.auth-standard-primary:hover:not(:disabled) b { transform: translateX(3px); }
+.auth-standard-primary:disabled { cursor: not-allowed; opacity: .55; }
+
+.auth-standard-card .social-auth-section { margin-top: 24px; }
+.auth-standard-card .social-auth-button { min-height: 48px !important; border-radius: 11px !important; }
+.auth-standard-secondary-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
+.auth-standard-secondary-actions a {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border: 1px solid var(--ui-border);
+  border-radius: 10px;
+  background: var(--ui-surface);
+  color: var(--ui-text-secondary) !important;
+  font-size: .78rem;
+  font-weight: 650;
+  text-align: center;
+  text-decoration: none;
+}
+.auth-standard-secondary-actions a:hover { border-color: var(--ui-brand); background: var(--ui-brand-soft); color: var(--ui-brand-strong) !important; }
+.auth-standard-switch { margin-top: 26px; padding-top: 20px; border-top: 1px solid var(--ui-border); color: var(--ui-text-secondary); font-size: .88rem; text-align: center; }
+.auth-standard-switch a { color: var(--ui-brand-strong) !important; font-weight: 700; text-decoration: none; }
+.auth-standard-form-footer { display: flex; width: min(100%, 520px); justify-content: center; gap: 22px; margin-top: 28px; }
+.auth-standard-form-footer a { color: var(--ui-text-muted) !important; font-size: .75rem; text-decoration: none; }
+.auth-standard-form-footer a:hover { color: var(--ui-brand-strong) !important; }
+.auth-standard-card .form-alert { margin-bottom: 18px; border-radius: 10px !important; }
+
+@media (max-width: 980px) {
+  .auth-standard-shell { grid-template-columns: minmax(310px, .8fr) minmax(460px, 1.2fr); }
+  .auth-standard-showcase { padding: 30px; }
+  .auth-standard-showcase h2 { font-size: clamp(1.85rem, 3.8vw, 2.7rem); }
+  .auth-standard-benefits li:nth-child(3) { display: none; }
+  .auth-standard-form-side { padding-inline: 38px; }
+}
+
+@media (max-width: 760px) {
+  .auth-standard-shell { display: block; min-height: 100dvh; }
+  .auth-standard-showcase { display: none; }
+  .auth-standard-form-side { min-height: 100dvh; justify-content: flex-start; padding: max(16px, env(safe-area-inset-top)) 18px max(24px, env(safe-area-inset-bottom)); }
+  .auth-standard-mobile-topbar { display: flex; width: 100%; align-items: center; justify-content: space-between; margin-bottom: clamp(30px, 9vh, 68px); }
+  .auth-standard-mobile-topbar .auth-standard-brand img { width: 38px; height: 38px; }
+  .auth-standard-mobile-topbar .auth-standard-brand strong { color: var(--ui-text) !important; }
+  .auth-standard-home-link { color: var(--ui-text-muted) !important; font-size: .77rem; font-weight: 650; text-decoration: none; }
+  .auth-standard-card { width: 100%; max-width: 520px; }
+  .auth-standard-heading { margin-bottom: 26px; }
+  .auth-standard-heading h1 { font-size: clamp(1.85rem, 8vw, 2.35rem) !important; }
+  .auth-standard-form-footer { margin-top: auto; padding-top: 30px; }
+}
+
+@media (max-width: 520px) {
+  .auth-standard-form-side { padding-inline: 16px; }
+  .auth-standard-mobile-topbar { margin-bottom: 34px; }
+  .auth-standard-field-grid { grid-template-columns: 1fr; gap: 18px; }
+  .auth-standard-secondary-actions { grid-template-columns: 1fr; }
+  .auth-standard-heading > p:last-child { font-size: .9rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auth-standard-primary b { transition: none; }
+}

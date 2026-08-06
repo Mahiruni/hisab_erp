@@ -1,0 +1,53 @@
+/* HisabTech-owned authentication brand mark. Intentionally distinct from third-party identity marks. */
+.auth-hisab-mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
+  border: 1px solid rgba(15, 76, 129, .2);
+  border-radius: 10px;
+  background: linear-gradient(145deg, #0f4c81 0%, #146b70 100%);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(15, 76, 129, .18);
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -.08em;
+}
+
+.auth-hisab-mark::after {
+  content: "";
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  background: #8de4d3;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, .16);
+}
+
+html[data-theme="dark"] .auth-hisab-mark {
+  border-color: rgba(141, 228, 211, .32);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .32);
+}
+
+@media (max-width: 640px) {
+  .auth-hisab-mark {
+    flex-basis: 30px;
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+    font-size: 16px;
+  }
+
+  .auth-hisab-mark::after {
+    right: 4px;
+    bottom: 4px;
+    width: 5px;
+    height: 5px;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "release": "3ffd60fcd008b2eaabd38d70ec506cfb41c9f0d9",
+  "environment": "production",
+  "deployedAt": "2026-07-23T08:56:24Z",
+  "description": "Full HisabTech production redeployment from the latest main branch, including the visible About Us and Help Center mobile navigation, standardized mobile headers, complete terracotta-charcoal workspace branding, authentication redesign, responsive UI improvements, and all previously merged operational modules."
+}

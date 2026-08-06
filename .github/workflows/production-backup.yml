@@ -1,0 +1,55 @@
+name: Production database backup
+
+on:
+  schedule:
+    - cron: "45 1 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  encrypted-backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      DATABASE_URL: ${{ secrets.SUPABASE_DATABASE_URL }}
+      BACKUP_ENCRYPTION_PASSPHRASE: ${{ secrets.BACKUP_ENCRYPTION_PASSPHRASE }}
+      BACKUP_DIR: backups
+      BACKUP_RETENTION_DAYS: "35"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check backup prerequisites
+        id: prerequisites
+        shell: bash
+        run: |
+          if [[ -n "$DATABASE_URL" && -n "$BACKUP_ENCRYPTION_PASSPHRASE" ]]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::Encrypted backup skipped. Configure SUPABASE_DATABASE_URL and BACKUP_ENCRYPTION_PASSPHRASE repository secrets."
+          fi
+
+      - name: Install PostgreSQL client
+        if: steps.prerequisites.outputs.ready == 'true'
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes postgresql-client
+
+      - name: Create encrypted backup
+        if: steps.prerequisites.outputs.ready == 'true'
+        run: |
+          chmod +x scripts/backup-postgres.sh
+          ./scripts/backup-postgres.sh
+
+      - name: Upload encrypted backup evidence
+        if: steps.prerequisites.outputs.ready == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: hisab-production-backup-${{ github.run_id }}
+          path: |
+            backups/*.dump.gz.enc
+            backups/*.sha256
+          if-no-files-found: error
+          retention-days: 35

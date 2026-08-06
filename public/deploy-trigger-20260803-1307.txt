@@ -1,0 +1,3 @@
+Production redeploy trigger for Biloo ERP.
+Requested: 2026-08-03 13:07 Africa/Addis_Ababa
+Target: latest main commit including Phase 2.3, 2.4 and 2.5.

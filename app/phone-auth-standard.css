@@ -1,0 +1,13 @@
+.auth-premium-page .phone-field-group{grid-template-columns:minmax(210px,.95fr) minmax(230px,1.05fr);gap:14px}
+.auth-premium-page .country-control{padding-left:0;overflow:hidden}
+.auth-premium-page .country-control .country-flag{display:none!important}
+.auth-premium-page .country-control select{padding-left:15px!important;padding-right:40px!important;cursor:pointer;font-weight:760;white-space:nowrap;text-overflow:ellipsis}
+.auth-premium-page .country-control:after{right:14px;color:#64748b;font-size:15px}
+.auth-premium-page .country-field .field-label,.auth-premium-page .phone-number-field .field-label{min-height:16px}
+.auth-premium-page .country-control:focus-within,.auth-premium-page .phone-control:focus-within{border-color:#2ba991;box-shadow:0 0 0 4px rgba(43,169,145,.12),0 10px 26px rgba(25,117,101,.08)}
+
+html[data-theme="dark"] .auth-premium-page .country-control select{color:#e8eef7}
+
+@media(max-width:640px){.auth-premium-page .phone-field-group{grid-template-columns:1fr;gap:13px}.auth-premium-page .country-control select{font-size:13px}.auth-premium-page .country-field .field-label,.auth-premium-page .phone-number-field .field-label{min-height:auto}}
+
+@media(prefers-reduced-motion:reduce){.auth-premium-page .country-control,.auth-premium-page .phone-control{transition:none}}

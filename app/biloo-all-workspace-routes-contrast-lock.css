@@ -1,0 +1,862 @@
+/*
+ * Biloo authenticated route contrast authority.
+ * Loaded last at the application root so every route reachable from the
+ * workspace navigation uses one readable navy, gold, white and mist system.
+ */
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace {
+  --biloo-route-ink: #080a0d;
+  --biloo-route-navy: #14213d;
+  --biloo-route-navy-deep: #0b1428;
+  --biloo-route-gold: #fca311;
+  --biloo-route-white: #ffffff;
+  --biloo-route-mist: #f5f6f7;
+  --biloo-route-muted: #657080;
+  --biloo-route-line: rgba(20, 33, 61, 0.13);
+  --biloo-route-line-strong: rgba(20, 33, 61, 0.22);
+  --biloo-route-gold-soft: rgba(252, 163, 17, 0.14);
+  --biloo-route-navy-soft: rgba(20, 33, 61, 0.07);
+  --biloo-route-shadow: 0 18px 52px rgba(20, 33, 61, 0.09);
+  --biloo-route-shadow-hover: 0 24px 62px rgba(20, 33, 61, 0.14);
+}
+
+/* Every signed-in route canvas. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .dashboard-content,
+  .section-page,
+  .finance-page,
+  .sales-page,
+  .einvoice-page,
+  .recon-page,
+  .core-page,
+  .guided-setup-page,
+  .controls-page,
+  .security-account-page,
+  .security-account-modern,
+  .mfa-required-page,
+  .billing-page,
+  .checkout-page
+) {
+  min-height: 100% !important;
+  color: var(--biloo-route-ink) !important;
+  background:
+    radial-gradient(circle at 92% -7%, rgba(252, 163, 17, 0.13), transparent 28rem),
+    radial-gradient(circle at 0 0, rgba(20, 33, 61, 0.055), transparent 24rem),
+    linear-gradient(180deg, #ffffff 0%, #f7f8f9 100%) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .dashboard-content,
+  .section-page,
+  .finance-page,
+  .sales-page,
+  .einvoice-page,
+  .recon-page,
+  .core-page,
+  .guided-setup-page,
+  .controls-page,
+  .security-account-page,
+  .security-account-modern,
+  .mfa-required-page
+) :is(h1, h2, h3, h4, h5, h6, strong, b, th, label, legend, dt) {
+  color: var(--biloo-route-ink) !important;
+  -webkit-text-fill-color: var(--biloo-route-ink) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .dashboard-content,
+  .section-page,
+  .finance-page,
+  .sales-page,
+  .einvoice-page,
+  .recon-page,
+  .core-page,
+  .guided-setup-page,
+  .controls-page,
+  .security-account-page,
+  .security-account-modern,
+  .mfa-required-page
+) :is(p, small, dd, td, figcaption, .muted, .subtitle, .description, .help-text, .panel-description, .card-description) {
+  color: var(--biloo-route-muted) !important;
+  -webkit-text-fill-color: var(--biloo-route-muted) !important;
+  opacity: 1 !important;
+}
+
+/* One dark Biloo hero language across all operational routes. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .finance-hero,
+  .sales-hero,
+  .einvoice-hero,
+  .recon-hero,
+  .core-hero,
+  .setup-hero,
+  .controls-hero,
+  .security-account-hero,
+  .security-command-header,
+  .module-hero,
+  .page-hero,
+  .workspace-hero,
+  .setup-finish,
+  .new-company-shell > aside,
+  .controls-score
+) {
+  border: 1px solid rgba(252, 163, 17, 0.24) !important;
+  color: #ffffff !important;
+  background:
+    radial-gradient(circle at 88% 4%, rgba(252, 163, 17, 0.24), transparent 34%),
+    linear-gradient(135deg, var(--biloo-route-navy) 0%, var(--biloo-route-navy-deep) 72%, #000000 100%) !important;
+  box-shadow: 0 24px 64px rgba(20, 33, 61, 0.2) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .finance-hero,
+  .sales-hero,
+  .einvoice-hero,
+  .recon-hero,
+  .core-hero,
+  .setup-hero,
+  .controls-hero,
+  .security-account-hero,
+  .security-command-header,
+  .module-hero,
+  .page-hero,
+  .workspace-hero,
+  .setup-finish,
+  .new-company-shell > aside,
+  .controls-score
+) :is(h1, h2, h3, h4, h5, h6, strong, b, label, legend) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .finance-hero,
+  .sales-hero,
+  .einvoice-hero,
+  .recon-hero,
+  .core-hero,
+  .setup-hero,
+  .controls-hero,
+  .security-account-hero,
+  .security-command-header,
+  .module-hero,
+  .page-hero,
+  .workspace-hero,
+  .setup-finish,
+  .new-company-shell > aside,
+  .controls-score
+) :is(p, small, span, li, dd) {
+  color: rgba(255, 255, 255, 0.8) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.8) !important;
+  opacity: 1 !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .finance-hero,
+  .sales-hero,
+  .einvoice-hero,
+  .recon-hero,
+  .core-hero,
+  .setup-hero,
+  .controls-hero,
+  .security-account-hero,
+  .security-command-header,
+  .module-hero,
+  .page-hero,
+  .workspace-hero
+) :is(.eyebrow, .workspace-eyebrow, .section-kicker, .module-kicker, [class*="kicker"], [class*="overline"]) {
+  color: var(--biloo-route-gold) !important;
+  -webkit-text-fill-color: var(--biloo-route-gold) !important;
+  opacity: 1 !important;
+}
+
+/* Hero organization / workspace state cards. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .finance-hero-state,
+  .sales-hero-state,
+  .einvoice-hero-state,
+  .recon-hero-state,
+  .core-live,
+  .workspace-hero-state,
+  .module-hero-state
+) {
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.09) !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(14px) saturate(130%) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .finance-hero-state,
+  .sales-hero-state,
+  .einvoice-hero-state,
+  .recon-hero-state,
+  .core-live,
+  .workspace-hero-state,
+  .module-hero-state
+) :is(strong, b) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .finance-hero-state,
+  .sales-hero-state,
+  .einvoice-hero-state,
+  .recon-hero-state,
+  .core-live,
+  .workspace-hero-state,
+  .module-hero-state
+) :is(small, span) {
+  color: rgba(255, 255, 255, 0.72) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.72) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .finance-live-dot,
+  .sales-live-dot,
+  .recon-hero-state > span,
+  .core-live > span,
+  .einvoice-hero-state > span
+) {
+  background: var(--biloo-route-gold) !important;
+  box-shadow: 0 0 0 6px rgba(252, 163, 17, 0.18) !important;
+}
+
+/* Shared tabs, filters and step navigation. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .finance-tabs,
+  .sales-tabs,
+  .core-tabs,
+  .einvoice-filters,
+  .setup-step-nav,
+  .tabs,
+  .tab-list,
+  [role="tablist"]
+) {
+  border: 1px solid var(--biloo-route-line) !important;
+  background: rgba(255, 255, 255, 0.96) !important;
+  box-shadow: 0 13px 38px rgba(20, 33, 61, 0.075) !important;
+  backdrop-filter: blur(18px) saturate(145%) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .finance-tabs,
+  .sales-tabs,
+  .core-tabs,
+  .einvoice-filters,
+  .setup-step-nav,
+  .tabs,
+  .tab-list,
+  [role="tablist"]
+) :is(button, a, [role="tab"]) {
+  border-color: transparent !important;
+  color: #4d5867 !important;
+  -webkit-text-fill-color: #4d5867 !important;
+  background: transparent !important;
+  opacity: 1 !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .finance-tabs,
+  .sales-tabs,
+  .core-tabs,
+  .einvoice-filters,
+  .setup-step-nav,
+  .tabs,
+  .tab-list,
+  [role="tablist"]
+) :is(button, a, [role="tab"]):hover {
+  color: var(--biloo-route-ink) !important;
+  -webkit-text-fill-color: var(--biloo-route-ink) !important;
+  background: var(--biloo-route-gold-soft) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .finance-tabs,
+  .sales-tabs,
+  .core-tabs,
+  .einvoice-filters,
+  .setup-step-nav,
+  .tabs,
+  .tab-list,
+  [role="tablist"]
+) :is(button.active, a.active, button[aria-selected="true"], a[aria-current="page"], [role="tab"][aria-selected="true"]) {
+  border-color: var(--biloo-route-navy) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: var(--biloo-route-navy) !important;
+  box-shadow: inset 0 -3px var(--biloo-route-gold), 0 9px 22px rgba(20, 33, 61, 0.17) !important;
+}
+
+/* All operational cards and panels. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .workspace-section,
+  .workspace-metric-tile,
+  .dashboard-card,
+  .module-card,
+  .data-panel,
+  .documentation,
+  .record-row,
+  .finance-kpis article,
+  .finance-panel,
+  .sales-kpis article,
+  .sales-panel,
+  .einvoice-kpis article,
+  .einvoice-panel,
+  .einvoice-document-card,
+  .recon-kpis article,
+  .recon-panel,
+  .recon-provider-grid article,
+  .recon-transaction,
+  .core-kpis article,
+  .core-panel,
+  .setup-step-card,
+  .setup-import-card,
+  .control-card,
+  .controls-panel,
+  .security-mfa-panel,
+  .security-identity-card,
+  .security-account-note,
+  .mfa-required-card,
+  .security-profile-card,
+  .security-policy-card,
+  .security-status-card,
+  .security-privacy-note
+) {
+  border-color: var(--biloo-route-line) !important;
+  color: var(--biloo-route-ink) !important;
+  background: rgba(255, 255, 255, 0.97) !important;
+  box-shadow: var(--biloo-route-shadow) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .workspace-section,
+  .workspace-metric-tile,
+  .dashboard-card,
+  .module-card,
+  .data-panel,
+  .documentation,
+  .finance-kpis article,
+  .finance-panel,
+  .sales-kpis article,
+  .sales-panel,
+  .einvoice-kpis article,
+  .einvoice-panel,
+  .recon-kpis article,
+  .recon-panel,
+  .core-kpis article,
+  .core-panel,
+  .setup-step-card,
+  .control-card,
+  .controls-panel
+):hover {
+  border-color: rgba(252, 163, 17, 0.56) !important;
+  box-shadow: var(--biloo-route-shadow-hover) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .workspace-section,
+  .workspace-metric-tile,
+  .dashboard-card,
+  .module-card,
+  .data-panel,
+  .documentation,
+  .record-row,
+  .finance-kpis article,
+  .finance-panel,
+  .sales-kpis article,
+  .sales-panel,
+  .einvoice-kpis article,
+  .einvoice-panel,
+  .einvoice-document-card,
+  .recon-kpis article,
+  .recon-panel,
+  .recon-provider-grid article,
+  .recon-transaction,
+  .core-kpis article,
+  .core-panel,
+  .setup-step-card,
+  .setup-import-card,
+  .control-card,
+  .controls-panel,
+  .security-mfa-panel,
+  .security-identity-card,
+  .security-account-note,
+  .mfa-required-card
+) :is(h1, h2, h3, h4, h5, h6, strong, b, th, label) {
+  color: var(--biloo-route-ink) !important;
+  -webkit-text-fill-color: var(--biloo-route-ink) !important;
+  opacity: 1 !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .workspace-section,
+  .workspace-metric-tile,
+  .dashboard-card,
+  .module-card,
+  .data-panel,
+  .documentation,
+  .record-row,
+  .finance-kpis article,
+  .finance-panel,
+  .sales-kpis article,
+  .sales-panel,
+  .einvoice-kpis article,
+  .einvoice-panel,
+  .einvoice-document-card,
+  .recon-kpis article,
+  .recon-panel,
+  .recon-provider-grid article,
+  .recon-transaction,
+  .core-kpis article,
+  .core-panel,
+  .setup-step-card,
+  .setup-import-card,
+  .control-card,
+  .controls-panel,
+  .security-mfa-panel,
+  .security-identity-card,
+  .security-account-note,
+  .mfa-required-card
+) :is(p, small, td, dd, .muted, .description, .help-text) {
+  color: var(--biloo-route-muted) !important;
+  -webkit-text-fill-color: var(--biloo-route-muted) !important;
+  opacity: 1 !important;
+}
+
+/* Module and generic section headers remain bright and readable. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .section-page .section-header,
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .workspace-page-header {
+  border-color: var(--biloo-route-line) !important;
+  color: var(--biloo-route-ink) !important;
+  background: rgba(255, 255, 255, 0.96) !important;
+  box-shadow: var(--biloo-route-shadow) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(.section-page .section-header, .workspace-page-header) :is(h1, h2, h3, strong, b) {
+  color: var(--biloo-route-ink) !important;
+  -webkit-text-fill-color: var(--biloo-route-ink) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(.section-page .section-header, .workspace-page-header) :is(p, small, span) {
+  color: var(--biloo-route-muted) !important;
+  -webkit-text-fill-color: var(--biloo-route-muted) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(.section-page .back-link, .workspace-inline-action, .module-preview-grid a > b) {
+  color: var(--biloo-route-navy) !important;
+  -webkit-text-fill-color: var(--biloo-route-navy) !important;
+}
+
+/* Forms and controls on every module. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .finance-page,
+  .sales-page,
+  .einvoice-page,
+  .recon-page,
+  .core-page,
+  .guided-setup-page,
+  .controls-page,
+  .security-account-page,
+  .security-account-modern,
+  .section-page
+) :is(input, select, textarea, option) {
+  border-color: var(--biloo-route-line-strong) !important;
+  color: var(--biloo-route-ink) !important;
+  -webkit-text-fill-color: var(--biloo-route-ink) !important;
+  background-color: #ffffff !important;
+  caret-color: var(--biloo-route-gold) !important;
+  opacity: 1 !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .finance-page,
+  .sales-page,
+  .einvoice-page,
+  .recon-page,
+  .core-page,
+  .guided-setup-page,
+  .controls-page,
+  .security-account-page,
+  .security-account-modern,
+  .section-page
+) :is(input, textarea)::placeholder {
+  color: rgba(20, 33, 61, 0.5) !important;
+  -webkit-text-fill-color: rgba(20, 33, 61, 0.5) !important;
+  opacity: 1 !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .finance-page,
+  .sales-page,
+  .einvoice-page,
+  .recon-page,
+  .core-page,
+  .guided-setup-page,
+  .controls-page,
+  .security-account-page,
+  .security-account-modern,
+  .section-page
+) :is(input, select, textarea):focus {
+  border-color: var(--biloo-route-gold) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 4px rgba(252, 163, 17, 0.18) !important;
+}
+
+/* Primary actions use only the Biloo gold; secondary actions use white/navy. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  button.primary,
+  a.primary,
+  .action-link.primary,
+  .finance-form button,
+  .sales-form button.primary,
+  .einvoice-form button.primary,
+  .einvoice-response-form button.primary,
+  .recon-page button.primary,
+  .core-form button.primary,
+  .setup-form button.primary,
+  .controls-form button.primary,
+  .mfa-enrollment button.primary,
+  .mfa-challenge button.primary,
+  .security-primary-action,
+  .submit-button,
+  .save-button,
+  .create-button
+) {
+  border-color: var(--biloo-route-gold) !important;
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  background: var(--biloo-route-gold) !important;
+  box-shadow: 0 12px 28px rgba(252, 163, 17, 0.22) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  button.primary,
+  a.primary,
+  .action-link.primary,
+  .finance-form button,
+  .sales-form button.primary,
+  .einvoice-form button.primary,
+  .einvoice-response-form button.primary,
+  .recon-page button.primary,
+  .core-form button.primary,
+  .setup-form button.primary,
+  .controls-form button.primary,
+  .mfa-enrollment button.primary,
+  .mfa-challenge button.primary,
+  .security-primary-action,
+  .submit-button,
+  .save-button,
+  .create-button
+) :is(span, strong, b, small, svg) {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  button.secondary,
+  a.secondary,
+  .action-link.secondary,
+  button.ghost,
+  button.outline,
+  .cancel-button,
+  .sales-row-actions button,
+  .core-row-actions button,
+  .einvoice-action-row button.secondary,
+  .recon-page button.secondary
+) {
+  border: 1px solid var(--biloo-route-line-strong) !important;
+  color: var(--biloo-route-navy) !important;
+  -webkit-text-fill-color: var(--biloo-route-navy) !important;
+  background: #ffffff !important;
+  box-shadow: none !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  button.secondary,
+  a.secondary,
+  .action-link.secondary,
+  button.ghost,
+  button.outline,
+  .cancel-button,
+  .sales-row-actions button,
+  .core-row-actions button,
+  .einvoice-action-row button.secondary,
+  .recon-page button.secondary
+):hover {
+  border-color: var(--biloo-route-gold) !important;
+  background: var(--biloo-route-gold-soft) !important;
+}
+
+/* Tables and registers. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .workspace-data-table,
+  .finance-table,
+  .sales-table,
+  .core-table,
+  table
+) {
+  color: var(--biloo-route-ink) !important;
+  background: #ffffff !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .workspace-data-table,
+  .finance-table,
+  .sales-table,
+  .core-table,
+  table
+) :is(th, td, tr, thead, tbody) {
+  border-color: var(--biloo-route-line) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .workspace-data-table,
+  .finance-table,
+  .sales-table,
+  .core-table,
+  table
+) th {
+  color: #4f5b6b !important;
+  -webkit-text-fill-color: #4f5b6b !important;
+  background: rgba(20, 33, 61, 0.055) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .workspace-data-table,
+  .finance-table,
+  .sales-table,
+  .core-table,
+  table
+) td {
+  color: #3f4a58 !important;
+  -webkit-text-fill-color: #3f4a58 !important;
+  background: #ffffff !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .workspace-data-table,
+  .finance-table,
+  .sales-table,
+  .core-table,
+  table
+) tbody tr:hover td {
+  background: rgba(252, 163, 17, 0.075) !important;
+}
+
+/* Informational strips and notices. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .mode-notice,
+  .finance-success,
+  .sales-success,
+  .einvoice-notice,
+  .recon-notice,
+  .core-compliance-note,
+  .setup-flash,
+  .control-message,
+  .form-alert,
+  .notice,
+  .alert
+) {
+  border-color: rgba(252, 163, 17, 0.34) !important;
+  color: var(--biloo-route-navy) !important;
+  background: rgba(252, 163, 17, 0.1) !important;
+  box-shadow: none !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .mode-notice,
+  .finance-success,
+  .sales-success,
+  .einvoice-notice,
+  .recon-notice,
+  .core-compliance-note,
+  .setup-flash,
+  .control-message,
+  .form-alert,
+  .notice,
+  .alert
+) :is(h1, h2, h3, h4, strong, b, p, small, span) {
+  color: var(--biloo-route-navy) !important;
+  -webkit-text-fill-color: var(--biloo-route-navy) !important;
+  opacity: 1 !important;
+}
+
+/* Neutral branded chips; semantic danger remains red for safety. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .finance-status,
+  .account-type,
+  .sales-status,
+  .core-status,
+  .einvoice-status,
+  .recon-status,
+  .workspace-status-badge,
+  .ready-pill,
+  .attention-pill,
+  .control-state
+) {
+  border: 1px solid var(--biloo-route-line) !important;
+  color: var(--biloo-route-navy) !important;
+  -webkit-text-fill-color: var(--biloo-route-navy) !important;
+  background: var(--biloo-route-navy-soft) !important;
+  opacity: 1 !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .finance-status.posted,
+  .finance-status.receipt,
+  .finance-status.active,
+  .finance-status.open,
+  .sales-status.accepted,
+  .sales-status.paid,
+  .sales-status.converted,
+  .sales-status.invoiced,
+  .core-status.completed,
+  .core-status.paid,
+  .core-status.converted,
+  .core-status.active,
+  .core-status.present,
+  .einvoice-status.ready,
+  .einvoice-status.accepted,
+  .recon-status.matched,
+  .workspace-status-badge.tone-success,
+  .ready-pill,
+  .control-state.ready
+) {
+  border-color: rgba(252, 163, 17, 0.36) !important;
+  color: var(--biloo-route-navy) !important;
+  -webkit-text-fill-color: var(--biloo-route-navy) !important;
+  background: var(--biloo-route-gold-soft) !important;
+}
+
+/* Progress, charts and decorative operational accents. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .finance-tabs button.active,
+  .sales-tabs button.active,
+  .core-tabs button.active,
+  .sales-progress i,
+  .profit-meter i,
+  .asset-progress i,
+  .setup-progress-bar span,
+  .progress-value,
+  [role="progressbar"] > span
+) {
+  background: linear-gradient(90deg, var(--biloo-route-gold), var(--biloo-route-navy)) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .revenue-line,
+  .chart-line,
+  .chart-accent,
+  [class*="chart"] .primary-line
+) {
+  stroke: var(--biloo-route-gold) !important;
+  color: var(--biloo-route-gold) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .revenue-point,
+  .chart-bar,
+  [class*="chart"] .primary-bar
+) {
+  fill: var(--biloo-route-gold) !important;
+}
+
+/* Mobile: protect text size, spacing and contrast on every internal page. */
+@media (max-width: 960px) {
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+    .dashboard-content,
+    .section-page,
+    .finance-page,
+    .sales-page,
+    .einvoice-page,
+    .recon-page,
+    .core-page,
+    .guided-setup-page,
+    .controls-page,
+    .security-account-page,
+    .security-account-modern
+  ) {
+    padding-left: max(12px, env(safe-area-inset-left)) !important;
+    padding-right: max(12px, env(safe-area-inset-right)) !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+    .finance-hero,
+    .sales-hero,
+    .einvoice-hero,
+    .recon-hero,
+    .core-hero,
+    .setup-hero,
+    .controls-hero,
+    .security-account-hero,
+    .security-command-header
+  ) {
+    gap: 18px !important;
+    padding: 22px !important;
+    border-radius: 22px !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+    .finance-hero,
+    .sales-hero,
+    .einvoice-hero,
+    .recon-hero,
+    .core-hero,
+    .setup-hero,
+    .controls-hero,
+    .security-account-hero,
+    .security-command-header
+  ) h1 {
+    font-size: clamp(28px, 9vw, 40px) !important;
+    line-height: 1.06 !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+    .finance-hero,
+    .sales-hero,
+    .einvoice-hero,
+    .recon-hero,
+    .core-hero,
+    .setup-hero,
+    .controls-hero,
+    .security-account-hero,
+    .security-command-header
+  ) p {
+    font-size: 13px !important;
+    line-height: 1.65 !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+    .finance-hero-state,
+    .sales-hero-state,
+    .einvoice-hero-state,
+    .recon-hero-state,
+    .core-live
+  ) {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+    .finance-tabs,
+    .sales-tabs,
+    .core-tabs,
+    .einvoice-filters,
+    .setup-step-nav
+  ) :is(button, a) {
+    min-height: 42px !important;
+    font-size: 11px !important;
+  }
+}
+
+@media (prefers-contrast: more) {
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace {
+    --biloo-route-muted: #354052;
+    --biloo-route-line: rgba(20, 33, 61, 0.34);
+    --biloo-route-line-strong: rgba(20, 33, 61, 0.52);
+  }
+}

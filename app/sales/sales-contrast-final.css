@@ -1,0 +1,270 @@
+/*
+ * Sales workspace — Biloo contrast authority.
+ * Route-scoped and deliberately more specific than legacy global workspace locks.
+ */
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page {
+  --sales-biloo-ink: #080a0d;
+  --sales-biloo-navy: #14213d;
+  --sales-biloo-navy-deep: #0b1428;
+  --sales-biloo-gold: #fca311;
+  --sales-biloo-white: #ffffff;
+  --sales-biloo-mist: #f5f6f7;
+  --sales-biloo-muted: #657080;
+  --sales-biloo-line: rgba(20, 33, 61, 0.13);
+  min-height: 100%;
+  color: var(--sales-biloo-ink) !important;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(252, 163, 17, 0.10), transparent 24rem),
+    linear-gradient(180deg, #ffffff 0%, #f7f8f9 100%) !important;
+}
+
+/* Dark branded hero: all copy must be explicitly inverse. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page > .sales-hero {
+  border: 1px solid rgba(252, 163, 17, 0.24) !important;
+  background:
+    radial-gradient(circle at 92% 10%, rgba(252, 163, 17, 0.24), transparent 34%),
+    linear-gradient(125deg, var(--sales-biloo-navy-deep) 0%, var(--sales-biloo-navy) 62%, #080a0d 100%) !important;
+  box-shadow: 0 22px 58px rgba(20, 33, 61, 0.22) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page > .sales-hero h1,
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page > .sales-hero h2,
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page > .sales-hero h3 {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.22) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page > .sales-hero > div:first-child > p:not(.eyebrow) {
+  color: rgba(255, 255, 255, 0.82) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.82) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page > .sales-hero .eyebrow {
+  color: var(--sales-biloo-gold) !important;
+  -webkit-text-fill-color: var(--sales-biloo-gold) !important;
+  opacity: 1 !important;
+  font-weight: 850 !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page > .sales-hero .sales-hero-state {
+  border: 1px solid rgba(252, 163, 17, 0.36) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(16px) saturate(135%) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page > .sales-hero .sales-hero-state small {
+  color: rgba(255, 255, 255, 0.68) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.68) !important;
+  opacity: 1 !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page > .sales-hero .sales-hero-state strong {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page > .sales-hero .sales-live-dot {
+  background: var(--sales-biloo-gold) !important;
+  box-shadow: 0 0 0 7px rgba(252, 163, 17, 0.16), 0 0 22px rgba(252, 163, 17, 0.42) !important;
+}
+
+/* Live-data notice and alerts. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page > :is(.demo-notice, .form-alert, .sales-success) {
+  border-color: rgba(20, 33, 61, 0.14) !important;
+  background: #ffffff !important;
+  color: var(--sales-biloo-navy) !important;
+  box-shadow: 0 10px 28px rgba(20, 33, 61, 0.06) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page > :is(.demo-notice, .form-alert, .sales-success) :is(p, span, strong, small, b) {
+  color: var(--sales-biloo-navy) !important;
+  -webkit-text-fill-color: var(--sales-biloo-navy) !important;
+  opacity: 1 !important;
+}
+
+/* Tabs: clear inactive labels and a strong Biloo active state. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page > .sales-tabs {
+  border: 1px solid var(--sales-biloo-line) !important;
+  background: rgba(255, 255, 255, 0.96) !important;
+  box-shadow: 0 12px 34px rgba(20, 33, 61, 0.07) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page > .sales-tabs button {
+  color: #4c5665 !important;
+  -webkit-text-fill-color: #4c5665 !important;
+  background: transparent !important;
+  opacity: 1 !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page > .sales-tabs button:hover {
+  color: var(--sales-biloo-navy) !important;
+  -webkit-text-fill-color: var(--sales-biloo-navy) !important;
+  background: rgba(252, 163, 17, 0.11) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page > .sales-tabs button.active {
+  color: var(--sales-biloo-navy-deep) !important;
+  -webkit-text-fill-color: var(--sales-biloo-navy-deep) !important;
+  background: var(--sales-biloo-gold) !important;
+  box-shadow: 0 9px 24px rgba(252, 163, 17, 0.24) !important;
+}
+
+/* KPI cards and panels. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page :is(.sales-kpis article, .sales-panel) {
+  border-color: var(--sales-biloo-line) !important;
+  background: #ffffff !important;
+  color: var(--sales-biloo-ink) !important;
+  box-shadow: 0 16px 44px rgba(20, 33, 61, 0.075) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page :is(.sales-kpis article, .sales-panel):hover {
+  border-color: rgba(252, 163, 17, 0.42) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page .sales-kpis article > strong,
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page .sales-panel h2,
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page .sales-balance-line strong {
+  color: var(--sales-biloo-ink) !important;
+  -webkit-text-fill-color: var(--sales-biloo-ink) !important;
+  opacity: 1 !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page .sales-kpis article > :is(span, small),
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page .sales-panel > p,
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page .sales-balance-line span {
+  color: var(--sales-biloo-muted) !important;
+  -webkit-text-fill-color: var(--sales-biloo-muted) !important;
+  opacity: 1 !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page .sales-panel .eyebrow {
+  color: var(--sales-biloo-muted) !important;
+  -webkit-text-fill-color: var(--sales-biloo-muted) !important;
+  opacity: 1 !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page .sales-panel-head > :is(span, button) {
+  border: 1px solid rgba(252, 163, 17, 0.20) !important;
+  background: rgba(252, 163, 17, 0.11) !important;
+  color: var(--sales-biloo-navy) !important;
+  -webkit-text-fill-color: var(--sales-biloo-navy) !important;
+}
+
+/* Quote-to-cash flow and progress visuals. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page .sales-flow button {
+  border-color: rgba(20, 33, 61, 0.14) !important;
+  background: var(--sales-biloo-mist) !important;
+  color: var(--sales-biloo-navy) !important;
+  -webkit-text-fill-color: var(--sales-biloo-navy) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page .sales-flow button:hover {
+  border-color: var(--sales-biloo-gold) !important;
+  background: rgba(252, 163, 17, 0.10) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page .sales-flow b {
+  color: var(--sales-biloo-gold) !important;
+  -webkit-text-fill-color: var(--sales-biloo-gold) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page .sales-progress {
+  background: #e8ebef !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page .sales-progress i {
+  background: linear-gradient(90deg, var(--sales-biloo-gold), var(--sales-biloo-navy)) !important;
+}
+
+/* Forms, tables, empty states, and controls. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page .sales-form label {
+  color: #4c5665 !important;
+  -webkit-text-fill-color: #4c5665 !important;
+  opacity: 1 !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page :is(.sales-form input, .sales-form select, .sales-inline-form input) {
+  border-color: rgba(20, 33, 61, 0.17) !important;
+  background: #ffffff !important;
+  color: var(--sales-biloo-ink) !important;
+  -webkit-text-fill-color: var(--sales-biloo-ink) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page :is(.sales-form input, .sales-form select, .sales-inline-form input):focus {
+  border-color: var(--sales-biloo-gold) !important;
+  outline: 0 !important;
+  box-shadow: 0 0 0 4px rgba(252, 163, 17, 0.17) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page .sales-form button.primary {
+  border: 1px solid var(--sales-biloo-gold) !important;
+  background: var(--sales-biloo-gold) !important;
+  color: var(--sales-biloo-navy-deep) !important;
+  -webkit-text-fill-color: var(--sales-biloo-navy-deep) !important;
+  box-shadow: 0 12px 30px rgba(252, 163, 17, 0.22) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page .sales-lines {
+  border-color: var(--sales-biloo-line) !important;
+  background: var(--sales-biloo-mist) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page .sales-line-heading,
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page .sales-table th,
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page .sales-table td,
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page .sales-table td small,
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page .sales-empty {
+  color: var(--sales-biloo-muted) !important;
+  -webkit-text-fill-color: var(--sales-biloo-muted) !important;
+  opacity: 1 !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page .sales-table td strong {
+  color: var(--sales-biloo-ink) !important;
+  -webkit-text-fill-color: var(--sales-biloo-ink) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page .sales-row-actions button,
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page .sales-inline-form button,
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page .sales-add-line {
+  border-color: rgba(20, 33, 61, 0.18) !important;
+  background: #ffffff !important;
+  color: var(--sales-biloo-navy) !important;
+  -webkit-text-fill-color: var(--sales-biloo-navy) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page .sales-builder-total span {
+  background: var(--sales-biloo-mist) !important;
+  color: var(--sales-biloo-muted) !important;
+  -webkit-text-fill-color: var(--sales-biloo-muted) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page .sales-builder-total strong {
+  color: var(--sales-biloo-ink) !important;
+  -webkit-text-fill-color: var(--sales-biloo-ink) !important;
+}
+
+@media (max-width: 620px) {
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page > .sales-hero {
+    padding: 22px 20px !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page > .sales-hero h1 {
+    font-size: clamp(29px, 9vw, 38px) !important;
+    line-height: 1.05 !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page > .sales-hero .sales-hero-state {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .sales-page > .sales-tabs button {
+    min-height: 42px !important;
+    font-size: 11px !important;
+  }
+}

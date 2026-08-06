@@ -1,0 +1,282 @@
+[
+  {
+    "source": "+ Add line",
+    "am": "+ መስመር ጨምር",
+    "ti": "+ መስመር ወስኽ"
+  },
+  {
+    "source": ". The link expires according to the authentication policy.",
+    "am": "። አገናኙ በማረጋገጫ ፖሊሲው መሠረት ጊዜው ያበቃል።",
+    "ti": "። እቲ መራኸቢ ብመሰረት ፖሊሲ ምርግጋጽ ግዜኡ ይውዳእ።"
+  },
+  {
+    "source": "1. Request",
+    "am": "1. ጥያቄ",
+    "ti": "1. ሕቶ"
+  },
+  {
+    "source": "2. Quote",
+    "am": "2. የዋጋ ጥቅስ",
+    "ti": "2. ጥቕሲ ዋጋ"
+  },
+  {
+    "source": "3. Order",
+    "am": "3. ትዕዛዝ",
+    "ti": "3. ትእዛዝ"
+  },
+  {
+    "source": "4. Receive",
+    "am": "4. ተቀበል",
+    "ti": "4. ተቐበል"
+  },
+  {
+    "source": "5. Pay",
+    "am": "5. ክፈል",
+    "ti": "5. ክፈል"
+  },
+  {
+    "source": "A critical interface error occurred. No financial transaction is retried automatically.",
+    "am": "ከባድ የበይነገጽ ስህተት ተፈጥሯል። ምንም የፋይናንስ ግብይት በራስ-ሰር አይደገምም።",
+    "ti": "ከቢድ ጌጋ መራኸቢ ተፈጢሩ። ዝኾነ ፋይናንሳዊ ግብይት ብርእሱ ዳግማይ ኣይፍተንን።"
+  },
+  {
+    "source": "A premium operating system for your growing company.",
+    "am": "ለሚያድገው ድርጅትዎ የተዘጋጀ ፕሪሚየም የአሠራር ስርዓት።",
+    "ti": "ንዝዓቢ ዘሎ ትካልኩም ዝተዳለወ ፕሪምየም ስርዓተ ስራሕ።"
+  },
+  {
+    "source": "A verification message was sent",
+    "am": "የማረጋገጫ መልእክት ተልኳል",
+    "ti": "መልእኽቲ ምርግጋጽ ተላኢኹ"
+  },
+  {
+    "source": "ADMINISTRATOR PROTECTION",
+    "am": "የአስተዳዳሪ ጥበቃ",
+    "ti": "ሓለዋ ኣመሓዳሪ"
+  },
+  {
+    "source": "AED — UAE Dirham",
+    "am": "AED — የተባበሩት ዓረብ ኤሚሬቶች ድርሃም",
+    "ti": "AED — ድርሃም ዓረብ ኤሚሬትስ"
+  },
+  {
+    "source": "Account & security",
+    "am": "መለያ እና ደህንነት",
+    "ti": "ኣካውንትን ድሕነትን"
+  },
+  {
+    "source": "Account (masked)",
+    "am": "መለያ (ተደብቋል)",
+    "ti": "ኣካውንት (ተሸፊኑ)"
+  },
+  {
+    "source": "Account balances",
+    "am": "የመለያ ቀሪ ሂሳቦች",
+    "ti": "ቀሪ ሒሳባት ኣካውንት"
+  },
+  {
+    "source": "Account code",
+    "am": "የመለያ ኮድ",
+    "ti": "ኮድ ኣካውንት"
+  },
+  {
+    "source": "Account name",
+    "am": "የመለያ ስም",
+    "ti": "ስም ኣካውንት"
+  },
+  {
+    "source": "Account navigation",
+    "am": "የመለያ አሰሳ",
+    "ti": "ምምራሕ ኣካውንት"
+  },
+  {
+    "source": "Account security",
+    "am": "የመለያ ደህንነት",
+    "ti": "ድሕነት ኣካውንት"
+  },
+  {
+    "source": "Accounting & stock posting",
+    "am": "የሂሳብ እና የክምችት ምዝገባ",
+    "ti": "ምዝገባ ሒሳብን ስቶክን"
+  },
+  {
+    "source": "Accounting period controls",
+    "am": "የሂሳብ ዘመን መቆጣጠሪያዎች",
+    "ti": "መቆጻጸሪታት ክፍለ ግዜ ሒሳብ"
+  },
+  {
+    "source": "Accumulated depreciation",
+    "am": "የተከማቸ የእሴት ቅናሽ",
+    "ti": "ዝተኣከበ ምጉዳል ዋጋ"
+  },
+  {
+    "source": "Acquisition date",
+    "am": "የግዢ ቀን",
+    "ti": "ዕለት ግዝኢ"
+  },
+  {
+    "source": "Active employees",
+    "am": "ንቁ ሰራተኞች",
+    "ti": "ንጡፋት ሰራሕተኛታት"
+  },
+  {
+    "source": "Active quotations",
+    "am": "ንቁ የዋጋ ጥቅሶች",
+    "ti": "ንጡፋት ጥቕስታት ዋጋ"
+  },
+  {
+    "source": "Activity alerts",
+    "am": "የእንቅስቃሴ ማስጠንቀቂያዎች",
+    "ti": "መጠንቀቕታታት ንጥፈት"
+  },
+  {
+    "source": "Add branch",
+    "am": "ቅርንጫፍ ጨምር",
+    "ti": "ጨንፈር ወስኽ"
+  },
+  {
+    "source": "Add employee",
+    "am": "ሰራተኛ ጨምር",
+    "ti": "ሰራሕተኛ ወስኽ"
+  },
+  {
+    "source": "Add product and opening stock",
+    "am": "ምርት እና የመክፈቻ ክምችት ጨምር",
+    "ti": "ፍርያትን መኽፈቲ ስቶክን ወስኽ"
+  },
+  {
+    "source": "Add supplier",
+    "am": "አቅራቢ ጨምር",
+    "ti": "ኣቕራቢ ወስኽ"
+  },
+  {
+    "source": "Addis Ababa, Ethiopia",
+    "am": "አዲስ አበባ፣ ኢትዮጵያ",
+    "ti": "ኣዲስ ኣበባ፣ ኢትዮጵያ"
+  },
+  {
+    "source": "Adjustments posted",
+    "am": "ማስተካከያዎች ተመዝግበዋል",
+    "ti": "ምትዕርራያት ተመዝጊቦም"
+  },
+  {
+    "source": "Admin MFA",
+    "am": "የአስተዳዳሪ MFA",
+    "ti": "MFA ኣመሓዳሪ"
+  },
+  {
+    "source": "Administrator MFA",
+    "am": "የአስተዳዳሪ MFA",
+    "ti": "MFA ኣመሓዳሪ"
+  },
+  {
+    "source": "Administrator access required",
+    "am": "የአስተዳዳሪ መዳረሻ ያስፈልጋል",
+    "ti": "መእተዊ ኣመሓዳሪ የድሊ"
+  },
+  {
+    "source": "Administrator security",
+    "am": "የአስተዳዳሪ ደህንነት",
+    "ti": "ድሕነት ኣመሓዳሪ"
+  },
+  {
+    "source": "Allocate invoice",
+    "am": "ደረሰኝ አመድብ",
+    "ti": "ኢንቮይስ መድብ"
+  },
+  {
+    "source": "Allow MFA-verified administrators to export CSV evidence.",
+    "am": "በMFA የተረጋገጡ አስተዳዳሪዎች የCSV ማስረጃ እንዲያወጡ ፍቀድ።",
+    "ti": "ብMFA ዝተረጋገጹ ኣመሓደርቲ መርትዖ CSV ከውጽኡ ፍቐድ።"
+  },
+  {
+    "source": "Already registered?",
+    "am": "አስቀድመው ተመዝግበዋል?",
+    "ti": "ድሮ ተመዝጊብኩም ዲኹም?"
+  },
+  {
+    "source": "Approval queue",
+    "am": "የማጽደቂያ ወረፋ",
+    "ti": "ሪጋ ምጽዳቕ"
+  },
+  {
+    "source": "Approved commitments",
+    "am": "የጸደቁ ግዴታዎች",
+    "ti": "ዝጸደቑ ግዴታታት"
+  },
+  {
+    "source": "Approved demand",
+    "am": "የጸደቀ ፍላጎት",
+    "ti": "ዝጸደቐ ጠለብ"
+  },
+  {
+    "source": "Asset account",
+    "am": "የንብረት መለያ",
+    "ti": "ኣካውንት ንብረት"
+  },
+  {
+    "source": "Asset name",
+    "am": "የንብረት ስም",
+    "ti": "ስም ንብረት"
+  },
+  {
+    "source": "At current cost",
+    "am": "በአሁኑ ወጪ",
+    "ti": "ብናይ ሕጂ ወጻኢ"
+  },
+  {
+    "source": "At or below minimum",
+    "am": "በዝቅተኛው ወይም ከዚያ በታች",
+    "ti": "ኣብ ዝተሓተ ወይ ትሕቲኡ"
+  },
+  {
+    "source": "Atomic posting",
+    "am": "የማይከፈል ምዝገባ",
+    "ti": "ዘይከፋፈል ምዝገባ"
+  },
+  {
+    "source": "Audit export",
+    "am": "የኦዲት ውጪ ማውጣት",
+    "ti": "ምውጻእ ኦዲት"
+  },
+  {
+    "source": "Auth audit",
+    "am": "የማረጋገጫ ኦዲት",
+    "ti": "ኦዲት ምርግጋጽ"
+  },
+  {
+    "source": "Authentication and material financial actions generate organization-scoped security alerts and immutable audit events.",
+    "am": "ማረጋገጫ እና ጉልህ የፋይናንስ እርምጃዎች በድርጅቱ ወሰን ውስጥ የደህንነት ማስጠንቀቂያዎችን እና የማይቀየሩ የኦዲት ክስተቶችን ይፈጥራሉ።",
+    "ti": "ምርግጋጽን ኣገደስቲ ፋይናንሳዊ ስጉምትታትን ኣብ ውሽጢ ወሰን ትካል መጠንቀቕታታት ድሕነትን ዘይቅየሩ ክስተታት ኦዲትን ይፈጥሩ።"
+  },
+  {
+    "source": "Authentication is not configured.",
+    "am": "ማረጋገጫ አልተዋቀረም።",
+    "ti": "ምርግጋጽ ኣይተዋቐረን።"
+  },
+  {
+    "source": "Authenticator MFA",
+    "am": "የማረጋገጫ መተግበሪያ MFA",
+    "ti": "MFA መረጋገጺ"
+  },
+  {
+    "source": "Authenticator code",
+    "am": "የማረጋገጫ መተግበሪያ ኮድ",
+    "ti": "ኮድ መረጋገጺ"
+  },
+  {
+    "source": "Authenticator enrollment QR code",
+    "am": "የማረጋገጫ መተግበሪያ ምዝገባ QR ኮድ",
+    "ti": "QR ኮድ ምዝገባ መረጋገጺ"
+  },
+  {
+    "source": "Automatic journal",
+    "am": "ራስ-ሰር ጆርናል",
+    "ti": "ኣውቶማቲክ ጆርናል"
+  },
+  {
+    "source": "Available credit",
+    "am": "የሚገኝ ክሬዲት",
+    "ti": "ዘሎ ክሬዲት"
+  }
+]

@@ -1,0 +1,327 @@
+/*
+ * Dashboard-only color authority.
+ *
+ * This file is intentionally imported after every legacy workspace stylesheet.
+ * Older light-theme guards use `background: white !important` on metric cards.
+ * These selectors are scoped to the current dashboard and pair foreground,
+ * background, border and semantic tone in one final cascade layer.
+ */
+
+html[data-theme="light"] body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard {
+  --dash-canvas: #f6f2ef;
+  --dash-surface: #ffffff;
+  --dash-surface-soft: #fbf7f4;
+  --dash-text: #171310;
+  --dash-text-secondary: #463a35;
+  --dash-text-muted: #695a53;
+  --dash-line: rgba(44, 31, 26, 0.16);
+  --dash-brand: #a94b30;
+  --dash-success: #17624c;
+  --dash-success-soft: #eef8f3;
+  --dash-warning: #7a4307;
+  --dash-warning-soft: #fff6e5;
+  --dash-danger: #982f40;
+  --dash-danger-soft: #fff0f2;
+  --dash-info: #3156a3;
+  --dash-info-soft: #eef3ff;
+}
+
+html[data-theme="dark"] body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard {
+  --dash-canvas: #10100f;
+  --dash-surface: #1d1b19;
+  --dash-surface-soft: #24211f;
+  --dash-text: #f7f3f0;
+  --dash-text-secondary: #d3cbc6;
+  --dash-text-muted: #b7aaa3;
+  --dash-line: rgba(255, 255, 255, 0.12);
+  --dash-brand: #f09a7d;
+  --dash-success: #7bd8b9;
+  --dash-success-soft: rgba(123, 216, 185, 0.14);
+  --dash-warning: #f3c36e;
+  --dash-warning-soft: rgba(243, 195, 110, 0.14);
+  --dash-danger: #ff9aaa;
+  --dash-danger-soft: rgba(255, 154, 170, 0.14);
+  --dash-info: #aec3ff;
+  --dash-info-soft: rgba(174, 195, 255, 0.14);
+}
+
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard {
+  color: var(--dash-text) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-page-header {
+  border-color: var(--dash-line) !important;
+  background:
+    radial-gradient(circle at 88% 6%, rgba(218, 119, 87, 0.22), transparent 31%),
+    linear-gradient(145deg, color-mix(in srgb, var(--dash-surface) 96%, transparent), var(--dash-surface-soft)) !important;
+  color: var(--dash-text) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-page-header :where(
+  h1, h2, h3, strong, b, label, li, dt, dd, time
+) {
+  color: var(--dash-text) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-page-header :where(
+  p, small, .workspace-page-description, .workspace-page-meta
+) {
+  color: var(--dash-text-secondary) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard :where(
+  .workspace-breadcrumb,
+  .workspace-breadcrumb a,
+  .workspace-metric-heading,
+  .workspace-metric-tile > small,
+  .revenue-axis,
+  .financial-dashboard .revenue-summary small
+) {
+  color: var(--dash-text-muted) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard :where(
+  .workspace-eyebrow,
+  .workspace-inline-action,
+  .financial-module-grid b
+) {
+  color: var(--dash-brand) !important;
+}
+
+/* Semantic metric cards: old global white !important backgrounds are replaced here. */
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-metric-tile {
+  border-color: var(--dash-line) !important;
+  background: var(--dash-surface) !important;
+  background-image: none !important;
+  color: var(--dash-text) !important;
+}
+
+html[data-theme="light"] body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-metric-tile.tone-success {
+  border-color: rgba(23, 98, 76, 0.25) !important;
+  background: linear-gradient(145deg, #ffffff, var(--dash-success-soft)) !important;
+}
+
+html[data-theme="light"] body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-metric-tile.tone-warning {
+  border-color: rgba(122, 67, 7, 0.24) !important;
+  background: linear-gradient(145deg, #ffffff, var(--dash-warning-soft)) !important;
+}
+
+html[data-theme="light"] body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-metric-tile.tone-danger {
+  border-color: rgba(152, 47, 64, 0.22) !important;
+  background: linear-gradient(145deg, #ffffff, var(--dash-danger-soft)) !important;
+}
+
+html[data-theme="light"] body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-metric-tile.tone-info {
+  border-color: rgba(49, 86, 163, 0.22) !important;
+  background: linear-gradient(145deg, #ffffff, var(--dash-info-soft)) !important;
+}
+
+html[data-theme="dark"] body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-metric-tile.tone-success {
+  border-color: rgba(123, 216, 185, 0.22) !important;
+  background: linear-gradient(145deg, #1d1b19, var(--dash-success-soft)) !important;
+}
+
+html[data-theme="dark"] body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-metric-tile.tone-warning {
+  border-color: rgba(243, 195, 110, 0.22) !important;
+  background: linear-gradient(145deg, #1d1b19, var(--dash-warning-soft)) !important;
+}
+
+html[data-theme="dark"] body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-metric-tile.tone-danger {
+  border-color: rgba(255, 154, 170, 0.22) !important;
+  background: linear-gradient(145deg, #1d1b19, var(--dash-danger-soft)) !important;
+}
+
+html[data-theme="dark"] body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-metric-tile.tone-info {
+  border-color: rgba(174, 195, 255, 0.22) !important;
+  background: linear-gradient(145deg, #1d1b19, var(--dash-info-soft)) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-metric-tile :where(
+  .workspace-metric-heading, strong, small
+) {
+  color: inherit !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-metric-tile.tone-success .workspace-metric-heading {
+  color: var(--dash-success) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-metric-tile.tone-warning .workspace-metric-heading {
+  color: var(--dash-warning) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-metric-tile.tone-danger .workspace-metric-heading {
+  color: var(--dash-danger) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-metric-tile.tone-info .workspace-metric-heading {
+  color: var(--dash-info) !important;
+}
+
+/* Featured operating result remains deliberately dark in light and dark mode. */
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .financial-metric-grid > .workspace-metric-tile:nth-child(5) {
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(218, 119, 87, 0.52), transparent 32%),
+    linear-gradient(135deg, #171717, #2d2521 62%, #493126) !important;
+  background-image:
+    radial-gradient(circle at 88% 12%, rgba(218, 119, 87, 0.52), transparent 32%),
+    linear-gradient(135deg, #171717, #2d2521 62%, #493126) !important;
+  color: #ffffff !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .financial-metric-grid > .workspace-metric-tile:nth-child(5) :where(
+  strong, b, span, svg
+) {
+  color: #ffffff !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .financial-metric-grid > .workspace-metric-tile:nth-child(5) :where(
+  .workspace-metric-heading, small
+) {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .financial-metric-grid > .workspace-metric-tile:nth-child(5) .workspace-metric-icon {
+  background: rgba(255, 255, 255, 0.13) !important;
+  color: #ffffff !important;
+}
+
+/* Dashboard surfaces and copy are explicitly paired. */
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard :is(
+  .workspace-section,
+  .workspace-action-alert,
+  .financial-priority-grid > a,
+  .financial-module-grid > a,
+  .health-status-list li,
+  .workspace-table-frame
+) {
+  border-color: var(--dash-line) !important;
+  background: var(--dash-surface) !important;
+  color: var(--dash-text) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard :where(
+  .workspace-section-heading h2,
+  .workspace-action-alert-copy strong,
+  .workspace-action-alert-copy b,
+  .financial-priority-grid strong,
+  .financial-module-grid strong,
+  .dashboard-health-ring strong,
+  .transaction-identity strong
+) {
+  color: var(--dash-text) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard :where(
+  .workspace-section-heading > div > p:last-child,
+  .workspace-action-alert-copy p,
+  .financial-priority-grid p,
+  .financial-module-grid p,
+  .dashboard-health-score p,
+  .transaction-identity small
+) {
+  color: var(--dash-text-secondary) !important;
+}
+
+/* Alerts receive visible semantic coding without sacrificing text contrast. */
+html[data-theme="light"] body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-action-alert.tone-success {
+  border-left: 4px solid var(--dash-success) !important;
+  background: linear-gradient(90deg, var(--dash-success-soft), #ffffff 28%) !important;
+}
+
+html[data-theme="light"] body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-action-alert.tone-warning {
+  border-left: 4px solid var(--dash-warning) !important;
+  background: linear-gradient(90deg, var(--dash-warning-soft), #ffffff 28%) !important;
+}
+
+html[data-theme="light"] body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-action-alert.tone-danger {
+  border-left: 4px solid var(--dash-danger) !important;
+  background: linear-gradient(90deg, var(--dash-danger-soft), #ffffff 28%) !important;
+}
+
+html[data-theme="light"] body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-action-alert.tone-info {
+  border-left: 4px solid var(--dash-info) !important;
+  background: linear-gradient(90deg, var(--dash-info-soft), #ffffff 28%) !important;
+}
+
+html[data-theme="dark"] body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-action-alert.tone-success {
+  border-left: 4px solid var(--dash-success) !important;
+  background: linear-gradient(90deg, var(--dash-success-soft), var(--dash-surface) 32%) !important;
+}
+
+html[data-theme="dark"] body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-action-alert.tone-warning {
+  border-left: 4px solid var(--dash-warning) !important;
+  background: linear-gradient(90deg, var(--dash-warning-soft), var(--dash-surface) 32%) !important;
+}
+
+html[data-theme="dark"] body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-action-alert.tone-danger {
+  border-left: 4px solid var(--dash-danger) !important;
+  background: linear-gradient(90deg, var(--dash-danger-soft), var(--dash-surface) 32%) !important;
+}
+
+html[data-theme="dark"] body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-action-alert.tone-info {
+  border-left: 4px solid var(--dash-info) !important;
+  background: linear-gradient(90deg, var(--dash-info-soft), var(--dash-surface) 32%) !important;
+}
+
+/* Tables and controls cannot inherit white-on-light or dark-on-dark values. */
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-data-table {
+  color: var(--dash-text-secondary) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-data-table th {
+  background: var(--dash-surface-soft) !important;
+  color: var(--dash-text-muted) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-data-table td {
+  border-color: var(--dash-line) !important;
+  color: var(--dash-text-secondary) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-data-table td :where(strong, b) {
+  color: var(--dash-text) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard :where(
+  input:not([type="checkbox"]):not([type="radio"]),
+  select,
+  textarea
+) {
+  border-color: var(--dash-line) !important;
+  background: var(--dash-surface) !important;
+  color: var(--dash-text) !important;
+  -webkit-text-fill-color: var(--dash-text) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard :where(input, textarea)::placeholder {
+  color: var(--dash-text-muted) !important;
+  opacity: 1 !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-status,
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-search-trigger,
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-header-actions button {
+  color: var(--dash-text-muted) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-status-badge {
+  color: var(--dash-text-secondary) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-status-badge.tone-success {
+  color: var(--dash-success) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-status-badge.tone-warning {
+  color: var(--dash-warning) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-status-badge.tone-danger {
+  color: var(--dash-danger) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .apple-grade-dashboard .workspace-status-badge.tone-info {
+  color: var(--dash-info) !important;
+}

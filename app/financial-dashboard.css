@@ -1,0 +1,22 @@
+/* Financial operating dashboard. */
+.financial-dashboard{display:block}.financial-dashboard .mode-notice{margin-bottom:16px}
+.financial-dashboard .workspace-status{display:inline-flex;align-items:center;gap:6px;min-height:30px;padding:0 8px;color:var(--fin-text-muted);font-size:10px;font-weight:550}
+.financial-dashboard .workspace-status i{width:6px;height:6px;border-radius:50%;background:var(--fin-success);box-shadow:none}
+.financial-priority-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0}
+.financial-priority-grid>a{display:grid;grid-template-columns:32px minmax(0,1fr) 16px;align-items:center;gap:11px;min-height:78px;padding:12px;border:1px solid var(--fin-border);border-radius:var(--fin-radius-md);background:var(--fin-surface);color:var(--fin-text);box-shadow:none;text-decoration:none}
+.workspace-link-icon{display:grid;place-items:center;width:32px;height:32px;border-radius:var(--fin-radius-sm);background:var(--fin-surface-muted);color:var(--fin-primary)}
+.financial-priority-grid strong{display:block;color:var(--fin-text);font-size:12px;font-weight:620}.financial-priority-grid p{margin:3px 0 0;color:var(--fin-text-muted);font-size:10px;line-height:1.4}.financial-priority-grid .dashboard-arrow{color:var(--fin-text-faint)}
+.financial-module-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.financial-module-grid>a{display:grid;align-content:start;min-height:164px;padding:14px;border:1px solid var(--fin-border);border-radius:var(--fin-radius-md);background:var(--fin-surface);color:var(--fin-text);text-decoration:none}
+.financial-module-grid>a:hover{border-color:var(--fin-border-strong);background:var(--fin-surface-subtle)}
+.financial-module-grid small{margin-top:11px;color:var(--fin-text-muted);font-size:9px;font-weight:550}.financial-module-grid strong{margin-top:4px;color:var(--fin-text);font-size:12px;font-weight:620}.financial-module-grid p{margin:6px 0 12px;color:var(--fin-text-muted);font-size:10px;line-height:1.5}
+.financial-module-grid b{display:flex;align-items:center;gap:5px;margin-top:auto;color:var(--fin-primary);font-size:10px;font-weight:600}
+.financial-analysis-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(300px,.65fr);gap:16px}.financial-analysis-grid .workspace-section{margin-bottom:16px}
+.financial-dashboard .revenue-summary{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:16px}.financial-dashboard .revenue-summary strong{color:var(--fin-text);font-size:22px;font-weight:650;letter-spacing:-.035em}.financial-dashboard .revenue-summary span{color:var(--fin-success);font-size:10px;font-weight:600}
+.financial-dashboard .chart{display:flex;align-items:end;gap:7px;height:185px;padding:16px 12px 0;border:1px solid var(--fin-border);border-radius:var(--fin-radius-md);background:var(--fin-surface-subtle)}
+.financial-dashboard .bar-wrap{display:flex;flex:1;min-width:0;height:100%;flex-direction:column;justify-content:flex-end;align-items:center;gap:6px}.financial-dashboard .bar{width:min(24px,74%);border-radius:3px 3px 0 0;background:var(--fin-primary);opacity:.86}.financial-dashboard .bar-wrap small{min-height:16px;color:var(--fin-text-faint);font-size:8px}
+.health-summary-bar{height:7px;overflow:hidden;margin:6px 0 18px;border-radius:999px;background:var(--fin-surface-muted)}.health-summary-bar span{display:block;height:100%;border-radius:inherit;background:var(--fin-primary)}
+.health-status-list{list-style:none;display:grid;gap:0;margin:0;padding:0;border:1px solid var(--fin-border);border-radius:var(--fin-radius-md)}.health-status-list li{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:43px;padding:8px 11px;border-bottom:1px solid var(--fin-border);color:var(--fin-text-secondary);font-size:11px}.health-status-list li:last-child{border-bottom:0}
+@media(max-width:1180px){.financial-module-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.financial-priority-grid{grid-template-columns:1fr}.financial-analysis-grid{grid-template-columns:1fr}}
+@media(max-width:700px){.financial-module-grid{grid-template-columns:1fr}.financial-dashboard .chart{height:150px;gap:3px;padding-inline:6px}}

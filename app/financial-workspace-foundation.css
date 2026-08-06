@@ -1,0 +1,107 @@
+/* HisabTech Financial Workspace foundation. Loaded after legacy page styles. */
+body[data-workspace-system="financial-os-v1"] {
+  --fin-canvas:#f7f7f8;--fin-surface:#fff;--fin-surface-subtle:#fafafa;--fin-surface-muted:#f4f4f5;
+  --fin-border:#e4e4e7;--fin-border-strong:#d4d4d8;--fin-text:#18181b;--fin-text-secondary:#52525b;
+  --fin-text-muted:#71717a;--fin-text-faint:#a1a1aa;--fin-primary:#147d68;--fin-primary-hover:#106c5a;
+  --fin-primary-soft:#ecf8f4;--fin-info:#2563eb;--fin-info-soft:#eff6ff;--fin-warning:#a16207;
+  --fin-warning-soft:#fffbeb;--fin-danger:#b4233d;--fin-danger-soft:#fff1f2;--fin-success:#147d68;
+  --fin-success-soft:#ecf8f4;--fin-radius-xs:4px;--fin-radius-sm:6px;--fin-radius-md:8px;--fin-radius-lg:10px;
+  --fin-shadow-subtle:0 1px 2px rgba(24,24,27,.035);--fin-shadow-popover:0 14px 36px rgba(24,24,27,.12);
+  --fin-focus:0 0 0 3px rgba(20,125,104,.15);
+  --ds-color-surface-canvas:var(--fin-canvas);--ds-color-surface-panel:var(--fin-surface);
+  --ds-color-surface-subtle:var(--fin-surface-subtle);--ds-color-text-primary:var(--fin-text);
+  --ds-color-text-secondary:var(--fin-text-muted);--ds-color-border:var(--fin-border);
+  --ds-color-success:var(--fin-success);--ds-color-success-soft:var(--fin-success-soft);
+  --ds-color-warning:var(--fin-warning);--ds-color-warning-soft:var(--fin-warning-soft);
+  --ds-color-danger:var(--fin-danger);--ds-color-danger-soft:var(--fin-danger-soft);
+  --ds-radius-sm:var(--fin-radius-sm);--ds-radius-md:var(--fin-radius-md);--ds-radius-lg:var(--fin-radius-lg);
+  --ds-radius-xl:12px;--ds-shadow-sm:var(--fin-shadow-subtle);--ds-shadow-md:0 6px 18px rgba(24,24,27,.07);
+  --ds-shadow-lg:var(--fin-shadow-popover);--ds-focus:var(--fin-focus);--workspace-page:var(--fin-canvas);
+  --workspace-surface:var(--fin-surface);--workspace-soft:var(--fin-surface-subtle);--workspace-line:var(--fin-border);
+  --workspace-ink:var(--fin-text);--workspace-muted:var(--fin-text-muted);--workspace-brand:var(--fin-primary);
+  --workspace-teal:var(--fin-primary);--workspace-danger:var(--fin-danger);--workspace-shadow:var(--fin-shadow-subtle);
+  --workspace-shadow-hover:0 4px 14px rgba(24,24,27,.07);
+  color:var(--fin-text);background:var(--fin-canvas);
+  font-family:"Geist Sans",Geist,Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-feature-settings:"ss01" 1,"cv02" 1,"cv03" 1,"cv04" 1,"tnum" 1;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+body[data-workspace-system="financial-os-v1"] :is(.erp-shell,.erp-shell>.workspace){background:var(--fin-canvas)}
+body[data-workspace-system="financial-os-v1"] .erp-shell>.workspace{color:var(--fin-text)}
+body[data-workspace-system="financial-os-v1"] .erp-shell>.workspace :where(h1,h2,h3,h4,p){text-wrap:pretty}
+body[data-workspace-system="financial-os-v1"] .erp-shell>.workspace :where(h1,h2,h3,h4,strong,b,td,th,input,select,textarea){font-variant-numeric:tabular-nums}
+
+/* Page frame */
+body[data-workspace-system="financial-os-v1"] .dashboard-content,
+body[data-workspace-system="financial-os-v1"] :is(.section-page-modern,.core-page,.finance-page,.sales-page,.ops-page,.controls-page,.guided-setup-page,.module-page,.module-detail-page,.einvoice-page,.recon-page,.account-security-page,.help-center-page){width:min(1440px,100%);min-height:100%;margin:0 auto;padding:28px 32px 56px;background:var(--fin-canvas)!important;color:var(--fin-text)}
+body[data-workspace-system="financial-os-v1"] :is(.section-page,.core-page,.finance-page,.sales-page,.ops-page,.controls-page,.guided-setup-page,.module-page,.module-detail-page,.einvoice-page,.recon-page){background-image:none!important}
+.workspace-page-header{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:24px;margin:0 0 22px;padding:0 0 20px;border-bottom:1px solid var(--fin-border)}
+.workspace-page-header-copy{min-width:0}
+.workspace-breadcrumb,.section-breadcrumb{display:flex;align-items:center;gap:6px;min-height:18px;margin:0 0 12px;color:var(--fin-text-muted);font-size:11px;font-weight:500;letter-spacing:0}
+.workspace-breadcrumb a,.section-breadcrumb a{color:var(--fin-text-secondary);text-decoration:none}
+.workspace-breadcrumb a:hover,.section-breadcrumb a:hover{color:var(--fin-primary)}
+.workspace-eyebrow,.workspace-page-header .workspace-eyebrow,body[data-workspace-system="financial-os-v1"] .erp-shell>.workspace .eyebrow{display:flex;align-items:center;gap:7px;margin:0 0 7px;color:var(--fin-primary);font-size:11px;font-weight:600;line-height:1.35;letter-spacing:0;text-transform:none}
+.workspace-page-header h1{margin:0;color:var(--fin-text);font-size:clamp(24px,3vw,30px);font-weight:650;line-height:1.15;letter-spacing:-.035em}
+.workspace-page-description{max-width:760px;margin:8px 0 0;color:var(--fin-text-muted);font-size:13px;line-height:1.6}
+.workspace-page-meta{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:12px;color:var(--fin-text-muted);font-size:11px}
+.workspace-page-actions,body[data-workspace-system="financial-os-v1"] :is(.top-actions,.section-actions){display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:8px}
+
+/* Conventional product headers */
+body[data-workspace-system="financial-os-v1"] :is(.section-shell-hero,.core-hero,.finance-hero,.sales-hero,.ops-hero,.controls-hero,.setup-hero,.module-hero,.module-detail-header){overflow:visible;margin-bottom:18px;padding:20px 22px;border:1px solid var(--fin-border);border-radius:var(--fin-radius-lg);background:var(--fin-surface)!important;box-shadow:var(--fin-shadow-subtle)}
+body[data-workspace-system="financial-os-v1"] :is(.section-shell-hero,.core-hero,.finance-hero,.sales-hero,.ops-hero,.controls-hero,.setup-hero,.module-hero)::before,
+body[data-workspace-system="financial-os-v1"] :is(.section-shell-hero,.core-hero,.finance-hero,.sales-hero,.ops-hero,.controls-hero,.setup-hero,.module-hero)::after{display:none!important}
+body[data-workspace-system="financial-os-v1"] .section-shell-title{grid-template-columns:38px minmax(0,1fr);gap:13px}
+body[data-workspace-system="financial-os-v1"] .section-shell-mark{width:38px;height:38px;border:1px solid var(--fin-border);border-radius:var(--fin-radius-md);background:var(--fin-surface-subtle);color:var(--fin-primary);box-shadow:none;font-size:15px}
+body[data-workspace-system="financial-os-v1"] .section-shell-title h1,
+body[data-workspace-system="financial-os-v1"] :is(.core-hero,.finance-hero,.sales-hero,.ops-hero,.controls-hero,.setup-hero,.module-hero) h1{margin:2px 0 5px;color:var(--fin-text);font-size:clamp(23px,3vw,29px);font-weight:650;line-height:1.18;letter-spacing:-.035em}
+body[data-workspace-system="financial-os-v1"] .section-shell-title>div>p:last-child,
+body[data-workspace-system="financial-os-v1"] :is(.core-hero,.finance-hero,.sales-hero,.ops-hero,.controls-hero,.setup-hero,.module-hero) p{color:var(--fin-text-muted);font-size:12px;line-height:1.55}
+
+/* Actions */
+body[data-workspace-system="financial-os-v1"] .erp-shell>.workspace :where(button,.action-link,.primary,.secondary,.ghost,.text-button){font-family:inherit}
+body[data-workspace-system="financial-os-v1"] .erp-shell>.workspace :is(.primary,.action-link.primary){min-height:38px;padding:0 13px;border:1px solid var(--fin-primary)!important;border-radius:var(--fin-radius-sm)!important;background:var(--fin-primary)!important;color:#fff!important;box-shadow:none!important;font-size:12px;font-weight:600}
+body[data-workspace-system="financial-os-v1"] .erp-shell>.workspace :is(.primary,.action-link.primary):hover{border-color:var(--fin-primary-hover)!important;background:var(--fin-primary-hover)!important;transform:none!important}
+body[data-workspace-system="financial-os-v1"] .erp-shell>.workspace :is(.secondary,.action-link.secondary,.ghost){min-height:38px;padding:0 12px;border:1px solid var(--fin-border-strong)!important;border-radius:var(--fin-radius-sm)!important;background:var(--fin-surface)!important;color:var(--fin-text-secondary)!important;box-shadow:none!important;font-size:12px;font-weight:550}
+body[data-workspace-system="financial-os-v1"] .erp-shell>.workspace :is(.secondary,.action-link.secondary,.ghost):hover{border-color:#bcbcc2!important;background:var(--fin-surface-subtle)!important;color:var(--fin-text)!important}
+body[data-workspace-system="financial-os-v1"] .erp-shell>.workspace :where(button,a,input,select,textarea,summary):focus-visible{outline:0;box-shadow:var(--fin-focus)!important}
+.workspace-inline-action,body[data-workspace-system="financial-os-v1"] .text-button{display:inline-flex;align-items:center;gap:6px;min-height:30px;color:var(--fin-primary);font-size:11px;font-weight:600;text-decoration:none}
+.workspace-inline-action:hover,body[data-workspace-system="financial-os-v1"] .text-button:hover{color:var(--fin-primary-hover)}
+
+/* Panels and card reduction */
+.workspace-section{min-width:0;margin:0 0 16px;padding:18px;border:1px solid var(--fin-border);border-radius:var(--fin-radius-lg);background:var(--fin-surface);box-shadow:var(--fin-shadow-subtle)}
+.workspace-section-heading,body[data-workspace-system="financial-os-v1"] :is(.panel-head,.core-panel-head,.finance-panel-head,.sales-panel-head,.ops-panel-head,.controls-panel-head,.einvoice-panel-head,.recon-panel-head){display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:15px}
+.workspace-section-heading h2,body[data-workspace-system="financial-os-v1"] :is(.panel-head,.core-panel-head,.finance-panel-head,.sales-panel-head,.ops-panel-head,.controls-panel-head,.einvoice-panel-head,.recon-panel-head) h2{margin:0;color:var(--fin-text);font-size:16px;font-weight:630;line-height:1.3;letter-spacing:-.02em}
+.workspace-section-heading>div>p:last-child{max-width:720px;margin:5px 0 0;color:var(--fin-text-muted);font-size:12px;line-height:1.55}
+body[data-workspace-system="financial-os-v1"] :is(.panel,.data-panel,.core-panel,.finance-panel,.sales-panel,.ops-panel,.controls-panel,.control-card,.einvoice-panel,.recon-panel,.module-card,.detail-panel,.setup-step-card,.customer-record-card,.report-result-panel,.report-export-panel){border-color:var(--fin-border)!important;border-radius:var(--fin-radius-lg)!important;background:var(--fin-surface)!important;background-image:none!important;box-shadow:var(--fin-shadow-subtle)!important}
+body[data-workspace-system="financial-os-v1"] :is(.panel,.data-panel,.core-panel,.finance-panel,.sales-panel,.ops-panel,.controls-panel,.control-card,.einvoice-panel,.recon-panel,.module-card,.detail-panel,.setup-step-card)::before,
+body[data-workspace-system="financial-os-v1"] :is(.panel,.data-panel,.core-panel,.finance-panel,.sales-panel,.ops-panel,.controls-panel,.control-card,.einvoice-panel,.recon-panel,.module-card,.detail-panel,.setup-step-card)::after{display:none!important}
+body[data-workspace-system="financial-os-v1"] :is(.module-card,.customer-record-card,.role-priority-grid>a):hover{transform:none!important;border-color:var(--fin-border-strong)!important;box-shadow:0 3px 10px rgba(24,24,27,.055)!important}
+
+/* Forms */
+body[data-workspace-system="financial-os-v1"] .erp-shell>.workspace label{color:var(--fin-text-secondary);font-size:11px;font-weight:550}
+body[data-workspace-system="financial-os-v1"] .erp-shell>.workspace :where(input:not([type="checkbox"]):not([type="radio"]),select,textarea){width:100%;min-height:40px;padding:0 11px;border:1px solid var(--fin-border-strong);border-radius:var(--fin-radius-sm);background:var(--fin-surface);color:var(--fin-text);box-shadow:none;font-family:inherit;font-size:12px;line-height:1.4}
+body[data-workspace-system="financial-os-v1"] .erp-shell>.workspace textarea{min-height:92px;padding-top:10px;padding-bottom:10px;resize:vertical}
+body[data-workspace-system="financial-os-v1"] .erp-shell>.workspace :where(input,select,textarea)::placeholder{color:var(--fin-text-faint)}
+body[data-workspace-system="financial-os-v1"] .erp-shell>.workspace :where(input,select,textarea):hover{border-color:#bcbcc2}
+body[data-workspace-system="financial-os-v1"] .erp-shell>.workspace :where(input,select,textarea):focus{border-color:var(--fin-primary);outline:0;box-shadow:var(--fin-focus)}
+body[data-workspace-system="financial-os-v1"] :is(.form-grid,.core-form-grid,.finance-form-grid,.sales-form-grid,.ops-form-grid,.customer-form){gap:13px}
+body[data-workspace-system="financial-os-v1"] :is(.form-field,.field,.form-group){display:grid;gap:6px}
+body[data-workspace-system="financial-os-v1"] :is(.form-field small,.field small,.form-help,.field-help){color:var(--fin-text-muted);font-size:9.5px;line-height:1.45}
+body[data-workspace-system="financial-os-v1"] :is(.form-actions,.sticky-form-actions,.panel-actions){display:flex;align-items:center;justify-content:flex-end;gap:8px;padding-top:14px;border-top:1px solid var(--fin-border)}
+body[data-workspace-system="financial-os-v1"] .sticky-form-actions{position:sticky;bottom:0;z-index:5;margin:16px -18px -18px;padding:12px 18px;background:rgba(255,255,255,.96);backdrop-filter:blur(14px)}
+
+/* Tabs and filters */
+body[data-workspace-system="financial-os-v1"] :is(.core-tabs,.finance-tabs,.sales-tabs,.ops-tabs,.tab-list,.tabs){gap:2px;padding:3px;border:1px solid var(--fin-border)!important;border-radius:var(--fin-radius-md)!important;background:var(--fin-surface-muted)!important;box-shadow:none!important;backdrop-filter:none!important}
+body[data-workspace-system="financial-os-v1"] :is(.core-tabs,.finance-tabs,.sales-tabs,.ops-tabs,.tab-list,.tabs) button{min-height:32px;padding:0 11px;border:0;border-radius:var(--fin-radius-sm)!important;background:transparent;color:var(--fin-text-muted);box-shadow:none!important;font-size:11px;font-weight:550}
+body[data-workspace-system="financial-os-v1"] :is(.core-tabs,.finance-tabs,.sales-tabs,.ops-tabs,.tab-list,.tabs) button.active{background:var(--fin-surface)!important;color:var(--fin-text)!important;box-shadow:0 1px 2px rgba(24,24,27,.08)!important}
+body[data-workspace-system="financial-os-v1"] :is(.filter-bar,.toolbar,.table-toolbar,.module-toolbar){display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:10px;border:1px solid var(--fin-border);border-radius:var(--fin-radius-md);background:var(--fin-surface)}
+
+/* Popovers */
+body[data-workspace-system="financial-os-v1"] :is(dialog,.dialog,.modal,.popover,.workspace-command-dialog,.workspace-assistance-panel){border-color:var(--fin-border)!important;border-radius:var(--fin-radius-lg)!important;background:var(--fin-surface)!important;box-shadow:var(--fin-shadow-popover)!important}
+
+html[data-theme="dark"] body[data-workspace-system="financial-os-v1"]{--fin-canvas:#111113;--fin-surface:#18181b;--fin-surface-subtle:#1d1d20;--fin-surface-muted:#242428;--fin-border:#2e2e33;--fin-border-strong:#3f3f46;--fin-text:#f4f4f5;--fin-text-secondary:#d4d4d8;--fin-text-muted:#a1a1aa;--fin-text-faint:#71717a;--fin-primary:#49c6a8;--fin-primary-hover:#62d3b7;--fin-primary-soft:#14352e;--fin-info-soft:#172554;--fin-warning-soft:#3b2a13;--fin-danger-soft:#3f1722;--fin-shadow-subtle:0 1px 2px rgba(0,0,0,.28)}
+html[data-theme="dark"] body[data-workspace-system="financial-os-v1"] .sticky-form-actions{background:rgba(24,24,27,.96)}
+
+@media(max-width:900px){body[data-workspace-system="financial-os-v1"] .dashboard-content,body[data-workspace-system="financial-os-v1"] :is(.section-page-modern,.core-page,.finance-page,.sales-page,.ops-page,.controls-page,.guided-setup-page,.module-page,.module-detail-page,.einvoice-page,.recon-page,.account-security-page,.help-center-page){padding:22px 18px 44px}.workspace-page-header{grid-template-columns:1fr;align-items:start;gap:16px}.workspace-page-actions{justify-content:flex-start}}
+@media(max-width:700px){body[data-workspace-system="financial-os-v1"] .dashboard-content,body[data-workspace-system="financial-os-v1"] :is(.section-page-modern,.core-page,.finance-page,.sales-page,.ops-page,.controls-page,.guided-setup-page,.module-page,.module-detail-page,.einvoice-page,.recon-page,.account-security-page,.help-center-page){padding:18px 12px 96px}.workspace-page-header{margin-bottom:14px;padding-bottom:16px}.workspace-page-header h1{font-size:24px}.workspace-page-actions{width:100%}.workspace-page-actions>:is(.primary,.action-link.primary){flex:1 1 auto}.workspace-section{padding:14px;border-radius:var(--fin-radius-md)}.workspace-section-heading{display:grid;grid-template-columns:1fr;gap:8px}body[data-workspace-system="financial-os-v1"] :is(.section-shell-hero,.core-hero,.finance-hero,.sales-hero,.ops-hero,.controls-hero,.setup-hero,.module-hero,.module-detail-header){padding:16px;border-radius:var(--fin-radius-md)}}
+@media(prefers-reduced-motion:reduce){body[data-workspace-system="financial-os-v1"] .erp-shell>.workspace *,body[data-workspace-system="financial-os-v1"] .erp-shell>.workspace *::before,body[data-workspace-system="financial-os-v1"] .erp-shell>.workspace *::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}

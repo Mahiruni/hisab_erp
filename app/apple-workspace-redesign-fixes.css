@@ -1,0 +1,427 @@
+/* Final isolation, layout and contrast safeguards for the Apple-grade workspace layer. */
+
+body[data-workspace-system="financial-os-v1"]:not(:has(.erp-shell)) {
+  background: #ffffff;
+}
+
+html[data-theme="dark"] body[data-workspace-system="financial-os-v1"]:not(:has(.erp-shell)) {
+  background: #0d0b0a;
+}
+
+/*
+ * Authoritative theme tokens.
+ *
+ * The original workspace shipped several generations of theme CSS. Some older
+ * rules use !important and broad "*-hero" selectors, so changing a surface did
+ * not always change its foreground. These final tokens and selectors keep each
+ * surface and its text in the same theme contract.
+ */
+html[data-theme="light"] body[data-workspace-system="financial-os-v1"] {
+  --fin-canvas: #f6f2ef;
+  --fin-surface: rgba(255, 255, 255, 0.96);
+  --fin-surface-solid: #ffffff;
+  --fin-surface-subtle: #f8f2ef;
+  --fin-surface-muted: #eee5e0;
+  --fin-border: rgba(44, 31, 26, 0.14);
+  --fin-border-strong: rgba(44, 31, 26, 0.24);
+  --fin-text: #171310;
+  --fin-text-secondary: #463a35;
+  --fin-text-muted: #695a53;
+  --fin-text-faint: #776860;
+  --fin-primary: #da7757;
+  --fin-primary-hover: #c86242;
+  --fin-primary-ink: #a94b30;
+  --fin-primary-soft: #fff0ea;
+  --fin-success: #18664f;
+  --fin-success-soft: #e9f5f0;
+  --fin-warning: #7a4307;
+  --fin-warning-soft: #fff3dd;
+  --fin-danger: #9d3042;
+  --fin-danger-soft: #fff0f2;
+  --fin-info: #3558a6;
+  --fin-info-soft: #edf2ff;
+}
+
+html[data-theme="dark"] body[data-workspace-system="financial-os-v1"] {
+  --fin-canvas: #10100f;
+  --fin-surface: rgba(29, 27, 25, 0.94);
+  --fin-surface-solid: #1d1b19;
+  --fin-surface-subtle: #24211f;
+  --fin-surface-muted: #2c2825;
+  --fin-border: rgba(255, 255, 255, 0.1);
+  --fin-border-strong: rgba(255, 255, 255, 0.18);
+  --fin-text: #f7f3f0;
+  --fin-text-secondary: #d3cbc6;
+  --fin-text-muted: #b7aaa3;
+  --fin-text-faint: #a89d96;
+  --fin-primary: #e99174;
+  --fin-primary-hover: #f1a087;
+  --fin-primary-ink: #e99174;
+  --fin-primary-soft: rgba(233, 145, 116, 0.16);
+  --fin-success: #78d5b6;
+  --fin-success-soft: rgba(120, 213, 182, 0.14);
+  --fin-warning: #f1c06b;
+  --fin-warning-soft: rgba(241, 192, 107, 0.14);
+  --fin-danger: #ff9aa7;
+  --fin-danger-soft: rgba(255, 154, 167, 0.14);
+  --fin-info: #a9c0ff;
+  --fin-info-soft: rgba(169, 192, 255, 0.14);
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace {
+  color: var(--fin-text) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :where(
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  legend,
+  dt,
+  .workspace-section-heading h2,
+  .workspace-page-header h1,
+  .workspace-metric-tile > strong,
+  .workspace-action-alert-copy strong,
+  .financial-priority-grid strong,
+  .financial-module-grid strong,
+  .transaction-identity strong
+) {
+  color: var(--fin-text) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :where(
+  p,
+  small,
+  dd,
+  time,
+  .workspace-page-description,
+  .workspace-page-meta,
+  .workspace-section-heading > div > p:last-child,
+  .workspace-action-alert-copy p,
+  .financial-priority-grid p,
+  .financial-module-grid p,
+  .transaction-identity small
+) {
+  color: var(--fin-text-secondary) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :where(
+  .workspace-breadcrumb,
+  .workspace-breadcrumb a,
+  .workspace-metric-heading,
+  .workspace-metric-tile > small,
+  .revenue-axis,
+  .financial-dashboard .revenue-summary small,
+  .workspace-data-table th,
+  .erp-table th,
+  .core-table th,
+  .finance-table th,
+  .sales-table th,
+  .ops-table th
+) {
+  color: var(--fin-text-muted) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :where(
+  .workspace-eyebrow,
+  .workspace-inline-action,
+  .financial-module-grid b
+) {
+  color: var(--fin-primary-ink) !important;
+}
+
+/*
+ * Repair the old broad [class$="-hero"] rule. The Apple workspace deliberately
+ * uses light hero surfaces, therefore their descendants must no longer inherit
+ * the previous on-charcoal white text lock.
+ */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .workspace-page-header,
+  .section-shell-hero,
+  .core-hero,
+  .finance-hero,
+  .sales-hero,
+  .ops-hero,
+  .controls-hero,
+  .setup-hero,
+  .module-hero,
+  .module-detail-header
+) {
+  border-color: var(--fin-border) !important;
+  color: var(--fin-text) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .workspace-page-header,
+  .section-shell-hero,
+  .core-hero,
+  .finance-hero,
+  .sales-hero,
+  .ops-hero,
+  .controls-hero,
+  .setup-hero,
+  .module-hero,
+  .module-detail-header
+) :where(h1, h2, h3, h4, h5, h6, strong, b, span, label, li, dt, dd, time) {
+  color: var(--fin-text) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .workspace-page-header,
+  .section-shell-hero,
+  .core-hero,
+  .finance-hero,
+  .sales-hero,
+  .ops-hero,
+  .controls-hero,
+  .setup-hero,
+  .module-hero,
+  .module-detail-header
+) :where(p, small, .muted, .description, .subtitle) {
+  color: var(--fin-text-secondary) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .workspace-page-header,
+  .section-shell-hero,
+  .core-hero,
+  .finance-hero,
+  .sales-hero,
+  .ops-hero,
+  .controls-hero,
+  .setup-hero,
+  .module-hero,
+  .module-detail-header
+) :where(.eyebrow, .workspace-eyebrow, [class*="kicker"]) {
+  color: var(--fin-primary-ink) !important;
+}
+
+/* Primary actions always use an on-accent foreground, including nested labels. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .primary,
+  .action-link.primary,
+  button.primary,
+  button[type="submit"],
+  .finance-primary,
+  .sales-primary,
+  .core-primary,
+  .setup-primary,
+  .submit-button,
+  .save-button,
+  .create-button
+),
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .primary,
+  .action-link.primary,
+  button.primary,
+  button[type="submit"],
+  .finance-primary,
+  .sales-primary,
+  .core-primary,
+  .setup-primary,
+  .submit-button,
+  .save-button,
+  .create-button
+) :where(span, strong, b, svg) {
+  color: #ffffff !important;
+}
+
+/* The fifth dashboard metric is intentionally charcoal in both themes. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .workspace-metric-tile:nth-child(5),
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .workspace-metric-tile:nth-child(5) :where(strong, b, span, svg) {
+  color: #ffffff !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .workspace-metric-tile:nth-child(5) :where(.workspace-metric-heading, small) {
+  color: rgba(255, 255, 255, 0.72) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .workspace-metric-tile:nth-child(5) .workspace-metric-icon {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+}
+
+/* Cards and alerts keep neutral copy; tone is reserved for icons and badges. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .workspace-metric-tile,
+  .workspace-action-alert,
+  .financial-priority-grid > a,
+  .financial-module-grid > a,
+  .workspace-section,
+  .health-status-list li
+) {
+  color: var(--fin-text) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .workspace-metric-tile.tone-success .workspace-metric-icon,
+body[data-workspace-system="financial-os-v1"] .workspace-action-alert.tone-success .workspace-action-alert-icon {
+  background: var(--fin-success-soft) !important;
+  color: var(--fin-success) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .workspace-metric-tile.tone-warning .workspace-metric-icon,
+body[data-workspace-system="financial-os-v1"] .workspace-action-alert.tone-warning .workspace-action-alert-icon {
+  background: var(--fin-warning-soft) !important;
+  color: var(--fin-warning) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .workspace-metric-tile.tone-danger .workspace-metric-icon,
+body[data-workspace-system="financial-os-v1"] .workspace-action-alert.tone-danger .workspace-action-alert-icon {
+  background: var(--fin-danger-soft) !important;
+  color: var(--fin-danger) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .workspace-metric-tile.tone-info .workspace-metric-icon,
+body[data-workspace-system="financial-os-v1"] .workspace-action-alert.tone-info .workspace-action-alert-icon {
+  background: var(--fin-info-soft) !important;
+  color: var(--fin-info) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .workspace-status-badge {
+  color: var(--fin-text-secondary) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .workspace-status-badge.tone-success {
+  border-color: color-mix(in srgb, var(--fin-success) 30%, transparent) !important;
+  background: var(--fin-success-soft) !important;
+  color: var(--fin-success) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .workspace-status-badge.tone-warning {
+  border-color: color-mix(in srgb, var(--fin-warning) 30%, transparent) !important;
+  background: var(--fin-warning-soft) !important;
+  color: var(--fin-warning) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .workspace-status-badge.tone-danger {
+  border-color: color-mix(in srgb, var(--fin-danger) 30%, transparent) !important;
+  background: var(--fin-danger-soft) !important;
+  color: var(--fin-danger) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .workspace-status-badge.tone-info {
+  border-color: color-mix(in srgb, var(--fin-info) 30%, transparent) !important;
+  background: var(--fin-info-soft) !important;
+  color: var(--fin-info) !important;
+}
+
+/* Tables, forms and navigation must switch foreground and surface together. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .workspace-data-table,
+  .erp-table,
+  .core-table,
+  .finance-table,
+  .sales-table,
+  .ops-table,
+  table.data-table
+) {
+  color: var(--fin-text-secondary) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .workspace-data-table,
+  .erp-table,
+  .core-table,
+  .finance-table,
+  .sales-table,
+  .ops-table,
+  table.data-table
+) td {
+  border-bottom-color: var(--fin-border) !important;
+  color: var(--fin-text-secondary) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .workspace-data-table,
+  .erp-table,
+  .core-table,
+  .finance-table,
+  .sales-table,
+  .ops-table,
+  table.data-table
+) td :where(strong, b) {
+  color: var(--fin-text) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :where(
+  input:not([type="checkbox"]):not([type="radio"]),
+  select,
+  textarea
+) {
+  border-color: var(--fin-border-strong) !important;
+  background: var(--fin-surface-solid) !important;
+  color: var(--fin-text) !important;
+  -webkit-text-fill-color: var(--fin-text);
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :where(input, textarea)::placeholder {
+  color: var(--fin-text-muted) !important;
+  opacity: 1;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace select option {
+  background: var(--fin-surface-solid);
+  color: var(--fin-text);
+}
+
+@media (min-width: 961px) {
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .sidebar.supabase-sidebar .sidebar-footer {
+    display: block !important;
+    margin-top: auto;
+    padding: 14px 10px 0;
+    border-top: 1px solid var(--supabase-sidebar-border);
+    color: var(--supabase-sidebar-muted);
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .sidebar.supabase-sidebar .sidebar-footer p {
+    margin: 0 0 6px;
+    font-size: 9px;
+    line-height: 1.5;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .sidebar.supabase-sidebar .sidebar-footer a {
+    color: var(--fin-primary-ink) !important;
+  }
+
+  html[data-theme="light"] body[data-workspace-system="financial-os-v1"] .erp-shell > .sidebar.supabase-sidebar :where(
+    .sidebar-section-label,
+    .sidebar-workspace-copy small,
+    .sidebar-footer,
+    nav a
+  ) {
+    color: #695a53 !important;
+  }
+
+  html[data-theme="light"] body[data-workspace-system="financial-os-v1"] .erp-shell > .sidebar.supabase-sidebar :where(
+    .desktop-sidebar-brand strong,
+    .sidebar-workspace-copy strong,
+    nav a[aria-current="page"],
+    nav a[aria-current="page"] span
+  ) {
+    color: #171310 !important;
+  }
+}
+
+body[data-workspace-system="financial-os-v1"] .dashboard-health-ring {
+  position: relative;
+  isolation: isolate;
+}
+
+body[data-workspace-system="financial-os-v1"] .dashboard-health-ring::before {
+  inset: 19px;
+}
+
+body[data-workspace-system="financial-os-v1"] .workspace-command-header + .mobile-command-trigger {
+  z-index: 121;
+}
+
+body[data-workspace-system="financial-os-v1"] .dashboard-content,
+body[data-workspace-system="financial-os-v1"] .workspace-section,
+body[data-workspace-system="financial-os-v1"] .workspace-page-header {
+  min-width: 0;
+}

@@ -1,0 +1,22 @@
+/* Checkout and billing are focused trust surfaces, even for users already inside the ERP shell. */
+body:has(.commerce-page) .erp-shell {
+  display: block !important;
+  min-height: 100svh !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+body:has(.commerce-page) .erp-shell > :not(.workspace) {
+  display: none !important;
+}
+
+body:has(.commerce-page) .erp-shell > .workspace,
+body:has(.commerce-page) .workspace {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 100svh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  background: transparent !important;
+}

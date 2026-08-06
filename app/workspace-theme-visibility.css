@@ -1,0 +1,325 @@
+/*
+ * Final workspace theme visibility contract.
+ * Loaded after every visual lock so a theme change always updates the text,
+ * surface and control colours as one accessible system.
+ */
+
+html[data-theme="light"] body[data-workspace-system="financial-os-v1"] {
+  --workspace-theme-canvas: #f8f4f2;
+  --workspace-theme-surface: #ffffff;
+  --workspace-theme-surface-muted: #fff8f5;
+  --workspace-theme-surface-hover: #fff1eb;
+  --workspace-theme-border: #dfcbc3;
+  --workspace-theme-text: #211a18;
+  --workspace-theme-text-secondary: #5f504a;
+  --workspace-theme-text-muted: #76655f;
+  --workspace-theme-hero: #171717;
+  --workspace-theme-hero-text: #fff8f4;
+  --workspace-theme-hero-muted: #dec9c0;
+  --workspace-theme-success: #0f6f5e;
+  --workspace-theme-warning: #8a4b08;
+  --workspace-theme-danger: #a62b3e;
+  --workspace-theme-info: #3657b3;
+}
+
+html[data-theme="dark"] body[data-workspace-system="financial-os-v1"] {
+  --workspace-theme-canvas: #0d0b0a;
+  --workspace-theme-surface: #171311;
+  --workspace-theme-surface-muted: #211916;
+  --workspace-theme-surface-hover: #30211c;
+  --workspace-theme-border: #4b352e;
+  --workspace-theme-text: #fff8f4;
+  --workspace-theme-text-secondary: #dec9c0;
+  --workspace-theme-text-muted: #bea9a0;
+  --workspace-theme-hero: #090909;
+  --workspace-theme-hero-text: #fff8f4;
+  --workspace-theme-hero-muted: #dec9c0;
+  --workspace-theme-success: #75d7bd;
+  --workspace-theme-warning: #f2c26b;
+  --workspace-theme-danger: #ff9aaa;
+  --workspace-theme-info: #a9bfff;
+}
+
+body[data-workspace-system="financial-os-v1"] {
+  --fin-canvas: var(--workspace-theme-canvas);
+  --fin-surface: var(--workspace-theme-surface);
+  --fin-surface-subtle: var(--workspace-theme-surface-muted);
+  --fin-surface-muted: var(--workspace-theme-surface-muted);
+  --fin-border: var(--workspace-theme-border);
+  --fin-border-strong: var(--workspace-theme-border);
+  --fin-text: var(--workspace-theme-text);
+  --fin-text-secondary: var(--workspace-theme-text-secondary);
+  --fin-text-muted: var(--workspace-theme-text-muted);
+  --fin-text-faint: var(--workspace-theme-text-muted);
+  --workspace-page-bg: var(--workspace-theme-canvas);
+  --workspace-page: var(--workspace-theme-canvas);
+  --workspace-panel: var(--workspace-theme-surface);
+  --workspace-surface: var(--workspace-theme-surface);
+  --workspace-panel-muted: var(--workspace-theme-surface-muted);
+  --workspace-soft: var(--workspace-theme-surface-muted);
+  --workspace-border: var(--workspace-theme-border);
+  --workspace-line: var(--workspace-theme-border);
+  --workspace-text: var(--workspace-theme-text);
+  --workspace-ink: var(--workspace-theme-text);
+  --workspace-muted: var(--workspace-theme-text-muted);
+}
+
+body[data-workspace-system="financial-os-v1"] :is(.erp-shell, .erp-shell > .workspace) {
+  background: var(--workspace-theme-canvas) !important;
+  color: var(--workspace-theme-text) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .dashboard-content,
+  .financial-dashboard,
+  .section-page,
+  .section-page-modern,
+  .core-page,
+  .finance-page,
+  .sales-page,
+  .ops-page,
+  .controls-page,
+  .guided-setup-page,
+  .module-page,
+  .module-detail-page,
+  .einvoice-page,
+  .recon-page,
+  .account-page,
+  .account-security-page
+) {
+  background-color: var(--workspace-theme-canvas) !important;
+  color: var(--workspace-theme-text) !important;
+}
+
+/* Default workspace typography. These selectors intentionally follow the
+   broad global typography lock and therefore repair inherited light-on-light
+   or dark-on-dark module text. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :where(
+  h1, h2, h3, h4, h5, h6,
+  strong, b, dt, legend,
+  .page-title, .section-title, .panel-title, .card-title,
+  .workspace-page-title, .workspace-metric-tile > strong,
+  .metric-card strong, .transaction-main strong, .record-row strong
+) {
+  color: var(--workspace-theme-text) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :where(
+  p, small, time, dd,
+  .muted, .subtitle, .description, .help-text, .field-help,
+  .form-help, .panel-description, .card-description,
+  .workspace-page-description, .transaction-main span, .record-row small
+) {
+  color: var(--workspace-theme-text-secondary) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :where(label, .field-label, .launch-field-label) {
+  color: var(--workspace-theme-text) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :where(
+  .eyebrow, .workspace-eyebrow, .section-breadcrumb,
+  .workspace-breadcrumb, .back-link, .text-button, .workspace-inline-action
+) {
+  color: var(--ui-brand-strong) !important;
+}
+
+/* Light cards receive dark text; dark cards receive light text. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .panel, .data-panel, .metric-card, .core-panel, .finance-panel,
+  .sales-panel, .ops-panel, .controls-panel, .control-card,
+  .einvoice-panel, .recon-panel, .module-card, .detail-panel,
+  .setup-step-card, .customer-record-card, .report-result-panel,
+  .report-export-panel, .documentation, .workspace-section,
+  .workspace-action-alert, .workspace-metric-tile, .account-card,
+  .asset-card, .transaction, .record-row
+) {
+  border-color: var(--workspace-theme-border) !important;
+  background-color: var(--workspace-theme-surface) !important;
+  color: var(--workspace-theme-text) !important;
+}
+
+/* Main dashboard and module hero areas deliberately remain charcoal in both
+   modes, so every descendant receives an explicit on-dark colour. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .dashboard-hero,
+  .dashboard-header,
+  .financial-dashboard-hero,
+  .overview-hero,
+  .workspace-hero,
+  .section-shell-hero,
+  .core-hero,
+  .finance-hero,
+  .sales-hero,
+  .ops-hero,
+  .controls-hero,
+  .setup-hero,
+  .module-hero,
+  .module-detail-header,
+  .einvoice-hero,
+  .recon-hero,
+  [class$="-hero"],
+  [class*="-hero "]
+) {
+  border-color: #4b352e !important;
+  background: radial-gradient(circle at 92% 4%, rgba(218, 119, 87, 0.24), transparent 34%), linear-gradient(135deg, var(--workspace-theme-hero), #241b18) !important;
+  color: var(--workspace-theme-hero-text) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .dashboard-hero,
+  .dashboard-header,
+  .financial-dashboard-hero,
+  .overview-hero,
+  .workspace-hero,
+  .section-shell-hero,
+  .core-hero,
+  .finance-hero,
+  .sales-hero,
+  .ops-hero,
+  .controls-hero,
+  .setup-hero,
+  .module-hero,
+  .module-detail-header,
+  .einvoice-hero,
+  .recon-hero,
+  [class$="-hero"],
+  [class*="-hero "]
+) :where(h1, h2, h3, h4, h5, h6, strong, b, span, label, li, dt, dd, time) {
+  color: var(--workspace-theme-hero-text) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .dashboard-hero,
+  .dashboard-header,
+  .financial-dashboard-hero,
+  .overview-hero,
+  .workspace-hero,
+  .section-shell-hero,
+  .core-hero,
+  .finance-hero,
+  .sales-hero,
+  .ops-hero,
+  .controls-hero,
+  .setup-hero,
+  .module-hero,
+  .module-detail-header,
+  .einvoice-hero,
+  .recon-hero,
+  [class$="-hero"],
+  [class*="-hero "]
+) :where(p, small, .muted, .description, .subtitle) {
+  color: var(--workspace-theme-hero-muted) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .dashboard-hero,
+  .dashboard-header,
+  .financial-dashboard-hero,
+  .overview-hero,
+  .workspace-hero,
+  .section-shell-hero,
+  .core-hero,
+  .finance-hero,
+  .sales-hero,
+  .ops-hero,
+  .controls-hero,
+  .setup-hero,
+  .module-hero,
+  .module-detail-header,
+  .einvoice-hero,
+  .recon-hero,
+  [class$="-hero"],
+  [class*="-hero "]
+) :where(.eyebrow, .workspace-eyebrow, [class*="kicker"]) {
+  color: var(--hisab-terracotta-pale, #f0b29c) !important;
+}
+
+/* Controls and form values remain legible after switching theme. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :where(
+  input:not([type="checkbox"]):not([type="radio"]), select, textarea
+) {
+  border-color: var(--workspace-theme-border) !important;
+  background: var(--workspace-theme-surface-muted) !important;
+  color: var(--workspace-theme-text) !important;
+  caret-color: var(--ui-brand) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :where(input, textarea)::placeholder {
+  color: var(--workspace-theme-text-muted) !important;
+  opacity: 0.82;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  button.primary, button[type="submit"], .action-link.primary,
+  .finance-primary, .sales-primary, .core-primary, .setup-primary,
+  .submit-button, .save-button, .create-button
+),
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  button.primary, button[type="submit"], .action-link.primary,
+  .finance-primary, .sales-primary, .core-primary, .setup-primary,
+  .submit-button, .save-button, .create-button
+) :where(span, strong, b, svg) {
+  color: #171717 !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  button.secondary, .action-link.secondary, button.ghost,
+  .cancel-button, .outline-button
+),
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  button.secondary, .action-link.secondary, button.ghost,
+  .cancel-button, .outline-button
+) :where(span, strong, b, svg) {
+  color: var(--workspace-theme-text) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(th, td) {
+  border-color: var(--workspace-theme-border) !important;
+  color: var(--workspace-theme-text-secondary) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace th {
+  background: var(--workspace-theme-surface-muted) !important;
+  color: var(--workspace-theme-text) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace tbody tr:hover td {
+  background: var(--workspace-theme-surface-hover) !important;
+}
+
+/* Restore semantic text colours after the broad visibility guard. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(.amount-income, .tone-success, .status-badge.success, .status-badge.paid, .status-badge.posted, .status-badge.approved) {
+  color: var(--workspace-theme-success) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(.tone-warning, .status-badge.warning, .status-badge.pending, .status-badge.partially-paid, .status-badge.soft-closed) {
+  color: var(--workspace-theme-warning) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(.amount-expense, .tone-danger, .status-badge.danger, .status-badge.overdue, .status-badge.cancelled, .status-badge.reversed, .einvoice-error) {
+  color: var(--workspace-theme-danger) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(.tone-info, .status-badge.info, .status-badge.draft, .status-badge.open) {
+  color: var(--workspace-theme-info) !important;
+}
+
+/* Workspace chrome also switches surface and foreground together. */
+body[data-workspace-system="financial-os-v1"] :is(.mobile-workspace-header, .mobile-bottom-nav, .workspace-header-preferences, .sticky-user-popover) {
+  border-color: var(--workspace-theme-border) !important;
+  background-color: var(--workspace-theme-surface) !important;
+  color: var(--workspace-theme-text) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] :is(.mobile-workspace-header, .mobile-bottom-nav, .workspace-header-preferences, .sticky-user-popover) :where(a, button, strong, small, span, svg) {
+  color: inherit;
+}
+
+@media (prefers-contrast: more) {
+  body[data-workspace-system="financial-os-v1"] {
+    --workspace-theme-text-secondary: var(--workspace-theme-text);
+    --workspace-theme-text-muted: var(--workspace-theme-text-secondary);
+    --workspace-theme-border: currentColor;
+  }
+}

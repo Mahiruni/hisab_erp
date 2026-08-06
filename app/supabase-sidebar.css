@@ -1,0 +1,689 @@
+/*
+ * Supabase Studio-style project navigation.
+ *
+ * The information architecture, routes, permissions, localization, and
+ * HisabTech identity remain unchanged. This layer standardizes only the
+ * navigation proportions, typography, icon scale, surfaces, and interactions.
+ */
+
+.supabase-sidebar {
+  --supabase-sidebar-bg: #1c1c1c;
+  --supabase-sidebar-border: #2a2a2a;
+  --supabase-sidebar-text: #a4a4a4;
+  --supabase-sidebar-text-strong: #ededed;
+  --supabase-sidebar-muted: #737373;
+  --supabase-sidebar-hover: #262626;
+  --supabase-sidebar-active: #2b2b2b;
+  --supabase-sidebar-accent: #3ecf8e;
+  font-family: "Geist Sans", Geist, Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-feature-settings: "ss01" 1, "cv02" 1, "cv03" 1, "cv04" 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (min-width: 761px) {
+  .erp-shell {
+    --hover-rail-width: 56px;
+    --hover-rail-expanded-width: 256px;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar {
+    display: flex;
+    flex-direction: column;
+    width: var(--hover-rail-width) !important;
+    padding: 0 6px 8px !important;
+    overflow: hidden;
+    border-right: 1px solid var(--supabase-sidebar-border);
+    background: var(--supabase-sidebar-bg);
+    color: var(--supabase-sidebar-text);
+    box-shadow: none;
+    scrollbar-width: none;
+    transition: width 160ms cubic-bezier(0.2, 0, 0, 1), box-shadow 160ms ease;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar::-webkit-scrollbar,
+  .erp-shell > .sidebar.supabase-sidebar nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar:hover,
+  .erp-shell > .sidebar.supabase-sidebar:focus-within {
+    width: var(--hover-rail-expanded-width) !important;
+    box-shadow: 18px 0 38px rgba(0, 0, 0, 0.24);
+  }
+
+  .supabase-sidebar .mobile-sidebar-header {
+    display: none !important;
+  }
+
+  .supabase-sidebar-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 52px;
+    flex: 0 0 52px;
+    border-bottom: 1px solid var(--supabase-sidebar-border);
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar .desktop-sidebar-brand {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0 !important;
+    gap: 9px;
+    color: var(--supabase-sidebar-text-strong);
+    text-decoration: none;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar:hover .desktop-sidebar-brand,
+  .erp-shell > .sidebar.supabase-sidebar:focus-within .desktop-sidebar-brand {
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0 6px !important;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar .desktop-sidebar-brand > span {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    flex: 0 0 28px;
+    border: 0;
+    border-radius: 5px;
+    background: var(--supabase-sidebar-accent);
+    color: #082b1d;
+    box-shadow: none;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar .desktop-sidebar-brand > div {
+    width: 0;
+    min-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: none;
+    white-space: nowrap;
+    transition: width 160ms ease, opacity 100ms ease, visibility 100ms ease;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar:hover .desktop-sidebar-brand > div,
+  .erp-shell > .sidebar.supabase-sidebar:focus-within .desktop-sidebar-brand > div {
+    width: auto;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar .desktop-sidebar-brand strong,
+  .erp-shell > .sidebar.supabase-sidebar .desktop-sidebar-brand small {
+    display: block;
+    margin: 0;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar .desktop-sidebar-brand strong {
+    color: #f5f5f5;
+    font-size: 13px;
+    font-weight: 540;
+    letter-spacing: -0.01em;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar .desktop-sidebar-brand small {
+    margin-top: 1px;
+    color: #737373;
+    font-size: 10px;
+    font-weight: 430;
+    line-height: 1.2;
+  }
+
+  .supabase-rail-indicator {
+    position: absolute;
+    right: 2px;
+    display: grid;
+    place-items: center;
+    width: 22px;
+    height: 28px;
+    color: #646464;
+    opacity: 1;
+    transition: opacity 100ms ease, transform 160ms ease;
+  }
+
+  .supabase-sidebar:hover .supabase-rail-indicator,
+  .supabase-sidebar:focus-within .supabase-rail-indicator {
+    opacity: 0;
+    transform: translateX(4px);
+  }
+
+  .sidebar-workspace-switcher {
+    display: grid;
+    grid-template-columns: 30px minmax(0, 1fr) 16px;
+    align-items: center;
+    gap: 9px;
+    width: 44px;
+    min-height: 42px;
+    margin: 7px 0 5px;
+    padding: 6px 7px;
+    overflow: hidden;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    color: var(--supabase-sidebar-text);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: width 160ms cubic-bezier(0.2, 0, 0, 1), background 120ms ease, border-color 120ms ease, color 120ms ease;
+  }
+
+  .supabase-sidebar:hover .sidebar-workspace-switcher,
+  .supabase-sidebar:focus-within .sidebar-workspace-switcher {
+    width: 100%;
+  }
+
+  .sidebar-workspace-switcher:hover,
+  .sidebar-workspace-switcher:focus-visible {
+    border-color: #343434;
+    outline: none;
+    background: #242424;
+    color: var(--supabase-sidebar-text-strong);
+  }
+
+  .sidebar-workspace-mark {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border: 1px solid #3a3a3a;
+    border-radius: 5px;
+    background: #252525;
+    color: #d4d4d4;
+    font-size: 9px;
+    font-weight: 650;
+    letter-spacing: 0.02em;
+  }
+
+  .sidebar-workspace-copy {
+    min-width: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 100ms ease, visibility 100ms ease;
+  }
+
+  .supabase-sidebar:hover .sidebar-workspace-copy,
+  .supabase-sidebar:focus-within .sidebar-workspace-copy {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .sidebar-workspace-copy strong,
+  .sidebar-workspace-copy small {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .sidebar-workspace-copy strong {
+    color: #e8e8e8;
+    font-size: 12px;
+    font-weight: 520;
+  }
+
+  .sidebar-workspace-copy small {
+    margin-top: 2px;
+    color: #737373;
+    font-size: 9.5px;
+    font-weight: 420;
+  }
+
+  .sidebar-workspace-chevron {
+    color: #686868;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .supabase-sidebar:hover .sidebar-workspace-chevron,
+  .supabase-sidebar:focus-within .sidebar-workspace-chevron {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar .sidebar-preferences {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 34px;
+    margin: 0 0 6px;
+    padding: 2px 5px 6px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--supabase-sidebar-border);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: none;
+    white-space: nowrap;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar:hover .sidebar-preferences,
+  .erp-shell > .sidebar.supabase-sidebar:focus-within .sidebar-preferences {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar nav {
+    display: block !important;
+    flex: 1 1 auto;
+    min-height: 0;
+    margin: 0;
+    padding: 5px 0 8px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: none;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar .sidebar-nav-group {
+    display: block;
+    margin: 0 0 12px;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar .sidebar-nav-group:last-child {
+    margin-bottom: 4px;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar .sidebar-section-label {
+    display: block;
+    height: 0;
+    margin: 0;
+    padding: 0 9px;
+    overflow: hidden;
+    color: var(--supabase-sidebar-muted);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 20px;
+    opacity: 0;
+    visibility: hidden;
+    text-transform: none;
+    transform: none;
+    transition: height 160ms ease, margin 160ms ease, opacity 100ms ease, visibility 100ms ease;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar:hover .sidebar-section-label,
+  .erp-shell > .sidebar.supabase-sidebar:focus-within .sidebar-section-label {
+    height: 20px;
+    margin-bottom: 3px;
+    padding-top: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .sidebar-group-items {
+    display: grid;
+    gap: 1px;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar nav a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 44px;
+    min-height: 32px;
+    margin: 0;
+    padding: 0 9px;
+    overflow: hidden;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background: transparent;
+    color: var(--supabase-sidebar-text);
+    font-size: 12.5px;
+    font-weight: 440;
+    letter-spacing: -0.005em;
+    line-height: 1.25;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: width 160ms cubic-bezier(0.2, 0, 0, 1), background 100ms ease, border-color 100ms ease, color 100ms ease;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar:hover nav a,
+  .erp-shell > .sidebar.supabase-sidebar:focus-within nav a {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar nav a:hover,
+  .erp-shell > .sidebar.supabase-sidebar nav a:focus-visible {
+    border-color: transparent;
+    outline: none;
+    background: var(--supabase-sidebar-hover);
+    color: #e5e5e5;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar nav a[aria-current="page"],
+  .erp-shell > .sidebar.supabase-sidebar nav a.active {
+    border-color: #363636;
+    background: var(--supabase-sidebar-active);
+    color: #ffffff;
+    box-shadow: inset 2px 0 0 var(--supabase-sidebar-accent);
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar nav a > span {
+    min-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    text-overflow: ellipsis;
+    transform: none;
+    transition: opacity 100ms ease, visibility 100ms ease;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar:hover nav a > span,
+  .erp-shell > .sidebar.supabase-sidebar:focus-within nav a > span {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar .sidebar-nav-icon {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+    stroke-width: 1.55;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar nav a[aria-current="page"] .sidebar-nav-icon,
+  .erp-shell > .sidebar.supabase-sidebar nav a.active .sidebar-nav-icon {
+    color: #f5f5f5;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar .sidebar-dock-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    min-height: 32px;
+    margin: 3px 0 0;
+    padding: 0 9px;
+    overflow: hidden;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background: transparent;
+    color: #666;
+    font-size: 10px;
+    letter-spacing: 0;
+    line-height: 1;
+    text-transform: none;
+    white-space: nowrap;
+    backdrop-filter: none;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar:hover .sidebar-dock-status,
+  .erp-shell > .sidebar.supabase-sidebar:focus-within .sidebar-dock-status {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar .sidebar-dock-status strong {
+    margin-left: 9px;
+    color: #777;
+    font-size: 10px;
+    font-weight: 450;
+    letter-spacing: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: none;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar:hover .sidebar-dock-status strong,
+  .erp-shell > .sidebar.supabase-sidebar:focus-within .sidebar-dock-status strong {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar .sidebar-footer {
+    display: block;
+    max-height: 0;
+    margin: 0;
+    padding: 0 8px;
+    overflow: hidden;
+    border-top: 1px solid transparent;
+    color: #686868;
+    opacity: 0;
+    visibility: hidden;
+    transform: none;
+    transition: max-height 160ms ease, padding 160ms ease, opacity 100ms ease, visibility 100ms ease;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar:hover .sidebar-footer,
+  .erp-shell > .sidebar.supabase-sidebar:focus-within .sidebar-footer {
+    max-height: 78px;
+    margin-top: 5px;
+    padding-top: 8px;
+    padding-bottom: 4px;
+    border-top-color: var(--supabase-sidebar-border);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar .sidebar-footer p {
+    margin: 0;
+    color: #686868;
+    font-size: 9px;
+    font-weight: 420;
+    line-height: 1.45;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar .sidebar-footer p + p {
+    margin-top: 4px;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar .sidebar-footer a {
+    color: #9b9b9b;
+  }
+
+  .erp-shell > .workspace {
+    width: calc(100% - var(--hover-rail-width)) !important;
+    margin-left: var(--hover-rail-width) !important;
+  }
+
+  .workspace-command-header {
+    left: var(--hover-rail-width);
+  }
+}
+
+@media (max-width: 760px) {
+  .erp-shell > .sidebar.supabase-sidebar {
+    display: flex;
+    flex-direction: column;
+    width: min(296px, 88vw) !important;
+    padding: max(10px, env(safe-area-inset-top)) 10px max(12px, env(safe-area-inset-bottom)) !important;
+    overflow: hidden;
+    border-right: 1px solid var(--supabase-sidebar-border);
+    background: var(--supabase-sidebar-bg);
+    color: var(--supabase-sidebar-text);
+    box-shadow: 20px 0 50px rgba(0, 0, 0, 0.34);
+  }
+
+  .supabase-sidebar .supabase-sidebar-header,
+  .supabase-sidebar .supabase-rail-indicator {
+    display: none;
+  }
+
+  .supabase-sidebar .mobile-sidebar-header {
+    min-height: 50px;
+    padding: 0 2px 10px;
+    border-bottom: 1px solid var(--supabase-sidebar-border);
+  }
+
+  .supabase-sidebar .mobile-sidebar-header .brand > span {
+    width: 30px;
+    height: 30px;
+    flex: 0 0 30px;
+    border-radius: 5px;
+    background: var(--supabase-sidebar-accent);
+    color: #082b1d;
+    font-size: 13px;
+  }
+
+  .supabase-sidebar .mobile-sidebar-header .brand strong {
+    color: #f5f5f5;
+    font-size: 13px;
+    font-weight: 540;
+  }
+
+  .supabase-sidebar .mobile-sidebar-header .brand small {
+    color: #737373;
+    font-size: 9px;
+  }
+
+  .supabase-sidebar .mobile-sidebar-header > button {
+    color: #8b8b8b;
+  }
+
+  .supabase-sidebar .sidebar-workspace-switcher {
+    display: grid;
+    grid-template-columns: 30px minmax(0, 1fr) 16px;
+    align-items: center;
+    gap: 9px;
+    min-height: 44px;
+    margin: 7px 0 4px;
+    padding: 6px 7px;
+    border: 1px solid #303030;
+    border-radius: 5px;
+    background: #222;
+    color: #ddd;
+    text-decoration: none;
+  }
+
+  .supabase-sidebar .sidebar-workspace-copy strong,
+  .supabase-sidebar .sidebar-workspace-copy small {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .supabase-sidebar .sidebar-workspace-copy strong {
+    font-size: 12px;
+    font-weight: 520;
+  }
+
+  .supabase-sidebar .sidebar-workspace-copy small {
+    margin-top: 2px;
+    color: #737373;
+    font-size: 9px;
+  }
+
+  .supabase-sidebar .sidebar-workspace-mark {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border: 1px solid #3a3a3a;
+    border-radius: 5px;
+    background: #292929;
+    color: #d4d4d4;
+    font-size: 9px;
+    font-weight: 650;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar .sidebar-preferences {
+    min-height: 34px;
+    margin: 0 0 6px;
+    padding: 3px 4px 7px;
+    border-bottom: 1px solid var(--supabase-sidebar-border);
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar nav {
+    display: block !important;
+    flex: 1 1 auto;
+    min-height: 0;
+    margin: 0;
+    padding: 4px 0 10px;
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar .sidebar-nav-group {
+    display: block;
+    margin-bottom: 13px;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar .sidebar-section-label {
+    display: block;
+    height: auto;
+    margin: 0 0 3px;
+    padding: 0 9px;
+    color: #737373;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 20px;
+    opacity: 1;
+    visibility: visible;
+    text-transform: none;
+  }
+
+  .supabase-sidebar .sidebar-group-items {
+    display: grid;
+    gap: 1px;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 36px;
+    padding: 0 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background: transparent;
+    color: #aaa;
+    font-size: 12.5px;
+    font-weight: 440;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar nav a:hover,
+  .erp-shell > .sidebar.supabase-sidebar nav a:focus-visible {
+    background: var(--supabase-sidebar-hover);
+    color: #e5e5e5;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar nav a[aria-current="page"] {
+    border-color: #363636;
+    background: var(--supabase-sidebar-active);
+    color: #fff;
+    box-shadow: inset 2px 0 0 var(--supabase-sidebar-accent);
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar .sidebar-nav-icon {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+    stroke-width: 1.55;
+  }
+
+  .erp-shell > .sidebar.supabase-sidebar .sidebar-dock-status,
+  .erp-shell > .sidebar.supabase-sidebar .sidebar-footer {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .supabase-sidebar,
+  .supabase-sidebar *,
+  .supabase-sidebar *::before,
+  .supabase-sidebar *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

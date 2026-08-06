@@ -1,0 +1,2 @@
+customer_code,customer_name,email,phone,tin,credit_limit_etb,opening_receivable_etb,notes
+CUST-001,Example Customer,customer@example.com,+251900000000,,0,0,Replace this example before import

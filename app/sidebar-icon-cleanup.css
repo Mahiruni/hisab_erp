@@ -1,0 +1,14 @@
+/* Remove the legacy green active-route marker that appears before sidebar icons. */
+.erp-shell > .sidebar nav a::before {
+  content: none !important;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Keep the standardized outline icons aligned after the marker is removed. */
+.erp-shell > .sidebar nav a {
+  padding-left: 12px;
+}

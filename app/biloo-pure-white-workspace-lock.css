@@ -1,0 +1,217 @@
+@import url("./workspace-phase-2-5.css");
+
+/*
+ * Final pure-white canvas authority for the authenticated Biloo workspace.
+ * Loaded after every legacy and brand stylesheet.
+ * Removes decorative pink/peach/gold/navy washes from page backgrounds while
+ * preserving purposeful dark heroes, cards, navigation and interaction accents.
+ */
+
+body[data-workspace-system="financial-os-v1"] .erp-shell {
+  --biloo-workspace-canvas: #ffffff;
+  --workspace-background: #ffffff;
+  --page-background: #ffffff;
+  --app-background: #ffffff;
+  background-color: #ffffff !important;
+  background-image: none !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace::before,
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace::after {
+  background: none !important;
+  background-image: none !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .dashboard-content,
+  .workspace-home,
+  .workspace-page,
+  .section-page,
+  .section-page-modern,
+  .module-page,
+  .module-page-modern,
+  .finance-page,
+  .sales-page,
+  .einvoice-page,
+  .recon-page,
+  .core-page,
+  .ops-page,
+  .guided-setup-page,
+  .controls-page,
+  .security-account-page,
+  .security-account-modern,
+  .mfa-required-page,
+  .billing-page,
+  .checkout-page
+) {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .dashboard-content,
+  .workspace-home,
+  .workspace-page,
+  .section-page,
+  .section-page-modern,
+  .module-page,
+  .module-page-modern,
+  .finance-page,
+  .sales-page,
+  .einvoice-page,
+  .recon-page,
+  .core-page,
+  .ops-page,
+  .guided-setup-page,
+  .controls-page,
+  .security-account-page,
+  .security-account-modern,
+  .mfa-required-page,
+  .billing-page,
+  .checkout-page
+)::before,
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .dashboard-content,
+  .workspace-home,
+  .workspace-page,
+  .section-page,
+  .section-page-modern,
+  .module-page,
+  .module-page-modern,
+  .finance-page,
+  .sales-page,
+  .einvoice-page,
+  .recon-page,
+  .core-page,
+  .ops-page,
+  .guided-setup-page,
+  .controls-page,
+  .security-account-page,
+  .security-account-modern,
+  .mfa-required-page,
+  .billing-page,
+  .checkout-page
+)::after {
+  background-image: none !important;
+}
+
+/* Keep ordinary content surfaces neutral white instead of warm/pink-tinted. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .workspace-page-header,
+  .section-header,
+  .workspace-section,
+  .dashboard-card,
+  .workspace-metric-tile,
+  .module-card,
+  .data-panel,
+  .documentation,
+  .finance-panel,
+  .finance-kpis article,
+  .sales-panel,
+  .sales-kpis article,
+  .einvoice-panel,
+  .einvoice-kpis article,
+  .einvoice-document-card,
+  .recon-panel,
+  .recon-kpis article,
+  .recon-provider-grid article,
+  .recon-transaction,
+  .core-panel,
+  .core-kpis article,
+  .setup-step-card,
+  .setup-import-card,
+  .control-card,
+  .controls-panel,
+  .security-mfa-panel,
+  .security-identity-card,
+  .security-account-note,
+  .security-profile-card,
+  .security-policy-card,
+  .security-status-card
+) {
+  background-color: #ffffff !important;
+}
+
+/* Neutral table and empty-state canvases. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .table-wrap,
+  .table-scroll,
+  .data-table-wrap,
+  .workspace-table-wrap,
+  .finance-table-wrap,
+  .sales-table-wrap,
+  .core-table-wrap,
+  .einvoice-table-wrap,
+  .recon-table-wrap,
+  .workspace-empty-state,
+  .empty-state
+) {
+  background-color: #ffffff !important;
+  background-image: none !important;
+}
+
+/* Dark branded heroes remain deliberate contrast surfaces. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .finance-hero,
+  .sales-hero,
+  .einvoice-hero,
+  .recon-hero,
+  .core-hero,
+  .setup-hero,
+  .controls-hero,
+  .security-account-hero,
+  .security-command-header,
+  .module-hero,
+  .page-hero,
+  .workspace-hero,
+  .setup-finish,
+  .new-company-shell > aside,
+  .controls-score
+) {
+  background-color: #14213d !important;
+}
+
+@media (max-width: 960px) {
+  body[data-workspace-system="financial-os-v1"] .erp-shell,
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace,
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+    .dashboard-content,
+    .workspace-home,
+    .workspace-page,
+    .section-page,
+    .section-page-modern,
+    .module-page,
+    .module-page-modern,
+    .finance-page,
+    .sales-page,
+    .einvoice-page,
+    .recon-page,
+    .core-page,
+    .ops-page,
+    .guided-setup-page,
+    .controls-page,
+    .security-account-page,
+    .security-account-modern,
+    .mfa-required-page,
+    .billing-page,
+    .checkout-page
+  ) {
+    background-color: #ffffff !important;
+    background-image: none !important;
+  }
+}
+
+@media print {
+  body[data-workspace-system="financial-os-v1"] .erp-shell,
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace,
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace > * {
+    background: #ffffff !important;
+  }
+}

@@ -1,0 +1,476 @@
+.runtimeRoot { display: none; }
+.status {
+  position: fixed;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+:global(html[data-connectivity="offline"] .finance-live-dot),
+:global(html[data-connectivity="offline"] .workspace-live-dot) {
+  background: var(--hisab-pending) !important;
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--hisab-pending) 16%, transparent) !important;
+}
+
+:global(html[data-route-transition="active"] .workspace),
+:global(html[data-route-transition="active"] .marketing-main) {
+  pointer-events: none;
+}
+
+:global(.virtual-data-grid) {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--hisab-border);
+  border-radius: var(--hisab-radius-lg);
+  background: var(--hisab-surface);
+  box-shadow: 0 1px 0 rgba(255,255,255,.025) inset;
+}
+
+:global(.virtual-grid-viewport) {
+  position: relative;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  -webkit-overflow-scrolling: touch;
+}
+
+:global(.virtual-grid-canvas) {
+  position: relative;
+  width: 100%;
+}
+
+:global(.virtual-grid-header),
+:global(.virtual-grid-row) {
+  display: grid;
+  align-items: center;
+}
+
+:global(.virtual-grid-header) {
+  position: sticky;
+  z-index: 5;
+  top: 0;
+  min-height: 44px;
+  border-bottom: 1px solid var(--hisab-border-strong);
+  background: color-mix(in srgb, var(--hisab-glass) 94%, transparent);
+  backdrop-filter: blur(18px) saturate(1.14);
+  -webkit-backdrop-filter: blur(18px) saturate(1.14);
+  box-shadow: 0 7px 18px rgba(4, 8, 18, .055);
+}
+
+:global(.virtual-grid-body) {
+  position: relative;
+  contain: strict;
+}
+
+:global(.virtual-grid-row) {
+  position: absolute;
+  inset: 0 0 auto;
+  border-bottom: 1px solid var(--hisab-border);
+  background: var(--hisab-surface);
+  color: var(--hisab-text);
+  transition: background var(--hisab-fast), box-shadow var(--hisab-fast);
+  will-change: transform;
+}
+
+:global(.virtual-grid-row:hover) {
+  background: color-mix(in srgb, var(--hisab-brand-500) 5%, var(--hisab-surface));
+}
+
+:global(.virtual-grid-row:focus-visible) {
+  z-index: 2;
+  outline: none;
+  background: color-mix(in srgb, var(--hisab-brand-500) 8%, var(--hisab-surface));
+  box-shadow: inset 3px 0 var(--hisab-brand-500), inset 0 0 0 1px color-mix(in srgb, var(--hisab-brand-500) 48%, transparent) !important;
+}
+
+:global(.virtual-grid-row.is-flagged) { box-shadow: inset 3px 0 var(--hisab-flagged); }
+:global(.virtual-grid-row.is-unbalanced) { box-shadow: inset 3px 0 var(--hisab-unbalanced); }
+
+:global(.virtual-grid-cell) {
+  min-width: 0;
+  padding: 10px 14px;
+  overflow: hidden;
+  color: var(--hisab-text-2);
+  font-size: .82rem;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+:global(.virtual-grid-header .virtual-grid-cell) {
+  color: var(--hisab-text-3);
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .075em;
+  text-transform: uppercase;
+}
+
+:global(.virtual-grid-cell strong),
+:global(.virtual-grid-cell b) {
+  color: var(--hisab-text);
+  font-weight: 650;
+}
+
+:global(.virtual-grid-cell small) {
+  display: block;
+  margin-top: 3px;
+  overflow: hidden;
+  color: var(--hisab-text-3);
+  font-size: .7rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+:global(.virtual-grid-cell.align-end) {
+  text-align: end;
+  font-family: var(--hisab-mono);
+  font-variant-numeric: tabular-nums slashed-zero;
+}
+
+:global(.virtual-grid-cell.align-center) { text-align: center; }
+
+:global(.virtual-grid-status) {
+  display: flex;
+  justify-content: flex-end;
+  min-height: 30px;
+  padding: 7px 12px;
+  border-top: 1px solid var(--hisab-border);
+  background: var(--hisab-surface-muted);
+  color: var(--hisab-text-3);
+  font-family: var(--hisab-mono);
+  font-size: .68rem;
+  font-variant-numeric: tabular-nums;
+}
+
+:global(.finance-grid-toolbar) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+:global(.finance-grid-search) {
+  flex: 1 1 220px;
+  min-width: 0;
+}
+
+:global(.finance-grid-toolbar input) { width: 100%; }
+
+:global(.finance-grid-toolbar button) {
+  min-height: 38px;
+  padding-inline: 12px;
+  border: 1px solid var(--hisab-border);
+  border-radius: var(--hisab-radius-md);
+  background: var(--hisab-surface-muted);
+  color: var(--hisab-text-2);
+  font-size: .76rem;
+  font-weight: 650;
+}
+
+:global(.finance-grid-toolbar button[aria-pressed="true"]) {
+  border-color: color-mix(in srgb, var(--hisab-brand-500) 42%, var(--hisab-border));
+  background: color-mix(in srgb, var(--hisab-brand-500) 10%, var(--hisab-surface));
+  color: var(--hisab-brand-400);
+}
+
+:global(.financial-action-button) {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 42px;
+  isolation: isolate;
+}
+
+:global(.financial-action-button[data-action-state="pressed"]) {
+  transform: translateY(1px) scale(.985) !important;
+}
+
+:global(.financial-action-button[data-action-state="submitting"]) {
+  cursor: progress;
+  filter: saturate(.78);
+}
+
+:global(.financial-action-spinner) {
+  display: none;
+  width: 15px;
+  height: 15px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 999px;
+}
+
+:global(.financial-action-button[data-action-state="submitting"] .financial-action-spinner) {
+  display: inline-block;
+  animation: actionSpin .7s linear infinite;
+}
+
+:global(.workspace-data-table tbody tr),
+:global(.finance-table tbody tr),
+:global(.sales-table tbody tr),
+:global(.operations-table tbody tr) {
+  content-visibility: auto;
+  contain-intrinsic-block-size: 52px;
+}
+
+:global([data-live-row="true"]) {
+  animation: liveRowFlash 820ms var(--hisab-ease-out) both;
+}
+
+/*
+ * Authenticated HisabERP interaction system.
+ * Scope is intentionally limited to .erp-shell so public marketing pages and
+ * separate Biloo applications are not affected.
+ */
+:global(.erp-shell) {
+  --erp-motion-fast: 120ms;
+  --erp-motion-standard: 190ms;
+  --erp-motion-slow: 320ms;
+  --erp-motion-ease: cubic-bezier(.22, 1, .36, 1);
+  --erp-motion-ease-soft: cubic-bezier(.2, .75, .25, 1);
+  --erp-interaction-ring: color-mix(in srgb, var(--hisab-brand-500) 32%, transparent);
+}
+
+:global(.erp-shell .workspace) {
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  -webkit-overflow-scrolling: touch;
+}
+
+:global(.erp-shell :where(button, a[href], summary, [role="button"], input, select, textarea)) {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+:global(.erp-shell :where(button, a[href], summary, [role="button"]):not([aria-disabled="true"]):not(:disabled)) {
+  transition:
+    color var(--erp-motion-fast) ease,
+    background-color var(--erp-motion-fast) ease,
+    border-color var(--erp-motion-fast) ease,
+    box-shadow var(--erp-motion-standard) ease,
+    opacity var(--erp-motion-fast) ease,
+    transform var(--erp-motion-standard) var(--erp-motion-ease);
+}
+
+:global(.erp-shell :where(input, select, textarea)) {
+  transition:
+    border-color var(--erp-motion-fast) ease,
+    box-shadow var(--erp-motion-standard) ease,
+    background-color var(--erp-motion-fast) ease;
+}
+
+:global(.erp-shell :where(input, select, textarea):focus) {
+  outline: none;
+}
+
+:global(.erp-shell :where(input, select, textarea):focus-visible) {
+  border-color: color-mix(in srgb, var(--hisab-brand-500) 58%, var(--hisab-border-strong)) !important;
+  box-shadow: 0 0 0 4px var(--erp-interaction-ring) !important;
+}
+
+:global(.erp-shell :where(button, a[href], summary, [role="button"]):focus-visible) {
+  outline: 3px solid var(--erp-interaction-ring);
+  outline-offset: 2px;
+}
+
+:global(.erp-shell .sidebar nav a),
+:global(.erp-shell .sidebar-workspace-switcher),
+:global(.erp-shell .mobile-bottom-nav :where(a, button)) {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+:global(.erp-shell .sidebar nav a:hover),
+:global(.erp-shell .sidebar-workspace-switcher:hover) {
+  transform: translate3d(2px, 0, 0);
+}
+
+:global(.erp-shell .sidebar nav a:active),
+:global(.erp-shell .sidebar-workspace-switcher:active),
+:global(.erp-shell .mobile-bottom-nav :where(a, button):active) {
+  transform: translate3d(0, 1px, 0) scale(.985);
+}
+
+:global(.erp-shell :where(
+  .dashboard-card,
+  .dashboard-kpi-card,
+  .finance-kpi-card,
+  .financial-card,
+  .summary-card,
+  .metric-card,
+  .module-card,
+  .workspace-card,
+  .chart-card,
+  .report-card,
+  .data-table-shell,
+  .workspace-panel,
+  .finance-panel,
+  .sales-panel,
+  .operations-panel
+)) {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  transition:
+    border-color var(--erp-motion-standard) ease,
+    box-shadow var(--erp-motion-slow) var(--erp-motion-ease-soft),
+    transform var(--erp-motion-slow) var(--erp-motion-ease);
+}
+
+:global(.erp-shell :where(
+  .workspace-data-table,
+  .finance-table,
+  .sales-table,
+  .operations-table,
+  .virtual-data-grid
+)) {
+  contain: layout paint;
+}
+
+:global(.erp-shell :where(
+  .workspace-data-table,
+  .finance-table,
+  .sales-table,
+  .operations-table
+) tbody tr) {
+  transition:
+    background-color var(--erp-motion-fast) ease,
+    box-shadow var(--erp-motion-fast) ease,
+    opacity var(--erp-motion-fast) ease;
+}
+
+:global(.erp-shell :where(
+  .workspace-data-table,
+  .finance-table,
+  .sales-table,
+  .operations-table
+) tbody tr:hover) {
+  background-color: color-mix(in srgb, var(--hisab-brand-500) 4.5%, var(--hisab-surface)) !important;
+}
+
+:global(.erp-shell :where(dialog[open], [role="dialog"][data-state="open"], .user-menu-panel, .workspace-command-panel)) {
+  transform-origin: top right;
+  animation: erpOverlayEnter var(--erp-motion-slow) var(--erp-motion-ease) both;
+}
+
+:global(.erp-shell :where(.experience-toast, .experience-loader-card, [data-motion-enter])) {
+  will-change: transform, opacity;
+}
+
+:global(.erp-shell form[data-submitting="true"] :where(button[type="submit"], input[type="submit"])) {
+  cursor: progress;
+  pointer-events: none;
+  opacity: .82;
+}
+
+:global(.erp-shell [aria-busy="true"]) {
+  cursor: progress;
+}
+
+:global(html[data-route-transition="active"] .erp-shell .workspace) {
+  cursor: progress;
+}
+
+:global(html[data-input-modality="touch"] .erp-shell .sidebar nav a:hover),
+:global(html[data-input-modality="touch"] .erp-shell .sidebar-workspace-switcher:hover) {
+  transform: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  :global(.erp-shell :where(
+    .dashboard-card,
+    .dashboard-kpi-card,
+    .finance-kpi-card,
+    .financial-card,
+    .summary-card,
+    .metric-card,
+    .module-card,
+    .workspace-card,
+    .chart-card,
+    .report-card
+  ):hover) {
+    transform: translate3d(0, -2px, 0);
+    border-color: color-mix(in srgb, var(--hisab-brand-500) 18%, var(--hisab-border)) !important;
+    box-shadow: 0 14px 32px rgba(15, 23, 42, .075);
+  }
+}
+
+@media (pointer: coarse) {
+  :global(.erp-shell :where(button, a[href], summary, [role="button"])) {
+    min-height: 44px;
+  }
+
+  :global(.erp-shell .sidebar nav a:hover),
+  :global(.erp-shell .sidebar-workspace-switcher:hover) {
+    transform: none;
+  }
+}
+
+@keyframes actionSpin { to { transform: rotate(360deg); } }
+
+@keyframes liveRowFlash {
+  0% {
+    background: color-mix(in srgb, var(--hisab-brand-500) 18%, var(--hisab-surface));
+    box-shadow: inset 3px 0 var(--hisab-brand-500);
+  }
+  100% {
+    background: var(--hisab-surface);
+    box-shadow: inset 3px 0 transparent;
+  }
+}
+
+@keyframes erpOverlayEnter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -7px, 0) scale(.985);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@media (max-width: 720px) {
+  :global(.virtual-data-grid) {
+    margin-inline: -4px;
+    border-radius: var(--hisab-radius-md);
+  }
+  :global(.virtual-grid-cell) { padding-inline: 11px; }
+  :global(.finance-grid-toolbar) { align-items: stretch; }
+  :global(.finance-grid-toolbar button) {
+    flex: 1 1 auto;
+    min-height: 44px;
+  }
+
+  :global(.erp-shell .workspace) {
+    scroll-padding-bottom: calc(88px + env(safe-area-inset-bottom));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :global(.financial-action-spinner) { animation-duration: 1.25s; }
+  :global([data-live-row="true"]) { animation: none; }
+
+  :global(.erp-shell .workspace) {
+    scroll-behavior: auto;
+  }
+
+  :global(.erp-shell *),
+  :global(.erp-shell *::before),
+  :global(.erp-shell *::after) {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    transition-delay: 0ms !important;
+  }
+}
+
+:global(html[data-motion="reduced"] .erp-shell .workspace) {
+  scroll-behavior: auto;
+}

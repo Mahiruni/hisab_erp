@@ -1,0 +1,86 @@
+name: Apply Supabase migrations
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirmation:
+        description: "Type APPLY to run pending migrations on the linked Supabase project"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: supabase-production-migrations
+  cancel-in-progress: false
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    env:
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      SUPABASE_PROJECT_REF: ${{ secrets.SUPABASE_PROJECT_REF }}
+      SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+
+    steps:
+      - name: Require explicit confirmation
+        shell: bash
+        run: |
+          if [ "${{ inputs.confirmation }}" != "APPLY" ]; then
+            echo "Confirmation must be exactly APPLY."
+            exit 1
+          fi
+
+      - name: Validate required secrets
+        shell: bash
+        run: |
+          missing=0
+          for name in SUPABASE_ACCESS_TOKEN SUPABASE_PROJECT_REF SUPABASE_DB_PASSWORD; do
+            if [ -z "${!name}" ]; then
+              echo "::error::$name is not configured."
+              missing=1
+            fi
+          done
+          if [ "$missing" -ne 0 ]; then
+            exit 1
+          fi
+          echo "Project reference length: ${#SUPABASE_PROJECT_REF}"
+          echo "Database password is configured (${#SUPABASE_DB_PASSWORD} characters)."
+
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install Supabase CLI
+        uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Link Supabase project
+        shell: bash
+        run: supabase link --project-ref "$SUPABASE_PROJECT_REF" --password "$SUPABASE_DB_PASSWORD"
+
+      - name: Preview pending migrations
+        shell: bash
+        run: |
+          for attempt in 1 2 3; do
+            echo "Migration preview attempt $attempt of 3"
+            if supabase db push --linked --password "$SUPABASE_DB_PASSWORD" --dry-run; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 3 ]; then
+              wait_seconds=$((attempt * 30))
+              echo "Supabase pooler authentication was not ready. Waiting ${wait_seconds}s before retrying..."
+              sleep "$wait_seconds"
+            fi
+          done
+          echo "::error::Could not authenticate to the Supabase database after 3 attempts. Reset the database password for the exact project, update the repository secret, and review Database Settings for network bans."
+          exit 1
+
+      - name: Apply pending migrations in filename order
+        shell: bash
+        run: supabase db push --linked --password "$SUPABASE_DB_PASSWORD"
+
+      - name: Verify migration history
+        shell: bash
+        run: supabase migration list --linked --password "$SUPABASE_DB_PASSWORD"

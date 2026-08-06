@@ -1,0 +1,31 @@
+-- Cover foreign keys used by Sales & Invoicing posting and reporting paths.
+
+create index if not exists payments_branch_id_idx on public.payments(branch_id);
+create index if not exists payments_customer_id_idx on public.payments(customer_id);
+create index if not exists payments_invoice_id_idx on public.payments(invoice_id);
+create index if not exists payments_journal_entry_id_idx on public.payments(journal_entry_id);
+create index if not exists payments_created_by_idx on public.payments(created_by);
+create index if not exists sales_invoice_items_organization_id_idx on public.sales_invoice_items(organization_id);
+create index if not exists sales_invoice_items_invoice_id_idx on public.sales_invoice_items(invoice_id);
+create index if not exists sales_invoice_items_product_id_idx on public.sales_invoice_items(product_id);
+create index if not exists sales_invoice_items_warehouse_id_idx on public.sales_invoice_items(warehouse_id);
+create index if not exists sales_invoices_branch_id_idx on public.sales_invoices(branch_id);
+create index if not exists sales_invoices_customer_id_idx on public.sales_invoices(customer_id);
+create index if not exists sales_invoices_journal_entry_id_idx on public.sales_invoices(journal_entry_id);
+create index if not exists sales_invoices_created_by_idx on public.sales_invoices(created_by);
+create index if not exists sales_quotation_items_organization_id_idx on public.sales_quotation_items(organization_id);
+create index if not exists sales_quotation_items_warehouse_id_idx on public.sales_quotation_items(warehouse_id);
+create index if not exists sales_quotations_branch_id_idx on public.sales_quotations(branch_id);
+create index if not exists sales_quotations_converted_order_id_idx on public.sales_quotations(converted_order_id);
+create index if not exists sales_quotations_created_by_idx on public.sales_quotations(created_by);
+create index if not exists sales_order_items_organization_id_idx on public.sales_order_items(organization_id);
+create index if not exists sales_order_items_warehouse_id_idx on public.sales_order_items(warehouse_id);
+create index if not exists sales_orders_branch_id_idx on public.sales_orders(branch_id);
+create index if not exists sales_orders_converted_invoice_id_idx on public.sales_orders(converted_invoice_id);
+create index if not exists sales_orders_created_by_idx on public.sales_orders(created_by);
+create index if not exists sales_return_items_organization_id_idx on public.sales_return_items(organization_id);
+create index if not exists sales_return_items_product_id_idx on public.sales_return_items(product_id);
+create index if not exists sales_return_items_warehouse_id_idx on public.sales_return_items(warehouse_id);
+create index if not exists sales_returns_branch_id_idx on public.sales_returns(branch_id);
+create index if not exists sales_returns_journal_entry_id_idx on public.sales_returns(journal_entry_id);
+create index if not exists sales_returns_created_by_idx on public.sales_returns(created_by);

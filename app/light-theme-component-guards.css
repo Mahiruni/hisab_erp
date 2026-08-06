@@ -1,0 +1,166 @@
+/* Final component-level guards for light mode. Keep this stylesheet last. */
+
+/* Solid actions must keep inverse text on every nested label or icon. */
+html[data-theme="light"] body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .primary,
+  .action-link.primary,
+  .ops-primary-link,
+  .ops-form .primary,
+  .finance-primary,
+  .sales-primary,
+  .core-primary,
+  .setup-primary,
+  .submit-button,
+  .save-button,
+  .create-button,
+  .danger,
+  .destructive,
+  .delete-button,
+  .remove-button,
+  button[data-variant="danger"]
+) :is(span, strong, small, b, i, svg),
+html[data-theme="light"] .command-strip > a :is(span, strong, small, b, i, svg) {
+  color: #ffffff !important;
+}
+
+html[data-theme="light"] .command-strip > a {
+  border-color: var(--lc-primary) !important;
+  background: var(--lc-primary) !important;
+  color: #ffffff !important;
+}
+
+/* Restore semantic status fills after the generic surface normalization. */
+html[data-theme="light"] body[data-workspace-system="financial-os-v1"] :is(
+  .workspace-status-badge.tone-success,
+  .status-badge.success,
+  .status-badge.paid,
+  .status-badge.posted,
+  .status-badge.approved,
+  .ds-badge.success
+) {
+  border-color: #9fd5c7 !important;
+  background: var(--lc-success-soft) !important;
+  color: #0b5f59 !important;
+}
+
+html[data-theme="light"] body[data-workspace-system="financial-os-v1"] :is(
+  .workspace-status-badge.tone-warning,
+  .status-badge.warning,
+  .status-badge.pending,
+  .status-badge.partially-paid,
+  .status-badge.soft-closed,
+  .ds-badge.review
+) {
+  border-color: #e4c17b !important;
+  background: var(--lc-warning-soft) !important;
+  color: #6f3d08 !important;
+}
+
+html[data-theme="light"] body[data-workspace-system="financial-os-v1"] :is(
+  .workspace-status-badge.tone-danger,
+  .status-badge.danger,
+  .status-badge.overdue,
+  .status-badge.cancelled,
+  .status-badge.reversed
+) {
+  border-color: #e5a9b4 !important;
+  background: var(--lc-danger-soft) !important;
+  color: #8f1d31 !important;
+}
+
+html[data-theme="light"] body[data-workspace-system="financial-os-v1"] :is(
+  .workspace-status-badge.tone-info,
+  .status-badge.info,
+  .status-badge.draft,
+  .status-badge.open,
+  .ds-badge.info
+) {
+  border-color: #b8cdf8 !important;
+  background: var(--lc-info-soft) !important;
+  color: var(--lc-info) !important;
+}
+
+/* Circular charts use pseudo-elements that cannot safely live inside :is(). */
+html[data-theme="light"] body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .ops-progress-ring::after,
+html[data-theme="light"] body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace .health-ring::after {
+  background: var(--lc-surface) !important;
+}
+
+/* Keep icons visible wherever legacy SVG rules set their own fill or stroke. */
+html[data-theme="light"] body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(button, a, .metric-icon, .workspace-metric-icon, .workspace-action-alert-icon) svg {
+  color: currentColor;
+  fill: none;
+  stroke: currentColor;
+}
+
+/* Authentication remains a light form paired with an intentionally dark showcase. */
+html[data-theme="light"] .auth-official-page {
+  background: var(--lc-canvas) !important;
+  color: var(--lc-text) !important;
+}
+
+html[data-theme="light"] :is(.auth-official-shell, .auth-official-form-panel, .auth-official-form-wrap) {
+  border-color: var(--lc-border) !important;
+  background-color: var(--lc-surface) !important;
+  color: var(--lc-text) !important;
+}
+
+html[data-theme="light"] .auth-official-page :is(.auth-official-heading h1, .auth-phone-section-heading strong, .auth-method-card strong, .auth-secondary-options strong) {
+  color: var(--lc-text) !important;
+}
+
+html[data-theme="light"] .auth-official-page :is(.auth-official-heading > p:last-child, .auth-phone-section-heading span, .auth-method-card small, .auth-account-switch, .auth-legal-note) {
+  color: var(--lc-text-muted) !important;
+}
+
+html[data-theme="light"] .auth-official-page :is(.field-control, .auth-method-card, .auth-secondary-options > a, .social-auth-google) {
+  border-color: var(--lc-border) !important;
+  background: var(--lc-surface) !important;
+  color: var(--lc-text-secondary) !important;
+}
+
+html[data-theme="light"] .auth-official-page :is(.auth-primary-button, .social-auth-apple) {
+  border-color: var(--lc-primary) !important;
+  background: var(--lc-primary) !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="light"] .auth-official-page :is(.auth-primary-button, .social-auth-apple) :is(span, strong, small, b, svg) {
+  color: #ffffff !important;
+}
+
+html[data-theme="light"] .auth-official-showcase,
+html[data-theme="light"] .auth-official-showcase :is(h1, h2, h3, strong, b) {
+  color: #ffffff !important;
+}
+
+html[data-theme="light"] .auth-official-showcase :is(p, small, .auth-showcase-footer) {
+  color: rgba(239, 246, 255, 0.78) !important;
+}
+
+/* Menus and dialogs need explicit row-level contrast, not only container colors. */
+html[data-theme="light"] :is(.command-results > button, .help-link-list a, .advice-list a, .assistant-suggestions button, .sticky-user-popover a, .sticky-user-popover button) {
+  border-color: transparent !important;
+  background: transparent !important;
+  color: var(--lc-text-secondary) !important;
+}
+
+html[data-theme="light"] :is(.command-results > button.active, .command-results > button:hover, .help-link-list a:hover, .advice-list a:hover, .assistant-suggestions button:hover, .sticky-user-popover a:hover, .sticky-user-popover button:hover) {
+  border-color: var(--lc-border) !important;
+  background: var(--lc-surface-subtle) !important;
+  color: var(--lc-text) !important;
+}
+
+html[data-theme="light"] :is(.command-result-copy strong, .help-link-list strong, .advice-list strong, .sticky-user-popover a strong) {
+  color: var(--lc-text) !important;
+}
+
+html[data-theme="light"] :is(.command-result-copy small, .command-result-group, .help-link-list small, .advice-list small, .sticky-user-popover a small) {
+  color: var(--lc-text-muted) !important;
+}
+
+/* Selection remains visible without relying on browser-specific blue-on-blue defaults. */
+html[data-theme="light"] ::selection {
+  background: #bfe7dc;
+  color: #102a26;
+}

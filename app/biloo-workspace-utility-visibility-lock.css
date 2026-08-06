@@ -1,0 +1,634 @@
+/*
+ * Final compiled authority for the authenticated Biloo workspace.
+ * This file intentionally loads after every legacy application stylesheet.
+ * It guarantees utility-header visibility and one responsive interaction,
+ * typography and accessibility system across mobile, tablet and desktop.
+ */
+
+body[data-workspace-system="financial-os-v1"] .erp-shell {
+  --biloo-interaction-ink: #080a0d;
+  --biloo-interaction-navy: #14213d;
+  --biloo-interaction-gold: #fca311;
+  --biloo-interaction-muted: #657080;
+  --biloo-interaction-line: rgba(20, 33, 61, 0.16);
+  --biloo-interaction-gold-soft: rgba(252, 163, 17, 0.14);
+  --biloo-interaction-focus: 0 0 0 4px rgba(252, 163, 17, 0.24);
+  --biloo-interaction-fast: 140ms;
+  --biloo-interaction-normal: 210ms;
+  --biloo-font-display: clamp(2rem, 2.7vw, 3.25rem);
+  --biloo-font-h1: clamp(1.8rem, 2.15vw, 2.7rem);
+  --biloo-font-h2: clamp(1.3rem, 1.55vw, 1.75rem);
+  --biloo-font-h3: clamp(1.05rem, 1.15vw, 1.28rem);
+  --biloo-font-body: 0.875rem;
+  --biloo-font-small: 0.75rem;
+  --biloo-font-label: 0.75rem;
+  --biloo-control-height: 42px;
+  --biloo-control-radius: 13px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell,
+body[data-workspace-system="financial-os-v1"] .erp-shell button,
+body[data-workspace-system="financial-os-v1"] .erp-shell input,
+body[data-workspace-system="financial-os-v1"] .erp-shell select,
+body[data-workspace-system="financial-os-v1"] .erp-shell textarea {
+  font-family: var(--font-biloo-manrope), Manrope, "Segoe UI", sans-serif !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace-command-header {
+  display: grid !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .mobile-command-trigger {
+  display: none !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace-command-header .workspace-search-trigger,
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace-command-header .workspace-header-actions,
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace-command-header .workspace-header-actions > button,
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace-command-header .workspace-header-actions > button > span {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+/* Responsive type hierarchy for every authenticated route. */
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+  .workspace-page-header,
+  .finance-hero,
+  .sales-hero,
+  .einvoice-hero,
+  .recon-hero,
+  .core-hero,
+  .setup-hero,
+  .controls-hero,
+  .security-account-hero,
+  .module-hero,
+  .page-hero,
+  .workspace-hero
+) h1 {
+  font-size: var(--biloo-font-display) !important;
+  line-height: 1.04 !important;
+  letter-spacing: -0.055em !important;
+  text-wrap: balance;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace h1 {
+  font-size: var(--biloo-font-h1) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.045em !important;
+  text-wrap: balance;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace h2 {
+  font-size: var(--biloo-font-h2) !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.035em !important;
+  text-wrap: balance;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace h3 {
+  font-size: var(--biloo-font-h3) !important;
+  line-height: 1.3 !important;
+  letter-spacing: -0.022em !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(p, li, td, dd, figcaption) {
+  font-size: var(--biloo-font-body) !important;
+  line-height: 1.62 !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(small, .muted, .description, .help-text, .card-description, .panel-description) {
+  font-size: var(--biloo-font-small) !important;
+  line-height: 1.55 !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(label, legend, th, .eyebrow, .workspace-eyebrow, .section-kicker, .module-kicker) {
+  font-size: var(--biloo-font-label) !important;
+  line-height: 1.35 !important;
+}
+
+/* Controls are interactive without relying on hover alone. */
+body[data-workspace-system="financial-os-v1"] .erp-shell :is(
+  button,
+  a,
+  input,
+  select,
+  textarea,
+  [role="button"],
+  [role="tab"],
+  [role="menuitem"]
+) {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell :is(
+  button,
+  a[href],
+  [role="button"],
+  [role="tab"],
+  [role="menuitem"]
+) {
+  touch-action: manipulation;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell :is(
+  button,
+  a,
+  input,
+  select,
+  textarea,
+  [role="button"],
+  [role="tab"],
+  [role="menuitem"]
+) {
+  transition:
+    color var(--biloo-interaction-fast) ease,
+    background-color var(--biloo-interaction-fast) ease,
+    border-color var(--biloo-interaction-fast) ease,
+    box-shadow var(--biloo-interaction-normal) ease,
+    opacity var(--biloo-interaction-fast) ease,
+    transform var(--biloo-interaction-fast) ease !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell :is(
+  button,
+  a[href],
+  input,
+  select,
+  textarea,
+  [role="button"],
+  [role="tab"],
+  [role="menuitem"]
+):focus-visible {
+  outline: 2px solid var(--biloo-interaction-gold) !important;
+  outline-offset: 3px !important;
+  box-shadow: var(--biloo-interaction-focus) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell :is(
+  button,
+  input,
+  select,
+  textarea,
+  .action-link,
+  .workspace-inline-action
+) {
+  min-height: var(--biloo-control-height);
+  border-radius: var(--biloo-control-radius);
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell :is(button, [role="button"], [role="tab"]):disabled,
+body[data-workspace-system="financial-os-v1"] .erp-shell [aria-disabled="true"] {
+  cursor: not-allowed !important;
+  opacity: 0.54 !important;
+  pointer-events: none !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell :is(button, a[href], [role="button"], [role="tab"]):active {
+  transform: scale(0.975);
+}
+
+/* Cards, rows and navigational surfaces respond on pointer and keyboard input. */
+body[data-workspace-system="financial-os-v1"] .erp-shell :is(
+  .workspace-metric-tile,
+  .workspace-section,
+  .dashboard-card,
+  .module-card,
+  .finance-panel,
+  .sales-panel,
+  .einvoice-panel,
+  .recon-panel,
+  .core-panel,
+  .control-card,
+  .record-row
+) {
+  transition:
+    border-color var(--biloo-interaction-normal) ease,
+    box-shadow var(--biloo-interaction-normal) ease,
+    transform var(--biloo-interaction-normal) cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell :is(
+  .workspace-metric-tile,
+  .workspace-section,
+  .dashboard-card,
+  .module-card,
+  .finance-panel,
+  .sales-panel,
+  .einvoice-panel,
+  .recon-panel,
+  .core-panel,
+  .control-card,
+  .record-row
+):focus-within {
+  border-color: rgba(252, 163, 17, 0.72) !important;
+  box-shadow: var(--biloo-interaction-focus), 0 18px 48px rgba(20, 33, 61, 0.12) !important;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell :is(
+  .table-wrap,
+  .table-scroll,
+  .data-table-wrap,
+  .workspace-table-wrap,
+  .finance-table-wrap,
+  .sales-table-wrap,
+  .core-table-wrap,
+  .einvoice-table-wrap,
+  .recon-table-wrap
+) {
+  max-width: 100%;
+  overflow-x: auto !important;
+  overscroll-behavior-inline: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(table, .workspace-data-table, .finance-table, .sales-table, .core-table) {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Fine pointers get richer hover feedback; touch devices do not receive sticky hover states. */
+@media (hover: hover) and (pointer: fine) {
+  body[data-workspace-system="financial-os-v1"] .erp-shell :is(
+    button:not(:disabled),
+    a[href],
+    [role="button"]:not([aria-disabled="true"]),
+    [role="tab"]
+  ) {
+    cursor: pointer;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell :is(
+    .workspace-metric-tile,
+    .dashboard-card,
+    .module-card,
+    .finance-panel,
+    .sales-panel,
+    .einvoice-panel,
+    .recon-panel,
+    .core-panel,
+    .control-card,
+    .record-row
+  ):hover {
+    transform: translateY(-2px) !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace tbody tr:hover td {
+    background: rgba(252, 163, 17, 0.075) !important;
+  }
+}
+
+/* Desktop: information-dense, precise, with comfortable pointer targets. */
+@media (min-width: 1201px) {
+  body[data-workspace-system="financial-os-v1"] .erp-shell {
+    --biloo-font-body: 0.875rem;
+    --biloo-font-small: 0.75rem;
+    --biloo-font-label: 0.75rem;
+    --biloo-control-height: 42px;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace-command-header .workspace-search-trigger > span {
+    font-size: 0.8125rem !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace-command-header .workspace-header-actions > button {
+    min-height: 44px !important;
+    font-size: 0.6875rem !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > #primary-sidebar nav a {
+    min-height: 46px !important;
+    font-size: 0.8125rem !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(input, select, textarea, button, .action-link) {
+    font-size: 0.8125rem !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(th, td) {
+    font-size: 0.8125rem !important;
+  }
+}
+
+/* Tablet and compact desktop: preserve full capability with a balanced density. */
+@media (min-width: 761px) and (max-width: 1200px) {
+  body[data-workspace-system="financial-os-v1"] .erp-shell {
+    --biloo-font-display: clamp(2rem, 4vw, 2.75rem);
+    --biloo-font-h1: clamp(1.75rem, 3.2vw, 2.35rem);
+    --biloo-font-h2: clamp(1.25rem, 2.35vw, 1.6rem);
+    --biloo-font-h3: 1.08rem;
+    --biloo-font-body: 0.84375rem;
+    --biloo-font-small: 0.75rem;
+    --biloo-font-label: 0.71875rem;
+    --biloo-control-height: 44px;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace-command-header .workspace-search-trigger > span {
+    font-size: 0.75rem !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace-command-header .workspace-header-actions > button {
+    min-width: 44px !important;
+    min-height: 44px !important;
+    font-size: 0.625rem !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > #primary-sidebar nav a {
+    min-height: 48px !important;
+    font-size: 0.8125rem !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(input, select, textarea, button, .action-link) {
+    font-size: 0.8125rem !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+    .workspace-section,
+    .dashboard-card,
+    .module-card,
+    .finance-panel,
+    .sales-panel,
+    .einvoice-panel,
+    .recon-panel,
+    .core-panel
+  ) {
+    border-radius: 18px !important;
+  }
+}
+
+/* Full hamburger range: the command row remains visible on phone and tablet. */
+@media (max-width: 960px) {
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace-command-header {
+    position: fixed !important;
+    inset: calc(env(safe-area-inset-top) + 64px) 0 auto 0 !important;
+    z-index: 210 !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    min-height: 58px !important;
+    align-items: center !important;
+    gap: 7px !important;
+    padding: 7px 9px !important;
+    overflow: visible !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace-command-header::before {
+    display: none !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace-command-header .workspace-search-trigger {
+    display: grid !important;
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace-command-header .workspace-header-actions {
+    display: flex !important;
+    min-width: max-content !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace-command-header .workspace-header-actions > button {
+    display: grid !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace {
+    padding-top: calc(122px + env(safe-area-inset-top)) !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > #primary-sidebar nav a {
+    min-height: 48px !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > #primary-sidebar nav a > span {
+    font-size: 0.8125rem !important;
+    line-height: 1.35 !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > #primary-sidebar .sidebar-section-label {
+    font-size: 0.625rem !important;
+    line-height: 1.4 !important;
+  }
+}
+
+/* Mobile: readable type, thumb-sized controls and single-column flow. */
+@media (max-width: 760px) {
+  body[data-workspace-system="financial-os-v1"] .erp-shell {
+    --biloo-font-display: clamp(1.75rem, 8.7vw, 2.35rem);
+    --biloo-font-h1: clamp(1.6rem, 7.4vw, 2.05rem);
+    --biloo-font-h2: clamp(1.2rem, 5.4vw, 1.5rem);
+    --biloo-font-h3: 1.0625rem;
+    --biloo-font-body: 0.875rem;
+    --biloo-font-small: 0.75rem;
+    --biloo-font-label: 0.75rem;
+    --biloo-control-height: 48px;
+    --biloo-control-radius: 14px;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .mobile-workspace-header .mobile-workspace-title small {
+    font-size: 0.5625rem !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .mobile-workspace-header .mobile-workspace-title strong {
+    font-size: 0.875rem !important;
+    line-height: 1.2 !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace-command-header .workspace-search-trigger > span {
+    font-size: 0.75rem !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace-command-header .workspace-header-actions > button {
+    min-width: 48px !important;
+    min-height: 46px !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace-command-header .workspace-header-actions > button > span {
+    font-size: 0.5625rem !important;
+    line-height: 1.05 !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(input, select, textarea) {
+    min-height: 48px !important;
+    font-size: 16px !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace textarea {
+    min-height: 112px !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(button, .action-link, [role="button"], [role="tab"]) {
+    min-height: 48px !important;
+    font-size: 0.8125rem !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+    .workspace-page-header,
+    .section-header,
+    .panel-header,
+    .card-header,
+    .finance-panel > header,
+    .sales-panel > header,
+    .einvoice-panel > header,
+    .recon-panel > header,
+    .core-panel > header
+  ) {
+    align-items: flex-start !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+    .workspace-section,
+    .dashboard-card,
+    .module-card,
+    .finance-panel,
+    .sales-panel,
+    .einvoice-panel,
+    .recon-panel,
+    .core-panel,
+    .control-card
+  ) {
+    border-radius: 17px !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+    .workspace-actions,
+    .page-actions,
+    .panel-actions,
+    .form-actions,
+    .finance-actions,
+    .sales-actions,
+    .core-actions,
+    .einvoice-action-row
+  ) {
+    width: 100%;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+    .workspace-actions,
+    .page-actions,
+    .panel-actions,
+    .form-actions,
+    .finance-actions,
+    .sales-actions,
+    .core-actions,
+    .einvoice-action-row
+  ) > :is(button, a) {
+    flex: 1 1 140px;
+    justify-content: center;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(table, .workspace-data-table, .finance-table, .sales-table, .core-table) {
+    min-width: 660px;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(th, td) {
+    padding: 11px 12px !important;
+    font-size: 0.8125rem !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace :is(
+    .workspace-command-dialog,
+    .workspace-assistance-panel,
+    .dialog,
+    .modal,
+    [role="dialog"]
+  ) {
+    max-width: calc(100vw - 18px) !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .mobile-bottom-nav :is(a, button) {
+    min-height: 54px !important;
+    font-size: 0.625rem !important;
+  }
+}
+
+@media (max-width: 430px) {
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace-command-header {
+    gap: 5px !important;
+    padding-inline: 7px !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace-command-header .workspace-header-actions {
+    gap: 3px !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace-command-header .workspace-header-actions > button {
+    width: 46px !important;
+    min-width: 46px !important;
+    padding-inline: 2px !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace-command-header .workspace-ai-trigger {
+    width: 50px !important;
+    min-width: 50px !important;
+  }
+}
+
+@media (max-width: 370px) {
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace-command-header .workspace-header-actions > button:nth-child(2) {
+    display: none !important;
+  }
+}
+
+/* Landscape phones keep controls accessible without consuming the viewport. */
+@media (max-width: 960px) and (orientation: landscape) and (max-height: 560px) {
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace-command-header {
+    inset-block-start: calc(env(safe-area-inset-top) + 56px) !important;
+    min-height: 52px !important;
+    padding-block: 4px !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > .workspace {
+    padding-top: calc(108px + env(safe-area-inset-top)) !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell > #primary-sidebar.sidebar.supabase-sidebar {
+    overflow-y: auto !important;
+  }
+}
+
+@media (prefers-contrast: more) {
+  body[data-workspace-system="financial-os-v1"] .erp-shell {
+    --biloo-interaction-muted: #354052;
+    --biloo-interaction-line: rgba(20, 33, 61, 0.38);
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell :is(button, a, input, select, textarea) {
+    border-width: 2px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-workspace-system="financial-os-v1"] .erp-shell,
+  body[data-workspace-system="financial-os-v1"] .erp-shell *,
+  body[data-workspace-system="financial-os-v1"] .erp-shell *::before,
+  body[data-workspace-system="financial-os-v1"] .erp-shell *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  body[data-workspace-system="financial-os-v1"] .erp-shell :is(button, a, [role="button"], [role="tab"]):active,
+  body[data-workspace-system="financial-os-v1"] .erp-shell :is(
+    .workspace-metric-tile,
+    .dashboard-card,
+    .module-card,
+    .finance-panel,
+    .sales-panel,
+    .einvoice-panel,
+    .recon-panel,
+    .core-panel,
+    .control-card,
+    .record-row
+  ):hover {
+    transform: none !important;
+  }
+}

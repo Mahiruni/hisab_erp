@@ -1,0 +1,543 @@
+/*
+ * Workspace design tokens
+ * ------------------------------------------------------------------
+ * Custom properties salvaged from the removed marketing/override
+ * stylesheets. Only variables that surviving workspace and auth
+ * stylesheets actually read are kept here — no layout rules, no
+ * !important, no marketing selectors.
+ *
+ * Long term these belong in design-system.css. They live here so the
+ * marketing rebuild could delete 60 stylesheets without silently
+ * changing the authenticated workspace.
+ */
+
+/* --- from adaptive-theme-contrast.css --- */
+html[data-theme] {
+  --ui-canvas: var(--adaptive-canvas);
+  --ui-surface: var(--adaptive-surface);
+  --ui-text: var(--adaptive-text);
+  --ui-text-secondary: var(--adaptive-text-secondary);
+  --ui-text-muted: var(--adaptive-text-muted);
+  --ui-border: var(--adaptive-border);
+  --ui-border-strong: color-mix(in srgb, var(--adaptive-border) 72%, var(--adaptive-text));
+  --ui-brand: #da7757;
+  --ui-brand-hover: #b55a3f;
+  --ui-brand-strong: var(--adaptive-link);
+  --ui-brand-soft: color-mix(in srgb, #da7757 14%, var(--adaptive-surface));
+  --ui-brand-ring: color-mix(in srgb, #da7757 22%, transparent);
+}
+
+/* --- from biloo-black-gold-brand-system.css --- */
+:root, html, html[data-theme], html[data-theme="light"], html[data-theme="dark"] {
+  --bg: #ffffff;
+  --card: #ffffff;
+  --text: #14213d;
+  --muted: rgba(20, 33, 61, 0.68);
+  --border: #e5e5e5;
+  --ui-canvas: #ffffff;
+  --ui-surface: #ffffff;
+  --ui-text: #14213d;
+  --ui-text-secondary: rgba(20, 33, 61, 0.76);
+  --ui-text-muted: rgba(20, 33, 61, 0.6);
+  --ui-border: #e5e5e5;
+  --ui-border-strong: rgba(20, 33, 61, 0.22);
+  --ui-brand: #fca311;
+  --workspace-theme-canvas: #ffffff;
+  --workspace-theme-surface: #ffffff;
+  --workspace-theme-surface-muted: rgba(229, 229, 229, 0.42);
+  --workspace-theme-surface-hover: rgba(252, 163, 17, 0.09);
+  --workspace-theme-border: #e5e5e5;
+  --workspace-theme-text: #14213d;
+  --workspace-theme-text-secondary: rgba(20, 33, 61, 0.76);
+  --workspace-theme-text-muted: rgba(20, 33, 61, 0.6);
+  --fin-canvas: #ffffff;
+  --fin-surface: #ffffff;
+  --fin-surface-subtle: rgba(229, 229, 229, 0.42);
+  --fin-surface-muted: rgba(229, 229, 229, 0.58);
+  --fin-border: #e5e5e5;
+  --fin-text: #14213d;
+  --fin-text-secondary: rgba(20, 33, 61, 0.76);
+  --fin-text-muted: rgba(20, 33, 61, 0.6);
+  --fin-primary: #fca311;
+  --lc-canvas: #ffffff;
+  --lc-surface: #ffffff;
+  --lc-surface-subtle: rgba(229, 229, 229, 0.42);
+  --lc-surface-muted: rgba(229, 229, 229, 0.58);
+  --lc-border: #e5e5e5;
+  --lc-border-strong: rgba(20, 33, 61, 0.22);
+  --lc-text: #14213d;
+  --lc-text-secondary: rgba(20, 33, 61, 0.76);
+  --lc-text-muted: rgba(20, 33, 61, 0.6);
+  --lc-text-faint: rgba(20, 33, 61, 0.48);
+}
+
+.security-account-modern {
+  --security-bg: #ffffff !important;
+  --security-line: #e5e5e5 !important;
+  --security-line-strong: rgba(20, 33, 61, 0.22) !important;
+  --security-ink: #14213d !important;
+  --security-muted: rgba(20, 33, 61, 0.64) !important;
+  --security-brand: #fca311 !important;
+  --security-brand-strong: #14213d !important;
+  --security-positive: #14213d !important;
+  --security-shadow-sm: var(--biloo-shadow-sm) !important;
+  --security-shadow-md: var(--biloo-shadow-md) !important;
+}
+
+/* --- from brand-audit-fixes.css --- */
+html[data-theme="light"] {
+  --lc-canvas: #f8f4f2;
+  --lc-surface: #ffffff;
+  --lc-surface-subtle: #fff8f5;
+  --lc-surface-muted: #f7ede8;
+  --lc-border: #eadbd5;
+  --lc-border-strong: #d9c2b9;
+  --lc-text: #211a18;
+  --lc-text-secondary: #5f504a;
+  --lc-text-muted: #76655f;
+  --lc-text-faint: #a78f86;
+  --lc-primary: var(--hisab-500);
+  --lc-primary-hover: var(--hisab-700);
+  --lc-primary-soft: var(--hisab-100);
+  --lc-info: var(--hisab-700);
+  --lc-info-soft: var(--hisab-100);
+  --lc-success: var(--hisab-500);
+  --lc-success-soft: var(--hisab-100);
+  --lc-warning: var(--hisab-600);
+  --lc-warning-soft: var(--hisab-100);
+  --lc-danger: var(--hisab-800);
+  --lc-danger-hover: var(--hisab-900);
+  --lc-danger-soft: var(--hisab-100);
+  --lc-focus: 0 0 0 3px rgba(218, 119, 87, 0.22);
+  --lc-shadow: 0 1px 2px rgba(94, 48, 36, 0.06);
+  --lc-shadow-popover: 0 18px 48px rgba(94, 48, 36, 0.16);
+}
+
+html[data-theme="light"] body[data-workspace-system="financial-os-v1"] {
+  --fin-primary: var(--hisab-500) !important;
+  --fin-primary-hover: var(--hisab-700) !important;
+  --fin-primary-soft: var(--hisab-100) !important;
+  --fin-success: var(--hisab-500) !important;
+  --fin-success-soft: var(--hisab-100) !important;
+  --fin-warning: var(--hisab-600) !important;
+  --fin-warning-soft: var(--hisab-100) !important;
+  --fin-danger: var(--hisab-800) !important;
+  --fin-danger-soft: var(--hisab-100) !important;
+  --fin-info: var(--hisab-700) !important;
+  --fin-info-soft: var(--hisab-100) !important;
+  --ds-color-success: var(--hisab-500) !important;
+  --ds-color-success-soft: var(--hisab-100) !important;
+  --ds-color-warning: var(--hisab-600) !important;
+  --ds-color-warning-soft: var(--hisab-100) !important;
+  --ds-color-info: var(--hisab-700) !important;
+  --ds-color-info-soft: var(--hisab-100) !important;
+  --green: var(--hisab-500) !important;
+  --blue: var(--hisab-700) !important;
+  --amber: var(--hisab-600) !important;
+}
+
+/* --- from brand-final-lock.css --- */
+:root {
+  --blue: var(--hisab-500);
+  --green: var(--hisab-500);
+  --amber: var(--hisab-600);
+}
+
+body[data-workspace-system="financial-os-v1"] {
+  --ds-color-accent-600: var(--hisab-500);
+  --ds-color-success: var(--hisab-500);
+  --ds-color-success-soft: var(--hisab-100);
+  --ds-color-warning: var(--hisab-600);
+  --ds-color-warning-soft: var(--hisab-100);
+  --ds-color-info: var(--hisab-700);
+  --ds-color-info-soft: var(--hisab-100);
+  --fin-primary: var(--hisab-500);
+  --fin-primary-hover: var(--hisab-700);
+  --fin-primary-soft: var(--hisab-100);
+  --fin-success: var(--hisab-500);
+  --fin-success-soft: var(--hisab-100);
+  --fin-warning: var(--hisab-600);
+  --fin-warning-soft: var(--hisab-100);
+  --fin-danger: var(--hisab-800);
+  --fin-danger-soft: var(--hisab-100);
+  --fin-info: var(--hisab-700);
+  --fin-info-soft: var(--hisab-100);
+  --workspace-brand: var(--hisab-500);
+}
+
+html[data-theme="light"] .erp-shell > .sidebar.supabase-sidebar, html[data-theme="light"] .sidebar.supabase-sidebar {
+  --supabase-sidebar-bg: #fffaf7;
+  --supabase-sidebar-border: #eadbd5;
+  --supabase-sidebar-text: #76655f;
+  --supabase-sidebar-text-strong: #211a18;
+  --supabase-sidebar-muted: #a78f86;
+  --supabase-sidebar-hover: var(--hisab-100);
+  --supabase-sidebar-active: var(--hisab-200);
+  --supabase-sidebar-accent: var(--hisab-500);
+}
+
+html[data-theme="dark"] .erp-shell > .sidebar.supabase-sidebar, html[data-theme="dark"] .sidebar.supabase-sidebar {
+  --supabase-sidebar-bg: #171717;
+  --supabase-sidebar-border: #3b2c27;
+  --supabase-sidebar-text: #bea9a0;
+  --supabase-sidebar-text-strong: #fff8f4;
+  --supabase-sidebar-muted: #8f7770;
+  --supabase-sidebar-hover: #241b18;
+  --supabase-sidebar-active: #35231d;
+  --supabase-sidebar-accent: var(--hisab-400);
+}
+
+/* --- from brand-typography-color-lock.css --- */
+:root {
+  --hisab-logo-terracotta: #da7757;
+  --hisab-logo-charcoal: #171717;
+  --hisab-terracotta-pale: #f0b29c;
+  --ui-brand: var(--hisab-logo-terracotta);
+  --ui-brand-hover: var(--hisab-terracotta-hover);
+  --ui-brand-strong: var(--hisab-terracotta-deep);
+  --ui-brand-soft: rgba(218, 119, 87, 0.14);
+  --ui-brand-ring: rgba(218, 119, 87, 0.28);
+  --blue: var(--hisab-logo-terracotta);
+  --navy: var(--hisab-logo-charcoal);
+}
+
+html[data-theme="light"] {
+  --ui-canvas: #f8f4f2;
+  --ui-surface: #ffffff;
+  --ui-text: #211a18;
+  --ui-text-secondary: #5f504a;
+  --ui-text-muted: #76655f;
+  --ui-border: #eadbd5;
+  --ui-border-strong: #d9c2b9;
+  --bg: var(--ui-canvas);
+  --card: var(--ui-surface);
+  --text: var(--ui-text);
+  --muted: var(--ui-text-muted);
+  --border: var(--ui-border);
+  --ds-color-brand-950: var(--hisab-logo-charcoal);
+  --ds-color-brand-700: #a94f36;
+  --ds-color-accent-600: var(--hisab-logo-terracotta);
+  --ds-color-surface-canvas: var(--ui-canvas);
+  --ds-color-surface-panel: var(--ui-surface);
+  --ds-color-surface-subtle: var(--ui-surface-muted);
+  --ds-color-text-primary: var(--ui-text);
+  --ds-color-text-secondary: var(--ui-text-muted);
+  --ds-color-border: var(--ui-border);
+  --ds-color-info: var(--hisab-terracotta-hover);
+  --ds-color-info-soft: #fff0ea;
+  --ds-focus: 0 0 0 4px var(--ui-brand-ring);
+}
+
+html[data-theme="dark"] {
+  --ui-canvas: #0d0b0a;
+  --ui-surface: #171311;
+  --ui-text: #fff8f4;
+  --ui-text-secondary: #dec9c0;
+  --ui-text-muted: #bea9a0;
+  --ui-border: #3b2c27;
+  --ui-border-strong: #5a4037;
+  --bg: var(--ui-canvas);
+  --card: var(--ui-surface);
+  --text: var(--ui-text);
+  --muted: var(--ui-text-muted);
+  --border: var(--ui-border);
+  --ds-color-surface-canvas: var(--ui-canvas);
+  --ds-color-surface-panel: var(--ui-surface);
+  --ds-color-surface-subtle: var(--ui-surface-muted);
+  --ds-color-text-primary: var(--ui-text);
+  --ds-color-text-secondary: var(--ui-text-muted);
+  --ds-color-border: var(--ui-border);
+}
+
+body[data-ui-polish="hisab-2026"][data-workspace-system="financial-os-v1"] {
+  --fin-canvas: var(--ui-canvas);
+  --fin-surface: var(--ui-surface);
+  --fin-surface-subtle: var(--ui-surface-muted);
+  --fin-surface-muted: var(--ui-surface-muted);
+  --fin-border: var(--ui-border);
+  --fin-border-strong: var(--ui-border-strong);
+  --fin-text: var(--ui-text);
+  --fin-text-secondary: var(--ui-text-secondary);
+  --fin-text-muted: var(--ui-text-muted);
+  --fin-text-faint: var(--ui-text-muted);
+  --fin-primary: var(--ui-brand);
+  --fin-primary-hover: var(--ui-brand-hover);
+  --fin-primary-soft: var(--ui-brand-soft);
+  --fin-info: var(--ui-brand);
+  --fin-info-soft: var(--ui-brand-soft);
+  --fin-focus: 0 0 0 3px var(--ui-brand-ring);
+  --workspace-page-bg: var(--ui-canvas);
+  --workspace-page: var(--ui-canvas);
+  --workspace-panel: var(--ui-surface);
+  --workspace-surface: var(--ui-surface);
+  --workspace-panel-muted: var(--ui-surface-muted);
+  --workspace-border: var(--ui-border);
+  --workspace-line: var(--ui-border);
+  --workspace-text: var(--ui-text);
+  --workspace-ink: var(--ui-text);
+  --workspace-muted: var(--ui-text-muted);
+  --workspace-brand: var(--ui-brand);
+  --workspace-brand-strong: var(--ui-brand-strong);
+  --workspace-brand-soft: var(--ui-brand-soft);
+}
+
+/* --- from english-light-lock.css --- */
+:root, html, html[data-theme], html[data-theme="light"], html[data-theme="dark"] {
+  --bg: #f8f4f2;
+  --card: #ffffff;
+  --text: #211a18;
+  --muted: #6f5f59;
+  --border: #eadbd5;
+  --ui-canvas: #f8f4f2;
+  --ui-surface: #ffffff;
+  --ui-text: #211a18;
+  --ui-text-secondary: #594b46;
+  --ui-text-muted: #6f5f59;
+  --ui-border: #dfcbc3;
+  --ui-border-strong: #c9ada2;
+}
+
+body[data-workspace-system="financial-os-v1"] {
+  --workspace-theme-canvas: #f8f4f2;
+  --workspace-theme-surface: #ffffff;
+  --workspace-theme-surface-muted: #fff8f5;
+  --workspace-theme-surface-hover: #fff1eb;
+  --workspace-theme-border: #dfcbc3;
+  --workspace-theme-text: #211a18;
+  --workspace-theme-text-secondary: #594b46;
+  --workspace-theme-text-muted: #6f5f59;
+  --fin-canvas: #f8f4f2;
+  --fin-surface: #ffffff;
+  --fin-surface-subtle: #fff8f5;
+  --fin-surface-muted: #fff8f5;
+  --fin-border: #dfcbc3;
+  --fin-text: #211a18;
+  --fin-text-secondary: #594b46;
+  --fin-text-muted: #6f5f59;
+  --lc-canvas: #f8f4f2;
+  --lc-surface: #ffffff;
+  --lc-surface-subtle: #fff8f5;
+  --lc-surface-muted: #f4ece8;
+  --lc-border: #dfcbc3;
+  --lc-border-strong: #c9ada2;
+  --lc-text: #211a18;
+  --lc-text-secondary: #594b46;
+  --lc-text-muted: #6f5f59;
+  --lc-text-faint: #74655f;
+}
+
+/* --- from full-ui-polish.css --- */
+:root {
+  --ui-brand: #e17a5b;
+  --ui-brand-hover: #c86648;
+  --ui-brand-strong: #8f412c;
+  --ui-brand-soft: rgba(225, 122, 91, 0.12);
+  --ui-brand-ring: rgba(225, 122, 91, 0.24);
+}
+
+html[data-theme="light"] {
+  --ui-canvas: #fffaf7;
+  --ui-surface: #ffffff;
+  --ui-text: #1a1a1a;
+  --ui-text-secondary: #5f504a;
+  --ui-text-muted: #76655f;
+  --ui-border: #eadbd5;
+  --ui-border-strong: #d8c2b9;
+}
+
+html[data-theme="dark"] {
+  --ui-canvas: #000000;
+  --ui-surface: #0d0d0d;
+  --ui-text: #ededed;
+  --ui-text-secondary: #d8c9c3;
+  --ui-text-muted: #bda9a1;
+  --ui-border: #3b2c27;
+  --ui-border-strong: #5a4037;
+}
+
+body[data-ui-polish="hisab-2026"][data-workspace-system="financial-os-v1"] {
+  --workspace-page-bg: var(--ui-canvas);
+  --workspace-panel: var(--ui-surface);
+  --workspace-panel-muted: var(--ui-surface-muted);
+  --workspace-border: var(--ui-border);
+  --workspace-text: var(--ui-text);
+  --workspace-muted: var(--ui-text-muted);
+  --workspace-brand: var(--ui-brand);
+  --workspace-brand-strong: var(--ui-brand-strong);
+  --workspace-brand-soft: var(--ui-brand-soft);
+  --bg: var(--ui-canvas);
+  --card: var(--ui-surface);
+  --text: var(--ui-text);
+  --muted: var(--ui-text-muted);
+  --border: var(--ui-border);
+  --blue: var(--ui-brand);
+}
+
+/* --- from official-brand.css --- */
+:root {
+  --navy:var(--hisab-charcoal);
+  --blue:var(--hisab-brand);
+  --bg:#f8f4f2;
+  --card:#ffffff;
+  --text:#211a18;
+  --muted:#76655f;
+  --border:#eadbd5;
+  --ds-color-brand-950:#171717;
+  --ds-color-brand-700:#a94f36;
+  --ds-color-accent-600:#da7757;
+  --ds-color-surface-canvas:#f8f4f2;
+  --ds-color-surface-subtle:#fff8f5;
+  --ds-color-text-primary:#211a18;
+  --ds-color-text-secondary:#76655f;
+  --ds-color-border:#eadbd5;
+  --ds-color-info:#b55a3f;
+  --ds-color-info-soft:#fff0ea;
+  --ds-focus:0 0 0 4px rgba(218,119,87,.24);
+}
+
+html[data-theme="dark"] {
+  --bg:#0d0b0a;
+  --card:#171311;
+  --text:#fff8f4;
+  --muted:#bea9a0;
+  --border:#3b2c27;
+  --ds-color-surface-canvas:#0d0b0a;
+  --ds-color-surface-panel:#171311;
+  --ds-color-surface-subtle:#211916;
+  --ds-color-text-primary:#fff8f4;
+  --ds-color-text-secondary:#bea9a0;
+  --ds-color-border:#3b2c27;
+}
+
+body[data-workspace-system="financial-os-v1"] {
+  --fin-canvas:#f8f4f2;
+  --fin-surface:#ffffff;
+  --fin-surface-subtle:#fff8f5;
+  --fin-surface-muted:#f7ede8;
+  --fin-border:#eadbd5;
+  --fin-border-strong:#d9c2b9;
+  --fin-text:#211a18;
+  --fin-text-secondary:#5f504a;
+  --fin-text-muted:#76655f;
+  --fin-text-faint:#a78f86;
+  --fin-primary:#da7757;
+  --fin-primary-hover:#b55a3f;
+  --fin-primary-soft:#fff0e9;
+  --fin-info:#c86648;
+  --fin-info-soft:#fff0e9;
+  --fin-focus:0 0 0 3px rgba(218,119,87,.2);
+  --workspace-brand:#da7757;
+  --workspace-page:#f8f4f2;
+  --workspace-surface:#ffffff;
+  --workspace-line:#eadbd5;
+  --workspace-ink:#211a18;
+  --workspace-muted:#76655f;
+  --blue:#da7757;
+  --navy:#171717;
+}
+
+html[data-theme="dark"] body[data-workspace-system="financial-os-v1"] {
+  --fin-canvas:#0d0b0a;
+  --fin-surface:#171311;
+  --fin-surface-subtle:#211916;
+  --fin-surface-muted:#2a1f1b;
+  --fin-border:#3b2c27;
+  --fin-border-strong:#5a4037;
+  --fin-text:#fff8f4;
+  --fin-text-secondary:#dec9c0;
+  --fin-text-muted:#bea9a0;
+  --fin-text-faint:#8f7770;
+  --fin-primary:#ed9c80;
+  --fin-primary-hover:#f0b29c;
+  --fin-primary-soft:#35231d;
+  --fin-info:#ed9c80;
+  --fin-info-soft:#35231d;
+  --fin-focus:0 0 0 3px rgba(237,156,128,.24);
+  --workspace-page:#0d0b0a;
+  --workspace-surface:#171311;
+  --workspace-line:#3b2c27;
+  --workspace-ink:#fff8f4;
+  --workspace-muted:#bea9a0;
+}
+
+.supabase-sidebar {
+  --supabase-sidebar-bg:#171717;
+  --supabase-sidebar-border:#33251f;
+  --supabase-sidebar-text:#b8a7a0;
+  --supabase-sidebar-text-strong:#fff4ef;
+  --supabase-sidebar-muted:#826d65;
+  --supabase-sidebar-hover:#241b18;
+  --supabase-sidebar-active:#30211c;
+  --supabase-sidebar-accent:#da7757;
+}
+
+/* --- from public-white-background.css --- */
+html[data-theme="light"] body[data-ui-polish="hisab-2026"] .marketing-site-v2 {
+  --ui-canvas: #ffffff;
+}
+
+/* --- from standard-mobile-header.css --- */
+.erp-shell {
+  --mobile-header-height: 64px !important;
+}
+
+/* --- from strict-brand.css --- */
+:root {
+  --ds-color-success: var(--hisab-500);
+  --ds-color-success-soft: var(--hisab-100);
+  --ds-color-warning: var(--hisab-600);
+  --ds-color-warning-soft: var(--hisab-100);
+  --ds-color-info: var(--hisab-700);
+  --ds-color-info-soft: var(--hisab-100);
+}
+
+body[data-workspace-system="financial-os-v1"] {
+  --fin-primary: var(--hisab-500);
+  --fin-primary-hover: var(--hisab-700);
+  --fin-primary-soft: var(--hisab-100);
+  --fin-success: var(--hisab-500);
+  --fin-success-soft: var(--hisab-100);
+  --fin-warning: var(--hisab-600);
+  --fin-warning-soft: var(--hisab-100);
+  --fin-danger: var(--hisab-800);
+  --fin-danger-soft: var(--hisab-100);
+  --fin-info: var(--hisab-700);
+  --fin-info-soft: var(--hisab-100);
+  --workspace-brand: var(--hisab-500);
+  --blue: var(--hisab-500);
+  --green: var(--hisab-500);
+}
+
+html[data-theme="dark"] body[data-workspace-system="financial-os-v1"] {
+  --fin-primary: var(--hisab-400);
+  --fin-primary-hover: var(--hisab-300);
+  --fin-primary-soft: #35231d;
+  --fin-success: var(--hisab-400);
+  --fin-success-soft: #35231d;
+  --fin-warning: var(--hisab-400);
+  --fin-warning-soft: #35231d;
+  --fin-danger: var(--hisab-300);
+  --fin-danger-soft: #35231d;
+  --fin-info: var(--hisab-400);
+  --fin-info-soft: #35231d;
+}
+
+.supabase-sidebar {
+  --supabase-sidebar-accent: var(--hisab-500) !important;
+}
+
+/* --- from zylo-typography-system.css --- */
+:root {
+  --biloo-font-display: var(--font-biloo-manrope), Manrope, "Segoe UI", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* --- font aliases ---------------------------------------------------
+   fonts.css and several workspace stylesheets still read the older
+   --font-biloo-* names. Map them onto the current faces so nothing
+   falls back to a system font.
+   ------------------------------------------------------------------ */
+:root {
+  --font-biloo-manrope: var(--font-hisab-body);
+  --font-biloo-display: var(--font-hisab-display);
+  --biloo-font-display: var(--font-hisab-display);
+}
