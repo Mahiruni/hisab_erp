@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import "../app/hisab-marketing.css";
+import "../app/marketing-routes.css";
 
 /* ------------------------------------------------------------------
    Icons
