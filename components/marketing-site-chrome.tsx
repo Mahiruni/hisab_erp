@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import "../app/hisab-marketing.css";
 import "../app/marketing-routes.css";
+import "../app/marketing-production.css";
 
 /* ------------------------------------------------------------------
    Icons
@@ -84,10 +85,6 @@ export function Icon({ name, size = 18 }: { name: IconName; size?: number }) {
   }
 }
 
-/* ------------------------------------------------------------------
-   Navigation model
-   ------------------------------------------------------------------ */
-
 type NavItem = { label: string; note: string; href: string };
 type NavGroup = { id: string; label: string; title: string; blurb: string; items: NavItem[] };
 
@@ -152,10 +149,6 @@ function isActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-/* ------------------------------------------------------------------
-   Brand
-   ------------------------------------------------------------------ */
-
 function Brand({ href = "/" }: { href?: string }) {
   return (
     <Link className="h-brand" href={href} aria-label="Hisab ERP — home">
@@ -165,18 +158,41 @@ function Brand({ href = "/" }: { href?: string }) {
   );
 }
 
-/* ------------------------------------------------------------------
-   Header
-   ------------------------------------------------------------------ */
-
 export function MarketingHeader() {
   const pathname = usePathname() ?? "/";
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [stuck, setStuck] = useState(false);
   const headerRef = useRef<HTMLElement | null>(null);
+  const hoverCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const close = useCallback(() => setOpenMenu(null), []);
+  const cancelHoverClose = useCallback(() => {
+    if (!hoverCloseTimer.current) return;
+    clearTimeout(hoverCloseTimer.current);
+    hoverCloseTimer.current = null;
+  }, []);
+
+  const close = useCallback(() => {
+    cancelHoverClose();
+    setOpenMenu(null);
+  }, [cancelHoverClose]);
+
+  const openFromHover = useCallback((menuId: string) => {
+    if (typeof window === "undefined") return;
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+    cancelHoverClose();
+    setOpenMenu(menuId);
+  }, [cancelHoverClose]);
+
+  const scheduleHoverClose = useCallback(() => {
+    if (typeof window === "undefined") return;
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+    cancelHoverClose();
+    hoverCloseTimer.current = setTimeout(() => {
+      setOpenMenu(null);
+      hoverCloseTimer.current = null;
+    }, 140);
+  }, [cancelHoverClose]);
 
   useEffect(() => {
     setOpenMenu(null);
@@ -192,19 +208,15 @@ export function MarketingHeader() {
 
   useEffect(() => {
     if (!openMenu && !drawerOpen) return;
-
     const onKey = (event: KeyboardEvent) => {
       if (event.key !== "Escape") return;
       close();
       setDrawerOpen(false);
     };
-
     const onPointer = (event: MouseEvent) => {
-      if (!headerRef.current) return;
-      if (headerRef.current.contains(event.target as Node)) return;
+      if (!headerRef.current || headerRef.current.contains(event.target as Node)) return;
       close();
     };
-
     document.addEventListener("keydown", onKey);
     document.addEventListener("mousedown", onPointer);
     return () => {
@@ -212,6 +224,8 @@ export function MarketingHeader() {
       document.removeEventListener("mousedown", onPointer);
     };
   }, [openMenu, drawerOpen, close]);
+
+  useEffect(() => () => cancelHoverClose(), [cancelHoverClose]);
 
   useEffect(() => {
     if (typeof document === "undefined") return;
@@ -226,96 +240,37 @@ export function MarketingHeader() {
     <header className="h-header" data-stuck={stuck} ref={headerRef}>
       <div className="h-shell h-header__bar" style={{ position: "relative" }}>
         <Brand />
-
         <nav className="h-nav" aria-label="Main navigation">
           {NAV_GROUPS.map((group) => {
             const expanded = openMenu === group.id;
             const active = group.items.some((item) => isActive(pathname, item.href));
             return (
-              <div key={group.id}>
-                <button
-                  type="button"
-                  className="h-nav__trigger"
-                  aria-expanded={expanded}
-                  aria-haspopup="true"
-                  data-active={active}
-                  onClick={() => setOpenMenu(expanded ? null : group.id)}
-                >
-                  {group.label}
-                  <Icon name="chevron" size={14} />
+              <div className="h-nav__group" key={group.id} onMouseEnter={() => openFromHover(group.id)} onMouseLeave={scheduleHoverClose}>
+                <button type="button" className="h-nav__trigger" aria-expanded={expanded} aria-haspopup="true" data-active={active} onFocus={() => setOpenMenu(group.id)} onClick={() => setOpenMenu(expanded ? null : group.id)}>
+                  {group.label}<Icon name="chevron" size={14} />
                 </button>
               </div>
             );
           })}
         </nav>
-
         <div className="h-header__actions">
-          <Link className="h-btn h-btn--ghost h-btn--sm h-header__desktop-only" href="/auth/login">
-            Sign in
-          </Link>
-          <Link className="h-btn h-btn--primary h-btn--sm" href="/request-demo">
-            Book a demo
-          </Link>
-          <button
-            type="button"
-            className="h-icon-btn h-burger"
-            aria-label="Open menu"
-            aria-expanded={drawerOpen}
-            onClick={() => setDrawerOpen(true)}
-          >
-            <Icon name="menu" size={20} />
-          </button>
+          <Link className="h-btn h-btn--ghost h-btn--sm h-header__desktop-only" href="/auth/login">Sign in</Link>
+          <Link className="h-btn h-btn--primary h-btn--sm" href="/request-demo">Book a demo</Link>
+          <button type="button" className="h-icon-btn h-burger" aria-label="Open menu" aria-expanded={drawerOpen} onClick={() => setDrawerOpen(true)}><Icon name="menu" size={20} /></button>
         </div>
-
-        {NAV_GROUPS.map((group) =>
-          openMenu === group.id ? (
-            <div className="h-nav__panel" key={`panel-${group.id}`} role="group" aria-label={group.label}>
-              <div className="h-nav__panel-head">
-                <strong>{group.title}</strong>
-                <span>{group.blurb}</span>
-              </div>
-              <div className="h-nav__grid">
-                {group.items.map((item) => (
-                  <Link className="h-nav__item" key={item.href} href={item.href} onClick={close}>
-                    <strong>{item.label}</strong>
-                    <span>{item.note}</span>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ) : null,
-        )}
+        {NAV_GROUPS.map((group) => openMenu === group.id ? (
+          <div className="h-nav__panel" key={`panel-${group.id}`} role="group" aria-label={group.label} onMouseEnter={cancelHoverClose} onMouseLeave={scheduleHoverClose} onFocus={cancelHoverClose} onBlur={(event) => { if (event.currentTarget.contains(event.relatedTarget as Node | null)) return; scheduleHoverClose(); }}>
+            <div className="h-nav__panel-head"><strong>{group.title}</strong><span>{group.blurb}</span></div>
+            <div className="h-nav__grid">{group.items.map((item) => <Link className="h-nav__item" key={item.href} href={item.href} onClick={close}><strong>{item.label}</strong><span>{item.note}</span></Link>)}</div>
+          </div>
+        ) : null)}
       </div>
-
       {drawerOpen ? (
         <div className="h-drawer" role="dialog" aria-modal="true" aria-label="Site menu">
-          <div className="h-drawer__top">
-            <Brand />
-            <button
-              type="button"
-              className="h-icon-btn"
-              aria-label="Close menu"
-              onClick={() => setDrawerOpen(false)}
-            >
-              <Icon name="close" size={20} />
-            </button>
-          </div>
+          <div className="h-drawer__top"><Brand /><button type="button" className="h-icon-btn" aria-label="Close menu" onClick={() => setDrawerOpen(false)}><Icon name="close" size={20} /></button></div>
           <div className="h-drawer__body">
-            {NAV_GROUPS.map((group) => (
-              <section className="h-drawer__group" key={`drawer-${group.id}`}>
-                <p className="h-eyebrow">{group.label}</p>
-                {group.items.map((item) => (
-                  <Link className="h-drawer__link" key={item.href} href={item.href}>
-                    <strong>{item.label}</strong>
-                    <span>{item.note}</span>
-                  </Link>
-                ))}
-              </section>
-            ))}
-            <div className="h-drawer__cta">
-              <Link className="h-btn h-btn--primary" href="/request-demo">Book a demo</Link>
-              <Link className="h-btn h-btn--ghost" href="/auth/login">Sign in</Link>
-            </div>
+            {NAV_GROUPS.map((group) => <section className="h-drawer__group" key={`drawer-${group.id}`}><p className="h-eyebrow">{group.label}</p>{group.items.map((item) => <Link className="h-drawer__link" key={item.href} href={item.href}><strong>{item.label}</strong><span>{item.note}</span></Link>)}</section>)}
+            <div className="h-drawer__cta"><Link className="h-btn h-btn--primary" href="/request-demo">Book a demo</Link><Link className="h-btn h-btn--ghost" href="/auth/login">Sign in</Link></div>
           </div>
         </div>
       ) : null}
@@ -323,132 +278,23 @@ export function MarketingHeader() {
   );
 }
 
-/* ------------------------------------------------------------------
-   Footer
-   ------------------------------------------------------------------ */
-
 const FOOTER_COLUMNS = [
-  {
-    title: "Product",
-    links: [
-      { label: "Product tour", href: "/product-tour" },
-      { label: "Sales & invoicing", href: "/product/sales-invoicing" },
-      { label: "Finance & cash flow", href: "/product/finance-cashflow" },
-      { label: "Inventory", href: "/product/inventory" },
-      { label: "Pricing", href: "/pricing" },
-    ],
-  },
-  {
-    title: "Learn",
-    links: [
-      { label: "Learning centre", href: "/resources" },
-      { label: "Help Centre", href: "/help-center" },
-      { label: "Compare ERPs", href: "/compare" },
-      { label: "Migration guide", href: "/migration" },
-      { label: "Customer stories", href: "/customer-stories" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "About", href: "/about" },
-      { label: "Trust Centre", href: "/trust" },
-      { label: "Security", href: "/security" },
-      { label: "Integrations", href: "/integrations" },
-      { label: "Book a demo", href: "/request-demo" },
-    ],
-  },
+  { title: "Product", links: [{ label: "Product tour", href: "/product-tour" }, { label: "Sales & invoicing", href: "/product/sales-invoicing" }, { label: "Finance & cash flow", href: "/product/finance-cashflow" }, { label: "Inventory", href: "/product/inventory" }, { label: "Pricing", href: "/pricing" }] },
+  { title: "Learn", links: [{ label: "Learning centre", href: "/resources" }, { label: "Help Centre", href: "/help-center" }, { label: "Compare ERPs", href: "/compare" }, { label: "Migration guide", href: "/migration" }, { label: "Customer stories", href: "/customer-stories" }] },
+  { title: "Company", links: [{ label: "About", href: "/about" }, { label: "Trust Centre", href: "/trust" }, { label: "Security", href: "/security" }, { label: "Integrations", href: "/integrations" }, { label: "Book a demo", href: "/request-demo" }] },
 ];
 
 export function MarketingFooter() {
   return (
-    <footer className="h-footer">
-      <div className="h-shell">
-        <div className="h-footer__grid">
-          <div className="h-footer__intro">
-            <Brand />
-            <p>
-              Hisab ERP is a connected operating system for Ethiopian businesses — sales,
-              finance, inventory and reporting posting to one set of books.
-            </p>
-            <Link className="h-link" href="/request-demo">
-              Book a demo <Icon name="arrow" size={15} />
-            </Link>
-          </div>
-
-          {FOOTER_COLUMNS.map((column) => (
-            <div className="h-footer__col" key={column.title}>
-              <h3>{column.title}</h3>
-              <ul>
-                {column.links.map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href}>{link.label}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        <div className="h-footer__base">
-          <span>© {new Date().getFullYear()} Hisab Technologies. Addis Ababa, Ethiopia.</span>
-          <div className="h-footer__legal">
-            <Link href="/privacy">Privacy</Link>
-            <Link href="/terms">Terms</Link>
-            <Link href="/security">Security</Link>
-            <a href="mailto:mahir@hisabtech.com">mahir@hisabtech.com</a>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <footer className="h-footer"><div className="h-shell"><div className="h-footer__grid"><div className="h-footer__intro"><Brand /><p>Hisab ERP is a connected operating system for Ethiopian businesses — sales, finance, inventory and reporting posting to one set of books.</p><Link className="h-link" href="/request-demo">Book a demo <Icon name="arrow" size={15} /></Link></div>{FOOTER_COLUMNS.map((column) => <div className="h-footer__col" key={column.title}><h3>{column.title}</h3><ul>{column.links.map((link) => <li key={link.href}><Link href={link.href}>{link.label}</Link></li>)}</ul></div>)}</div><div className="h-footer__base"><span>© {new Date().getFullYear()} Hisab Technologies. Addis Ababa, Ethiopia.</span><div className="h-footer__legal"><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link><Link href="/security">Security</Link><a href="mailto:mahir@hisabtech.com">mahir@hisabtech.com</a></div></div></div></footer>
   );
 }
-
-/* ------------------------------------------------------------------
-   Structured data
-   ------------------------------------------------------------------ */
 
 function MarketingStructuredData() {
-  const data = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: "Hisab ERP",
-    applicationCategory: "BusinessApplication",
-    operatingSystem: "Web",
-    url: "https://www.hisabtech.com",
-    description:
-      "Hisab ERP connects sales, finance, inventory, customers, suppliers and reporting for growing Ethiopian businesses.",
-    publisher: {
-      "@type": "Organization",
-      name: "Hisab Technologies",
-      url: "https://www.hisabtech.com",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Addis Ababa",
-        addressCountry: "ET",
-      },
-    },
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-    />
-  );
+  const data = { "@context": "https://schema.org", "@type": "SoftwareApplication", name: "Hisab ERP", applicationCategory: "BusinessApplication", operatingSystem: "Web", url: "https://www.hisabtech.com", description: "Hisab ERP connects sales, finance, inventory, customers, suppliers and reporting for growing Ethiopian businesses.", publisher: { "@type": "Organization", name: "Hisab Technologies", url: "https://www.hisabtech.com", address: { "@type": "PostalAddress", addressLocality: "Addis Ababa", addressCountry: "ET" } } };
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />;
 }
 
-/* ------------------------------------------------------------------
-   Page shell — every public route renders through this
-   ------------------------------------------------------------------ */
-
 export function MarketingPageShell({ children }: { children: ReactNode }) {
-  return (
-    <div className="hisab">
-      <MarketingStructuredData />
-      <MarketingHeader />
-      <main id="public-main-content">{children}</main>
-      <MarketingFooter />
-    </div>
-  );
+  return <div className="hisab"><MarketingStructuredData /><MarketingHeader /><main id="public-main-content">{children}</main><MarketingFooter /></div>;
 }
