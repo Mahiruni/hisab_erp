@@ -118,20 +118,20 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
           <div className="biloo-login-visual-grid" aria-hidden="true" />
           <header className="biloo-login-visual-header">
             <Link href="/" className="biloo-login-wordmark" aria-label="Hisab home">
-              biloo<span>.</span>
+              hisab<span>.</span>
             </Link>
             <span className="biloo-login-secure-status"><i aria-hidden="true" /> Secure cloud workspace</span>
           </header>
 
           <div className="biloo-login-visual-copy">
-            <p className="biloo-login-kicker"><Icon name="sparkles" size={16} /> Built for ambitious Ethiopian businesses</p>
-            <h1>Clarity for every birr, every decision.</h1>
-            <p>One connected operating system for finance, sales, inventory, customers and the decisions that move your business forward.</p>
+            <p className="biloo-login-kicker"><Icon name="sparkles" size={16} /> Built for modern Ethiopian finance teams</p>
+            <h1>Financial clarity, from first entry to final decision.</h1>
+            <p>Run finance, sales, inventory, customers and reporting from one connected operating system designed around the way Ethiopian businesses work.</p>
           </div>
 
           <div className="biloo-login-dashboard" aria-hidden="true">
             <div className="biloo-login-dashboard-topbar">
-              <div className="biloo-login-dashboard-brand"><span>B</span><strong>Finance overview</strong></div>
+              <div className="biloo-login-dashboard-brand"><span>H</span><strong>Finance overview</strong></div>
               <div className="biloo-login-dashboard-actions"><i /><i /><i /></div>
             </div>
 
@@ -162,8 +162,8 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
                     <svg viewBox="0 0 420 130" role="presentation">
                       <defs>
                         <linearGradient id="biloo-login-chart-fill" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%" stopColor="#FCA311" stopOpacity=".34" />
-                          <stop offset="100%" stopColor="#FCA311" stopOpacity="0" />
+                          <stop offset="0%" stopColor="#0F8B73" stopOpacity=".28" />
+                          <stop offset="100%" stopColor="#0F8B73" stopOpacity="0" />
                         </linearGradient>
                       </defs>
                       <path className="biloo-login-chart-area" d="M0 112 C42 104 55 72 92 80 C135 90 150 46 194 58 C235 70 249 23 296 36 C337 47 357 18 420 9 L420 130 L0 130 Z" />
@@ -190,7 +190,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
 
         <section className="biloo-login-form-pane">
           <nav className="biloo-login-topbar" aria-label="Sign-in support links">
-            <Link href="/" className="biloo-login-mobile-wordmark" aria-label="Hisab home">biloo<span>.</span></Link>
+            <Link href="/" className="biloo-login-mobile-wordmark" aria-label="Hisab home">hisab<span>.</span></Link>
             <div><Link href="/help-center">Help</Link><Link href="/">Back to website</Link></div>
           </nav>
 
