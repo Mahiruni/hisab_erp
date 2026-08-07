@@ -4,7 +4,7 @@ import { ProviderOrbit } from "./provider-orbit";
 
 type EmailAuthCardProps = {
   title: string;
-  description: string;
+  description: ReactNode;
   children: ReactNode;
   footer?: ReactNode;
   eyebrow?: string;
