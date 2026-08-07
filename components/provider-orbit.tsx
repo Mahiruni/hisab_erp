@@ -1,16 +1,5 @@
 import { appConfig } from "../lib/config";
 
-function GoogleMark() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path fill="#4285F4" d="M21.6 12.23c0-.72-.06-1.42-.19-2.09H12v3.96h5.38a4.6 4.6 0 0 1-2 3.02v2.57h3.24c1.9-1.75 2.98-4.33 2.98-7.46Z"/>
-      <path fill="#34A853" d="M12 22c2.7 0 4.97-.9 6.62-2.43l-3.24-2.57c-.9.6-2.05.96-3.38.96-2.61 0-4.82-1.76-5.61-4.13H3.04v2.65A10 10 0 0 0 12 22Z"/>
-      <path fill="#FBBC05" d="M6.39 13.83A6 6 0 0 1 6.08 12c0-.64.11-1.26.31-1.83V7.52H3.04A10 10 0 0 0 2 12c0 1.61.38 3.13 1.04 4.48l3.35-2.65Z"/>
-      <path fill="#EA4335" d="M12 6.04c1.47 0 2.79.51 3.83 1.5l2.87-2.88A9.64 9.64 0 0 0 12 2a10 10 0 0 0-8.96 5.52l3.35 2.65C7.18 7.8 9.39 6.04 12 6.04Z"/>
-    </svg>
-  );
-}
-
 function AppleMark() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -28,7 +17,6 @@ export function ProviderOrbit({ compact = false }: { compact?: boolean }) {
         <img src="/hisab-logo.svg" alt="" width="70" height="70" />
         <span><strong>Hisab ERP</strong><small>One trusted workspace</small></span>
       </div>
-      {appConfig.authProviders.google ? <span className="provider-orbit-card provider-google" data-third-party-brand><GoogleMark/><b>Google</b><small>Secure identity</small></span> : null}
       {appConfig.authProviders.apple ? <span className="provider-orbit-card provider-apple" data-third-party-brand><AppleMark/><b>Apple</b><small>Private sign-in</small></span> : null}
       <span className="provider-orbit-card provider-chapa" style={{ right: "2%", bottom: "12%", color: "#171717", background: "rgba(255,255,255,.94)" }} data-third-party-brand><strong style={{ gridRow: "1 / 3", fontSize: 18 }}>Chapa</strong><small>ETB checkout</small></span>
       <span className="provider-orbit-card provider-supabase" data-third-party-brand><i aria-hidden="true"/><b>Supabase</b><small>Identity &amp; data</small></span>
