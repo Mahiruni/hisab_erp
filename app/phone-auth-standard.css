@@ -4,10 +4,16 @@
 .auth-premium-page .country-control select{padding-left:15px!important;padding-right:40px!important;cursor:pointer;font-weight:760;white-space:nowrap;text-overflow:ellipsis}
 .auth-premium-page .country-control:after{right:14px;color:#64748b;font-size:15px}
 .auth-premium-page .country-field .field-label,.auth-premium-page .phone-number-field .field-label{min-height:16px}
-.auth-premium-page .country-control:focus-within,.auth-premium-page .phone-control:focus-within{border-color:#2ba991;box-shadow:0 0 0 4px rgba(43,169,145,.12),0 10px 26px rgba(25,117,101,.08)}
+.auth-premium-page .country-control:focus-within,.auth-premium-page .phone-control:focus-within{border-color:#0f8b73;box-shadow:0 0 0 4px rgba(15,139,115,.12),0 10px 26px rgba(15,35,58,.06)}
+
+.auth-standard-page .auth-standard-language-row .language-selector select{min-width:126px;min-height:38px;padding:8px 34px 8px 11px;border:1px solid #dce5ed;border-radius:10px;background:#f8fafc;color:#344054;font-size:12px;font-weight:700;box-shadow:0 1px 2px rgba(16,24,40,.02)}
+.auth-standard-page .auth-standard-language-row .language-selector select:focus{border-color:#0f8b73;box-shadow:0 0 0 4px rgba(15,139,115,.12);outline:0}
+.auth-standard-page .auth-standard-otp-input{text-align:center;font-family:var(--font-hisab-mono),ui-monospace,monospace!important;font-size:1.3rem!important;font-weight:600!important;letter-spacing:.32em!important;padding-left:calc(13px + .32em)!important;font-variant-numeric:tabular-nums}
+.auth-standard-page .auth-standard-masked-phone{color:#0c725f!important;font-family:var(--font-hisab-mono),ui-monospace,monospace;font-size:.86em;font-weight:600}
+.auth-standard-page .auth-standard-phone-form .auth-credentials{margin-top:1px}
 
 html[data-theme="dark"] .auth-premium-page .country-control select{color:#e8eef7}
 
-@media(max-width:640px){.auth-premium-page .phone-field-group{grid-template-columns:1fr;gap:13px}.auth-premium-page .country-control select{font-size:13px}.auth-premium-page .country-field .field-label,.auth-premium-page .phone-number-field .field-label{min-height:auto}}
+@media(max-width:640px){.auth-premium-page .phone-field-group{grid-template-columns:1fr;gap:13px}.auth-premium-page .country-control select{font-size:13px}.auth-premium-page .country-field .field-label,.auth-premium-page .phone-number-field .field-label{min-height:auto}.auth-standard-page .auth-standard-language-row .language-selector select{min-width:108px}.auth-standard-page .auth-standard-otp-input{font-size:1.18rem!important;letter-spacing:.25em!important;padding-left:calc(12px + .25em)!important}}
 
 @media(prefers-reduced-motion:reduce){.auth-premium-page .country-control,.auth-premium-page .phone-control{transition:none}}
