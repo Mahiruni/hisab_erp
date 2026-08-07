@@ -25,7 +25,7 @@ export default async function VerifyPhonePage({ searchParams }: { searchParams: 
   return (
     <EmailAuthCard
       title={c.title}
-      description={<>{c.description} <strong className="auth-standard-masked-phone">{maskPhone(phone)}</strong></> as unknown as string}
+      description={<>{c.description} <strong className="auth-standard-masked-phone">{maskPhone(phone)}</strong></>}
       footer={<Link href="/auth/sign-up">← {c.back}</Link>}
       eyebrow="Phone verification"
       badge="6-digit verification · protected activation"
