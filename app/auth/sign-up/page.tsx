@@ -17,6 +17,8 @@ const copy = {
     emailHelp: "Recommended for administrator access and reliable account recovery.",
     phone: "Create with mobile number",
     phoneHelp: "Use your registered mobile number and a strong password.",
+    divider: "or choose another sign-up method",
+    sms: "Mobile verification availability depends on your organization’s messaging configuration.",
     legal: "By creating an account, you confirm that you are authorized to represent this business.",
     create: "Create account",
     existing: "Already have an account?",
@@ -29,6 +31,8 @@ const copy = {
     emailHelp: "ለአስተዳዳሪ መግቢያና ለመለያ መልሶ ማግኛ ይመከራል።",
     phone: "በሞባይል ቁጥር ይፍጠሩ",
     phoneHelp: "የተመዘገበ ሞባይል ቁጥርና ጠንካራ የይለፍ ቃል ይጠቀሙ።",
+    divider: "ወይም ሌላ የመመዝገቢያ ዘዴ ይምረጡ",
+    sms: "የሞባይል ማረጋገጫ መገኘት በድርጅትዎ የመልዕክት ውቅር ላይ ይመሰረታል።",
     legal: "መለያ በመፍጠር ይህን ንግድ ለመወከል ሥልጣን እንዳለዎት ያረጋግጣሉ።",
     create: "መለያ ይፍጠሩ",
     existing: "መለያ አለዎት?",
@@ -41,6 +45,8 @@ const copy = {
     emailHelp: "ንመእተዊ ኣመሓዳሪን ምምላስ ኣካውንትን ይምከር።",
     phone: "ብቁጽሪ ሞባይል ፍጠሩ",
     phoneHelp: "ዝተመዝገበ ቁጽሪ ሞባይልን ጽኑዕ መሕለፊ ቃልን ተጠቐሙ።",
+    divider: "ወይ ካልእ መንገዲ ምዝገባ ምረጹ",
+    sms: "ምርግጋጽ ሞባይል ብውቅር መልእኽቲ ውድብኩም ይውሰን።",
     legal: "ኣካውንት ብምፍጣር ነዚ ንግዲ ክትውክሉ ስልጣን ከምዘለኩም ተረጋግጹ።",
     create: "ኣካውንት ፍጠሩ",
     existing: "ኣካውንት ኣለኩም?",
@@ -51,6 +57,7 @@ const copy = {
 export default async function SignUpPage({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
   const [params, localized] = await Promise.all([searchParams, getServerFoundationCopy()]);
   const p = copy[localized.language];
+  const c = localized.copy.auth;
   const configured = isSupabaseConfigured();
 
   return (
@@ -67,7 +74,7 @@ export default async function SignUpPage({ searchParams }: { searchParams: Promi
       {!configured ? <AuthNotice type="warning">Authentication is not configured.</AuthNotice> : null}
       <AuthNotice type="error">{params.error}</AuthNotice>
 
-      <SocialAuthButtons language={localized.language} next="/onboarding" disabled={!configured} dividerText="or choose another sign-up method" />
+      <SocialAuthButtons language={localized.language} next="/onboarding" disabled={!configured} dividerText={p.divider} />
 
       <Link className="auth-method-card" href="/auth/email-sign-up">
         <span aria-hidden="true">✉</span>
@@ -81,16 +88,16 @@ export default async function SignUpPage({ searchParams }: { searchParams: Promi
       <form action={signUp} className="auth-standard-form auth-standard-phone-form">
         <div className="auth-standard-field-grid auth-standard-identity-grid">
           <label className="auth-standard-field">
-            <span>Full name</span>
-            <input name="fullName" autoComplete="name" maxLength={120} placeholder="Your full name" required />
+            <span>{c.fullName}</span>
+            <input name="fullName" autoComplete="name" maxLength={120} placeholder={c.fullName} required />
           </label>
           <label className="auth-standard-field">
-            <span>Organization name</span>
-            <input name="organizationName" autoComplete="organization" maxLength={160} placeholder="Business or organization" required />
+            <span>{c.organizationName}</span>
+            <input name="organizationName" autoComplete="organization" maxLength={160} placeholder={c.organizationName} required />
           </label>
         </div>
-        <AuthCredentialsFields mode="sign-up" language={localized.language} />
-        <div className="auth-official-note"><span aria-hidden="true">✓</span><p>Mobile verification availability depends on your organization’s messaging configuration.</p></div>
+        <AuthCredentialsFields mode="sign-up" language={localized.language} passwordHelp={c.passwordHelp} />
+        <div className="auth-official-note"><span aria-hidden="true">✓</span><p>{p.sms}</p></div>
         <button className="auth-standard-primary" type="submit" disabled={!configured}><span>{p.create}</span><b aria-hidden="true">→</b></button>
       </form>
 
