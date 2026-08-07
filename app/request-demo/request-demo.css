@@ -1,427 +1,46 @@
-/* ==================================================================
-   Request demo page
-   ================================================================== */
-
-.hisab .demo-request-page {
-  position: relative;
-  isolation: isolate;
-  min-height: calc(100vh - 4.5rem);
-  padding-block: clamp(3.25rem, 2rem + 5vw, 7rem);
-  background:
-    radial-gradient(circle at 10% 4%, rgba(16, 154, 118, 0.11), transparent 28rem),
-    linear-gradient(180deg, #f8fafc 0%, var(--paper) 48%, var(--mist) 100%);
-  border-bottom: 1px solid var(--line-soft);
+/* Hisab ERP — premium Book a Demo experience */
+.hisab .demo-request-page{
+  --demo-navy:#071525;
+  --demo-navy-2:#0b2138;
+  --demo-teal:#0f8b73;
+  --demo-teal-dark:#0c725f;
+  --demo-blue:#347cf0;
+  --demo-ink:#152238;
+  --demo-muted:#69778b;
+  --demo-subtle:#98a2b3;
+  --demo-line:#dde5ed;
+  position:relative;isolation:isolate;min-height:calc(100svh - 4.5rem);padding:clamp(2.6rem,4.5vw,5.4rem) 0;
+  overflow:hidden;background:radial-gradient(circle at 94% 2%,rgba(52,124,240,.07),transparent 26rem),linear-gradient(180deg,#fff 0%,#f5f8fb 100%);border-bottom:1px solid #e8edf2
 }
+.hisab .demo-request-page::before{position:absolute;z-index:-2;top:-260px;left:-180px;width:560px;height:560px;border:1px solid rgba(15,139,115,.08);border-radius:50%;box-shadow:0 0 0 90px rgba(52,124,240,.012);content:""}
+.hisab .demo-request-shell{width:min(calc(100% - (2 * var(--gutter))),1180px);margin-inline:auto;display:grid;grid-template-columns:minmax(0,.9fr) minmax(500px,1.1fr);align-items:stretch;gap:clamp(1.15rem,2.6vw,2.25rem)}
 
-.hisab .demo-request-page::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto;
-  z-index: -1;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--signal-500), transparent);
-  opacity: 0.42;
-}
+/* Left product/demo story */
+.hisab .demo-request-copy{position:sticky;top:6.2rem;isolation:isolate;display:flex;min-height:min(720px,calc(100svh - 8.5rem));flex-direction:column;overflow:hidden;padding:clamp(2rem,3.4vw,3.4rem);border:1px solid rgba(255,255,255,.08);border-radius:28px;background:radial-gradient(circle at 18% 12%,rgba(15,139,115,.24),transparent 30%),radial-gradient(circle at 90% 88%,rgba(52,124,240,.16),transparent 31%),linear-gradient(148deg,var(--demo-navy-2) 0%,var(--demo-navy) 60%,#040b12 100%);box-shadow:0 30px 75px rgba(7,21,37,.18);color:#fff}
+.hisab .demo-request-copy::before{position:absolute;z-index:-2;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:52px 52px;mask-image:linear-gradient(135deg,#000 0%,rgba(0,0,0,.72) 58%,transparent 92%);content:""}
+.hisab .demo-request-copy::after{position:absolute;z-index:-1;right:-145px;bottom:-145px;width:420px;height:420px;border:1px solid rgba(105,219,196,.14);border-radius:50%;box-shadow:0 0 0 68px rgba(15,139,115,.024),0 0 0 136px rgba(52,124,240,.017);content:""}
+.hisab .demo-request-copy>span,.hisab .demo-request-form>div:first-child>span,.hisab .demo-request-success>div>span{display:inline-flex;align-items:center;gap:.65rem;width:fit-content;font-family:var(--font-data);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#6edbc6}
+.hisab .demo-request-copy>span::before,.hisab .demo-request-form>div:first-child>span::before,.hisab .demo-request-success>div>span::before{width:1.35rem;height:1px;background:currentColor;content:""}
+.hisab .demo-request-copy h1{max-width:11ch;margin:1.5rem 0 1.1rem;color:#fff!important;font-family:var(--font-display);font-size:clamp(2.7rem,4.4vw,4.85rem);font-weight:600;line-height:.99;letter-spacing:-.055em;text-wrap:balance}
+.hisab .demo-request-copy>p{max-width:54ch;margin:0;color:rgba(255,255,255,.61)!important;font-size:clamp(.94rem,1.05vw,1.03rem);line-height:1.72}
+.hisab .demo-request-copy>ul{display:grid;gap:.78rem;margin:2rem 0 0;padding:0;list-style:none}.hisab .demo-request-copy>ul li{position:relative;padding-left:1.9rem;color:rgba(255,255,255,.82)!important;font-size:.82rem;font-weight:600;line-height:1.48}.hisab .demo-request-copy>ul li::before{position:absolute;left:0;top:.02rem;display:grid;width:1.25rem;height:1.25rem;place-items:center;border:1px solid rgba(105,219,196,.22);border-radius:50%;background:rgba(15,139,115,.13);color:#70dec9;content:"✓";font-size:.68rem;font-weight:800}
+.hisab .demo-request-copy>div:last-child{position:relative;z-index:1;display:grid;gap:.35rem;margin-top:auto;padding:1rem 1.05rem;border:1px solid rgba(255,255,255,.09);border-radius:14px;background:rgba(255,255,255,.045);backdrop-filter:blur(14px)}.hisab .demo-request-copy>div:last-child strong{margin-bottom:.08rem;color:rgba(255,255,255,.85)!important;font-size:.72rem}.hisab .demo-request-copy>div:last-child a{width:fit-content;color:#76dfcb!important;font-size:.7rem;font-weight:700;text-decoration:none}.hisab .demo-request-copy>div:last-child a:hover{text-decoration:underline}
 
-.hisab .demo-request-shell {
-  width: min(calc(100% - (2 * var(--gutter))), var(--measure));
-  margin-inline: auto;
-  display: grid;
-  grid-template-columns: minmax(0, 0.88fr) minmax(31rem, 1.12fr);
-  align-items: start;
-  gap: clamp(2.25rem, 1.2rem + 4vw, 5.75rem);
-}
+/* Form card */
+.hisab .demo-request-form{display:grid;align-content:start;gap:1.15rem;padding:clamp(1.7rem,2.8vw,2.7rem);border:1px solid rgba(15,35,58,.09);border-radius:28px;background:rgba(255,255,255,.96);box-shadow:0 26px 72px rgba(15,35,58,.09),0 2px 8px rgba(15,35,58,.035),inset 0 1px 0 rgba(255,255,255,.98);backdrop-filter:blur(18px)}
+.hisab .demo-request-form>div:first-child{display:grid;gap:.48rem;padding-bottom:.2rem}.hisab .demo-request-form>div:first-child>span,.hisab .demo-request-success>div>span{color:var(--demo-teal-dark)!important}.hisab .demo-request-form h2{margin:.15rem 0 0;color:var(--demo-ink)!important;font-family:var(--font-display);font-size:clamp(1.75rem,2.3vw,2.35rem);font-weight:600;line-height:1.08;letter-spacing:-.04em}.hisab .demo-request-form>div:first-child>p,.hisab .demo-request-form>small,.hisab .demo-request-success p{margin:0;color:var(--demo-muted)!important;line-height:1.55}.hisab .demo-request-form>div:first-child>p{font-size:.84rem}.hisab .demo-request-form>small{font-size:.69rem}
+.hisab .demo-request-context{width:fit-content;margin-top:.25rem;padding:.42rem .62rem;border:1px solid #cce2dc;border-radius:9px;background:#f2faf8;color:var(--demo-teal-dark)!important;font-family:var(--font-data);font-size:.67rem}
+.hisab .demo-request-alert{padding:.78rem .92rem;border:1px solid #fecaca;border-radius:11px;background:#fff1f2;color:#9f1239;font-size:.76rem;font-weight:700}
+.hisab .demo-form-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem}.hisab .demo-request-form label,.hisab .demo-contact-method legend{color:#344054!important;font-size:.75rem;font-weight:720}.hisab .demo-request-form label{display:grid;gap:.42rem}
+.hisab .demo-request-form input:not([type="radio"]):not([type="checkbox"]),.hisab .demo-request-form select,.hisab .demo-request-form textarea{width:100%;min-width:0;border:1px solid #d7dee6;border-radius:12px;background:#fff;color:var(--demo-ink);font:inherit;font-size:.86rem;line-height:1.45;box-shadow:0 1px 2px rgba(16,24,40,.02);transition:border-color .16s ease,box-shadow .16s ease,transform .16s ease,background .16s ease}.hisab .demo-request-form input:not([type="radio"]):not([type="checkbox"]),.hisab .demo-request-form select{min-height:51px;padding:.72rem .82rem}.hisab .demo-request-form textarea{min-height:8rem;resize:vertical;padding:.8rem}.hisab .demo-request-form input::placeholder,.hisab .demo-request-form textarea::placeholder{color:#a8b0bc}.hisab .demo-request-form input:not([type="radio"]):not([type="checkbox"]):hover,.hisab .demo-request-form select:hover,.hisab .demo-request-form textarea:hover{border-color:#b9c5d0}.hisab .demo-request-form input:not([type="radio"]):not([type="checkbox"]):focus,.hisab .demo-request-form select:focus,.hisab .demo-request-form textarea:focus{outline:0;border-color:var(--demo-teal);background:#fdfffe;box-shadow:0 0 0 4px rgba(15,139,115,.12),0 8px 22px rgba(15,35,58,.045);transform:translateY(-1px)}
+.hisab .demo-contact-method{display:flex;flex-wrap:wrap;align-items:center;gap:.7rem 1rem;margin:0;padding:.9rem 1rem;border:1px solid #e2e8ed;border-radius:12px;background:#f8fafc}.hisab .demo-contact-method legend{padding-inline:.35rem}.hisab .demo-contact-method label{display:inline-flex;grid-template-columns:none;align-items:center;gap:.48rem;min-width:6.5rem;cursor:pointer}.hisab .demo-request-form input[type="radio"],.hisab .demo-request-form input[type="checkbox"]{width:1.02rem;height:1.02rem;margin:0;accent-color:var(--demo-teal)}.hisab .demo-request-consent{display:flex;grid-template-columns:none;align-items:flex-start;gap:.65rem;color:var(--demo-muted)!important;font-weight:500!important;line-height:1.5;cursor:pointer}.hisab .demo-request-consent input{flex:0 0 auto;margin-top:.14rem}
+.hisab .demo-request-form>button{position:relative;min-height:52px;overflow:hidden;border:1px solid var(--demo-navy-2);border-radius:12px;background:linear-gradient(135deg,var(--demo-navy-2),#0e3150);color:#fff;font:inherit;font-size:.83rem;font-weight:800;cursor:pointer;box-shadow:0 13px 28px rgba(7,21,37,.2);transition:transform .16s ease,box-shadow .16s ease}.hisab .demo-request-form>button::before{position:absolute;inset:0;background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.12) 46%,transparent 66%);content:"";transform:translateX(-120%);transition:transform .52s ease}.hisab .demo-request-form>button:hover{transform:translateY(-1px);box-shadow:0 17px 36px rgba(7,21,37,.24)}.hisab .demo-request-form>button:hover::before{transform:translateX(120%)}.hisab .demo-request-form>button:active{transform:translateY(0)}
+.hisab .demo-request-honeypot{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
 
-.hisab .demo-request-copy {
-  position: sticky;
-  top: 7rem;
-  display: grid;
-  gap: 1.35rem;
-  padding-top: clamp(0.4rem, 1vw, 1.25rem);
-}
+/* Success state */
+.hisab .demo-request-success{align-content:start;min-height:32rem}.hisab .demo-success-mark{display:grid;width:3.5rem;height:3.5rem;place-items:center;border:1px solid #cce2dc;border-radius:50%;background:#edf9f6;color:var(--demo-teal-dark);font-size:1.45rem;font-weight:900;box-shadow:0 9px 22px rgba(15,139,115,.1)}.hisab .demo-success-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.3rem}.hisab .demo-success-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:45px;padding:.68rem .95rem;border:1px solid #d7dee6;border-radius:11px;background:#fff;color:var(--demo-ink);font-size:.74rem;font-weight:800;text-decoration:none}.hisab .demo-success-actions .demo-request-primary-link{border-color:var(--demo-navy-2);background:var(--demo-navy-2);color:#fff}.hisab .demo-success-actions a:hover{transform:translateY(-1px)}
+.hisab .demo-request-page :is(a,button,input,select,textarea):focus-visible{outline:3px solid rgba(15,139,115,.27);outline-offset:3px}
 
-.hisab .demo-request-copy > span,
-.hisab .demo-request-form > div:first-child > span,
-.hisab .demo-request-success > div > span {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.7rem;
-  width: fit-content;
-  font-family: var(--font-data);
-  font-size: var(--t-label);
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--signal-700);
-}
-
-.hisab .demo-request-copy > span::before,
-.hisab .demo-request-form > div:first-child > span::before,
-.hisab .demo-request-success > div > span::before {
-  content: "";
-  width: 1.5rem;
-  height: 1px;
-  background: currentColor;
-}
-
-.hisab .demo-request-copy h1 {
-  max-width: 12ch;
-  font-size: clamp(2.55rem, 1.7rem + 3.5vw, 4.5rem);
-  letter-spacing: -0.045em;
-}
-
-.hisab .demo-request-copy > p {
-  max-width: 58ch;
-  color: var(--slate-600);
-  font-size: var(--t-lead);
-  line-height: 1.72;
-}
-
-.hisab .demo-request-copy > ul {
-  display: grid;
-  gap: 0.85rem;
-  margin-top: 0.25rem;
-}
-
-.hisab .demo-request-copy > ul li {
-  position: relative;
-  padding-left: 2rem;
-  color: var(--ink-700);
-  font-weight: 600;
-  line-height: 1.48;
-}
-
-.hisab .demo-request-copy > ul li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  top: 0.04rem;
-  display: grid;
-  place-items: center;
-  width: 1.25rem;
-  height: 1.25rem;
-  border-radius: 999px;
-  background: var(--signal-100);
-  color: var(--signal-700);
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  font-weight: 800;
-}
-
-.hisab .demo-request-copy > div:last-child {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.4rem;
-  margin-top: 0.5rem;
-  padding: 1.15rem 1.25rem;
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  background: rgba(255, 255, 255, 0.78);
-  box-shadow: var(--shadow-1);
-  backdrop-filter: blur(12px);
-}
-
-.hisab .demo-request-copy > div:last-child strong {
-  margin-bottom: 0.15rem;
-  font-size: var(--t-sm);
-  color: var(--ink-700);
-}
-
-.hisab .demo-request-copy > div:last-child a {
-  width: fit-content;
-  color: var(--signal-700);
-  font-size: var(--t-sm);
-  font-weight: 700;
-  text-decoration: underline;
-  text-decoration-color: rgba(7, 92, 72, 0.25);
-  text-underline-offset: 0.22em;
-}
-
-.hisab .demo-request-copy > div:last-child a:hover {
-  text-decoration-color: currentColor;
-}
-
-.hisab .demo-request-form {
-  display: grid;
-  gap: 1.35rem;
-  padding: clamp(1.35rem, 0.8rem + 2vw, 2.4rem);
-  border: 1px solid var(--line);
-  border-radius: var(--r-lg);
-  background: rgba(255, 255, 255, 0.94);
-  box-shadow: var(--shadow-2);
-}
-
-.hisab .demo-request-form > div:first-child {
-  display: grid;
-  gap: 0.55rem;
-  padding-bottom: 0.35rem;
-}
-
-.hisab .demo-request-form h2 {
-  margin-top: 0.15rem;
-  font-size: clamp(1.65rem, 1.35rem + 1vw, 2.25rem);
-}
-
-.hisab .demo-request-form > div:first-child > p,
-.hisab .demo-request-form > small,
-.hisab .demo-request-success p {
-  color: var(--slate-600);
-}
-
-.hisab .demo-request-form > small {
-  font-size: 0.78rem;
-  line-height: 1.55;
-}
-
-.hisab .demo-request-context {
-  width: fit-content;
-  margin-top: 0.25rem;
-  padding: 0.45rem 0.65rem;
-  border: 1px solid #b9e0d5;
-  border-radius: var(--r-sm);
-  background: var(--signal-100);
-  color: var(--signal-700);
-  font-family: var(--font-data);
-  font-size: 0.72rem;
-}
-
-.hisab .demo-request-alert {
-  padding: 0.85rem 1rem;
-  border: 1px solid #fecaca;
-  border-radius: var(--r-sm);
-  background: #fff1f2;
-  color: #9f1239;
-  font-size: var(--t-sm);
-  font-weight: 700;
-}
-
-.hisab .demo-form-row {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.hisab .demo-request-form label,
-.hisab .demo-contact-method legend {
-  color: var(--ink-700);
-  font-size: 0.84rem;
-  font-weight: 700;
-}
-
-.hisab .demo-request-form label {
-  display: grid;
-  gap: 0.48rem;
-}
-
-.hisab .demo-request-form input:not([type="radio"]):not([type="checkbox"]),
-.hisab .demo-request-form select,
-.hisab .demo-request-form textarea {
-  width: 100%;
-  min-width: 0;
-  border: 1px solid var(--line-strong);
-  border-radius: 8px;
-  background: var(--paper);
-  color: var(--ink);
-  font: inherit;
-  font-size: 0.95rem;
-  line-height: 1.45;
-  transition: border-color 160ms var(--ease), box-shadow 160ms var(--ease), background 160ms var(--ease);
-}
-
-.hisab .demo-request-form input:not([type="radio"]):not([type="checkbox"]),
-.hisab .demo-request-form select {
-  min-height: 3rem;
-  padding: 0.76rem 0.85rem;
-}
-
-.hisab .demo-request-form textarea {
-  min-height: 8.5rem;
-  resize: vertical;
-  padding: 0.85rem;
-}
-
-.hisab .demo-request-form input::placeholder,
-.hisab .demo-request-form textarea::placeholder {
-  color: var(--slate-400);
-}
-
-.hisab .demo-request-form input:not([type="radio"]):not([type="checkbox"]):hover,
-.hisab .demo-request-form select:hover,
-.hisab .demo-request-form textarea:hover {
-  border-color: var(--slate-400);
-}
-
-.hisab .demo-request-form input:not([type="radio"]):not([type="checkbox"]):focus,
-.hisab .demo-request-form select:focus,
-.hisab .demo-request-form textarea:focus {
-  outline: none;
-  border-color: var(--signal-600);
-  box-shadow: 0 0 0 3px rgba(16, 154, 118, 0.13);
-}
-
-.hisab .demo-contact-method {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem 1rem;
-  margin: 0;
-  padding: 1rem;
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  background: var(--mist);
-}
-
-.hisab .demo-contact-method legend {
-  padding-inline: 0.35rem;
-}
-
-.hisab .demo-contact-method label {
-  display: inline-flex;
-  grid-template-columns: none;
-  align-items: center;
-  gap: 0.5rem;
-  min-width: 7rem;
-  cursor: pointer;
-}
-
-.hisab .demo-request-form input[type="radio"],
-.hisab .demo-request-form input[type="checkbox"] {
-  width: 1.05rem;
-  height: 1.05rem;
-  margin: 0;
-  accent-color: var(--signal-600);
-}
-
-.hisab .demo-request-consent {
-  display: flex;
-  grid-template-columns: none;
-  align-items: flex-start;
-  gap: 0.7rem;
-  color: var(--slate-600);
-  font-weight: 500;
-  line-height: 1.55;
-  cursor: pointer;
-}
-
-.hisab .demo-request-consent input {
-  flex: 0 0 auto;
-  margin-top: 0.18rem;
-}
-
-.hisab .demo-request-form > button {
-  min-height: 3.15rem;
-  border: 1px solid var(--signal-700);
-  border-radius: 8px;
-  background: var(--signal-700);
-  color: var(--paper);
-  font: inherit;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(7, 92, 72, 0.18);
-  transition: transform 160ms var(--ease), background 160ms var(--ease), box-shadow 160ms var(--ease);
-}
-
-.hisab .demo-request-form > button:hover {
-  transform: translateY(-1px);
-  background: var(--signal-600);
-  box-shadow: 0 12px 26px rgba(7, 92, 72, 0.24);
-}
-
-.hisab .demo-request-form > button:active {
-  transform: translateY(0);
-}
-
-.hisab .demo-request-honeypot {
-  position: absolute;
-  left: -10000px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-
-.hisab .demo-request-success {
-  align-content: start;
-  min-height: 28rem;
-}
-
-.hisab .demo-success-mark {
-  display: grid;
-  place-items: center;
-  width: 3.6rem;
-  height: 3.6rem;
-  border-radius: 999px;
-  background: var(--signal-100);
-  color: var(--signal-700);
-  font-size: 1.6rem;
-  font-weight: 900;
-}
-
-.hisab .demo-success-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 0.35rem;
-}
-
-.hisab .demo-success-actions a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 2.9rem;
-  padding: 0.72rem 1rem;
-  border: 1px solid var(--line-strong);
-  border-radius: 8px;
-  color: var(--ink-700);
-  font-size: var(--t-sm);
-  font-weight: 800;
-}
-
-.hisab .demo-success-actions .demo-request-primary-link {
-  border-color: var(--signal-700);
-  background: var(--signal-700);
-  color: var(--paper);
-}
-
-@media (max-width: 960px) {
-  .hisab .demo-request-shell {
-    grid-template-columns: 1fr;
-    max-width: 46rem;
-  }
-
-  .hisab .demo-request-copy {
-    position: static;
-  }
-
-  .hisab .demo-request-copy h1 {
-    max-width: 15ch;
-  }
-}
-
-@media (max-width: 620px) {
-  .hisab .demo-request-page {
-    padding-block: 2.5rem 4rem;
-  }
-
-  .hisab .demo-request-shell {
-    width: min(calc(100% - 2rem), var(--measure));
-    gap: 2rem;
-  }
-
-  .hisab .demo-form-row {
-    grid-template-columns: 1fr;
-  }
-
-  .hisab .demo-request-form {
-    padding: 1.15rem;
-    border-radius: var(--r-md);
-  }
-
-  .hisab .demo-request-copy h1 {
-    font-size: clamp(2.2rem, 11vw, 3.25rem);
-  }
-
-  .hisab .demo-success-actions {
-    display: grid;
-  }
-}
+@media(max-width:1000px){.hisab .demo-request-shell{grid-template-columns:1fr;max-width:720px}.hisab .demo-request-copy{position:relative;top:auto;min-height:auto}.hisab .demo-request-copy h1{max-width:14ch}.hisab .demo-request-copy>div:last-child{margin-top:2rem}}
+@media(max-width:620px){.hisab .demo-request-page{padding:1.8rem 0 3.5rem}.hisab .demo-request-shell{width:min(calc(100% - 1.5rem),var(--measure));gap:1rem}.hisab .demo-request-copy{padding:1.7rem 1.35rem;border-radius:22px}.hisab .demo-request-copy h1{font-size:clamp(2.2rem,11vw,3.05rem)}.hisab .demo-request-form{padding:1.35rem 1.05rem;border-radius:21px}.hisab .demo-form-row{grid-template-columns:1fr}.hisab .demo-success-actions{display:grid}}
+@media(prefers-reduced-motion:reduce){.hisab .demo-request-page *,.hisab .demo-request-page *::before,.hisab .demo-request-page *::after{transition:none!important;animation:none!important}}
