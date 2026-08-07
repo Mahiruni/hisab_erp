@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import "../app/hisab-marketing.css";
 import "../app/marketing-routes.css";
-import "../app/marketing-production.css";
+import "../app/marketing-polish.css";
 
 /* ------------------------------------------------------------------
    Icons
@@ -162,6 +162,7 @@ export function MarketingHeader() {
   const pathname = usePathname() ?? "/";
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [mobileMenuGroup, setMobileMenuGroup] = useState<string | null>("product");
   const [stuck, setStuck] = useState(false);
   const headerRef = useRef<HTMLElement | null>(null);
   const hoverCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -194,9 +195,16 @@ export function MarketingHeader() {
     }, 140);
   }, [cancelHoverClose]);
 
+  const openDrawer = useCallback(() => {
+    setOpenMenu(null);
+    setMobileMenuGroup("product");
+    setDrawerOpen(true);
+  }, []);
+
   useEffect(() => {
     setOpenMenu(null);
     setDrawerOpen(false);
+    setMobileMenuGroup("product");
   }, [pathname]);
 
   useEffect(() => {
@@ -256,7 +264,7 @@ export function MarketingHeader() {
         <div className="h-header__actions">
           <Link className="h-btn h-btn--ghost h-btn--sm h-header__desktop-only" href="/auth/login">Sign in</Link>
           <Link className="h-btn h-btn--primary h-btn--sm" href="/request-demo">Book a demo</Link>
-          <button type="button" className="h-icon-btn h-burger" aria-label="Open menu" aria-expanded={drawerOpen} onClick={() => setDrawerOpen(true)}><Icon name="menu" size={20} /></button>
+          <button type="button" className="h-icon-btn h-burger" aria-label="Open menu" aria-expanded={drawerOpen} aria-controls="mobile-site-menu" onClick={openDrawer}><Icon name="menu" size={21} /></button>
         </div>
         {NAV_GROUPS.map((group) => openMenu === group.id ? (
           <div className="h-nav__panel" key={`panel-${group.id}`} role="group" aria-label={group.label} onMouseEnter={cancelHoverClose} onMouseLeave={scheduleHoverClose} onFocus={cancelHoverClose} onBlur={(event) => { if (event.currentTarget.contains(event.relatedTarget as Node | null)) return; scheduleHoverClose(); }}>
@@ -265,13 +273,56 @@ export function MarketingHeader() {
           </div>
         ) : null)}
       </div>
+
       {drawerOpen ? (
-        <div className="h-drawer" role="dialog" aria-modal="true" aria-label="Site menu">
-          <div className="h-drawer__top"><Brand /><button type="button" className="h-icon-btn" aria-label="Close menu" onClick={() => setDrawerOpen(false)}><Icon name="close" size={20} /></button></div>
-          <div className="h-drawer__body">
-            {NAV_GROUPS.map((group) => <section className="h-drawer__group" key={`drawer-${group.id}`}><p className="h-eyebrow">{group.label}</p>{group.items.map((item) => <Link className="h-drawer__link" key={item.href} href={item.href}><strong>{item.label}</strong><span>{item.note}</span></Link>)}</section>)}
-            <div className="h-drawer__cta"><Link className="h-btn h-btn--primary" href="/request-demo">Book a demo</Link><Link className="h-btn h-btn--ghost" href="/auth/login">Sign in</Link></div>
-          </div>
+        <div className="h-drawer" id="mobile-site-menu" role="dialog" aria-modal="true" aria-label="Site menu">
+          <button className="h-drawer__scrim" type="button" aria-label="Close site menu" onClick={() => setDrawerOpen(false)} />
+          <aside className="h-drawer__panel">
+            <div className="h-drawer__top">
+              <Brand />
+              <button type="button" className="h-icon-btn" aria-label="Close menu" onClick={() => setDrawerOpen(false)}><Icon name="close" size={21} /></button>
+            </div>
+            <div className="h-drawer__body">
+              <div className="h-drawer__intro">
+                <strong>Explore Hisab ERP</strong>
+                <span>Product, implementation, resources and company information.</span>
+              </div>
+
+              {NAV_GROUPS.map((group) => {
+                const expanded = mobileMenuGroup === group.id;
+                return (
+                  <section className="h-drawer__group" key={`drawer-${group.id}`}>
+                    <button
+                      type="button"
+                      className="h-drawer__group-trigger"
+                      aria-expanded={expanded}
+                      aria-controls={`drawer-group-${group.id}`}
+                      onClick={() => setMobileMenuGroup(expanded ? null : group.id)}
+                    >
+                      <span className="h-drawer__group-copy"><strong>{group.label}</strong><small>{group.title}</small></span>
+                      <Icon name="chevron" size={17} />
+                    </button>
+                    {expanded ? (
+                      <div className="h-drawer__links" id={`drawer-group-${group.id}`}>
+                        {group.items.map((item) => (
+                          <Link className="h-drawer__link" data-active={isActive(pathname, item.href)} key={item.href} href={item.href}>
+                            <strong>{item.label}</strong>
+                            <span>{item.note}</span>
+                            <Icon name="arrow" size={16} />
+                          </Link>
+                        ))}
+                      </div>
+                    ) : null}
+                  </section>
+                );
+              })}
+
+              <div className="h-drawer__cta">
+                <Link className="h-btn h-btn--primary" href="/request-demo">Book a demo</Link>
+                <Link className="h-btn h-btn--ghost" href="/auth/login">Sign in</Link>
+              </div>
+            </div>
+          </aside>
         </div>
       ) : null}
     </header>
