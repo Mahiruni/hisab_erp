@@ -10,12 +10,9 @@ import { WorkspaceShell } from "../components/workspace-shell";
 /* ------------------------------------------------------------------
    Stylesheets
    ------------------------------------------------------------------
-   The public marketing site no longer loads anything here — it owns
-   a single stylesheet (app/hisab-marketing.css) imported by the
-   marketing chrome. Everything below belongs to the authenticated
-   workspace and the auth routes.
-
-   Do not add "-fix", "-lock" or "-final" stylesheets to this list.
+   The public marketing site owns its core marketing styles in the
+   marketing chrome. public-site-wide.css is a final scoped refinement
+   layer for cross-route contrast, width and responsive navigation.
    ------------------------------------------------------------------ */
 
 /* Foundation */
@@ -29,6 +26,7 @@ import "./production.css";
 import "./font-benaiah-1.css";
 import "./font-benaiah-2.css";
 import "./font-benaiah-3.css";
+import "./public-site-wide.css";
 
 /* Auth routes */
 import "./auth-i18n.css";
