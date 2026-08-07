@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AuthNotice, EmailAuthCard } from "../../../components/email-auth-card";
 import { LanguageSelector } from "../../../components/language-provider";
 import { verifyPhoneOtp } from "../../../lib/actions/auth";
 import { getServerFoundationCopy } from "../../../lib/server-locale";
@@ -6,39 +7,9 @@ import { getServerFoundationCopy } from "../../../lib/server-locale";
 export const metadata = { title: "Verify phone" };
 
 const copy = {
-  en: {
-    label: "Phone verification",
-    title: "Enter your security code",
-    text: "We sent a 6-digit verification code to",
-    code: "Verification code",
-    help: "The code expires shortly. Never share it with anyone.",
-    action: "Verify and continue",
-    back: "Use a different number",
-    asideTitle: "One last step to secure your company.",
-    asideText: "Phone verification helps protect your workspace before financial records are created.",
-  },
-  am: {
-    label: "የስልክ ማረጋገጫ",
-    title: "የደህነት ኮዱን ያስገቡ",
-    text: "6 አሃዝ የማረጋገጫ ኮድ ልከናል፦",
-    code: "የማረጋገጫ ኮድ",
-    help: "ኮዱ በቅርቡ ጊዜው ያልፋል። ለማንም አያጋሩት።",
-    action: "አረጋግጥና ቀጥል",
-    back: "ሌላ ቁጥር ተጠቀም",
-    asideTitle: "ድርጅትዎን ለመጠበቅ አንድ የመጨረሻ እርምጃ።",
-    asideText: "የስልክ ማረጋገጫ የፋይናንስ መዝገቦች ከመፈጠራቸው በፊት የሥራ ቦታዎን ይጠብቃል።",
-  },
-  ti: {
-    label: "ምርግጋጽ ተሌፎን",
-    title: "ኮድ ድሕነት ኣእትዉ",
-    text: "6 ኣሃዝ ኮድ ምርግጋጽ ልኢኽናል፦",
-    code: "ኮድ ምርግጋጽ",
-    help: "እቲ ኮድ ብቕልጡፍ ይውዳእ። ንዝኾነ ሰብ ኣይተካፍልዎ።",
-    action: "ኣረጋግጽን ቀጽልን",
-    back: "ካልእ ቁጽሪ ተጠቐም",
-    asideTitle: "ውድብኩም ንምሕላው ሓደ መወዳእታ ስጉምቲ።",
-    asideText: "ምርግጋጽ ተሌፎን መዝገባት ፋይናንስ ቅድሚ ምፍጣሮም መስርሒ ቦታኹም ይሕሉ።",
-  },
+  en: { title: "Enter your security code", description: "We sent a 6-digit verification code to", code: "Verification code", help: "The code expires shortly. Never share it with anyone.", action: "Verify and continue", back: "Use a different number" },
+  am: { title: "የደህነት ኮዱን ያስገቡ", description: "6 አሃዝ የማረጋገጫ ኮድ ልከናል፦", code: "የማረጋገጫ ኮድ", help: "ኮዱ በቅርቡ ጊዜው ያልፋል። ለማንም አያጋሩት።", action: "አረጋግጥና ቀጥል", back: "ሌላ ቁጥር ተጠቀም" },
+  ti: { title: "ኮድ ድሕነት ኣእትዉ", description: "6 ኣሃዝ ኮድ ምርግጋጽ ልኢኽናል፦", code: "ኮድ ምርግጋጽ", help: "እቲ ኮድ ብቕልጡፍ ይውዳእ። ንዝኾነ ሰብ ኣይተካፍልዎ።", action: "ኣረጋግጽን ቀጽልን", back: "ካልእ ቁጽሪ ተጠቐም" },
 } as const;
 
 function maskPhone(phone: string) {
@@ -52,36 +23,28 @@ export default async function VerifyPhonePage({ searchParams }: { searchParams: 
   const phone = params.phone || "";
 
   return (
-    <main className="auth-page auth-premium-page auth-verify-page">
-      <div className="auth-orb auth-orb-one"/><div className="auth-orb auth-orb-two"/>
-      <section className="auth-shell auth-verify-shell">
-        <aside className="auth-showcase auth-verify-showcase">
-          <Link href="/" className="auth-showcase-brand"><span>H</span><strong>Hisab ERP</strong></Link>
-          <div className="auth-showcase-content">
-            <div className="verification-illustration" aria-hidden="true"><span>✓</span><i/><i/><i/></div>
-            <h2>{c.asideTitle}</h2>
-            <p>{c.asideText}</p>
-          </div>
-          <div className="auth-showcase-footer"><span>●</span>Secure identity verification</div>
-        </aside>
-        <section className="auth-card auth-form-panel">
-          <div className="auth-top"><Link href="/" className="auth-brand auth-mobile-brand"><span>H</span><strong>Hisab ERP</strong></Link><LanguageSelector/></div>
-          <div className="auth-heading">
-            <p className="eyebrow">{c.label}</p>
-            <h1>{c.title}</h1>
-            <p>{c.text} <strong className="masked-phone">{maskPhone(phone)}</strong></p>
-          </div>
-          {params.error && <div className="form-alert error">{params.error}</div>}
-          {params.message && <div className="form-alert success">{params.message}</div>}
-          <form action={verifyPhoneOtp} className="erp-form premium-auth-form">
-            <input type="hidden" name="phone" value={phone}/>
-            <label className="premium-field otp-field"><span className="field-label">{c.code}</span><span className="field-control"><input name="token" type="text" inputMode="numeric" autoComplete="one-time-code" pattern="[0-9]{6}" minLength={6} maxLength={6} placeholder="••••••" required/></span></label>
-            <small className="phone-guidance">{c.help}</small>
-            <button className="primary auth-submit" type="submit" disabled={!phone}><span>{c.action}</span><b aria-hidden="true">→</b></button>
-          </form>
-          <p className="auth-switch"><Link href="/auth/sign-up">← {c.back}</Link></p>
-        </section>
-      </section>
-    </main>
+    <EmailAuthCard
+      title={c.title}
+      description={<>{c.description} <strong className="auth-standard-masked-phone">{maskPhone(phone)}</strong></> as unknown as string}
+      footer={<Link href="/auth/sign-up">← {c.back}</Link>}
+      eyebrow="Phone verification"
+      badge="6-digit verification · protected activation"
+      showcaseTitle="One last step to secure your company."
+      showcaseDescription="Phone verification protects your workspace before financial records and organization access are activated."
+    >
+      <div className="auth-standard-language-row"><LanguageSelector /></div>
+      <AuthNotice type="error">{params.error}</AuthNotice>
+      <AuthNotice type="success">{params.message}</AuthNotice>
+
+      <form action={verifyPhoneOtp} className="auth-standard-form">
+        <input type="hidden" name="phone" value={phone} />
+        <label className="auth-standard-field" htmlFor="phone-verification-code">
+          <span>{c.code}</span>
+          <input id="phone-verification-code" className="auth-standard-otp-input" name="token" type="text" inputMode="numeric" autoComplete="one-time-code" pattern="[0-9]{6}" minLength={6} maxLength={6} placeholder="••••••" required autoFocus />
+        </label>
+        <p className="auth-standard-password-help">{c.help}</p>
+        <button className="auth-standard-primary" type="submit" disabled={!phone}><span>{c.action}</span><b aria-hidden="true">→</b></button>
+      </form>
+    </EmailAuthCard>
   );
 }
