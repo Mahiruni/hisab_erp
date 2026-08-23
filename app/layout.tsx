@@ -81,6 +81,7 @@ import "./brand-loading.css";
 /* AetherERP owns the final customer-facing visual layer. It deliberately
    loads after all legacy compatibility styles. */
 import "./aether-brand.css";
+import "./aether-compat-tokens.css";
 
 const display = Cormorant_Garamond({
   subsets: ["latin"],
