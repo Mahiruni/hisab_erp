@@ -172,11 +172,11 @@
 .tableCard header strong { margin-top:4px; font-size:13px; }
 .tableCard button { border:0; background:none; color:#3ee0c4; font:inherit; font-size:10px; }
 .tableWrap { overflow-x:auto; }
-table { width:100%; border-collapse:collapse; font-size:11px; }
-th, td { padding:13px 20px; text-align:left; white-space:nowrap; border-bottom:1px solid rgba(214,228,240,.06); }
-th { color:#647386; font-size:9px; font-weight:600; text-transform:uppercase; letter-spacing:.08em; }
-td:nth-child(3) { font-family:var(--font-aether-mono), monospace; }
-td:last-child { color:#8b9bb0; }
+.tableWrap table { width:100%; border-collapse:collapse; font-size:11px; }
+.tableWrap th, .tableWrap td { padding:13px 20px; text-align:left; white-space:nowrap; border-bottom:1px solid rgba(214,228,240,.06); }
+.tableWrap th { color:#647386; font-size:9px; font-weight:600; text-transform:uppercase; letter-spacing:.08em; }
+.tableWrap td:nth-child(3) { font-family:var(--font-aether-mono), monospace; }
+.tableWrap td:last-child { color:#8b9bb0; }
 
 .snapshot { padding:18px 20px; }
 .snapshot header { display:flex; justify-content:space-between; color:#8b9bb0; font-size:10px; text-transform:uppercase; letter-spacing:.1em; padding-bottom:14px; border-bottom:1px solid rgba(214,228,240,.08); }
