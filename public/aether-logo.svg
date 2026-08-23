@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="AetherERP">
+  <defs>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#151C25"/>
+      <stop offset="1" stop-color="#0C1117"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="#07090C"/>
+  <rect x="1" y="1" width="62" height="62" rx="14" fill="url(#edge)" stroke="rgba(214,228,240,.14)"/>
+  <g fill="none" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M15 47 31.5 14 49 47" stroke="#E8EEF4" stroke-width="4"/>
+    <path d="M21 35h22" stroke="#3EE0C4" stroke-width="4"/>
+    <path d="M27.5 47h9" stroke="#D4B483" stroke-width="3"/>
+  </g>
+</svg>
