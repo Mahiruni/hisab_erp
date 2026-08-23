@@ -14,41 +14,47 @@ function migrateText(value: string) {
   return replacements.reduce((next, [pattern, replacement]) => next.replace(pattern, replacement), value);
 }
 
-function migrateNode(root: Node) {
-  if (root.nodeType === Node.TEXT_NODE) {
-    const parent = root.parentElement;
-    if (!parent || parent.closest("script,style,code,pre,textarea,[data-brand-migration-ignore]")) return;
-    const current = root.nodeValue || "";
-    const next = migrateText(current);
-    if (next !== current) root.nodeValue = next;
-    return;
-  }
+function migrateTextNode(node: Node) {
+  if (node.nodeType !== Node.TEXT_NODE) return;
+  const parent = node.parentElement;
+  if (!parent || parent.closest("script,style,code,pre,textarea,[data-brand-migration-ignore]")) return;
+  const current = node.nodeValue || "";
+  const next = migrateText(current);
+  if (next !== current) node.nodeValue = next;
+}
 
-  if (!(root instanceof Element)) return;
-
+function migrateElement(element: Element) {
   for (const attribute of ["aria-label", "title", "alt"]) {
-    const current = root.getAttribute(attribute);
+    const current = element.getAttribute(attribute);
     if (!current) continue;
     const next = migrateText(current);
-    if (next !== current) root.setAttribute(attribute, next);
+    if (next !== current) element.setAttribute(attribute, next);
   }
 
-  if (root instanceof HTMLImageElement && /hisab-logo\.svg(?:\?|$)/i.test(root.getAttribute("src") || "")) {
-    root.src = "/aether-logo.svg";
-    root.classList.remove("hisab-logo");
-    root.classList.add("aether-logo");
+  if (element instanceof HTMLImageElement && /hisab-logo\.svg(?:\?|$)/i.test(element.getAttribute("src") || "")) {
+    element.src = "/aether-logo.svg";
+    element.classList.remove("hisab-logo");
+    element.classList.add("aether-logo");
+  }
+}
+
+function migrateSubtree(root: Node) {
+  if (root.nodeType === Node.TEXT_NODE) {
+    migrateTextNode(root);
+    return;
+  }
+  if (!(root instanceof Element)) return;
+
+  migrateElement(root);
+
+  const textWalker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  let textNode = textWalker.nextNode();
+  while (textNode) {
+    migrateTextNode(textNode);
+    textNode = textWalker.nextNode();
   }
 
-  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-  let node = walker.nextNode();
-  while (node) {
-    migrateNode(node);
-    node = walker.nextNode();
-  }
-
-  root.querySelectorAll<HTMLElement>("[aria-label],[title],[alt],img").forEach((element) => {
-    if (element !== root) migrateNode(element);
-  });
+  root.querySelectorAll("[aria-label],[title],[alt],img").forEach(migrateElement);
 }
 
 /**
@@ -63,23 +69,27 @@ function migrateNode(root: Node) {
  */
 export function AetherBrandMigrationGuard() {
   useEffect(() => {
-    migrateNode(document.body);
+    migrateSubtree(document.body);
 
     let scheduled = 0;
+    const pending = new Set<Node>();
     const observer = new MutationObserver((mutations) => {
+      for (const mutation of mutations) {
+        if (mutation.type === "characterData") pending.add(mutation.target);
+        mutation.addedNodes.forEach((node) => pending.add(node));
+      }
       if (scheduled) return;
       scheduled = window.requestAnimationFrame(() => {
         scheduled = 0;
-        for (const mutation of mutations) {
-          if (mutation.type === "characterData") migrateNode(mutation.target);
-          mutation.addedNodes.forEach(migrateNode);
-        }
+        pending.forEach(migrateSubtree);
+        pending.clear();
       });
     });
 
     observer.observe(document.body, { childList: true, subtree: true, characterData: true });
     return () => {
       if (scheduled) window.cancelAnimationFrame(scheduled);
+      pending.clear();
       observer.disconnect();
     };
   }, []);
