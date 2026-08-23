@@ -1,19 +1,23 @@
+import Link from "next/link";
 import type { Language } from "../lib/translations";
 import { signInWithOAuthProvider } from "../lib/actions/auth";
 import { appConfig } from "../lib/config";
 
 const socialCopy = {
   en: {
+    demo: "Enter demo workspace — no account required",
     google: "Continue with Google",
     apple: "Continue with Apple",
     divider: "or continue with email",
   },
   am: {
+    demo: "ወደ ማሳያ የሥራ ቦታ ይግቡ — መለያ አያስፈልግም",
     google: "በGoogle ይቀጥሉ",
     apple: "በApple ይቀጥሉ",
     divider: "ወይም በኢሜይል ይቀጥሉ",
   },
   ti: {
+    demo: "ናብ መርኣዪ መስርሒ ቦታ እተዉ — ኣካውንት ኣየድልን",
     google: "ብGoogle ቀጽሉ",
     apple: "ብApple ቀጽሉ",
     divider: "ወይ ብኢሜይል ቀጽሉ",
@@ -54,8 +58,12 @@ export function SocialAuthButtons({
   const { google, apple } = appConfig.authProviders;
 
   return (
-    <section className="social-auth-block" data-third-party-brand aria-label="Trusted sign-in providers">
+    <section className="social-auth-block" data-third-party-brand aria-label="Sign-in and demo options">
       <div className="social-auth-grid">
+        <Link className="social-auth-button" href="/demo" aria-label={c.demo}>
+          <span aria-hidden="true">A</span>
+          <span>{c.demo}</span>
+        </Link>
         {google ? (
           <form action={signInWithOAuthProvider}>
             <input type="hidden" name="provider" value="google"/>
