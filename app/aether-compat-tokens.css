@@ -1,0 +1,173 @@
+/* AetherERP compatibility token bridge.
+   Existing module CSS reads historical variable names. Mapping them here lets
+   the production UI adopt one palette without rewriting audited workflow CSS. */
+
+:root,
+html,
+html[data-theme],
+html[data-theme="light"],
+html[data-theme="dark"] {
+  --bg: #07090c !important;
+  --card: #121821 !important;
+  --text: #e8eef4 !important;
+  --muted: #8b9bb0 !important;
+  --border: rgba(214, 228, 240, .10) !important;
+  --navy: #e8eef4 !important;
+  --blue: #3ee0c4 !important;
+  --green: #3ddc97 !important;
+  --amber: #d4b483 !important;
+
+  --ui-canvas: #07090c !important;
+  --ui-surface: #121821 !important;
+  --ui-text: #e8eef4 !important;
+  --ui-text-secondary: #aeb9c8 !important;
+  --ui-text-muted: #8b9bb0 !important;
+  --ui-border: rgba(214, 228, 240, .10) !important;
+  --ui-border-strong: rgba(214, 228, 240, .18) !important;
+  --ui-brand: #3ee0c4 !important;
+  --ui-brand-hover: #68ead4 !important;
+  --ui-brand-strong: #3ee0c4 !important;
+  --ui-brand-soft: rgba(62, 224, 196, .10) !important;
+  --ui-brand-ring: rgba(62, 224, 196, .20) !important;
+
+  --workspace-theme-canvas: #07090c !important;
+  --workspace-theme-surface: #121821 !important;
+  --workspace-theme-surface-muted: #0c1117 !important;
+  --workspace-theme-surface-hover: rgba(62, 224, 196, .055) !important;
+  --workspace-theme-border: rgba(214, 228, 240, .10) !important;
+  --workspace-theme-text: #e8eef4 !important;
+  --workspace-theme-text-secondary: #aeb9c8 !important;
+  --workspace-theme-text-muted: #8b9bb0 !important;
+  --workspace-brand: #3ee0c4 !important;
+
+  --fin-canvas: #07090c !important;
+  --fin-surface: #121821 !important;
+  --fin-surface-subtle: #0c1117 !important;
+  --fin-surface-muted: #101720 !important;
+  --fin-border: rgba(214, 228, 240, .10) !important;
+  --fin-text: #e8eef4 !important;
+  --fin-text-secondary: #aeb9c8 !important;
+  --fin-text-muted: #8b9bb0 !important;
+  --fin-primary: #3ee0c4 !important;
+  --fin-primary-hover: #68ead4 !important;
+  --fin-primary-soft: rgba(62, 224, 196, .10) !important;
+  --fin-success: #3ddc97 !important;
+  --fin-success-soft: rgba(61, 220, 151, .10) !important;
+  --fin-warning: #d4b483 !important;
+  --fin-warning-soft: rgba(212, 180, 131, .10) !important;
+  --fin-danger: #e26d6d !important;
+  --fin-danger-soft: rgba(226, 109, 109, .10) !important;
+  --fin-info: #3ee0c4 !important;
+  --fin-info-soft: rgba(62, 224, 196, .10) !important;
+
+  --lc-canvas: #07090c !important;
+  --lc-surface: #121821 !important;
+  --lc-surface-subtle: #0c1117 !important;
+  --lc-surface-muted: #101720 !important;
+  --lc-border: rgba(214, 228, 240, .10) !important;
+  --lc-border-strong: rgba(214, 228, 240, .18) !important;
+  --lc-text: #e8eef4 !important;
+  --lc-text-secondary: #aeb9c8 !important;
+  --lc-text-muted: #8b9bb0 !important;
+  --lc-text-faint: #65748a !important;
+  --lc-primary: #3ee0c4 !important;
+  --lc-primary-hover: #68ead4 !important;
+  --lc-primary-soft: rgba(62, 224, 196, .10) !important;
+  --lc-info: #3ee0c4 !important;
+  --lc-info-soft: rgba(62, 224, 196, .10) !important;
+  --lc-success: #3ddc97 !important;
+  --lc-success-soft: rgba(61, 220, 151, .10) !important;
+  --lc-warning: #d4b483 !important;
+  --lc-warning-soft: rgba(212, 180, 131, .10) !important;
+  --lc-danger: #e26d6d !important;
+  --lc-danger-hover: #ef8989 !important;
+  --lc-danger-soft: rgba(226, 109, 109, .10) !important;
+  --lc-focus: 0 0 0 3px rgba(62, 224, 196, .18) !important;
+  --lc-shadow: 0 10px 30px rgba(0,0,0,.12) !important;
+  --lc-shadow-popover: 0 24px 70px rgba(0,0,0,.34) !important;
+
+  --ds-color-brand-950: #07090c !important;
+  --ds-color-brand-900: #0c1117 !important;
+  --ds-color-brand-700: #3ee0c4 !important;
+  --ds-color-brand-600: #3ee0c4 !important;
+  --ds-color-accent-600: #3ee0c4 !important;
+  --ds-color-accent-500: #68ead4 !important;
+  --ds-color-surface-canvas: #07090c !important;
+  --ds-color-surface-panel: #121821 !important;
+  --ds-color-surface-subtle: #0c1117 !important;
+  --ds-color-text-primary: #e8eef4 !important;
+  --ds-color-text-secondary: #8b9bb0 !important;
+  --ds-color-text-inverse: #07090c !important;
+  --ds-color-border: rgba(214, 228, 240, .10) !important;
+  --ds-color-success: #3ddc97 !important;
+  --ds-color-success-soft: rgba(61, 220, 151, .10) !important;
+  --ds-color-warning: #d4b483 !important;
+  --ds-color-warning-soft: rgba(212, 180, 131, .10) !important;
+  --ds-color-danger: #e26d6d !important;
+  --ds-color-danger-soft: rgba(226, 109, 109, .10) !important;
+  --ds-color-info: #3ee0c4 !important;
+  --ds-color-info-soft: rgba(62, 224, 196, .10) !important;
+  --ds-focus: 0 0 0 4px rgba(62, 224, 196, .16) !important;
+  --ds-shadow-sm: 0 8px 24px rgba(0,0,0,.14) !important;
+  --ds-shadow-md: 0 18px 48px rgba(0,0,0,.22) !important;
+  --ds-shadow-lg: 0 28px 72px rgba(0,0,0,.30) !important;
+
+  /* Historical palette variables intentionally resolve to Aether values. */
+  --hisab-100: rgba(62, 224, 196, .08) !important;
+  --hisab-200: rgba(62, 224, 196, .14) !important;
+  --hisab-300: rgba(62, 224, 196, .25) !important;
+  --hisab-400: #68ead4 !important;
+  --hisab-500: #3ee0c4 !important;
+  --hisab-600: #d4b483 !important;
+  --hisab-700: #3ee0c4 !important;
+  --hisab-800: #e26d6d !important;
+  --hisab-900: #07090c !important;
+  --hisab-logo-terracotta: #3ee0c4 !important;
+  --hisab-logo-charcoal: #07090c !important;
+  --hisab-terracotta-pale: rgba(62, 224, 196, .35) !important;
+  --hisab-terracotta-hover: #68ead4 !important;
+  --hisab-terracotta-deep: #3ee0c4 !important;
+}
+
+.security-account-modern {
+  --security-bg: #0c1117 !important;
+  --security-line: rgba(214, 228, 240, .10) !important;
+  --security-line-strong: rgba(214, 228, 240, .18) !important;
+  --security-ink: #e8eef4 !important;
+  --security-muted: #8b9bb0 !important;
+  --security-brand: #3ee0c4 !important;
+  --security-brand-strong: #e8eef4 !important;
+  --security-positive: #3ddc97 !important;
+  --security-shadow-sm: 0 8px 24px rgba(0,0,0,.14) !important;
+  --security-shadow-md: 0 18px 48px rgba(0,0,0,.22) !important;
+}
+
+html[data-theme] .erp-shell > .sidebar.supabase-sidebar,
+html[data-theme] .sidebar.supabase-sidebar {
+  --supabase-sidebar-bg: #0c1117 !important;
+  --supabase-sidebar-border: rgba(214, 228, 240, .10) !important;
+  --supabase-sidebar-text: #8b9bb0 !important;
+  --supabase-sidebar-text-strong: #e8eef4 !important;
+  --supabase-sidebar-muted: #65748a !important;
+  --supabase-sidebar-hover: rgba(255,255,255,.035) !important;
+  --supabase-sidebar-active: rgba(62,224,196,.075) !important;
+  --supabase-sidebar-accent: #3ee0c4 !important;
+}
+
+/* Eliminate common legacy bright/white card gradients on core role surfaces. */
+body[data-design-system="aether-erp-2026"] .role-priority-grid > a,
+body[data-design-system="aether-erp-2026"] .ds-card {
+  color: #e8eef4 !important;
+  background: linear-gradient(180deg, rgba(255,255,255,.026), rgba(255,255,255,.012)), #121821 !important;
+  border-color: rgba(214,228,240,.10) !important;
+}
+body[data-design-system="aether-erp-2026"] .role-priority-grid > a:hover {
+  border-color: rgba(62,224,196,.25) !important;
+}
+body[data-design-system="aether-erp-2026"] .role-priority-grid small { color: #3ee0c4 !important; }
+body[data-design-system="aether-erp-2026"] .role-priority-grid span { color: #8b9bb0 !important; }
+body[data-design-system="aether-erp-2026"] .role-context .role-badge {
+  color: #3ee0c4 !important;
+  background: rgba(62,224,196,.07) !important;
+  border-color: rgba(62,224,196,.18) !important;
+}
