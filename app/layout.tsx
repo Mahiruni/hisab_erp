@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, IBM_Plex_Mono, Sora } from "next/font/google";
 import type { ReactNode } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { AetherBrandMigrationGuard } from "../components/aether-brand-migration-guard";
 import { AppExperienceProvider } from "../components/app-experience-provider";
 import { AuthPagePreferences } from "../components/auth-page-preferences";
 import { LanguageProvider } from "../components/language-provider";
@@ -227,6 +228,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
       <body data-design-system="aether-erp-2026">
         <LanguageProvider initialLanguage="en">
           <AppExperienceProvider>
+            <AetherBrandMigrationGuard />
             <AuthPagePreferences />
             <WorkspaceShell>{children}</WorkspaceShell>
           </AppExperienceProvider>
