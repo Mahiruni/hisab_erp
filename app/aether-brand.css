@@ -1,0 +1,456 @@
+/* AetherERP application brand authority
+   ------------------------------------
+   Loaded last by app/layout.tsx. Existing legacy selectors remain in the
+   repository for backwards compatibility, but this file owns the customer-
+   facing visual system across authenticated workspaces and auth routes. */
+
+:root {
+  --aether-void: #07090c;
+  --aether-ink: #0c1117;
+  --aether-raised: #121821;
+  --aether-hairline: rgba(214, 228, 240, 0.1);
+  --aether-hairline-strong: rgba(214, 228, 240, 0.18);
+  --aether-paper: #e8eef4;
+  --aether-mute: #8b9bb0;
+  --aether-accent: #3ee0c4;
+  --aether-accent-rgb: 62, 224, 196;
+  --aether-gold: #d4b483;
+  --aether-danger: #e26d6d;
+  --aether-success: #3ddc97;
+  --aether-glow: rgba(62, 224, 196, 0.18);
+  --aether-overlay: rgba(4, 7, 10, 0.78);
+  --aether-shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+  --aether-radius-sm: 8px;
+  --aether-radius: 12px;
+  --aether-radius-lg: 18px;
+  --aether-fast: 180ms;
+  --aether-medium: 420ms;
+  --aether-slow: 760ms;
+  --aether-ease: cubic-bezier(.16, 1, .3, 1);
+
+  /* Compatibility aliases: old styles continue resolving without owning the brand. */
+  --font-hisab-display: var(--font-aether-display);
+  --font-hisab-body: var(--font-aether-body);
+  --font-hisab-mono: var(--font-aether-mono);
+  --font-biloo-display: var(--font-aether-display);
+  --font-biloo-body: var(--font-aether-body);
+  --font-biloo-mono: var(--font-aether-mono);
+  --ink: var(--aether-paper);
+  --muted: var(--aether-mute);
+  --surface: var(--aether-ink);
+  --surface-raised: var(--aether-raised);
+  --border: var(--aether-hairline);
+  --accent: var(--aether-accent);
+  --success: var(--aether-success);
+  --danger: var(--aether-danger);
+}
+
+html,
+html[data-theme="dark"],
+html[data-theme="light"] {
+  color-scheme: dark;
+  background: var(--aether-void);
+}
+
+html { scroll-behavior: smooth; }
+
+body[data-design-system="aether-erp-2026"] {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--aether-paper);
+  background:
+    radial-gradient(circle at 75% -10%, rgba(var(--aether-accent-rgb), .08), transparent 30rem),
+    var(--aether-void);
+  font-family: var(--font-aether-body), sans-serif;
+  font-feature-settings: "ss01" 1, "tnum" 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body[data-design-system="aether-erp-2026"]::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: .04;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+}
+
+::selection { color: var(--aether-void); background: var(--aether-accent); }
+
+:focus-visible {
+  outline: 2px solid var(--aether-accent) !important;
+  outline-offset: 3px;
+}
+
+* { scrollbar-color: rgba(var(--aether-accent-rgb), .42) var(--aether-ink); }
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-track { background: var(--aether-ink); }
+*::-webkit-scrollbar-thumb { background: rgba(var(--aether-accent-rgb), .36); border: 3px solid var(--aether-ink); border-radius: 999px; }
+
+h1, h2, .display-title, .page-title, .hero-title {
+  font-family: var(--font-aether-display), Georgia, serif !important;
+  font-weight: 500 !important;
+  letter-spacing: -.035em;
+}
+
+h3, h4, h5, h6, button, input, select, textarea, table, nav {
+  font-family: var(--font-aether-body), sans-serif;
+}
+
+code, pre, kbd,
+[data-financial-value],
+.metric-value,
+.kpi-value,
+.amount,
+.money,
+.number,
+.finance-number {
+  font-family: var(--font-aether-mono), monospace !important;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* Workspace shell ------------------------------------------------------- */
+.erp-shell[data-workspace-brand="aether"] {
+  --sidebar-width: 256px;
+  min-height: 100dvh;
+  background: var(--aether-void) !important;
+  color: var(--aether-paper) !important;
+}
+
+.erp-shell[data-workspace-brand="aether"] .workspace {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.014), transparent 18rem),
+    var(--aether-void) !important;
+  color: var(--aether-paper) !important;
+}
+
+.erp-shell[data-workspace-brand="aether"] .sidebar,
+.erp-shell[data-workspace-brand="aether"] .supabase-sidebar {
+  background: rgba(12, 17, 23, .96) !important;
+  border-right: 1px solid var(--aether-hairline) !important;
+  box-shadow: 18px 0 60px rgba(0,0,0,.16) !important;
+  backdrop-filter: blur(20px) saturate(125%);
+}
+
+.erp-shell[data-workspace-brand="aether"] .desktop-sidebar-brand,
+.erp-shell[data-workspace-brand="aether"] .mobile-sidebar-header .brand,
+.erp-shell[data-workspace-brand="aether"] .mobile-workspace-brand {
+  color: var(--aether-paper) !important;
+  text-decoration: none;
+}
+
+.erp-shell[data-workspace-brand="aether"] .brand strong {
+  color: var(--aether-paper) !important;
+  font-weight: 650;
+  letter-spacing: -.02em;
+}
+
+.erp-shell[data-workspace-brand="aether"] .brand small,
+.erp-shell[data-workspace-brand="aether"] .sidebar-section-label,
+.erp-shell[data-workspace-brand="aether"] .sidebar-workspace-copy small,
+.erp-shell[data-workspace-brand="aether"] .sidebar-footer,
+.erp-shell[data-workspace-brand="aether"] .sidebar-footer a {
+  color: var(--aether-mute) !important;
+}
+
+.aether-logo {
+  border-radius: 9px;
+  box-shadow: 0 0 0 1px rgba(214,228,240,.08), 0 8px 25px rgba(0,0,0,.24);
+}
+
+.erp-shell[data-workspace-brand="aether"] .sidebar-workspace-switcher {
+  background: rgba(255,255,255,.025) !important;
+  border: 1px solid var(--aether-hairline) !important;
+  border-radius: var(--aether-radius) !important;
+  color: var(--aether-paper) !important;
+}
+
+.erp-shell[data-workspace-brand="aether"] .sidebar-workspace-mark {
+  color: var(--aether-void) !important;
+  background: var(--aether-accent) !important;
+  box-shadow: 0 0 24px var(--aether-glow);
+}
+
+.erp-shell[data-workspace-brand="aether"] .sidebar nav a {
+  color: var(--aether-mute) !important;
+  border: 1px solid transparent !important;
+  border-radius: 9px !important;
+  transition: color var(--aether-fast) var(--aether-ease), background var(--aether-fast) var(--aether-ease), border-color var(--aether-fast) var(--aether-ease), transform var(--aether-fast) var(--aether-ease);
+}
+
+.erp-shell[data-workspace-brand="aether"] .sidebar nav a:hover {
+  color: var(--aether-paper) !important;
+  background: rgba(255,255,255,.035) !important;
+  border-color: var(--aether-hairline) !important;
+  transform: translateX(1px);
+}
+
+.erp-shell[data-workspace-brand="aether"] .sidebar nav a.active,
+.erp-shell[data-workspace-brand="aether"] .sidebar nav a[aria-current="page"] {
+  color: var(--aether-paper) !important;
+  background: rgba(var(--aether-accent-rgb), .075) !important;
+  border-color: rgba(var(--aether-accent-rgb), .22) !important;
+  box-shadow: inset 2px 0 0 var(--aether-accent);
+}
+
+.erp-shell[data-workspace-brand="aether"] .sidebar nav a.active .sidebar-nav-icon,
+.erp-shell[data-workspace-brand="aether"] .sidebar nav a[aria-current="page"] .sidebar-nav-icon {
+  color: var(--aether-accent) !important;
+}
+
+.erp-shell[data-workspace-brand="aether"] .sidebar-dock-status {
+  color: var(--aether-mute) !important;
+  border-color: var(--aether-hairline) !important;
+}
+
+.erp-shell[data-workspace-brand="aether"] .mobile-workspace-header,
+.erp-shell[data-workspace-brand="aether"] .mobile-bottom-nav {
+  background: rgba(12,17,23,.92) !important;
+  border-color: var(--aether-hairline) !important;
+  backdrop-filter: blur(22px) saturate(130%);
+}
+
+.erp-shell[data-workspace-brand="aether"] .mobile-workspace-title small { color: var(--aether-accent) !important; }
+.erp-shell[data-workspace-brand="aether"] .mobile-workspace-title strong { color: var(--aether-paper) !important; }
+.erp-shell[data-workspace-brand="aether"] .mobile-bottom-nav a,
+.erp-shell[data-workspace-brand="aether"] .mobile-bottom-nav button { color: var(--aether-mute) !important; }
+.erp-shell[data-workspace-brand="aether"] .mobile-bottom-nav [aria-current="page"] { color: var(--aether-accent) !important; }
+
+/* Workspace surfaces ---------------------------------------------------- */
+body[data-design-system="aether-erp-2026"] :is(
+  .dashboard-card,
+  .metric-card,
+  .workspace-card,
+  .module-card,
+  .finance-card,
+  .financial-card,
+  .panel,
+  .surface,
+  .data-card,
+  .report-card,
+  .control-card,
+  .security-card,
+  .setup-card,
+  .form-card,
+  .table-card,
+  .summary-card,
+  .content-card
+) {
+  color: var(--aether-paper) !important;
+  background: linear-gradient(180deg, rgba(255,255,255,.026), rgba(255,255,255,.012)), var(--aether-raised) !important;
+  border-color: var(--aether-hairline) !important;
+  box-shadow: 0 18px 55px rgba(0,0,0,.16) !important;
+}
+
+body[data-design-system="aether-erp-2026"] :is(.eyebrow, .kicker, .overline, .section-label, .mini-label, .field-label) {
+  color: var(--aether-accent) !important;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+body[data-design-system="aether-erp-2026"] :is(.muted, .secondary, .helper, .description, .subtitle, .meta, small) {
+  color: var(--aether-mute);
+}
+
+body[data-design-system="aether-erp-2026"] a { text-underline-offset: 3px; }
+body[data-design-system="aether-erp-2026"] .workspace a:not([class]) { color: var(--aether-accent); }
+
+body[data-design-system="aether-erp-2026"] :is(input, select, textarea) {
+  color: var(--aether-paper) !important;
+  background: #0a0f15 !important;
+  border: 1px solid var(--aether-hairline-strong) !important;
+  border-radius: 9px !important;
+  box-shadow: none !important;
+  caret-color: var(--aether-accent);
+}
+
+body[data-design-system="aether-erp-2026"] :is(input, textarea)::placeholder { color: #69798e !important; }
+body[data-design-system="aether-erp-2026"] :is(input, select, textarea):focus {
+  border-color: rgba(var(--aether-accent-rgb), .58) !important;
+  box-shadow: 0 0 0 3px rgba(var(--aether-accent-rgb), .1) !important;
+}
+
+body[data-design-system="aether-erp-2026"] :is(button, .button, .btn, [role="button"]) {
+  transition: transform var(--aether-fast) var(--aether-ease), border-color var(--aether-fast) var(--aether-ease), background var(--aether-fast) var(--aether-ease), color var(--aether-fast) var(--aether-ease), box-shadow var(--aether-fast) var(--aether-ease);
+}
+
+body[data-design-system="aether-erp-2026"] :is(.button-primary, .btn-primary, .primary-action, button[type="submit"]:not(.danger)) {
+  color: #03110f !important;
+  background: var(--aether-accent) !important;
+  border-color: var(--aether-accent) !important;
+  box-shadow: 0 8px 28px rgba(var(--aether-accent-rgb), .12) !important;
+}
+
+body[data-design-system="aether-erp-2026"] :is(.button-primary, .btn-primary, .primary-action, button[type="submit"]:not(.danger)):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 34px rgba(var(--aether-accent-rgb), .2) !important;
+}
+
+body[data-design-system="aether-erp-2026"] :is(.button-secondary, .btn-secondary, .secondary-action, .ghost-button) {
+  color: var(--aether-paper) !important;
+  background: rgba(255,255,255,.025) !important;
+  border-color: var(--aether-hairline-strong) !important;
+}
+
+body[data-design-system="aether-erp-2026"] :is(.danger, .status-danger, [data-status="rejected"], [data-status="failed"]) { color: var(--aether-danger) !important; }
+body[data-design-system="aether-erp-2026"] :is(.success, .status-success, [data-status="approved"], [data-status="paid"], [data-status="completed"]) { color: var(--aether-success) !important; }
+
+body[data-design-system="aether-erp-2026"] table {
+  color: var(--aether-paper) !important;
+  background: transparent !important;
+  border-color: var(--aether-hairline) !important;
+  font-variant-numeric: tabular-nums;
+}
+body[data-design-system="aether-erp-2026"] th {
+  color: var(--aether-mute) !important;
+  background: rgba(255,255,255,.02) !important;
+  border-color: var(--aether-hairline) !important;
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+body[data-design-system="aether-erp-2026"] td { border-color: var(--aether-hairline) !important; }
+body[data-design-system="aether-erp-2026"] tbody tr:hover td { background: rgba(var(--aether-accent-rgb), .025) !important; }
+
+/* Auth / login ---------------------------------------------------------- */
+body[data-design-system="aether-erp-2026"] .biloo-login-page {
+  min-height: 100dvh;
+  color: var(--aether-paper) !important;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(var(--aether-accent-rgb), .09), transparent 28rem),
+    var(--aether-void) !important;
+}
+
+body[data-design-system="aether-erp-2026"] .biloo-login-shell {
+  background: var(--aether-void) !important;
+}
+
+body[data-design-system="aether-erp-2026"] .biloo-login-visual {
+  background:
+    radial-gradient(circle at 55% 42%, rgba(var(--aether-accent-rgb), .11), transparent 26rem),
+    linear-gradient(145deg, #0b1016, #07090c 68%) !important;
+  border-color: var(--aether-hairline) !important;
+}
+
+body[data-design-system="aether-erp-2026"] .biloo-login-visual-grid {
+  opacity: .42;
+  background-image:
+    linear-gradient(rgba(214,228,240,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(214,228,240,.04) 1px, transparent 1px) !important;
+  background-size: 44px 44px !important;
+}
+
+body[data-design-system="aether-erp-2026"] :is(.biloo-login-wordmark, .biloo-login-mobile-wordmark) {
+  color: var(--aether-paper) !important;
+  font-family: var(--font-aether-body), sans-serif !important;
+  font-weight: 650 !important;
+  letter-spacing: -.04em !important;
+  text-transform: none !important;
+}
+body[data-design-system="aether-erp-2026"] :is(.biloo-login-wordmark, .biloo-login-mobile-wordmark) span { color: var(--aether-accent) !important; }
+
+body[data-design-system="aether-erp-2026"] .biloo-login-visual-copy h1 {
+  color: var(--aether-paper) !important;
+  font-family: var(--font-aether-display), Georgia, serif !important;
+  font-size: clamp(44px, 5.2vw, 82px) !important;
+  line-height: .96 !important;
+  letter-spacing: -.045em !important;
+  font-weight: 500 !important;
+}
+body[data-design-system="aether-erp-2026"] .biloo-login-visual-copy p,
+body[data-design-system="aether-erp-2026"] .biloo-login-visual-footer { color: var(--aether-mute) !important; }
+body[data-design-system="aether-erp-2026"] .biloo-login-kicker,
+body[data-design-system="aether-erp-2026"] .biloo-login-secure-status { color: var(--aether-accent) !important; }
+
+body[data-design-system="aether-erp-2026"] .biloo-login-dashboard {
+  background: rgba(12,17,23,.82) !important;
+  border-color: var(--aether-hairline-strong) !important;
+  box-shadow: var(--aether-shadow), 0 0 70px rgba(var(--aether-accent-rgb), .08) !important;
+}
+body[data-design-system="aether-erp-2026"] .biloo-login-dashboard :is(article, .biloo-login-dashboard-topbar) {
+  background: var(--aether-raised) !important;
+  border-color: var(--aether-hairline) !important;
+}
+body[data-design-system="aether-erp-2026"] .biloo-login-chart-line { stroke: var(--aether-accent) !important; }
+body[data-design-system="aether-erp-2026"] .biloo-login-chart-area { fill: rgba(var(--aether-accent-rgb), .12) !important; }
+
+body[data-design-system="aether-erp-2026"] .biloo-login-form-pane,
+body[data-design-system="aether-erp-2026"] .biloo-login-card {
+  color: var(--aether-paper) !important;
+  background: var(--aether-ink) !important;
+}
+body[data-design-system="aether-erp-2026"] .biloo-login-card {
+  border-color: var(--aether-hairline) !important;
+  box-shadow: 0 20px 70px rgba(0,0,0,.24) !important;
+}
+body[data-design-system="aether-erp-2026"] .biloo-login-heading h2 {
+  font-family: var(--font-aether-display), Georgia, serif !important;
+  color: var(--aether-paper) !important;
+  font-weight: 500 !important;
+}
+body[data-design-system="aether-erp-2026"] .biloo-login-heading p,
+body[data-design-system="aether-erp-2026"] .biloo-login-heading-icon { color: var(--aether-accent) !important; }
+body[data-design-system="aether-erp-2026"] .biloo-login-heading > span,
+body[data-design-system="aether-erp-2026"] .biloo-login-legal,
+body[data-design-system="aether-erp-2026"] .biloo-login-topbar a { color: var(--aether-mute) !important; }
+body[data-design-system="aether-erp-2026"] .biloo-login-primary {
+  color: #03110f !important;
+  background: var(--aether-accent) !important;
+  border-color: var(--aether-accent) !important;
+}
+
+/* Loading state --------------------------------------------------------- */
+.brand-route-loading {
+  background: var(--aether-void) !important;
+  color: var(--aether-paper) !important;
+}
+.brand-loader-card {
+  background: rgba(18,24,33,.92) !important;
+  border: 1px solid var(--aether-hairline) !important;
+  box-shadow: var(--aether-shadow) !important;
+}
+.brand-loader-ring { border-color: rgba(var(--aether-accent-rgb), .18) !important; border-top-color: var(--aether-accent) !important; }
+.brand-loader-progress { background: rgba(255,255,255,.05) !important; }
+.brand-loader-progress > span { background: var(--aether-accent) !important; }
+.brand-loader-copy strong { color: var(--aether-paper) !important; }
+.brand-loader-copy span { color: var(--aether-mute) !important; }
+
+/* Reports and print ----------------------------------------------------- */
+@media print {
+  body[data-design-system="aether-erp-2026"] {
+    color: #121821 !important;
+    background: #e8eef4 !important;
+  }
+  body[data-design-system="aether-erp-2026"]::before,
+  .sidebar,
+  .mobile-workspace-header,
+  .mobile-bottom-nav,
+  .workspace-command-center,
+  .workspace-header-preferences { display: none !important; }
+  body[data-design-system="aether-erp-2026"] .workspace { background: #e8eef4 !important; color: #121821 !important; }
+  body[data-design-system="aether-erp-2026"] table,
+  body[data-design-system="aether-erp-2026"] th,
+  body[data-design-system="aether-erp-2026"] td { color: #121821 !important; border-color: rgba(12,17,23,.18) !important; }
+}
+
+@media (max-width: 760px) {
+  body[data-design-system="aether-erp-2026"] .biloo-login-visual { display: none !important; }
+  body[data-design-system="aether-erp-2026"] .biloo-login-form-pane { min-height: 100dvh; }
+  .erp-shell[data-workspace-brand="aether"] .workspace { padding-bottom: calc(82px + env(safe-area-inset-bottom)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+  body[data-design-system="aether-erp-2026"] :is(.button-primary, .btn-primary, .primary-action):hover { transform: none; }
+}

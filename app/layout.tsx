@@ -1,19 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, IBM_Plex_Mono, Public_Sans } from "next/font/google";
+import { Cormorant_Garamond, IBM_Plex_Mono, Sora } from "next/font/google";
 import type { ReactNode } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { AetherBrandMigrationGuard } from "../components/aether-brand-migration-guard";
 import { AppExperienceProvider } from "../components/app-experience-provider";
 import { AuthPagePreferences } from "../components/auth-page-preferences";
 import { LanguageProvider } from "../components/language-provider";
 import { WorkspaceShell } from "../components/workspace-shell";
-
-/* ------------------------------------------------------------------
-   Stylesheets
-   ------------------------------------------------------------------
-   The public marketing site owns its core marketing styles in the
-   marketing chrome. public-site-wide.css is a final scoped refinement
-   layer for cross-route contrast, width and responsive navigation.
-   ------------------------------------------------------------------ */
 
 /* Foundation */
 import "./fonts.css";
@@ -61,7 +54,7 @@ import "./biloo-all-workspace-routes-contrast-lock.css";
 import "./biloo-workspace-utility-visibility-lock.css";
 import "./biloo-pure-white-workspace-lock.css";
 
-/* Theme guards — load before the workspace colour authority below */
+/* Theme guards */
 import "./light-theme-contrast.css";
 import "./light-theme-component-guards.css";
 
@@ -85,44 +78,41 @@ import "./product-experience.css";
 import "./brand-refinements.css";
 import "./brand-loading.css";
 
-/* ------------------------------------------------------------------
-   Typography
-   ------------------------------------------------------------------
-   Archivo carries headings, Public Sans carries body copy, and
-   IBM Plex Mono carries every figure that means something — money,
-   document numbers, account codes. The --font-biloo-* aliases keep
-   the older workspace stylesheets resolving.
-   ------------------------------------------------------------------ */
+/* AetherERP owns the final customer-facing visual layer. It deliberately
+   loads after all legacy compatibility styles. */
+import "./aether-brand.css";
+import "./aether-compat-tokens.css";
 
-const display = Archivo({
+const display = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["600", "700"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
   display: "swap",
-  variable: "--font-hisab-display",
+  variable: "--font-aether-display",
   preload: true,
-  fallback: ["Segoe UI", "Arial", "sans-serif"],
+  fallback: ["Georgia", "serif"],
 });
 
-const body = Public_Sans({
+const body = Sora({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
-  variable: "--font-hisab-body",
+  variable: "--font-aether-body",
   preload: true,
-  fallback: ["Segoe UI", "Arial", "sans-serif"],
+  fallback: ["Helvetica Neue", "sans-serif"],
 });
 
 const mono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   display: "swap",
-  variable: "--font-hisab-mono",
+  variable: "--font-aether-mono",
   preload: false,
   fallback: ["ui-monospace", "SFMono-Regular", "monospace"],
 });
 
-/* Restores the reader's theme and language before first paint so the
-   page does not flash the wrong one. */
+/* Legacy preference keys remain readable so existing users keep their
+   saved language/session presentation after the brand migration. */
 const preferenceBootstrap = `
 (function () {
   var root = document.documentElement;
@@ -137,61 +127,62 @@ const preferenceBootstrap = `
   }
 
   try {
-    var storedTheme = window.localStorage.getItem('hisab-theme') || readCookie('hisab_theme');
-    var storedLanguage = window.localStorage.getItem('hisab-erp-language') || readCookie('hisab_locale');
+    var storedTheme = window.localStorage.getItem('aether-theme') || window.localStorage.getItem('hisab-theme') || readCookie('aether_theme') || readCookie('hisab_theme');
+    var storedLanguage = window.localStorage.getItem('aether-erp-language') || window.localStorage.getItem('hisab-erp-language') || readCookie('aether_locale') || readCookie('hisab_locale');
 
-    var theme = storedTheme === 'dark' ? 'dark' : 'light';
+    var theme = storedTheme === 'light' ? 'light' : 'dark';
     var language = storedLanguage === 'am' ? 'am' : storedLanguage === 'ti' ? 'ti' : 'en';
 
     root.dataset.theme = theme;
     root.dataset.language = language;
     root.lang = language;
-    root.style.colorScheme = theme;
+    root.style.colorScheme = 'dark';
   } catch (_) {
-    root.dataset.theme = 'light';
+    root.dataset.theme = 'dark';
     root.dataset.language = 'en';
     root.lang = 'en';
-    root.style.colorScheme = 'light';
+    root.style.colorScheme = 'dark';
   }
 })();`;
 
 export const metadata: Metadata = {
+  /* Keep the existing deployed origin until the production domain migration is approved. */
   metadataBase: new URL("https://www.hisabtech.com"),
   title: {
-    default: "Hisab ERP — Business operating system for Ethiopia",
-    template: "%s | Hisab ERP",
+    default: "AetherERP — One operating system for the entire company.",
+    template: "%s | AetherERP",
   },
   description:
-    "Hisab ERP connects sales, finance, inventory, customers, suppliers and reporting to one double-entry ledger, built in Addis Ababa for Ethiopian businesses.",
-  applicationName: "Hisab ERP",
+    "Finance, inventory, HR, CRM, manufacturing, procurement and analytics on one governed operating model — one ledger, one truth, one command center.",
+  applicationName: "AetherERP",
   keywords: [
-    "Hisab ERP",
+    "AetherERP",
     "ERP Ethiopia",
-    "accounting software Ethiopia",
-    "VAT Ethiopia",
-    "inventory management",
-    "invoicing",
-    "Addis Ababa software",
+    "enterprise resource planning Ethiopia",
+    "finance and inventory ERP",
+    "Ethiopian VAT ERP",
+    "procurement software",
+    "payroll Ethiopia",
+    "Addis Ababa ERP",
   ],
-  authors: [{ name: "Hisab Technologies", url: "https://www.hisabtech.com/about" }],
-  creator: "Hisab Technologies",
-  publisher: "Hisab Technologies",
+  authors: [{ name: "AetherERP" }],
+  creator: "AetherERP",
+  publisher: "AetherERP",
   alternates: { canonical: "/", languages: { "en-ET": "/" } },
   openGraph: {
     type: "website",
     locale: "en_ET",
-    siteName: "Hisab ERP",
-    title: "Hisab ERP — Business operating system for Ethiopia",
-    description:
-      "One connected workspace for sales, finance, inventory, customers, suppliers and reporting.",
+    siteName: "AetherERP",
+    title: "AetherERP — One operating system for the entire company.",
+    description: "One governed command center for finance, stock, people, customers, procurement, production and analytics.",
     url: "/",
-    images: [{ url: "/hisab-logo.svg", width: 512, height: 512, alt: "Hisab ERP" }],
+    images: [{ url: "/aether-logo.svg", width: 512, height: 512, alt: "AetherERP" }],
   },
   twitter: {
     card: "summary",
-    title: "Hisab ERP",
-    description: "Business operating system for growing Ethiopian organisations.",
-    images: ["/hisab-logo.svg"],
+    title: "AetherERP",
+    description: "One operating system for the entire company.",
+    images: ["/aether-logo.svg"],
   },
   robots: {
     index: true,
@@ -205,22 +196,20 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [{ url: "/hisab-logo.svg", type: "image/svg+xml" }],
-    shortcut: [{ url: "/hisab-logo.svg", type: "image/svg+xml" }],
-    apple: [{ url: "/hisab-logo.svg", type: "image/svg+xml" }],
+    icon: [{ url: "/aether-logo.svg", type: "image/svg+xml" }],
+    shortcut: [{ url: "/aether-logo.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/aether-logo.svg", type: "image/svg+xml" }],
   },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  /* Pinch-zoom stays available. The previous build locked
-     maximum-scale to 1, which blocks readers who need to zoom. */
   maximumScale: 5,
   userScalable: true,
   viewportFit: "cover",
-  themeColor: "#0b1220",
-  colorScheme: "light",
+  themeColor: "#07090C",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
@@ -229,17 +218,18 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
       className={`${display.variable} ${body.variable} ${mono.variable}`}
       lang="en"
       data-language="en"
-      data-theme="light"
-      data-brand="hisab"
+      data-theme="dark"
+      data-brand="aether"
       suppressHydrationWarning
     >
       <head>
         <link rel="stylesheet" href="/biloo-workspace-utility-header.css?v=20260806-1" />
         <script dangerouslySetInnerHTML={{ __html: preferenceBootstrap }} />
       </head>
-      <body data-design-system="hisab-2026">
+      <body data-design-system="aether-erp-2026">
         <LanguageProvider initialLanguage="en">
           <AppExperienceProvider>
+            <AetherBrandMigrationGuard />
             <AuthPagePreferences />
             <WorkspaceShell>{children}</WorkspaceShell>
           </AppExperienceProvider>

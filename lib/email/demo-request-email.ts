@@ -28,12 +28,13 @@ function escapeHtml(value: string) {
 }
 
 function row(label: string, value: string) {
-  return `<tr><td style="padding:10px 0;color:#647087;font-size:13px;font-weight:700;vertical-align:top;width:170px">${escapeHtml(label)}</td><td style="padding:10px 0;color:#14213d;font-size:14px;font-weight:600;vertical-align:top">${escapeHtml(value || "Not provided")}</td></tr>`;
+  return `<tr><td style="padding:10px 0;color:#8B9BB0;font-size:12px;font-weight:700;vertical-align:top;width:170px;letter-spacing:.03em">${escapeHtml(label)}</td><td style="padding:10px 0;color:#E8EEF4;font-size:14px;font-weight:600;vertical-align:top">${escapeHtml(value || "Not provided")}</td></tr>`;
 }
 
 function buildText(request: DemoRequestMessage) {
   return [
-    "New Hisab demo request",
+    "New AetherERP demo request",
+    "One operating system for the entire company.",
     "",
     `Full name: ${request.fullName}`,
     `Company: ${request.businessName}`,
@@ -54,14 +55,14 @@ function buildHtml(request: DemoRequestMessage) {
 
   return `<!doctype html>
 <html lang="en">
-  <body style="margin:0;padding:0;background:#f4f7fb;font-family:Arial,Helvetica,sans-serif">
-    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f4f7fb;padding:28px 12px">
+  <body style="margin:0;padding:0;background:#07090C;font-family:'Helvetica Neue',Helvetica,sans-serif">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#07090C;padding:32px 12px">
       <tr><td align="center">
-        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:680px;background:#ffffff;border:1px solid rgba(20,33,61,.10);border-radius:24px;overflow:hidden;box-shadow:0 24px 70px rgba(20,33,61,.12)">
-          <tr><td style="padding:30px;background:linear-gradient(145deg,#0b1529,#14213d 62%,#22365f);color:#ffffff">
-            <div style="font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#ffd98a">Hisab website</div>
-            <h1 style="margin:14px 0 8px;font-size:28px;line-height:1.15">New demo request</h1>
-            <p style="margin:0;color:rgba(255,255,255,.72);font-size:14px;line-height:1.6">A prospective customer submitted the public demo form.</p>
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:680px;background:#0C1117;border:1px solid rgba(214,228,240,.10);border-radius:18px;overflow:hidden;box-shadow:0 24px 70px rgba(0,0,0,.34)">
+          <tr><td style="padding:32px;background:linear-gradient(145deg,#0C1117,#121821 68%);color:#E8EEF4;border-bottom:1px solid rgba(214,228,240,.10)">
+            <div style="font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#3EE0C4">AetherERP</div>
+            <h1 style="margin:14px 0 8px;font-family:Georgia,serif;font-size:30px;line-height:1.08;font-weight:500;letter-spacing:-.02em;color:#E8EEF4">New demo request</h1>
+            <p style="margin:0;color:#8B9BB0;font-size:14px;line-height:1.6">A prospective operator submitted the working-session form.</p>
           </td></tr>
           <tr><td style="padding:28px 30px 8px">
             <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
@@ -76,11 +77,12 @@ function buildHtml(request: DemoRequestMessage) {
             </table>
           </td></tr>
           <tr><td style="padding:20px 30px 30px">
-            <div style="padding:20px;border-radius:16px;background:#f7f9fc;border:1px solid rgba(20,33,61,.08)">
-              <div style="margin-bottom:9px;color:#647087;font-size:11px;font-weight:800;letter-spacing:.11em;text-transform:uppercase">Customer message</div>
-              <div style="color:#14213d;font-size:15px;line-height:1.65">${message}</div>
+            <div style="padding:20px;border-radius:12px;background:#121821;border:1px solid rgba(214,228,240,.10)">
+              <div style="margin-bottom:9px;color:#8B9BB0;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase">Customer message</div>
+              <div style="color:#E8EEF4;font-size:15px;line-height:1.65">${message}</div>
             </div>
-            <a href="mailto:${encodeURIComponent(request.email)}?subject=${encodeURIComponent(`Re: Hisab demo request for ${request.businessName}`)}" style="display:inline-block;margin-top:22px;padding:14px 20px;border-radius:999px;background:#14213d;color:#ffffff;font-size:14px;font-weight:800;text-decoration:none">Reply to customer</a>
+            <a href="mailto:${encodeURIComponent(request.email)}?subject=${encodeURIComponent(`Re: AetherERP demo request for ${request.businessName}`)}" style="display:inline-block;margin-top:22px;padding:14px 20px;border-radius:9px;background:#3EE0C4;color:#03110F;font-size:14px;font-weight:800;text-decoration:none">Reply to customer</a>
+            <div style="margin-top:22px;color:#8B9BB0;font-size:12px;line-height:1.6">AetherERP · One operating system for the entire company.</div>
           </td></tr>
         </table>
       </td></tr>
@@ -93,7 +95,8 @@ export async function sendDemoRequestEmail(request: DemoRequestMessage): Promise
   const apiKey = process.env.RESEND_API_KEY?.trim();
   if (!apiKey) return { ok: false, reason: "not_configured" };
 
-  const from = process.env.DEMO_EMAIL_FROM?.trim() || "Hisab Website <notifications@hisabtech.com>";
+  /* Keep the verified sender domain until an AetherERP sending domain is approved. */
+  const from = process.env.DEMO_EMAIL_FROM?.trim() || "AetherERP <notifications@hisabtech.com>";
   const idempotencyKey = `demo-${Buffer.from(`${request.email}:${request.phone}:${request.businessName}`)
     .toString("base64url")
     .slice(0, 180)}`;
@@ -110,7 +113,7 @@ export async function sendDemoRequestEmail(request: DemoRequestMessage): Promise
         from,
         to: [ADMIN_CONTACT_EMAIL],
         reply_to: request.email,
-        subject: `New Hisab demo request — ${request.businessName}`,
+        subject: `New AetherERP demo request — ${request.businessName}`,
         text: buildText(request),
         html: buildHtml(request),
       }),

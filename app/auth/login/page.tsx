@@ -13,17 +13,17 @@ export const metadata = { title: "Sign in" };
 const loginCopy = {
   en: {
     title: "Welcome back",
-    description: "Sign in to continue to your Hisab business workspace.",
+    description: "Sign in to continue to your AetherERP company workspace.",
     email: "Business email",
     emailPlaceholder: "name@company.com",
     password: "Password",
     passwordPlaceholder: "Enter your password",
-    submit: "Sign in to Hisab",
+    submit: "Sign in to AetherERP",
     divider: "or continue with email",
     magic: "Email me a secure sign-in link",
     forgot: "Forgot password?",
     phone: "Use mobile number instead",
-    newUser: "New to Hisab?",
+    newUser: "New to AetherERP?",
     create: "Create your workspace",
     passwordHelpTitle: "Need email and password access?",
     passwordHelp: "If this email was first registered with Google, create a password securely without creating a second account.",
@@ -33,17 +33,17 @@ const loginCopy = {
   },
   am: {
     title: "እንኳን ደህና መጡ",
-    description: "ወደ Hisab የንግድ የሥራ ቦታዎ ለመቀጠል ይግቡ።",
+    description: "ወደ AetherERP የኩባንያ የሥራ ቦታዎ ለመቀጠል ይግቡ።",
     email: "የንግድ ኢሜይል",
     emailPlaceholder: "name@company.com",
     password: "የይለፍ ቃል",
     passwordPlaceholder: "የይለፍ ቃልዎን ያስገቡ",
-    submit: "ወደ Hisab ይግቡ",
+    submit: "ወደ AetherERP ይግቡ",
     divider: "ወይም በኢሜይል ይቀጥሉ",
     magic: "የተጠበቀ መግቢያ ሊንክ በኢሜይል ይላኩልኝ",
     forgot: "የይለፍ ቃልዎን ረሱ?",
     phone: "በሞባይል ቁጥር ይግቡ",
-    newUser: "ለHisab አዲስ ነዎት?",
+    newUser: "ለAetherERP አዲስ ነዎት?",
     create: "የሥራ ቦታዎን ይፍጠሩ",
     passwordHelpTitle: "በኢሜይልና የይለፍ ቃል መግባት ይፈልጋሉ?",
     passwordHelp: "ይህ ኢሜይል በGoogle ከተመዘገበ፣ ሁለተኛ መለያ ሳይፈጥሩ የይለፍ ቃል ያዘጋጁ።",
@@ -53,17 +53,17 @@ const loginCopy = {
   },
   ti: {
     title: "እንቋዕ ብደሓን መጻእኩም",
-    description: "ናብ Hisab ናይ ንግዲ መስርሒ ቦታኹም ንምቕጻል እተዉ።",
+    description: "ናብ AetherERP ናይ ኩባንያ መስርሒ ቦታኹም ንምቕጻል እተዉ።",
     email: "ናይ ንግዲ ኢሜይል",
     emailPlaceholder: "name@company.com",
     password: "መሕለፊ ቃል",
     passwordPlaceholder: "መሕለፊ ቃልኩም ኣእትዉ",
-    submit: "ናብ Hisab እተዉ",
+    submit: "ናብ AetherERP እተዉ",
     divider: "ወይ ብኢሜይል ቀጽሉ",
     magic: "ውሑስ መእተዊ ሊንክ ብኢሜይል ስደዱለይ",
     forgot: "መሕለፊ ቃልኩም ረሲዕኩም?",
     phone: "ብቁጽሪ ሞባይል እተዉ",
-    newUser: "ኣብ Hisab ሓድሽ ዲኹም?",
+    newUser: "ኣብ AetherERP ሓድሽ ዲኹም?",
     create: "መስርሒ ቦታኹም ፍጠሩ",
     passwordHelpTitle: "ብኢሜይልን መሕለፊ ቃልን ክትኣትዉ ትደልዩ?",
     passwordHelp: "እዚ ኢሜይል መጀመርታ ብGoogle እንተተመዝጊቡ፣ ካልእ ኣካውንት ከይፈጠርኩም መሕለፊ ቃል ኣዳልዉ።",
@@ -114,24 +114,24 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
   return (
     <main className="biloo-login-page">
       <section className="biloo-login-shell">
-        <aside className="biloo-login-visual" aria-label="Hisab business workspace preview">
+        <aside className="biloo-login-visual" aria-label="AetherERP company workspace preview">
           <div className="biloo-login-visual-grid" aria-hidden="true" />
           <header className="biloo-login-visual-header">
-            <Link href="/" className="biloo-login-wordmark" aria-label="Hisab home">
-              hisab<span>.</span>
+            <Link href="/" className="biloo-login-wordmark" aria-label="AetherERP home">
+              Aether<span>ERP</span>
             </Link>
-            <span className="biloo-login-secure-status"><i aria-hidden="true" /> Secure cloud workspace</span>
+            <span className="biloo-login-secure-status"><i aria-hidden="true" /> Governed company workspace</span>
           </header>
 
           <div className="biloo-login-visual-copy">
-            <p className="biloo-login-kicker"><Icon name="sparkles" size={16} /> Built for modern Ethiopian finance teams</p>
-            <h1>Financial clarity, from first entry to final decision.</h1>
-            <p>Run finance, sales, inventory, customers and reporting from one connected operating system designed around the way Ethiopian businesses work.</p>
+            <p className="biloo-login-kicker"><Icon name="sparkles" size={16} /> Enterprise resource planning, finally composed</p>
+            <h1>Run the whole company from one desk.</h1>
+            <p>Finance, stock, people and customers share one operating model, with every action resolving to the same governed company truth.</p>
           </div>
 
           <div className="biloo-login-dashboard" aria-hidden="true">
             <div className="biloo-login-dashboard-topbar">
-              <div className="biloo-login-dashboard-brand"><span>H</span><strong>Finance overview</strong></div>
+              <div className="biloo-login-dashboard-brand"><span>A</span><strong>Executive command center</strong></div>
               <div className="biloo-login-dashboard-actions"><i /><i /><i /></div>
             </div>
 
@@ -146,8 +146,8 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
 
               <div className="biloo-login-dashboard-content">
                 <div className="biloo-login-dashboard-heading">
-                  <div><small>Good morning</small><strong>Business overview</strong></div>
-                  <span>July 2026</span>
+                  <div><small>Company position</small><strong>Business overview</strong></div>
+                  <span>August 2026</span>
                 </div>
 
                 <div className="biloo-login-stat-grid">
@@ -162,8 +162,8 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
                     <svg viewBox="0 0 420 130" role="presentation">
                       <defs>
                         <linearGradient id="biloo-login-chart-fill" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%" stopColor="#0F8B73" stopOpacity=".28" />
-                          <stop offset="100%" stopColor="#0F8B73" stopOpacity="0" />
+                          <stop offset="0%" stopColor="#3EE0C4" stopOpacity=".28" />
+                          <stop offset="100%" stopColor="#3EE0C4" stopOpacity="0" />
                         </linearGradient>
                       </defs>
                       <path className="biloo-login-chart-area" d="M0 112 C42 104 55 72 92 80 C135 90 150 46 194 58 C235 70 249 23 296 36 C337 47 357 18 420 9 L420 130 L0 130 Z" />
@@ -174,7 +174,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
 
                   <article className="biloo-login-health-card">
                     <div className="biloo-login-health-ring"><strong>92</strong><small>/100</small></div>
-                    <span><small>Business health</small><strong>Excellent</strong><em>All systems are on track</em></span>
+                    <span><small>Business health</small><strong>Excellent</strong><em>Core controls are on track</em></span>
                   </article>
                 </div>
               </div>
@@ -184,13 +184,13 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
           <footer className="biloo-login-visual-footer">
             <span><Icon name="shield-check" size={17} /> Protected access</span>
             <span><Icon name="activity" size={17} /> Real-time reporting</span>
-            <span><Icon name="building" size={17} /> Multi-business ready</span>
+            <span><Icon name="building" size={17} /> Multi-company ready</span>
           </footer>
         </aside>
 
         <section className="biloo-login-form-pane">
           <nav className="biloo-login-topbar" aria-label="Sign-in support links">
-            <Link href="/" className="biloo-login-mobile-wordmark" aria-label="Hisab home">hisab<span>.</span></Link>
+            <Link href="/" className="biloo-login-mobile-wordmark" aria-label="AetherERP home">Aether<span>ERP</span></Link>
             <div><Link href="/help-center">Help</Link><Link href="/">Back to website</Link></div>
           </nav>
 
@@ -269,7 +269,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
           </div>
 
           <footer className="biloo-login-legal">
-            <span>© 2026 Hisab</span>
+            <span>© 2026 AetherERP</span>
             <Link href="/trust">Privacy &amp; security</Link>
             <span>Encrypted connection</span>
           </footer>

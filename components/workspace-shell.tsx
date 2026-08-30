@@ -31,18 +31,18 @@ function getOrganizationMark(name: string) {
     .map((part) => part.charAt(0))
     .join("")
     .toUpperCase();
-  return mark || "B";
+  return mark || "A";
 }
 
 function WorkspaceSessionLoading() {
   return (
-    <main className="route-loading brand-route-loading" role="status" aria-live="polite" aria-label="Loading secure Hisab workspace">
+    <main className="route-loading brand-route-loading" role="status" aria-live="polite" aria-label="Loading secure AetherERP workspace">
       <div className="experience-loader-card brand-loader-card">
         <div className="brand-loader-mark" aria-hidden="true">
           <span className="brand-loader-ring" />
-          <span className="brand-loader-logo-shell"><img src="/hisab-logo.svg" alt="" width="48" height="48" /></span>
+          <span className="brand-loader-logo-shell"><img src="/aether-logo.svg" alt="" width="48" height="48" className="aether-logo" /></span>
         </div>
-        <div className="brand-loader-copy"><strong>Preparing Hisab</strong><span>Loading your secure business workspace…</span></div>
+        <div className="brand-loader-copy"><strong>Preparing AetherERP</strong><span>Loading your secure company workspace…</span></div>
         <div className="brand-loader-progress" aria-hidden="true"><span /></div>
       </div>
     </main>
@@ -191,9 +191,9 @@ export function WorkspaceShell({ children, user: initialUser = null }: Props) {
   return (
     <div
       className="erp-shell"
-      data-layout-version="biloo-sidebar-v3"
-      data-workspace-brand="biloo"
-      data-workspace-phase="2.5"
+      data-layout-version="aether-sidebar-v1"
+      data-workspace-brand="aether"
+      data-workspace-phase="production"
       data-workspace-route={pathname}
       data-mobile-nav-open={mobileNavOpen ? "true" : "false"}
     >
@@ -204,8 +204,8 @@ export function WorkspaceShell({ children, user: initialUser = null }: Props) {
         <button type="button" className="mobile-menu-trigger" aria-label={menuLabel} aria-controls="primary-sidebar" aria-expanded={mobileNavOpen} onClick={() => setMobileNavOpen(true)}>
           <span aria-hidden="true"><i /><i /><i /></span>
         </button>
-        <Link href="/" className="mobile-workspace-brand" aria-label="Hisab dashboard"><img src="/hisab-logo.svg" alt="" width="34" height="34" className="hisab-logo" /></Link>
-        <div className="mobile-workspace-title"><small>Hisab ERP</small><strong>{activeItem?.label ?? d.nav.overview}</strong></div>
+        <Link href="/" className="mobile-workspace-brand" aria-label="AetherERP dashboard"><img src="/aether-logo.svg" alt="" width="34" height="34" className="aether-logo" /></Link>
+        <div className="mobile-workspace-title"><small>AetherERP</small><strong>{activeItem?.label ?? d.nav.overview}</strong></div>
       </header>
 
       <UserMenu user={user} />
@@ -214,14 +214,14 @@ export function WorkspaceShell({ children, user: initialUser = null }: Props) {
 
       <aside className="sidebar supabase-sidebar" id="primary-sidebar" data-docked="fixed" aria-label="Primary workspace navigation">
         <div className="mobile-sidebar-header">
-          <div className="brand"><img src="/hisab-logo.svg" alt="" width="34" height="34" className="hisab-logo" /><div><strong>Hisab</strong><small>Business operating system</small></div></div>
+          <div className="brand"><img src="/aether-logo.svg" alt="" width="34" height="34" className="aether-logo" /><div><strong>AetherERP</strong><small>One company. One operating system.</small></div></div>
           <button type="button" aria-label="Close navigation" onClick={() => setMobileNavOpen(false)}>×</button>
         </div>
 
         <div className="supabase-sidebar-header">
-          <Link href="/" className="desktop-sidebar-brand brand" aria-label="Hisab dashboard">
-            <img src="/hisab-logo.svg" alt="" width="28" height="28" className="hisab-logo" />
-            <div><strong>Hisab</strong><small>Business operating system</small></div>
+          <Link href="/" className="desktop-sidebar-brand brand" aria-label="AetherERP dashboard">
+            <img src="/aether-logo.svg" alt="" width="28" height="28" className="aether-logo" />
+            <div><strong>AetherERP</strong><small>Company command center</small></div>
           </Link>
           <span className="supabase-rail-indicator" aria-hidden="true"><Icon name="chevron-right" size={14} /></span>
         </div>
@@ -262,8 +262,8 @@ export function WorkspaceShell({ children, user: initialUser = null }: Props) {
           ))}
         </nav>
 
-        <div className="sidebar-dock-status" aria-label="Hisab navigation"><Icon name="chevron-right" size={14} /><strong>Hisab workspace</strong></div>
-        <footer className="sidebar-footer"><p className="powered-by">Powered by <a href="https://www.hisabtech.com" target="_blank" rel="noopener noreferrer">Hisab</a></p><p>{user.organizationName}<br />Addis Ababa, Ethiopia</p></footer>
+        <div className="sidebar-dock-status" aria-label="AetherERP navigation"><Icon name="chevron-right" size={14} /><strong>AetherERP workspace</strong></div>
+        <footer className="sidebar-footer"><p className="powered-by">Powered by <a href="https://hiraberpsystem.vercel.app" target="_blank" rel="noopener noreferrer">AetherERP</a></p><p>{user.organizationName}<br />Addis Ababa, Ethiopia</p></footer>
       </aside>
 
       <div className="workspace" id="workspace-content" ref={workspaceRef}>{children}</div>
